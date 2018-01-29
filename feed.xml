@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-01-29T13:47:14+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)</title><link href="https://moon9342.github.io/jekyll-travis-ci-public" rel="alternate" type="text/html" title="Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)" /><published>2018-01-28T14:47:00+00:00</published><updated>2018-01-28T14:47:00+00:00</updated><id>https://moon9342.github.io/jekyll-travis-ci-public</id><content type="html" xml:base="https://moon9342.github.io/jekyll-travis-ci-public">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-01-29T14:01:46+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)</title><link href="https://moon9342.github.io/jekyll-travis-ci-public" rel="alternate" type="text/html" title="Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)" /><published>2018-01-28T14:47:00+00:00</published><updated>2018-01-28T14:47:00+00:00</updated><id>https://moon9342.github.io/jekyll-travis-ci-public</id><content type="html" xml:base="https://moon9342.github.io/jekyll-travis-ci-public">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-start.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-struct.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
@@ -458,7 +458,28 @@ end&lt;/pre&gt;&lt;/noscript&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;성공하시길 바랍니다.!!!&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</summary></entry><entry><title type="html">What is Continuous Integration?</title><link href="https://moon9342.github.io/continuous-integration" rel="alternate" type="text/html" title="What is Continuous Integration?" /><published>2018-01-27T15:30:00+00:00</published><updated>2018-01-27T15:30:00+00:00</updated><id>https://moon9342.github.io/continuous-integration</id><content type="html" xml:base="https://moon9342.github.io/continuous-integration">&lt;p&gt;&lt;strong&gt;CI(Continuous Integration)란 무엇인가?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-flag&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Private Repository 사용&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;우리는 두개의 Repository를 사용하고 있고 둘 다 Public으로 사용하고 있습니다. 당연한 말이지만
+이 중 중요한 것은 여러 설정과 실제 원본내용이 들어있는 Jekyll Source Folder에 대한 Repository인
+GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public으로 설정해도
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll Source Folder&lt;/code&gt;는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Private&lt;/code&gt;으로 관리하고 싶은 경우는 위의 과정에서 약간만 손보시면 됩니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GitHub에서 해당 Repository를 Private으로 설정합니다.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;travis-ci.com&lt;/code&gt;으로 접속하셔서 Private Repository에 대한 연결을 활성화 시킵니다.&lt;/li&gt;
+  &lt;li&gt;획득한 token을 암호화 시키는 부분에서 다음과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;--pro&lt;/code&gt; 옵션을 추가합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;travis encrypt GITHUB_TOKEN=123abc456xxx -r moon9342/GitHubPageMaker --pro&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;나머지 부분은 동일합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;성공하시길 바랍니다.!!&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</summary></entry><entry><title type="html">What is Continuous Integration?</title><link href="https://moon9342.github.io/continuous-integration" rel="alternate" type="text/html" title="What is Continuous Integration?" /><published>2018-01-27T15:30:00+00:00</published><updated>2018-01-27T15:30:00+00:00</updated><id>https://moon9342.github.io/continuous-integration</id><content type="html" xml:base="https://moon9342.github.io/continuous-integration">&lt;p&gt;&lt;strong&gt;CI(Continuous Integration)란 무엇인가?&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;경영이나 디자인 계열의 사람들은 &lt;code class=&quot;highlighter-rouge&quot;&gt;CI&lt;/code&gt;라고 하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;Corporate Identity&lt;/code&gt;라고 알고 있습니다. 
 하지만 IT개열의 개발자들은 CI라고 하면 절대 다수가 &lt;code class=&quot;highlighter-rouge&quot;&gt;Continuous Integration&lt;/code&gt;이라고 알고 있습니다. 

@@ -504,7 +504,28 @@ end</pre></noscript>
 
 <hr />
 
-<p>성공하시길 바랍니다.!!!</p>
+<p><strong><i class="fa fa-flag" style="color:#01077c"></i> Private Repository 사용</strong></p>
+
+<p>우리는 두개의 Repository를 사용하고 있고 둘 다 Public으로 사용하고 있습니다. 당연한 말이지만
+이 중 중요한 것은 여러 설정과 실제 원본내용이 들어있는 Jekyll Source Folder에 대한 Repository인
+GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public으로 설정해도
+<code class="highlighter-rouge">Jekyll Source Folder</code>는 <code class="highlighter-rouge">Private</code>으로 관리하고 싶은 경우는 위의 과정에서 약간만 손보시면 됩니다.</p>
+
+<ul>
+  <li>GitHub에서 해당 Repository를 Private으로 설정합니다.</li>
+  <li><code class="highlighter-rouge">travis-ci.com</code>으로 접속하셔서 Private Repository에 대한 연결을 활성화 시킵니다.</li>
+  <li>획득한 token을 암호화 시키는 부분에서 다음과 같이 <code class="highlighter-rouge">--pro</code> 옵션을 추가합니다.</li>
+</ul>
+
+<blockquote>
+  <p><strong>travis encrypt GITHUB_TOKEN=123abc456xxx -r moon9342/GitHubPageMaker --pro</strong></p>
+</blockquote>
+
+<p>나머지 부분은 동일합니다.</p>
+
+<hr />
+
+<p>성공하시길 바랍니다.!!</p>
 
 	  ]]></description>
 	</item>
