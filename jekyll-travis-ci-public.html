@@ -695,7 +695,15 @@ GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public�
 
 <hr />
 
-<p>성공하시길 바랍니다.!!</p>
+<p><strong><i class="fa fa-flag" style="color:#01077c"></i> Travis CI를 이용할 경우 속도문제</strong></p>
+
+<p>Travis CI를 돌려보면 알겠지만 내부적으로 <code class="highlighter-rouge">bundle install</code>을 매번 수행합니다. 이 간단한 것 하나 해결하는데
+2분가량의 시간이 들고 대부분의 시간이 설치시간입니다. 이 문제를 해결할 수 있는 방법 역시 있습니다.</p>
+
+<p><code class="highlighter-rouge">cache</code> 처리인데요. 이 부분은 나중에 포스팅 할 예정입니다. 
+문제가 꼬리에 꼬리를 물면서 계속 튕겨 나오네요. 그러면서 배우는 거죠 머 ^^;
+일단 이런 문제가 있어요~ 라는 문제 제기만 하고 이번 글은 정리하도록 하겠습니다.</p>
+
 
                 </div>
             </section>
