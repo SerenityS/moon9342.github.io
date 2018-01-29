@@ -1,0 +1,145 @@
+/* Search 결과화면을 위한 CSS 설정 시작 */
+ul.mylist li, ol.mylist li {
+    padding: 5px 0px 5px 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #efefef;
+    font-size: 12px;
+}
+
+ul.mylist li:last-child,
+ol.mylist li:last-child {
+    border-bottom: 0px;
+}
+
+ul.mylist li,
+ol.mylist li {
+    -webkit-transition: background-color 0.3s linear;
+    -moz-transition: background-color 0.3s linear;
+    -ms-transition: background-color 0.3s linear;
+    -o-transition: background-color 0.3s linear;
+    transition: background-color 0.3s linear;
+}
+
+ul.mylist li:hover,
+ol.mylist li:hover {
+    background-color: #f6f0b6;
+}
+/* Search 결과화면을 위한 CSS 설정 끝 */
+
+/* 링크뒤쪽에 FontAwesome표현을 위한 custom CSS */
+.post-full-content a[target="_blank"]::after {
+    content: '\f08e';
+    display: inline-block;
+    margin: 0 2px 0 4px;
+    line-height: 1;
+    font-family: "FontAwesome";
+    font-size: 2rem;
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* 강좌 table of contents(목차)를 위한 custom css*/
+span.table-of-contents-list {
+    margin: 0px;
+    padding: 0px;
+    max-width: 250px;
+    width: 100%;
+    border-bottom: 1px solid #efefef;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ce180b
+}
+
+ul.table-of-contents-list, ol.table-of-contents-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    max-width: 250px;
+    width: 100%;
+}
+
+ul.table-of-contents-list li, ol.table-of-contents-list li {
+    padding: 0px 0px 5px 5px;
+    margin-bottom: 5px;
+/*    border-bottom: 1px solid #efefef;*/
+    font-size: 15px;
+}
+
+ul.table-of-contents-list li a, ol.table-of-contents-list li a {
+    text-decoration: none;
+    color: color(var(--midgrey) l(-25%));
+    font-weight: normal;
+}
+
+ul.table-of-contents-list li a:hover, ol.table-of-contents-list li a:hover {
+    color: #c2255c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+ul.table-of-contents-list li:last-child,
+ol.table-of-contents-list li:last-child {
+    border-bottom: 0px;
+}
+
+ul.table-of-contents-list li:before,
+ol.table-of-contents-list li:before {
+    content: '\f14d';
+    display: inline-block;
+    margin: 0 2px 0 4px;
+    line-height: 1;
+    font-family: "FontAwesome";
+    font-size: 2rem;
+    font-weight: normal;
+    font-style: normal;
+    vertical-align: middle;
+    padding: 5px 5px 6px 0px;
+}
+
+
+/* 가로방향의 리스트를 위한 custom css*/
+ul.font-awesome-list, ol.font-awesome-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    max-width: 250px;
+    width: 100%;
+}
+
+ul.font-awesome-list li, ol.font-awesome-list li {
+    padding: 5px 0px 5px 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #efefef;
+    font-size: 18px;
+}
+
+ul.font-awesome-list li span.icon-name,
+ol.font-awesome-list li span.icon-name {
+    padding: 0px 10px;
+}
+
+ul.font-awesome-list li span.icon-value,
+ol.font-awesome-list li span.icon-value {
+    padding: 0px 10px;
+    color: #c2255c;
+    font-size: 15px;
+}
+
+
+ul.font-awesome-list li,
+ol.font-awesome-list li {
+    -webkit-transition: background-color 0.3s linear;
+    -moz-transition: background-color 0.3s linear;
+    -ms-transition: background-color 0.3s linear;
+    -o-transition: background-color 0.3s linear;
+    transition: background-color 0.3s linear;
+}
+
+ul.font-awesome-list li:hover,
+ol.font-awesome-list li:hover {
+    background-color: #f6f6f6;
+}
