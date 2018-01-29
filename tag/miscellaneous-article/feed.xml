@@ -508,7 +508,7 @@ end</pre></noscript>
 
 <p>우리는 두개의 Repository를 사용하고 있고 둘 다 Public으로 사용하고 있습니다. 당연한 말이지만
 이 중 중요한 것은 여러 설정과 실제 원본내용이 들어있는 Jekyll Source Folder에 대한 Repository인
-GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public으로 설정해도
+GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public으로 설정하고 
 <code class="highlighter-rouge">Jekyll Source Folder</code>는 <code class="highlighter-rouge">Private</code>으로 관리하고 싶은 경우는 위의 과정에서 약간만 손보시면 됩니다.</p>
 
 <ul>
