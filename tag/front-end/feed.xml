@@ -28,6 +28,210 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Front-End 발전 역사와 개발 생태계</title>
+	  <link>https://moon9342.github.io/front-end-ecosystem</link>
+		
+				
+		
+				
+						<author>JavaScript</author>
+				
+		
+				
+		
+				
+		
+	  <pubDate>2018-01-29T13:31:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/front-end-ecosystem</guid>
+	  <description><![CDATA[
+	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+
+<p>이번 포스트는 과거 JavaScript 탄생부터 시작해서 어떻게 발전해왔는지에 대한 내용과 <br />
+현재 Front End 개발에 있어서 무엇을 알아야 하는 지에 대한 전반적인 기술 상황에 대해서 알아보겠습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> JavaScript 탄생</strong></p>
+
+<p>JavaScript라는 언어의 역사는 저의 <a href="./javascript-history.html" target="_blank">다른 포스트</a>에서도 볼 수 있지만 
+여기서도 간단하게 언급하고 넘어가겠습니다.</p>
+
+<p><code class="highlighter-rouge">JavaScript</code>언어의 역사는 1995년 Netscape사의 Brendan Eich(브랜든 아이크)에 의해 개발된 <code class="highlighter-rouge">Mocha</code>라는 언어부터 시작됩니다.
+이 Mocha라는 언어는 <strong>“Prototype의 개념과 Functional Language(함수형 언어)의 특성을 가지고 Web에 동적으로 활용할 수 있는 
+언어를 만들어보자”</strong> 라는 취지로 2주일 이라는 굉장히 짧은 기간안에 만들어졌습니다.</p>
+
+<p>추후에 <strong>Mocha -&gt; LiveScript -&gt; JavaScript</strong>로 개명되었고 ECMA에 <code class="highlighter-rouge">ECMA-262</code> 기술규격으로 <code class="highlighter-rouge">ECMAScript</code>라는 이름으로 표준화를
+진행하게 됩니다. 이에 대응해 1996년 MicroSoft 측에서는 <code class="highlighter-rouge">JScript</code>라는 걸 만들어내서 자사의 IE 3안에 포함시켜 제공하기 시작했습니다.</p>
+
+<p>이런 JavaScript는 여러가지 문제점을 내포하고 있었는데 가장 큰 문제를 꼽자면</p>
+
+<ul>
+  <li>구현의 어려움</li>
+  <li>언어의 모호성</li>
+  <li>Cross Browsing의 한계</li>
+</ul>
+
+<p>정도를 들 수 있습니다. 즉, 사용자 입력값을 검사하는 용도, 사용자의 이벤트를 감지해서 처리하는 용도로는 사용할 수 있지만 
+언어 자체가 가지고 있는 근본적인 문제때문에 사용이 힘들었습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 구세주의 등장 - jQuery</strong></p>
+
+<p>이 때 구세주가 등장합니다. 우리가 잘 알고 있는 <code class="highlighter-rouge">jQuery</code> library입니다.</p>
+
+<p>jQuery는 open source javascript library로 순수 javascript가 가지고 있었던 DOM처리의 어려움과 Cross Browsing에 대한 issue를
+해결하면서 <strong>JavaScript의 대표적 library</strong>로 사용되게 되었습니다. jQuery로 인해 JavaScript가 조금은 쓸만한 언어로 여기지면서
+사용되기 시작했습니다.</p>
+
+<p>그러면서 그냥 그냥 아주 소소하게 client web browser안에서 JavaScript 코드와 jQuery 코드가 이용되었던 거지요. 특별히 중요하지도 않은
+단위코드 위주로 사용이 되는 그런 수준이었습니다. 그러면서 우리 기억에도 “알면 좋고 몰라도 상관없는 언어”로 인식되었습니다.</p>
+
+<p>그렇게시간은 흘러갑니다.!!</p>
+
+<p>1997년 <code class="highlighter-rouge">ECMAScript</code>의 초판이 나오게 됩니다. <code class="highlighter-rouge">ES1</code>이라고 합니다. 그 후 1999년에 <code class="highlighter-rouge">ES3</code>가 나오게 됩니다. 여기까지 하고 한동안
+ECMAScript 표준은 쿨쿨 잠을 자게 됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 다시 JavaScript에 날개를 달아보자 - HTML5</strong></p>
+
+<p>1999년 12월 <code class="highlighter-rouge">W3C</code>(World Wide Web Consortium)에서 하나의 발표를 합니다. 아시다시피 W3C는 <code class="highlighter-rouge">HTML</code>과 <code class="highlighter-rouge">CSS</code>의 표준을 
+관장하는 기구입니다. 이때까지 우리가 사용하는 HTML의 버전은 4.01버전이었습니다. W3C는 이 버전을 마지막으로 더 이상 
+HTML의 버전업은 없을 것이라고 공표하게 됩니다. 그때까지 잘 사용해왔던 HTML을 왜 버전업하지 하지 않겠다고 했을까요?</p>
+
+<p>여러가지 이유가 있지만 프로그래밍 언어의 측면에서 바라보면 HTML이란 언어는 다음과 같은 한계점이 있습니다.</p>
+
+<ul>
+  <li><strong>정형성 : HTML언어는 정형성이 없기때문에 유지보수에 적합하지 않다.</strong></li>
+  <li><strong>확장성 : 정해진 Tag만 이용하기 때문에 언어자체에 대한 기능적 확장이 어렵다.</strong></li>
+</ul>
+
+<p>W3C는 저 두가지 이유를 들어 HTML언어를 이대로 끌고 가기 보다는 좀 더 다른 수단을 강구해야 겠다고 판단합니다. W3C의 선택은
+바로 <code class="highlighter-rouge">XML</code>의 도입이었습니다. 즉, HTML이 가지는 두가지 문제점을 해결할 수 있는 XML을 도입해서 새로운 Web언어의 표준을
+끌고 나갈 생각이었습니다. 그 결과 2000년 들어오면서 HTML과 XML이 결합된 새로운 표준인 <code class="highlighter-rouge">XHTML 1.0</code>이 발표되게 됩니다.</p>
+
+<p>W3C의 이런 의도와는 다르게 몇몇개의 회사들이 모여서 조금 다른 접근을 모색합니다. XML을 도입하지 말고 순수하게 HTML을 기능을
+버전업시킬 수 있는 방법을 찾기 시작한 것이죠. 그래서 <code class="highlighter-rouge">WHATWG</code>(Web Hypertext Application Technology Working Group)이라는 
+Working Group이 만들어지고 이 안에서 기존의 HTML을 발전시킬 방법을 연구하게 됩니다. 
+( 사실 여기서 할 말이 많기 한데 자꾸 산으로 가는 느낌이라 적당히 짜르겠습니다. ) 
+이 WG에서 나온것이 바로 현재의 표준인 <code class="highlighter-rouge">HTML5</code>입니다. HTML을 이용해서 Web Application을 만들자는 취지입니다. 
+이 HTML5안에 Client Web Application을 작성할 수 있는 API가 포함되어 있는데 이게 <code class="highlighter-rouge">JavaScript</code>로
+되어 있습니다. 결국 HTML5가 issue화 되면서 JavaScript의 위상도 조금씩 더 올라가게 됩니다.</p>
+
+<p>그래서인지 쿨쿨 잠을자던 ECMAScript 개정판(<code class="highlighter-rouge">ES5</code>)이 2009년에 등장합니다. 참고로 4판(<code class="highlighter-rouge">ES4</code>)은 버려졌습니다. 이제 슬슬
+JavaScript에 대한 발전이 시작됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> JavaScript의 획기적 전환점 - Node.js</strong></p>
+
+<p>2013년 <code class="highlighter-rouge">Node.js</code>가 출시됩니다. 아무리 HTML5라고 해도 이때까지의 JavaScript는 Browser안에서 동작하는 언어였습니다.
+우리가 알고 있는 <code class="highlighter-rouge">Java</code>, <code class="highlighter-rouge">C#</code>과 같은 언어가 될 수 없는 태생적 한계가 있는거죠. 이런 browser에 갇힌 JavaScript를
+browser 외부로 탈출하게끔 만들어준 일등공신이 바로 Node.js입니다. 결국 JavaScript로 다른 언어처럼 OS위에서 동작하는
+일반 application을 작성할 수 있는 길이 열린것이고 그에 따라 언어의 위상이 완전히 변했습니다.</p>
+
+<p>그에 발맞춰 ECMAScript도 빠르게 변화하기 시작했습니다. 2015년에 ECMAScript 2015(<code class="highlighter-rouge">ES6</code>)가 등장하면서 JavaScript 언어자체에
+아주 큰 변화들이 많이 생겼습니다. 현재 ECMAScript 2016(<code class="highlighter-rouge">ES7</code>)까지 나온 상태입니다. 조금 지나면 <code class="highlighter-rouge">ES8</code>이 표준화되어서 나오겠네요.
+거의 1년마다 새로운 배포판이 나올정도로 빠르게 변화하면서 언어적 측면에서 가지고 있던 많은 문제점들을 극복하려고 노력하고 있습니다.</p>
+
+<p>현재(2018년 1월) 대부분의 browser들은 <code class="highlighter-rouge">ES6</code>를 지원하고 있습니다. 
+<a href="https://kangax.github.io/compat-table/es6/" target="_blank">여기</a>에 접속해 보시면 특정 browser에 대해 
+각 ECMAScript의 버전 호환성을 보실 수 있습니다.</p>
+
+<blockquote>
+  <p><strong>이제 IE는 고만쓰도록 해요. 제발….</strong></p>
+</blockquote>
+
+<p>아직 완벽하게 Cross Browsing이 안되는데 어떻게 하느냐에 대한 문제는 <code class="highlighter-rouge">Babel</code>, <code class="highlighter-rouge">TypeScript</code>와 같은 
+transpiler를 이용해서 해결할 수 있습니다. 
+Babel, TypeScript는 ES6(ES7) 문법으로 쓰여있는 JavaScript code를 ES5 형태의 JavaScript로 변환시켜주기 때문에 
+IE에서 ES6지원이 안됨에도 불구하고 ES5로 변환해서 사용할 수 있습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 변화의 속도가 너무 빠름</strong></p>
+
+<p>그런데 문제는 기술의 발전 속도가 너무 빠르다는데 있습니다. 또한 알아야 할게 한두 가지가 아니구요. 
+과거 Back End에서 사용했던 프로그래밍 기술과 여러가지 개발 툴의 개념들이 다 Front End로 넘어왔기 때문입니다.
+너무 많은기술들이 빠르게 생기고 빠르게 사라지고 있습니다.</p>
+
+<p>사실 2-3년전에 자주 사용했던 JavaScript Library와 Framework들 중 많은 것들이 이미 다른 것으로 대체되었습니다. 
+그렇다고 손 놓고 있을 순 없으니 현재 상태에서 우리가 Front End 개발을 하기 위해 필수적으로 알아야 하는 것 몇가지만
+살펴보도록 하겠습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 이것정도는 알고 가자</strong></p>
+
+<ul>
+  <li><strong>Package Manager</strong> : <code class="highlighter-rouge">NPM</code>, Yarn</li>
+</ul>
+
+<p><img src="assets/built/images/npm-vs-yarn.png" alt="npm vs yarn" /></p>
+
+<p>외부 라이브러리를 사용할 경우 해당 라이브러리를 설치, 삭제, 의존성 관리등을 해야 하는데 이를 위한 도구가 
+몇몇 존재합니다. 그중 하나만 하자면 당연 <code class="highlighter-rouge">npm</code>입니다. Node Package Manager의 약자이고 Node.js를 살짝 맛보시면
+npm이 어떻게 동작하는지 아실 수 있습니다. 굳이 Node.js에 대해서 학습할 필요는 없습니다. 당연히 알면 좋지만요.
+( <del>제가 yarn을 안써서 그런건 아닙니다. 쿨럭</del> )</p>
+
+<ul>
+  <li><strong>Transpiler</strong> : Babel, <code class="highlighter-rouge">TypeScript</code></li>
+</ul>
+
+<p><img src="assets/built/images/typescript-vs-babel.jpg" alt="babel vs typescript" />
+<strong>이미지 출처 : (http://news.softpedia.com/news/angular-2-survey-shows-typescript-s-popularity-among-developers-490695.shtml)</strong></p>
+
+<p>Cross Browsing을 위한 Transpiler입니다. 비교 대상은 아닙니다. 둘 다 알아둘 필요는 있지만 
+저는 <code class="highlighter-rouge">TypeScript</code>는 반드시 해야 한다고 생각합니다. 앞으로 TypeScript는 더 발전할 듯 보이거든요. 
+하지만 배우기 쉽지 않습니다. 언어적 측면을 파고 들면 내용이 꽤나 많습니다. 
+다행히 TypeScript는 ECMAScript의 superset이니 ECMAScript 공부한다고 생각하시면 속 편합니다.</p>
+
+<ul>
+  <li><strong>자동화 도구</strong> : Grunt, <code class="highlighter-rouge">Gulp</code></li>
+</ul>
+
+<p><img src="assets/built/images/grunt-vs-gulp.jpg" alt="Grunt vs Gulp" /></p>
+
+<p>빌드, 테스트, 배포등을 위한 자동화 도구입니다. 과거에는 Grunt를 많이 사용했지만 현재는 Gulp인듯 합니다. 
+시간 좀 지나면 Gulp도 Grunt와 마찬가지로 역사속으로 사라지게 되겠지만 지금은 Gulp가 대세입니다. 
+( ~<del>이 역시 제가 Gulp를 쓰기때문은 아닙니다. 쿨럭…</del>~ )</p>
+
+<ul>
+  <li><strong>module bundler</strong> : <code class="highlighter-rouge">webpack</code>, rollup</li>
+</ul>
+
+<p><img src="assets/built/images/webpack-vs-rollup.png" alt="webpack vs rollup" /></p>
+
+<p>코드 재사용을 위한 모듈화 도구들과 bundler 역시 여러가지 있는데 요즘 많이 사용하는 건 <code class="highlighter-rouge">webpack</code>입니다.
+ES6 들어오면서 언어적 차원에서 Module을 지원하기 시작했고 이런 Module들을 하나로 모아 Packaing하는 작업이
+필요하게 되었습니다. 이를 위한 도구 역시 발전을 하고 있구요. 과거에는 Common.js, Require.js를 이용하여
+처리했다면 최근에는 webpack, rollup을 이용하여 처리합니다.
+( ~<del>이 역시 제가 webpack를 쓰기때문은 아닙니다. 쿨럭…</del>~ )</p>
+
+<ul>
+  <li>Framework &amp; Library : <code class="highlighter-rouge">Angular</code>, <code class="highlighter-rouge">React</code>, <code class="highlighter-rouge">Vue.js</code></li>
+</ul>
+
+<p>우리의 목적은 사실 저 위의 3가지를 배우는 것입니다. 각기 나름대로의 장점과 특징들을 가지고 있습니다. 개인적으로는 
+블로그내에 저 세가지의 강좌를 개설하는게 2018년 상반기의 블로그 목표입니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 정리</strong></p>
+
+<p>위에서 <strong>“이것정도는 알고가자”</strong>라고 했지만 그 내용을 전부 다 알고 있으면 상당한 경험과 실력을 가진
+Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code class="highlighter-rouge">Git</code>같은 것은 기본적으로 숙지해야 할 것이구요. 할게 너무 많네요
+천천히 하나씩 해보도록 하죠 머…</p>
+
+<p>그리고 <strong>“이것정도는 알고가자”</strong>에서 제가 강조한 것들은 제가 현재 사용하는 것들입니다.
+그것들이 더 좋다는 보장은 어디에도 없습니다. 자기 손에 익숙한게 최고입니다. ^^</p>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>TypeScript 강좌(6) - Interface</title>
 	  <link>https://moon9342.github.io/typescript-interface</link>
 		
@@ -287,11 +491,15 @@ Array를 변경할 수 없습니다.</p>
 	  <pubDate>2018-01-24T02:30:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/javascript-babel</guid>
 	  <description><![CDATA[
-	     <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Babel이란 무엇인가?</strong></p>
+	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
 
 <p>아무 생각없이 <code class="highlighter-rouge">Babel</code>을 쓰고 있지만 예전부터 궁금했던 Babel이란 이름이 내가 알고 있는 그 바벨탑의 바벨인가? 
-라는 의문에 이름의 근원을 찾아보고 이왕 블로그를 한 김에 Babel의 간단한 사용법 정도만 정리해 보도록 하겠습니다.
+라는 의문에 이름의 근원을 찾아보고 이왕 찾아본 김에 Babel의 간단한 사용법 정도만 정리해 보도록 하겠습니다.
 ( 도데체 이런게 왜 궁금한건대? )</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Babel이란 이름의 기원</strong></p>
 
 <p>결론적으로 <a href="https://babeljs.io/" target="_blank">Babel Official Home Page</a> 에서는 이름에 대한 근원을 찾을수는 없었습니다. 
 어딘가에 숨어있는지는 모르겠지만요. 여하간 Babel은 성경 영어로 구약성서 창세기에 그 근원을 두고 있습니다.
@@ -309,6 +517,8 @@ Array를 변경할 수 없습니다.</p>
 <p>그래서 <code class="highlighter-rouge">Babel</code>의 사전적 의미는 “와글와글”, “바벨탑”, “거대한 탑” 의 의미를 가지게 되었다고 합니다.</p>
 
 <hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Babel의 목적</strong></p>
 
 <p>Babel은 JavaScript transpiler입니다. 공식 홈에는 compiler라고 표현했지만 사실 compiler보다는 transpiler라는 용어가
 더 맞지 않나 싶습니다. 여하간 Babel의 입력은 JavaScript이고 출력 역시 JavaScript입니다.</p>
@@ -341,6 +551,8 @@ browser는 최신 ECMAScript 문법을 다 지원하지 못하거든요. 특히 
 추가적인 설정이 필요합니다. )</p>
 
 <hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Babel의 사용</strong></p>
 
 <p>자 그럼 실제 사용하는 예를 알아보도록 하겠습니다.</p>
 
@@ -445,13 +657,17 @@ browser는 최신 ECMAScript 문법을 다 지원하지 못하거든요. 특히 
 	  <pubDate>2018-01-24T01:35:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/javascript-use-strict</guid>
 	  <description><![CDATA[
-	     <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> “use strict”를 써야하는 이유</strong></p>
+	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
 
 <p><code class="highlighter-rouge">"use strict"</code>는 ES5에서 새롭게 나온 directive입니다. 실제 수행 문장이 아니라 literal expression이기 
 때문에 이전 버전의 JavaScript에서는 무시됩니다.</p>
 
 <p>일반적으로 JavaScript 코드 최 상단에 이 “use strict”가 위치하는데 이 의미에 대해서 간단하게 
 정리해 봤습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> “use strict”를 써야하는 이유</strong></p>
 
 <p>“use strict”의 목적은 우리의 코드가 <code class="highlighter-rouge">strict mode</code>로 실행되게끔 지시하는 것입니다. 
 여기서 말하는 strict mode란 프로그램 실행 시 예외를 발생시킬 만한 몇가지 특이한 동작을 
@@ -1863,10 +2079,14 @@ console에 대한 tslint 오류를 없애보도록 하죠.</p>
 	  <pubDate>2018-01-14T15:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/javascript-history</guid>
 	  <description><![CDATA[
-	     <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> JavaScript</strong>, <strong>ECMAScript</strong>, <strong>TypeScript</strong></p>
+	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
 
 <p>아마도 <code class="highlighter-rouge">JavaScript</code>, <code class="highlighter-rouge">ECMAScript</code>, <code class="highlighter-rouge">TypeScript</code>라는 용어를 많이 들어봤을 텐데 정확하게 어떤 차이가 있는지
-간단하게 정리를 해 보겠습니다.</p>
+이번 포스트에서 간단하게 정리를 해 보겠습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> JavaScript</strong></p>
 
 <p>과거부터 Web 작업을 해 오신 분들은 아시겠지만 JavaScript의 과거 인식은 “알면 좋고 몰라도 상관없는 딱 그 수준의 언어” 
 였습니다. 하지만 개발 방법론이 진화하면서 JavaScript기반의 Library나 Framework의 필요성이 증대되고 그에 따라
@@ -1885,6 +2105,10 @@ JavaScript라는 언어의 위상도 상당히 올라갔습니다. (사실은 <c
 JavaScript와 JScript는 서로 비슷하지만 특징이 다릅니다. 그로인해 우리가 잘 알고있는 JavaScript의 고질적인 문제인 파편화현상이
 발생하게 됩니다.</p>
 
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> ECMAScript</strong></p>
+
 <p>여하간 Netscape사는 이 JavaScript의 표준을 잡기 위해 <code class="highlighter-rouge">ECMA</code>(정보 통신기술 표준화 기구)에 표준화 작업을 요청합니다. 당연히
 JavaScript라는 이름을 사용하려고 했지만 Sun과의 license 문제 때문에 <code class="highlighter-rouge">ECMAScript</code>라는 이름으로 표준화가 진행되게 됩니다.</p>
 
@@ -1901,8 +2125,13 @@ ECMAScript가 host되는 환경 중 하나일 뿐입니다.</p>
   <p><strong><code class="highlighter-rouge">JavaScript</code> = <code class="highlighter-rouge">ECMAScript</code> + <code class="highlighter-rouge">BOM</code> + <code class="highlighter-rouge">DOM</code></strong></p>
 </blockquote>
 
-<p>현재 ECMAScript version은 7까지 나와있습니다. 정확한 의미의 차이는 분명히 있지만 그냥 저냥 대충 통용해서 사용합니다.<br />
-그러면 TypeScript는 또 어떤걸까요? 요즘에 왜 TypeScript가 대세로 떠오른 걸까요?</p>
+<p>현재 ECMAScript version은 7까지 나와있습니다. 정확한 의미의 차이는 분명히 있지만 그냥 저냥 대충 통용해서 사용합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript</strong></p>
+
+<p>그러면 TypeScript는 또 어떤걸까요? 요즘에 왜 TypeScript가 대세로 떠오른 걸까요?</p>
 
 <p><code class="highlighter-rouge">TypeScript</code>는 Microsoft에서 개발하여 2012년에 발표한 오픈 소스 프로그래밍 언어입니다. 
 JavaScript로 대규모 application개발을 하기 위해 개발되었고 컴파일 과정을 거치면 JavaScript가 되는 언어입니다.

@@ -1,4 +1,185 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-01-30T02:53:24+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)</title><link href="https://moon9342.github.io/jekyll-travis-ci-public" rel="alternate" type="text/html" title="Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)" /><published>2018-01-28T14:47:00+00:00</published><updated>2018-01-28T14:47:00+00:00</updated><id>https://moon9342.github.io/jekyll-travis-ci-public</id><content type="html" xml:base="https://moon9342.github.io/jekyll-travis-ci-public">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-01-30T09:34:45+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Front-End 발전 역사와 개발 생태계</title><link href="https://moon9342.github.io/front-end-ecosystem" rel="alternate" type="text/html" title="Front-End 발전 역사와 개발 생태계" /><published>2018-01-29T13:31:00+00:00</published><updated>2018-01-29T13:31:00+00:00</updated><id>https://moon9342.github.io/front-end-ecosystem</id><content type="html" xml:base="https://moon9342.github.io/front-end-ecosystem">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이번 포스트는 과거 JavaScript 탄생부터 시작해서 어떻게 발전해왔는지에 대한 내용과 &lt;br /&gt;
+현재 Front End 개발에 있어서 무엇을 알아야 하는 지에 대한 전반적인 기술 상황에 대해서 알아보겠습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; JavaScript 탄생&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;JavaScript라는 언어의 역사는 저의 &lt;a href=&quot;./javascript-history.html&quot; target=&quot;_blank&quot;&gt;다른 포스트&lt;/a&gt;에서도 볼 수 있지만 
+여기서도 간단하게 언급하고 넘어가겠습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt;언어의 역사는 1995년 Netscape사의 Brendan Eich(브랜든 아이크)에 의해 개발된 &lt;code class=&quot;highlighter-rouge&quot;&gt;Mocha&lt;/code&gt;라는 언어부터 시작됩니다.
+이 Mocha라는 언어는 &lt;strong&gt;“Prototype의 개념과 Functional Language(함수형 언어)의 특성을 가지고 Web에 동적으로 활용할 수 있는 
+언어를 만들어보자”&lt;/strong&gt; 라는 취지로 2주일 이라는 굉장히 짧은 기간안에 만들어졌습니다.&lt;/p&gt;
+
+&lt;p&gt;추후에 &lt;strong&gt;Mocha -&amp;gt; LiveScript -&amp;gt; JavaScript&lt;/strong&gt;로 개명되었고 ECMA에 &lt;code class=&quot;highlighter-rouge&quot;&gt;ECMA-262&lt;/code&gt; 기술규격으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;ECMAScript&lt;/code&gt;라는 이름으로 표준화를
+진행하게 됩니다. 이에 대응해 1996년 MicroSoft 측에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;JScript&lt;/code&gt;라는 걸 만들어내서 자사의 IE 3안에 포함시켜 제공하기 시작했습니다.&lt;/p&gt;
+
+&lt;p&gt;이런 JavaScript는 여러가지 문제점을 내포하고 있었는데 가장 큰 문제를 꼽자면&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;구현의 어려움&lt;/li&gt;
+  &lt;li&gt;언어의 모호성&lt;/li&gt;
+  &lt;li&gt;Cross Browsing의 한계&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;정도를 들 수 있습니다. 즉, 사용자 입력값을 검사하는 용도, 사용자의 이벤트를 감지해서 처리하는 용도로는 사용할 수 있지만 
+언어 자체가 가지고 있는 근본적인 문제때문에 사용이 힘들었습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 구세주의 등장 - jQuery&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;이 때 구세주가 등장합니다. 우리가 잘 알고 있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery&lt;/code&gt; library입니다.&lt;/p&gt;
+
+&lt;p&gt;jQuery는 open source javascript library로 순수 javascript가 가지고 있었던 DOM처리의 어려움과 Cross Browsing에 대한 issue를
+해결하면서 &lt;strong&gt;JavaScript의 대표적 library&lt;/strong&gt;로 사용되게 되었습니다. jQuery로 인해 JavaScript가 조금은 쓸만한 언어로 여기지면서
+사용되기 시작했습니다.&lt;/p&gt;
+
+&lt;p&gt;그러면서 그냥 그냥 아주 소소하게 client web browser안에서 JavaScript 코드와 jQuery 코드가 이용되었던 거지요. 특별히 중요하지도 않은
+단위코드 위주로 사용이 되는 그런 수준이었습니다. 그러면서 우리 기억에도 “알면 좋고 몰라도 상관없는 언어”로 인식되었습니다.&lt;/p&gt;
+
+&lt;p&gt;그렇게시간은 흘러갑니다.!!&lt;/p&gt;
+
+&lt;p&gt;1997년 &lt;code class=&quot;highlighter-rouge&quot;&gt;ECMAScript&lt;/code&gt;의 초판이 나오게 됩니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;ES1&lt;/code&gt;이라고 합니다. 그 후 1999년에 &lt;code class=&quot;highlighter-rouge&quot;&gt;ES3&lt;/code&gt;가 나오게 됩니다. 여기까지 하고 한동안
+ECMAScript 표준은 쿨쿨 잠을 자게 됩니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 다시 JavaScript에 날개를 달아보자 - HTML5&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1999년 12월 &lt;code class=&quot;highlighter-rouge&quot;&gt;W3C&lt;/code&gt;(World Wide Web Consortium)에서 하나의 발표를 합니다. 아시다시피 W3C는 &lt;code class=&quot;highlighter-rouge&quot;&gt;HTML&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;CSS&lt;/code&gt;의 표준을 
+관장하는 기구입니다. 이때까지 우리가 사용하는 HTML의 버전은 4.01버전이었습니다. W3C는 이 버전을 마지막으로 더 이상 
+HTML의 버전업은 없을 것이라고 공표하게 됩니다. 그때까지 잘 사용해왔던 HTML을 왜 버전업하지 하지 않겠다고 했을까요?&lt;/p&gt;
+
+&lt;p&gt;여러가지 이유가 있지만 프로그래밍 언어의 측면에서 바라보면 HTML이란 언어는 다음과 같은 한계점이 있습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;정형성 : HTML언어는 정형성이 없기때문에 유지보수에 적합하지 않다.&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;확장성 : 정해진 Tag만 이용하기 때문에 언어자체에 대한 기능적 확장이 어렵다.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;W3C는 저 두가지 이유를 들어 HTML언어를 이대로 끌고 가기 보다는 좀 더 다른 수단을 강구해야 겠다고 판단합니다. W3C의 선택은
+바로 &lt;code class=&quot;highlighter-rouge&quot;&gt;XML&lt;/code&gt;의 도입이었습니다. 즉, HTML이 가지는 두가지 문제점을 해결할 수 있는 XML을 도입해서 새로운 Web언어의 표준을
+끌고 나갈 생각이었습니다. 그 결과 2000년 들어오면서 HTML과 XML이 결합된 새로운 표준인 &lt;code class=&quot;highlighter-rouge&quot;&gt;XHTML 1.0&lt;/code&gt;이 발표되게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;W3C의 이런 의도와는 다르게 몇몇개의 회사들이 모여서 조금 다른 접근을 모색합니다. XML을 도입하지 말고 순수하게 HTML을 기능을
+버전업시킬 수 있는 방법을 찾기 시작한 것이죠. 그래서 &lt;code class=&quot;highlighter-rouge&quot;&gt;WHATWG&lt;/code&gt;(Web Hypertext Application Technology Working Group)이라는 
+Working Group이 만들어지고 이 안에서 기존의 HTML을 발전시킬 방법을 연구하게 됩니다. 
+( 사실 여기서 할 말이 많기 한데 자꾸 산으로 가는 느낌이라 적당히 짜르겠습니다. ) 
+이 WG에서 나온것이 바로 현재의 표준인 &lt;code class=&quot;highlighter-rouge&quot;&gt;HTML5&lt;/code&gt;입니다. HTML을 이용해서 Web Application을 만들자는 취지입니다. 
+이 HTML5안에 Client Web Application을 작성할 수 있는 API가 포함되어 있는데 이게 &lt;code class=&quot;highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt;로
+되어 있습니다. 결국 HTML5가 issue화 되면서 JavaScript의 위상도 조금씩 더 올라가게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;그래서인지 쿨쿨 잠을자던 ECMAScript 개정판(&lt;code class=&quot;highlighter-rouge&quot;&gt;ES5&lt;/code&gt;)이 2009년에 등장합니다. 참고로 4판(&lt;code class=&quot;highlighter-rouge&quot;&gt;ES4&lt;/code&gt;)은 버려졌습니다. 이제 슬슬
+JavaScript에 대한 발전이 시작됩니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; JavaScript의 획기적 전환점 - Node.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;2013년 &lt;code class=&quot;highlighter-rouge&quot;&gt;Node.js&lt;/code&gt;가 출시됩니다. 아무리 HTML5라고 해도 이때까지의 JavaScript는 Browser안에서 동작하는 언어였습니다.
+우리가 알고 있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Java&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;C#&lt;/code&gt;과 같은 언어가 될 수 없는 태생적 한계가 있는거죠. 이런 browser에 갇힌 JavaScript를
+browser 외부로 탈출하게끔 만들어준 일등공신이 바로 Node.js입니다. 결국 JavaScript로 다른 언어처럼 OS위에서 동작하는
+일반 application을 작성할 수 있는 길이 열린것이고 그에 따라 언어의 위상이 완전히 변했습니다.&lt;/p&gt;
+
+&lt;p&gt;그에 발맞춰 ECMAScript도 빠르게 변화하기 시작했습니다. 2015년에 ECMAScript 2015(&lt;code class=&quot;highlighter-rouge&quot;&gt;ES6&lt;/code&gt;)가 등장하면서 JavaScript 언어자체에
+아주 큰 변화들이 많이 생겼습니다. 현재 ECMAScript 2016(&lt;code class=&quot;highlighter-rouge&quot;&gt;ES7&lt;/code&gt;)까지 나온 상태입니다. 조금 지나면 &lt;code class=&quot;highlighter-rouge&quot;&gt;ES8&lt;/code&gt;이 표준화되어서 나오겠네요.
+거의 1년마다 새로운 배포판이 나올정도로 빠르게 변화하면서 언어적 측면에서 가지고 있던 많은 문제점들을 극복하려고 노력하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;현재(2018년 1월) 대부분의 browser들은 &lt;code class=&quot;highlighter-rouge&quot;&gt;ES6&lt;/code&gt;를 지원하고 있습니다. 
+&lt;a href=&quot;https://kangax.github.io/compat-table/es6/&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;에 접속해 보시면 특정 browser에 대해 
+각 ECMAScript의 버전 호환성을 보실 수 있습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;이제 IE는 고만쓰도록 해요. 제발….&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;아직 완벽하게 Cross Browsing이 안되는데 어떻게 하느냐에 대한 문제는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Babel&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;TypeScript&lt;/code&gt;와 같은 
+transpiler를 이용해서 해결할 수 있습니다. 
+Babel, TypeScript는 ES6(ES7) 문법으로 쓰여있는 JavaScript code를 ES5 형태의 JavaScript로 변환시켜주기 때문에 
+IE에서 ES6지원이 안됨에도 불구하고 ES5로 변환해서 사용할 수 있습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 변화의 속도가 너무 빠름&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;그런데 문제는 기술의 발전 속도가 너무 빠르다는데 있습니다. 또한 알아야 할게 한두 가지가 아니구요. 
+과거 Back End에서 사용했던 프로그래밍 기술과 여러가지 개발 툴의 개념들이 다 Front End로 넘어왔기 때문입니다.
+너무 많은기술들이 빠르게 생기고 빠르게 사라지고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;사실 2-3년전에 자주 사용했던 JavaScript Library와 Framework들 중 많은 것들이 이미 다른 것으로 대체되었습니다. 
+그렇다고 손 놓고 있을 순 없으니 현재 상태에서 우리가 Front End 개발을 하기 위해 필수적으로 알아야 하는 것 몇가지만
+살펴보도록 하겠습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 이것정도는 알고 가자&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Package Manager&lt;/strong&gt; : &lt;code class=&quot;highlighter-rouge&quot;&gt;NPM&lt;/code&gt;, Yarn&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/npm-vs-yarn.png&quot; alt=&quot;npm vs yarn&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;외부 라이브러리를 사용할 경우 해당 라이브러리를 설치, 삭제, 의존성 관리등을 해야 하는데 이를 위한 도구가 
+몇몇 존재합니다. 그중 하나만 하자면 당연 &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;입니다. Node Package Manager의 약자이고 Node.js를 살짝 맛보시면
+npm이 어떻게 동작하는지 아실 수 있습니다. 굳이 Node.js에 대해서 학습할 필요는 없습니다. 당연히 알면 좋지만요.
+( &lt;del&gt;제가 yarn을 안써서 그런건 아닙니다. 쿨럭&lt;/del&gt; )&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Transpiler&lt;/strong&gt; : Babel, &lt;code class=&quot;highlighter-rouge&quot;&gt;TypeScript&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/typescript-vs-babel.jpg&quot; alt=&quot;babel vs typescript&quot; /&gt;
+&lt;strong&gt;이미지 출처 : (http://news.softpedia.com/news/angular-2-survey-shows-typescript-s-popularity-among-developers-490695.shtml)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Cross Browsing을 위한 Transpiler입니다. 비교 대상은 아닙니다. 둘 다 알아둘 필요는 있지만 
+저는 &lt;code class=&quot;highlighter-rouge&quot;&gt;TypeScript&lt;/code&gt;는 반드시 해야 한다고 생각합니다. 앞으로 TypeScript는 더 발전할 듯 보이거든요. 
+하지만 배우기 쉽지 않습니다. 언어적 측면을 파고 들면 내용이 꽤나 많습니다. 
+다행히 TypeScript는 ECMAScript의 superset이니 ECMAScript 공부한다고 생각하시면 속 편합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;자동화 도구&lt;/strong&gt; : Grunt, &lt;code class=&quot;highlighter-rouge&quot;&gt;Gulp&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/grunt-vs-gulp.jpg&quot; alt=&quot;Grunt vs Gulp&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;빌드, 테스트, 배포등을 위한 자동화 도구입니다. 과거에는 Grunt를 많이 사용했지만 현재는 Gulp인듯 합니다. 
+시간 좀 지나면 Gulp도 Grunt와 마찬가지로 역사속으로 사라지게 되겠지만 지금은 Gulp가 대세입니다. 
+( ~&lt;del&gt;이 역시 제가 Gulp를 쓰기때문은 아닙니다. 쿨럭…&lt;/del&gt;~ )&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;module bundler&lt;/strong&gt; : &lt;code class=&quot;highlighter-rouge&quot;&gt;webpack&lt;/code&gt;, rollup&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/webpack-vs-rollup.png&quot; alt=&quot;webpack vs rollup&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;코드 재사용을 위한 모듈화 도구들과 bundler 역시 여러가지 있는데 요즘 많이 사용하는 건 &lt;code class=&quot;highlighter-rouge&quot;&gt;webpack&lt;/code&gt;입니다.
+ES6 들어오면서 언어적 차원에서 Module을 지원하기 시작했고 이런 Module들을 하나로 모아 Packaing하는 작업이
+필요하게 되었습니다. 이를 위한 도구 역시 발전을 하고 있구요. 과거에는 Common.js, Require.js를 이용하여
+처리했다면 최근에는 webpack, rollup을 이용하여 처리합니다.
+( ~&lt;del&gt;이 역시 제가 webpack를 쓰기때문은 아닙니다. 쿨럭…&lt;/del&gt;~ )&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Framework &amp;amp; Library : &lt;code class=&quot;highlighter-rouge&quot;&gt;Angular&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;React&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Vue.js&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;우리의 목적은 사실 저 위의 3가지를 배우는 것입니다. 각기 나름대로의 장점과 특징들을 가지고 있습니다. 개인적으로는 
+블로그내에 저 세가지의 강좌를 개설하는게 2018년 상반기의 블로그 목표입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 정리&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;위에서 &lt;strong&gt;“이것정도는 알고가자”&lt;/strong&gt;라고 했지만 그 내용을 전부 다 알고 있으면 상당한 경험과 실력을 가진
+Front End 개발자일 것입니다. 또 위에 포함을 안했지만  &lt;code class=&quot;highlighter-rouge&quot;&gt;Git&lt;/code&gt;같은 것은 기본적으로 숙지해야 할 것이구요. 할게 너무 많네요
+천천히 하나씩 해보도록 하죠 머…&lt;/p&gt;
+
+&lt;p&gt;그리고 &lt;strong&gt;“이것정도는 알고가자”&lt;/strong&gt;에서 제가 강조한 것들은 제가 현재 사용하는 것들입니다.
+그것들이 더 좋다는 보장은 어디에도 없습니다. 자기 손에 익숙한게 최고입니다. ^^&lt;/p&gt;</content><author><name>JavaScript</name></author><category term="front end" /><summary type="html"></summary></entry><entry><title type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)</title><link href="https://moon9342.github.io/jekyll-travis-ci-public" rel="alternate" type="text/html" title="Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)" /><published>2018-01-28T14:47:00+00:00</published><updated>2018-01-28T14:47:00+00:00</updated><id>https://moon9342.github.io/jekyll-travis-ci-public</id><content type="html" xml:base="https://moon9342.github.io/jekyll-travis-ci-public">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-start.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-struct.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
@@ -486,13 +667,16 @@ GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public�
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cache&lt;/code&gt; 처리인데요. 이 부분은 나중에 포스팅 할 예정입니다. 
 문제가 꼬리에 꼬리를 물면서 계속 튕겨 나오네요. 그러면서 배우는 거죠 머 ^^;
-일단 이런 문제가 있어요~ 라는 문제 제기만 하고 이번 글은 정리하도록 하겠습니다.&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</summary></entry><entry><title type="html">What is Continuous Integration?</title><link href="https://moon9342.github.io/continuous-integration" rel="alternate" type="text/html" title="What is Continuous Integration?" /><published>2018-01-27T15:30:00+00:00</published><updated>2018-01-27T15:30:00+00:00</updated><id>https://moon9342.github.io/continuous-integration</id><content type="html" xml:base="https://moon9342.github.io/continuous-integration">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; CI(Continuous Integration)란 무엇인가?&lt;/strong&gt;&lt;/p&gt;
+일단 이런 문제가 있어요~ 라는 문제 제기만 하고 이번 글은 정리하도록 하겠습니다.&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</summary></entry><entry><title type="html">What is Continuous Integration?</title><link href="https://moon9342.github.io/continuous-integration" rel="alternate" type="text/html" title="What is Continuous Integration?" /><published>2018-01-27T15:30:00+00:00</published><updated>2018-01-27T15:30:00+00:00</updated><id>https://moon9342.github.io/continuous-integration</id><content type="html" xml:base="https://moon9342.github.io/continuous-integration">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;경영이나 디자인 계열의 사람들은 &lt;code class=&quot;highlighter-rouge&quot;&gt;CI&lt;/code&gt;라고 하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;Corporate Identity&lt;/code&gt;라고 알고 있습니다. 
-하지만 IT개열의 개발자들은 CI라고 하면 절대 다수가 &lt;code class=&quot;highlighter-rouge&quot;&gt;Continuous Integration&lt;/code&gt;이라고 알고 있습니다. 
-우리나라 말로 굳이 번역하자면 &lt;strong&gt;“지속적인 통합”&lt;/strong&gt; 정도가 되겠네요.&lt;/p&gt;
+&lt;p&gt;CI는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Continuous Integration&lt;/code&gt;의 약자로 우리나라 말로 굳이 번역하자면 
+&lt;strong&gt;“지속적인 통합”&lt;/strong&gt; 정도가 되겠네요.&lt;/p&gt;
 
-&lt;p&gt;여기서는 간단하게 Continuous Integration의 개념정도만 살펴보도록 하겠습니다.&lt;/p&gt;
+&lt;p&gt;여기서는 간단하게 Continuous Integration이 어떤 개념인지 살펴보도록 하겠습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; CI(Continuous Integration)란 무엇인가?&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;소프트웨에 개발은 다음과 같은 라이프 사이클을 가지고 있습니다.&lt;/p&gt;
 
@@ -545,10 +729,10 @@ Build-Test-Release-Deploy까지 진행하고 그 결과를 개발자나 다른 �
 &lt;hr /&gt;
 
 &lt;p&gt;간단하게 CI의 개념에 대해서만 살펴보았습니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;Travis CI&lt;/code&gt;와 같은 것은 사용하기 그리 어렵지 않으니 한번 사용해 보시면 느낌이 확
-오실겁니다.&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">CI(Continuous Integration)란 무엇인가?</summary></entry><entry><title type="html">Library, Framework, Architecture, Platform</title><link href="https://moon9342.github.io/architecture-platform-terminology" rel="alternate" type="text/html" title="Library, Framework, Architecture, Platform" /><published>2018-01-26T13:39:00+00:00</published><updated>2018-01-26T13:39:00+00:00</updated><id>https://moon9342.github.io/architecture-platform-terminology</id><content type="html" xml:base="https://moon9342.github.io/architecture-platform-terminology">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Library, Framework, Architecture, Platform 용어 정리&lt;/strong&gt;&lt;/p&gt;
+오실겁니다.&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html"></summary></entry><entry><title type="html">Library, Framework, Architecture, Platform</title><link href="https://moon9342.github.io/architecture-platform-terminology" rel="alternate" type="text/html" title="Library, Framework, Architecture, Platform" /><published>2018-01-26T13:39:00+00:00</published><updated>2018-01-26T13:39:00+00:00</updated><id>https://moon9342.github.io/architecture-platform-terminology</id><content type="html" xml:base="https://moon9342.github.io/architecture-platform-terminology">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;너무나 많이 들어본 용어들입니다. 의미도 대충 알고 있습니다. 하지만 &lt;strong&gt;명확하게 설명해봐!!&lt;/strong&gt;
-라고 한다면 주춤 주춤하게 만드는 용어이기도 합니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Library&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Framework&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Architecture&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Platform&lt;/code&gt;은 우리가 너무나 많이 들어본 용어이고 그 의미도 
+대충 알고 있습니다. 하지만 &lt;strong&gt;명확하게 설명해봐!!&lt;/strong&gt; 라고 한다면 주춤 주춤하게 만드는 용어이기도 합니다.&lt;/p&gt;
 
 &lt;p&gt;이번 포스트는 저 위에 나열된 4개의 용어에 대한 간략한 정리입니다.&lt;/p&gt;
 
@@ -670,7 +854,13 @@ Framework은 이런 유지보수 측면에서 강점을 가질 수 있습니다.
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Framework&lt;/code&gt;부분은 사실 더 써야 하는 사항이 많습니다. 하지만 차이점 위주로 살펴본 것이니 위의 내용 정도만
-이해해도 충분하지 않을까 합니다.&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">Library, Framework, Architecture, Platform 용어 정리</summary></entry><entry><title type="html">클라이언트 Browser 확인방법</title><link href="https://moon9342.github.io/browser-detect-script" rel="alternate" type="text/html" title="클라이언트 Browser 확인방법" /><published>2018-01-26T10:48:00+00:00</published><updated>2018-01-26T10:48:00+00:00</updated><id>https://moon9342.github.io/browser-detect-script</id><content type="html" xml:base="https://moon9342.github.io/browser-detect-script">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Client Browser를 확인하기 위한 JavaScript code&lt;/strong&gt;&lt;/p&gt;
+이해해도 충분하지 않을까 합니다.&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html"></summary></entry><entry><title type="html">클라이언트 Browser 확인방법</title><link href="https://moon9342.github.io/browser-detect-script" rel="alternate" type="text/html" title="클라이언트 Browser 확인방법" /><published>2018-01-26T10:48:00+00:00</published><updated>2018-01-26T10:48:00+00:00</updated><id>https://moon9342.github.io/browser-detect-script</id><content type="html" xml:base="https://moon9342.github.io/browser-detect-script">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;사이트에 접속한 Client Web Browser의 종류를 알아내는 방법입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Client Browser를 확인하기 위한 JavaScript code&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;제 블로그는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Chrome&lt;/code&gt; 전용입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;IE&lt;/code&gt;를 이용하면 화면이 보란듯이 깨지게됩니다. 
 그래서 접속한 client의 browser를 알아내서 만약 chrome이 아니면 안내를 해 줄 필요가 있습니다.&lt;/p&gt;
@@ -678,8 +868,6 @@ Framework은 이런 유지보수 측면에서 강점을 가질 수 있습니다.
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;실제 업무에서는 당연히 &lt;code class=&quot;highlighter-rouge&quot;&gt;cross browsing&lt;/code&gt;을 염두에 두고 작업을 해야되겠죠?&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;여하간 접속한 client web browser의 종류를 알아내는 방법에 대해서 알아보겠습니다.&lt;/p&gt;
 
 &lt;p&gt;다음과 같은 JavaScript 코드를 이용하시면 됩니다.&lt;/p&gt;
 
@@ -703,6 +891,8 @@ IE 10까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이�
 판단해야 합니다. 전 IE는 관심밖이라…&lt;/p&gt;
 
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; userAgent 객체의 값 확인&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;위의 방법은 가장 간단한 방법 중 하나입니다. Mobile browser까지 생각한다면 경우의 수가 훨씬 더 많아지겠죠.&lt;/p&gt;
 
@@ -732,7 +922,14 @@ IE 10까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이�
 &lt;hr /&gt;
 
 &lt;p&gt;여하간 제 블로그는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Chrome&lt;/code&gt; 전용이기 때문에 제가 사용하는 Jasper2 theme의 &lt;code class=&quot;highlighter-rouge&quot;&gt;head.html&lt;/code&gt;에 저 위의 코드를
-적당히 수정해서 이용중입니다. 언제까지 이런 &lt;strong&gt;cross browsing issue&lt;/strong&gt;에 시달려야하는지 안타깝습니다. ㅎㅎ&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">Client Browser를 확인하기 위한 JavaScript code</summary></entry><entry><title type="html">Font Awesome Icon List</title><link href="https://moon9342.github.io/css-fontawesome-list" rel="alternate" type="text/html" title="Font Awesome Icon List" /><published>2018-01-25T23:50:00+00:00</published><updated>2018-01-25T23:50:00+00:00</updated><id>https://moon9342.github.io/css-fontawesome-list</id><content type="html" xml:base="https://moon9342.github.io/css-fontawesome-list">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Font Awesome icon 리스트&lt;/strong&gt;&lt;/p&gt;
+적당히 수정해서 이용중입니다. 언제까지 이런 &lt;strong&gt;cross browsing issue&lt;/strong&gt;에 시달려야하는지 안타깝습니다. ㅎㅎ&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html"></summary></entry><entry><title type="html">Font Awesome Icon List</title><link href="https://moon9342.github.io/css-fontawesome-list" rel="alternate" type="text/html" title="Font Awesome Icon List" /><published>2018-01-25T23:50:00+00:00</published><updated>2018-01-25T23:50:00+00:00</updated><id>https://moon9342.github.io/css-fontawesome-list</id><content type="html" xml:base="https://moon9342.github.io/css-fontawesome-list">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;블로그나 사이트 작성 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;icon&lt;/code&gt; 이미지들이 많이 필요하게 되는데 이 아이콘을 마치 폰트처럼 사용할 수 있도록
+서비스를 제공하는 곳이 있습니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;Font Awesome&lt;/code&gt;이라는 곳인데 이 곳에서 제공하는 icon 리스트입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Font Awesome&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;블로그나 사이트 작성 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;icon&lt;/code&gt; 이미지들이 많이 필요하게 됩니다. 과거에는 이미지를 찾아서 수정해서 쓰는 형식으로
 이용하였으나 근래에는 icon들을 font와 비슷하게 만들어서 마치 font처럼 icon을 사용할 수 있도록 제공하고 있습니다.&lt;/p&gt;
@@ -745,6 +942,8 @@ IE 10까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이�
 Font Awesome의 폰트는 &lt;code class=&quot;highlighter-rouge&quot;&gt;GPL&lt;/code&gt; 라이선스입니다.&lt;/p&gt;
 
 &lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 사용방법&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;자 그럼 우리 블로그에 어떻게 사용하면 되는지 한번 알아보도록 하죠&lt;/p&gt;
 
@@ -776,7 +975,16 @@ Font Awesome의 폰트는 &lt;code class=&quot;highlighter-rouge&quot;&gt;GPL&lt
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;마지막으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;content&lt;/code&gt;에 명시하게 될 아이콘의 리스트 입니다.&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 아이콘 리스트&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;위쪽 css의 &lt;code class=&quot;highlighter-rouge&quot;&gt;content&lt;/code&gt; property에 명시하게 될 아이콘의 value값 입니다.&lt;/p&gt;
+
+&lt;p&gt;만약 태그로 표현하고자 한다면 다음과 같은 형식을 이용합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-glass&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul class=&quot;font-awesome-list&quot;&gt;
 
@@ -1366,7 +1574,7 @@ Font Awesome의 폰트는 &lt;code class=&quot;highlighter-rouge&quot;&gt;GPL&lt
 &lt;li&gt;&lt;i class=&quot;fa fa-black-tie&quot;&gt;&lt;/i&gt; &lt;span class=&quot;icon-name&quot;&gt;fa-black-tie&lt;/span&gt;&lt;span class=&quot;icon-value&quot;&gt;&quot;\f27e&quot;&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;i class=&quot;fa fa-fonticons&quot;&gt;&lt;/i&gt; &lt;span class=&quot;icon-name&quot;&gt;fa-fonticons&lt;/span&gt;&lt;span class=&quot;icon-value&quot;&gt;&quot;\f280&quot;&lt;/span&gt;&lt;/li&gt;
 
-&lt;/ul&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">Font Awesome icon 리스트</summary></entry><entry><title type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7)</title><link href="https://moon9342.github.io/jekyll-gist" rel="alternate" type="text/html" title="Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7)" /><published>2018-01-25T15:30:00+00:00</published><updated>2018-01-25T15:30:00+00:00</updated><id>https://moon9342.github.io/jekyll-gist</id><content type="html" xml:base="https://moon9342.github.io/jekyll-gist">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html"></summary></entry><entry><title type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7)</title><link href="https://moon9342.github.io/jekyll-gist" rel="alternate" type="text/html" title="Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7)" /><published>2018-01-25T15:30:00+00:00</published><updated>2018-01-25T15:30:00+00:00</updated><id>https://moon9342.github.io/jekyll-gist</id><content type="html" xml:base="https://moon9342.github.io/jekyll-gist">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-start.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-struct.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
@@ -1604,10 +1812,10 @@ gist를 불러올 때 JavaScript 링크를 붙였넣는것이 아닙니다. 만�
 
 &lt;p&gt;위와 같이 해서 Code Snippet을 원하는 곳에 붙여 사용할 수 있습니다. gist에서 제공하는
 default theme가 맘에 안드시면 다음의 &lt;a href=&quot;http://codersblock.com/blog/customizing-github-gists/&quot; target=&quot;_blank&quot;&gt;CUSTOMIZING GITHUB GISTS&lt;/a&gt;를 
-방문해 보세요. 조금만 살펴보시면 원하는 style로 gist를 사용하실 수 있습니다.&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</summary></entry><entry><title type="html">What is GitHub Gist?</title><link href="https://moon9342.github.io/github-gist" rel="alternate" type="text/html" title="What is GitHub Gist?" /><published>2018-01-25T14:11:00+00:00</published><updated>2018-01-25T14:11:00+00:00</updated><id>https://moon9342.github.io/github-gist</id><content type="html" xml:base="https://moon9342.github.io/github-gist">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; GitHub Gist&lt;/strong&gt;&lt;/p&gt;
+방문해 보세요. 조금만 살펴보시면 원하는 style로 gist를 사용하실 수 있습니다.&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</summary></entry><entry><title type="html">What is GitHub Gist?</title><link href="https://moon9342.github.io/github-gist" rel="alternate" type="text/html" title="What is GitHub Gist?" /><published>2018-01-25T14:11:00+00:00</published><updated>2018-01-25T14:11:00+00:00</updated><id>https://moon9342.github.io/github-gist</id><content type="html" xml:base="https://moon9342.github.io/github-gist">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;블로그로 IT 관련 포스팅을 하는 사람들에게는 굉장히 유용한 도구인 &lt;code class=&quot;highlighter-rouge&quot;&gt;Gist&lt;/code&gt;에 대해 알아보겠습니다. Gist는 우리나라말로 “지스트”라고
-발음합니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Code Snippet&lt;/code&gt;을 관리하기 위한 도구입니다. 블로그로 IT 관련 포스팅을 하는 사람들에게는 굉장히 유용한 도구로
+사용이 됩니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;Gist&lt;/code&gt;는 우리나라말로 “지스트”라고 발음하며 GitHub에서 서비스 하고 있습니다.&lt;/p&gt;
 
 &lt;p&gt;만일 Gist에 대해서는 알고 있고 jekyll기반의 GitHub Page에서 사용하는 방법에 대해서 알고 싶으신 분은 
 &lt;a href=&quot;./jekyll-gist.html&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 참조하세요!&lt;/p&gt;
@@ -1660,7 +1868,13 @@ Syntax Highlighter를 이용하여 올리면 편합니다. 하지만 완성된 �
 &lt;p&gt;저는 Jekyll기반의 GitHub Page에서 블로그를 운영하고 있기 때문에 조금 다른 방식을 이용합니다.
 Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합니다.&lt;/p&gt;
 
-&lt;p&gt;이 방식에 대해서는 &lt;a href=&quot;./jekyll-gist.html&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 참조하세요!&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">GitHub Gist</summary></entry><entry><title type="html">What is i18n, l10n?</title><link href="https://moon9342.github.io/i18n-l10n" rel="alternate" type="text/html" title="What is i18n, l10n?" /><published>2018-01-24T17:51:00+00:00</published><updated>2018-01-24T17:51:00+00:00</updated><id>https://moon9342.github.io/i18n-l10n</id><content type="html" xml:base="https://moon9342.github.io/i18n-l10n">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; i18n, l10n&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이 방식에 대해서는 &lt;a href=&quot;./jekyll-gist.html&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 참조하세요!&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html"></summary></entry><entry><title type="html">What is i18n, l10n?</title><link href="https://moon9342.github.io/i18n-l10n" rel="alternate" type="text/html" title="What is i18n, l10n?" /><published>2018-01-24T17:51:00+00:00</published><updated>2018-01-24T17:51:00+00:00</updated><id>https://moon9342.github.io/i18n-l10n</id><content type="html" xml:base="https://moon9342.github.io/i18n-l10n">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;국제화와 지역화 작업을 의미합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; i18n, l10n&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;아마 많은 분들이 잘 알고 계실테지만 그래도 한번 간단히 언급만 해 보겠습니다.&lt;/p&gt;
 
@@ -1681,7 +1895,7 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 &lt;p&gt;그냥 그렇다구요.&lt;/p&gt;
 
 &lt;p&gt;i18n 작업을 할 때 &lt;strong&gt;주의해야 할 점&lt;/strong&gt;에 대해서는 다른 훌륭한 포스트들을 참조해주세요~ 사실 저도
-작업 경험이 딱 한번 있습니다. (&lt;del&gt;하고 싶지 않아요.. 할 생각도 없구요&lt;/del&gt;)&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">i18n, l10n</summary></entry><entry><title type="html">TypeScript 강좌(6) - Interface</title><link href="https://moon9342.github.io/typescript-interface" rel="alternate" type="text/html" title="TypeScript 강좌(6) - Interface" /><published>2018-01-24T09:51:00+00:00</published><updated>2018-01-24T09:51:00+00:00</updated><id>https://moon9342.github.io/typescript-interface</id><content type="html" xml:base="https://moon9342.github.io/typescript-interface">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+작업 경험이 딱 한번 있습니다. (&lt;del&gt;하고 싶지 않아요.. 할 생각도 없구요&lt;/del&gt;)&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html"></summary></entry><entry><title type="html">TypeScript 강좌(6) - Interface</title><link href="https://moon9342.github.io/typescript-interface" rel="alternate" type="text/html" title="TypeScript 강좌(6) - Interface" /><published>2018-01-24T09:51:00+00:00</published><updated>2018-01-24T09:51:00+00:00</updated><id>https://moon9342.github.io/typescript-interface</id><content type="html" xml:base="https://moon9342.github.io/typescript-interface">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-introduction.html&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-datatype-1.html&quot;&gt;TypeScript 강좌(2) - Data Type(Part 1)&lt;/a&gt;&lt;/li&gt;
@@ -1902,139 +2116,4 @@ Array를 변경할 수 없습니다.&lt;/p&gt;
 &lt;hr /&gt;
 
 &lt;p&gt;이이 포스트의 내용은 &lt;a href=&quot;http://www.typescriptlang.org&quot; target=&quot;_blank&quot;&gt;TypeScript official home page&lt;/a&gt;을 참조했습니다.
- 조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!&lt;/p&gt;</content><author><name>TypeScript</name></author><category term="front end" /><summary type="html">TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface</summary></entry><entry><title type="html">Babel을 사용해보자</title><link href="https://moon9342.github.io/javascript-babel" rel="alternate" type="text/html" title="Babel을 사용해보자" /><published>2018-01-24T02:30:00+00:00</published><updated>2018-01-24T02:30:00+00:00</updated><id>https://moon9342.github.io/javascript-babel</id><content type="html" xml:base="https://moon9342.github.io/javascript-babel">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Babel이란 무엇인가?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;아무 생각없이 &lt;code class=&quot;highlighter-rouge&quot;&gt;Babel&lt;/code&gt;을 쓰고 있지만 예전부터 궁금했던 Babel이란 이름이 내가 알고 있는 그 바벨탑의 바벨인가? 
-라는 의문에 이름의 근원을 찾아보고 이왕 블로그를 한 김에 Babel의 간단한 사용법 정도만 정리해 보도록 하겠습니다.
-( 도데체 이런게 왜 궁금한건대? )&lt;/p&gt;
-
-&lt;p&gt;결론적으로 &lt;a href=&quot;https://babeljs.io/&quot; target=&quot;_blank&quot;&gt;Babel Official Home Page&lt;/a&gt; 에서는 이름에 대한 근원을 찾을수는 없었습니다. 
-어딘가에 숨어있는지는 모르겠지만요. 여하간 Babel은 성경 영어로 구약성서 창세기에 그 근원을 두고 있습니다.
-( 왠지 산으로 가는 느낌입니다. )&lt;/p&gt;
-
-&lt;p&gt;노아의 홍수 이후로 인간은 다시 번성하기 시작했고 그 당시에는 전 세계의 언어가 하나였다고 합니다. 하나님은 인간들에게
-흩어져 살 것을 명하셨지만, 사람들은 하나님의 말씀에 불순종하여 &lt;code class=&quot;highlighter-rouge&quot;&gt;Shinar&lt;/code&gt; 라는 곳에 모여 살았답니다. 그리고 그들은
-자신들을 위해 하나의 도시를 건설하고 하늘에까지 닿는 높은 탑도 같이 세워 자신들의 이름을 높이고 흩어지지 않겠다는 의미로
-하나의 높은 탑을 건설하게 되었는데 이게 그 &lt;code class=&quot;highlighter-rouge&quot;&gt;Babel&lt;/code&gt;(바벨탑)이랍니다.&lt;/p&gt;
-
-&lt;p&gt;하지만 인간들의 그러한 동기를 아시는 하나님께서 그들이 탑을 세우지 못하고 전 세계로 흩어지게끔 그들의 언어를 여러개로
-나누셔서 서로간의 의사소통이 되지 않도록 하셨답니다. 말이 안통하자 탑 공사는 중단되고 결국 언어가 맞는 사람끼리 뿔뿔히
-흩어져 살게되었다라는 이야기지요.&lt;/p&gt;
-
-&lt;p&gt;그래서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Babel&lt;/code&gt;의 사전적 의미는 “와글와글”, “바벨탑”, “거대한 탑” 의 의미를 가지게 되었다고 합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Babel은 JavaScript transpiler입니다. 공식 홈에는 compiler라고 표현했지만 사실 compiler보다는 transpiler라는 용어가
-더 맞지 않나 싶습니다. 여하간 Babel의 입력은 JavaScript이고 출력 역시 JavaScript입니다.&lt;/p&gt;
-
-&lt;p&gt;잘 알다시피 &lt;code class=&quot;highlighter-rouge&quot;&gt;ES5&lt;/code&gt; 표준은 2009년도에 표준화되었습니다. 그리고 한동안 변경이 없다가 2015년에 &lt;code class=&quot;highlighter-rouge&quot;&gt;ES6&lt;/code&gt;가 표준화가 됩니다.
-현재 시점은 &lt;code class=&quot;highlighter-rouge&quot;&gt;ES7&lt;/code&gt; 이 최신표준이지만 아직까지 ES6가 대세라고 볼 수 있습니다. 이 ES6에 들어와서는 여러가지 획기적인
-변화가 생기게 되었습니다.&lt;/p&gt;
-
-&lt;p&gt;변화된 내용 중 대표적인 것들은 다음과 같습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;arrow function&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;template string&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;generator&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;destructuring&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;let &amp;amp; const&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;문제는 이런 최신의 문법들로 쓰여진 JavaScript 코드를 런타임 환경인 &lt;code class=&quot;highlighter-rouge&quot;&gt;browser&lt;/code&gt;가 인식하고 실행할 수 있는냐는 것입니다. 
-browser는 최신 ECMAScript 문법을 다 지원하지 못하거든요. 특히 구형 browser나 &lt;code class=&quot;highlighter-rouge&quot;&gt;IE&lt;/code&gt;같은 경우는 그 정도가 심합니다.&lt;/p&gt;
-
-&lt;p&gt;하지만 생산성과 유지보수성등의 이유로 코드자체는 ECMAScript 최신버전으로 구현하는게 당연히 좋습니다. 즉, 구현과 
-실행환경과의 버전차이가 생기게 됩니다. Babel은  ECMAScript 6,7 으로 작성된 코드를 browser가 인식할 수 잇는 문법(ES5)으로
-변환시켜주는 transpiler입니다.&lt;/p&gt;
-
-&lt;p&gt;한가지 주의해야 할 점은 Babel을 사용한다고 해서 모든 최신의 JavaScript함수를 다 사용할 수 있는건 아닙니다. Babel은
-문법만 변환시켜 주는 역할만 할 뿐입니다. 따라서 프로그램이 처음에 시작될 때 browser에서 지원하지 않는 함수를 검사해 처리해주는
-작업이 이루어져야 하고 이 부분은 &lt;code class=&quot;highlighter-rouge&quot;&gt;babel-ployfill&lt;/code&gt;이 runtime에 담당하게 됩니다. ( 이 기능을 사용하기 위해서는 
-추가적인 설정이 필요합니다. )&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;자 그럼 실제 사용하는 예를 알아보도록 하겠습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Babel&lt;/code&gt;역시 다른 node module과 마찬가지로 npm으로 설치하면 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dev&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;babel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;babel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;preset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;es2015&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;package.json에 다음과 같이 npm script 작성&lt;/p&gt;
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;babel babelTest.js -d lib&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;test&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;echo &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Error: no test specified&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &amp;amp;&amp;amp; exit 1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;ES6로 다음과 같은 코드 작성하고 &lt;code class=&quot;highlighter-rouge&quot;&gt;babelTest.js&lt;/code&gt;로 저장합니다.&lt;/p&gt;
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;홍길동&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Hello &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stu&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Moon&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;다음과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;.babelrc&lt;/code&gt; 파일을 작성합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;presets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;es2015&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;다음과 같이 npm script를 실행시켜 lib폴더에 생성된 컴파일된 결과 파일을 확인합니다.&lt;/p&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;build&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;결과로 생성된 &lt;code class=&quot;highlighter-rouge&quot;&gt;ES5&lt;/code&gt; 파일의 내용&lt;/p&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;use strict&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_classCallCheck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;instance&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
-        &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;TypeError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cannot call a class as a function&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_ref&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_ref&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;_ref&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-
-
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;홍길동&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;_classCallCheck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stu&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Moon&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;여기서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Babel&lt;/code&gt;이 어떤 역할을 하고 어떻게 사용하는 것인지에 대해서 간단하게 알아보았습니다.&lt;/p&gt;
-
-&lt;p&gt;이 포스트의 내용은 &lt;a href=&quot;https://babeljs.io/&quot; target=&quot;_blank&quot;&gt;Babel Official Home Page&lt;/a&gt;을 참조했습니다.
-조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!&lt;/p&gt;</content><author><name>JavaScript</name></author><category term="front end" /><summary type="html">Babel이란 무엇인가?</summary></entry></feed>
+ 조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!&lt;/p&gt;</content><author><name>TypeScript</name></author><category term="front end" /><summary type="html">TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface</summary></entry></feed>

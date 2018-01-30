@@ -143,3 +143,10 @@ ul.font-awesome-list li:hover,
 ol.font-awesome-list li:hover {
     background-color: #f6f6f6;
 }
+
+/* tl; dr 이미지를 위한 custom style. 각 글의 첫 이미지로 등장 */
+.myTLDRStyle {
+    display: inline !important;
+    margin-bottom: -0.5em !important;
+    width: 100px;
+}
