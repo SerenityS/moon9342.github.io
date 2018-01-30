@@ -70,7 +70,7 @@
 
 <hr />
 
-<p><strong>TypeScript Interface</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript Interface</strong></p>
 
 <p><code class="highlighter-rouge">interface</code>는 우리가 알고 있는 <code class="highlighter-rouge">Java</code>의 interface와 문법적으로 유사합니다. 하지만 객체지향에서 말하는 interface와는
 의미적으로 좀 차이가 있습니다. 그 부분은 예제 중간중간에 살펴보기로 하고 지금은 TypeScript의 interface 
@@ -85,7 +85,7 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 
 <hr />
 
-<p><strong>Basic Exam</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Basic Exam</strong></p>
 
 <p>그럼 간단한 예를 통해 알아보도록 하겠습니다.</p>
 
@@ -119,7 +119,7 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 
 <hr />
 
-<p><strong>Parameter Type Check</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Parameter Type Check</strong></p>
 
 <p>비슷한 용도로 함수의 인자를 넘길 때 인자의 type으로 interface를 이용할 수 있습니다. 
 아래의 예를 한번 살펴보죠.</p>
@@ -148,7 +148,7 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 
 <hr />
 
-<p><strong>Duck Typing</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Duck Typing</strong></p>
 
 <p>아래의 코드에서 문법 오류가 일어날까요?</p>
 
@@ -190,7 +190,7 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 
 <hr />
 
-<p><strong>Optional Properties</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Optional Properties</strong></p>
 
 <p>TypeScript interface의 모든 property와 method는 구현하는 클래스 혹은 구현 객체에서 기본적으로 모두 재정의되어야 합니다. 
 하지만 <code class="highlighter-rouge">Optional Property</code>를 이용하면 property 중 <code class="highlighter-rouge">?</code> 가 붙어있는 property는 구현하지 않아도 상관없습니다. 즉, 선택적으로 
@@ -225,7 +225,7 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 
 <hr />
 
-<p><strong>Readonly Properties</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Readonly Properties</strong></p>
 
 <p><code class="highlighter-rouge">readonly</code> keyword를 이용해 객체가 처음 생성되는 시점에만 property들을 수정가능하도록 설정할 수 있습니다.<br />
 한번 값이 세팅되면 그 후에는 수정할 수 없게됩니다.</p>
@@ -238,6 +238,45 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 <span class="kd">let</span> <span class="nx">p1</span><span class="p">:</span> <span class="nx">Point</span> <span class="o">=</span> <span class="p">{</span> <span class="na">x</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="na">y</span><span class="p">:</span> <span class="mi">20</span> <span class="p">};</span>
 <span class="nx">p1</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>    <span class="c1">// 오류 발생</span>
 </code></pre></div></div>
+
+<p>TypeScript는 또 <code class="highlighter-rouge">ReadonlyArray&lt;T&gt;</code> 형태의 Array를 지원합니다. 이름에서 의미하는 것처럼 생성된 후에는
+Array를 변경할 수 없습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr</span><span class="p">:</span> <span class="nx">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">roArray</span><span class="p">:</span> <span class="nx">ReadonlyArray</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">;</span>
+
+<span class="nx">roArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>   <span class="c1">// 코드 에러</span>
+<span class="nx">roArray</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>  <span class="c1">// 코드 에러</span>
+
+<span class="nx">arr</span> <span class="o">=</span> <span class="nx">roArray</span><span class="p">;</span>             <span class="c1">// 코드 에러</span>
+<span class="nx">arr</span> <span class="o">=</span> <span class="nx">roArray</span> <span class="k">as</span> <span class="nx">number</span><span class="p">[];</span> <span class="c1">// 가능</span>
+</code></pre></div></div>
+
+<p>위의 코드도 쉽게 이해할 수 있습니다. 마지막 코드 정도만 주의하면 될 듯 합니다.</p>
+
+<p>이렇게 <code class="highlighter-rouge">readonly</code> property는 <code class="highlighter-rouge">const</code>와 비슷한 역할을 하게됩니다. 단 const는 변수의 선언에
+사용되며 readonly는 property 지정에 사용된다는 점만 기억하시면 됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Function Types</strong></p>
+
+<p>interface는 function의 type을 지정하는데 사용할 수 있습니다. 이 경우 parameter의 리스트와
+리턴타입만을 가지고 있는 함수의 선언과 비슷한 형태를 가지게 됩니다. 아래의 예를 보죠.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">myInterface</span> <span class="p">{</span>
+    <span class="p">(</span><span class="nx">myName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">myAge</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">myFunc</span><span class="p">:</span> <span class="nx">myInterface</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">myName</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="nx">myAge</span><span class="p">:</span><span class="nx">number</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`이름 : </span><span class="p">${</span><span class="nx">myName</span><span class="p">}</span><span class="s2">, 나이 : </span><span class="p">${</span><span class="nx">myAge</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">myFunc</span><span class="p">(</span><span class="s2">"홍길동"</span><span class="p">,</span><span class="mi">30</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
 
 <p>이이 포스트의 내용은 <a href="http://www.typescriptlang.org" target="_blank">TypeScript official home page</a>을 참조했습니다.
  조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</p>
@@ -274,7 +313,7 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 
 <hr />
 
-<p><strong>TypeScript Destructuring</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript Destructuring</strong></p>
 
 <p>이번 포스트의 내용은 <code class="highlighter-rouge">Destructuring</code> 입니다. 
 Destructuring은 ECMAScript 2015 문법인데 TypeScript에서도 지원합니다.</p>
@@ -290,7 +329,7 @@ Destructuring은 ECMAScript 2015 문법인데 TypeScript에서도 지원합니�
 
 <hr />
 
-<h2 id="array-destructuring">Array Destructuring</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Array Destructuring</strong></p>
 
 <p>다음과 같이 배열이 있을 경우 각 배열의 원소값을 가지는 변수를 만들려고 합니다. 
 아마도 코드는 다음처럼 써야 할 듯 보입니다.</p>
@@ -379,7 +418,7 @@ Destructuring은 ECMAScript 2015 문법인데 TypeScript에서도 지원합니�
 
 <hr />
 
-<h2 id="object-destructuring">Object Destructuring</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Object Destructuring</strong></p>
 
 <p>이번에는 객체를 비구조할당을 통해 이용해 보도록 하겠습니다.</p>
 
@@ -489,7 +528,7 @@ Destructuring이 완벽하게 똑같지는 않다는 것입니다.</p>
 
 <hr />
 
-<h2 id="어디에-쓰면-좋을까요">어디에 쓰면 좋을까요?</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 어디에 쓰면 좋을까요?</strong></p>
 
 <p>간단하게 Destructuring이 무엇인지를 살펴보았는데 그럼 도데체 이걸 어디에 써 먹어야 할까요?
 이런식의 응용이 가능하구나 하는 정도로 가볍게 보시면 될 듯 합니다.</p>
@@ -597,7 +636,7 @@ Destructuring이 완벽하게 똑같지는 않다는 것입니다.</p>
 
 <hr />
 
-<p><strong>TypeScript Variable Declarations</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript Variable Declarations</strong></p>
 
 <p>이번 포스트에서는 <code class="highlighter-rouge">var</code>, <code class="highlighter-rouge">let</code>, <code class="highlighter-rouge">const</code>에 대해서 알아보겠습니다. let은 var과 유사하지만 var이
 가지고 있는 우리에게 익숙치 않은 몇가지 사항들을 피하도록 도와줍니다. const는 이름에서 의미하다시피 변수에
@@ -609,7 +648,7 @@ Destructuring이 완벽하게 똑같지는 않다는 것입니다.</p>
 
 <hr />
 
-<h2 id="var">var</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> var</strong></p>
 
 <p>코드로 설명하자면 다음과 같이 변수를 선언할 수 있습니다.</p>
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myVar</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
@@ -754,7 +793,7 @@ var로 선언된 변수는 block에 상관없이 function 내에서 사용이 �
 
 <hr />
 
-<h2 id="let">let</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> let</strong></p>
 
 <p>위에서 언급한 var의 모호성을 <code class="highlighter-rouge">let</code>을 이용해 해결할 수 있습니다. 변수를 선언할 때 단순히 var대신 let을 이용하면
 됩니다.</p>
@@ -823,7 +862,7 @@ var는 중복선언이 가능합니다. 다음과 같이 말이죠.</p>
 
 <hr />
 
-<h2 id="const">const</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> const</strong></p>
 
 <p>변수를 선언하기 위한 또 다른 방법은 <code class="highlighter-rouge">const</code>를 이용하는 것입니다. 하지만 const로 선언된 변수에는
 재 할당(re-assign)이 불가능 합니다. 아래의 예처럼 말이죠.</p>
@@ -892,7 +931,7 @@ var는 중복선언이 가능합니다. 다음과 같이 말이죠.</p>
 
 <hr />
 
-<p><strong>TypeScript Data Type</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript Data Type</strong></p>
 <ul>
   <li><code class="highlighter-rouge">any</code></li>
   <li><code class="highlighter-rouge">void</code></li>
@@ -905,7 +944,7 @@ var는 중복선언이 가능합니다. 다음과 같이 말이죠.</p>
 
 <hr />
 
-<h2 id="any">any</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> any</strong></p>
 
 <p>Application을 작성하는 시점을 기준으로 할 때 <strong>어떤 변수의 data type을 결정할 수 없는 경우</strong>가 아주 간혹 있습니다.</p>
 
@@ -933,7 +972,7 @@ data type에 구애받지 않고 쉽게 코드를 작성할 수 있도록 만들
 
 <hr />
 
-<h2 id="void">void</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> void</strong></p>
 
 <p>어디서 많이 본 것입니다. 일반적으로 <code class="highlighter-rouge">void</code>는 함수가 리턴값이 없을 때 함수의 리턴 type으로 이용합니다. 
 아래의 코드를 보시죠.</p>
@@ -962,7 +1001,7 @@ data type에 구애받지 않고 쉽게 코드를 작성할 수 있도록 만들
 
 <hr />
 
-<h2 id="null--undefined">null &amp; undefined</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> null &amp; undefined</strong></p>
 
 <p>TypeScript에서 <code class="highlighter-rouge">null</code>과 <code class="highlighter-rouge">undefined</code>는 값이자 하나의 data type입니다. 그렇기 때문에 다음과 같이 사용해야 합니다.</p>
 
@@ -1024,7 +1063,7 @@ data type에 구애받지 않고 쉽게 코드를 작성할 수 있도록 만들
 
 <hr />
 
-<h2 id="never">never</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> never</strong></p>
 
 <p><code class="highlighter-rouge">never</code> type은 일반적으로 함수의 리턴 타입으로 사용됩니다. 만약 함수의 리턴 type으로 never가 사용되면 해당
 함수는 항상 exception을 발생시키던가 혹은 절대 return되지 않는다는 것을 의미합니다. 절대 return되지 않는다는
@@ -1048,7 +1087,7 @@ data type에 구애받지 않고 쉽게 코드를 작성할 수 있도록 만들
 
 <hr />
 
-<h2 id="type-assertions">Type assertions</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Type assertions</strong></p>
 
 <p><code class="highlighter-rouge">Type assertions</code>는 컴파일러에게 “이 타입 사용이 맞아!!”라는 의미를 전달하는 것입니다. Type assertions
 은 type casting과 같은 의미로 사용되지만 실제 특별한 체크작업이나 데이터 재구조화 작업이 발생하지 않습니다.
@@ -1107,7 +1146,7 @@ TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정�
 
 <hr />
 
-<p><strong>TypeScript Data Type</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript Data Type</strong></p>
 <ul>
   <li><code class="highlighter-rouge">boolean</code></li>
   <li><code class="highlighter-rouge">number</code></li>
@@ -1125,7 +1164,7 @@ TypeScript는 JavaScript의 superset이기 때문에 JavaScript의 data type을 
 
 <hr />
 
-<h2 id="boolean">boolean</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> boolean</strong></p>
 
 <p>우리가 알고있는 <code class="highlighter-rouge">boolean</code> type입니다. <code class="highlighter-rouge">true</code>와 <code class="highlighter-rouge">false</code> keyword를 사용할 수 있습니다.</p>
 
@@ -1186,7 +1225,7 @@ class가 도입되기 이전에는 함수를 이용해서 객체를 생성하는
 
 <hr />
 
-<h2 id="number">number</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> number</strong></p>
 
 <p>TypeScript는 정수와 실수를 구분하지 않습니다. 모두 다 실수( <code class="highlighter-rouge">floating point values</code> )입니다. data type으로는
 <code class="highlighter-rouge">number</code>를 사용합니다. 대응되는 wrapper 생성자 함수는 <code class="highlighter-rouge">Number</code>가 되겠네요.
@@ -1202,7 +1241,7 @@ class가 도입되기 이전에는 함수를 이용해서 객체를 생성하는
 
 <hr />
 
-<h2 id="string">string</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> string</strong></p>
 
 <p>문자열을 지칭합니다. 기본적으로 double quotes (<code class="highlighter-rouge">"</code>) 와 single quotes (<code class="highlighter-rouge">'</code>) 둘 다 이용할 수 있습니다.
 대응되는 wrapper 생성자 함수는 <code class="highlighter-rouge">String</code> 입니다.</p>
@@ -1234,7 +1273,7 @@ myStr : Hello
 
 <hr />
 
-<h2 id="array">Array</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Array</strong></p>
 
 <p>TypeScript는 JavaScript와 마찬가지로 <code class="highlighter-rouge">Array</code>를 지원합니다. 배열은 primitive data type이 아닌 객체입니다.
 배열은 두가지 방식으로 사용할 수 있습니다. 일반적인 방식은 다음과 같습니다.</p>
@@ -1255,7 +1294,7 @@ myStr : Hello
 
 <hr />
 
-<h2 id="tuple">Tuple</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Tuple</strong></p>
 
 <p><code class="highlighter-rouge">Tuple</code>은 배열입니다. 특수한 형태의 배열로 인식하시면 됩니다. 
 배열의 각 원소에 대해 각기 다른 data type을 허용합니다.
@@ -1306,7 +1345,7 @@ myStr : Hello
 
 <hr />
 
-<h2 id="enum">enum</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> enum</strong></p>
 
 <p><code class="highlighter-rouge">enum</code>을 이용할 수 있습니다. C#의 enum과 동일합니다. 
 <strong>숫자 대신 친숙한 이름으로 설정</strong>하기 위해서 이용합니다.
@@ -1386,7 +1425,7 @@ myStr : Hello
 
 <hr />
 
-<p><strong>TypeScript 개요 및 WebStorm 개발환경 설정</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript 개요 및 WebStorm 개발환경 설정</strong></p>
 
 <p><code class="highlighter-rouge">TypeScript</code>는 Microsoft에서 개발하여 2012년에 발표한 오픈 소스 프로그래밍 언어입니다. 
 대규모 JavaScript application 개발을 목적으로 만들어졌습니다.</p>
@@ -1404,7 +1443,7 @@ myStr : Hello
 
 <hr />
 
-<p><strong>TypeScript 개발환경 설정</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript 개발환경 설정</strong></p>
 
 <p>여기서는 <code class="highlighter-rouge">Node.js</code>를 이용하여 <code class="highlighter-rouge">npm</code>(Node Package Manager)을 설치하고 이 npm을 이용해 TypeScript를 설치하고 
 사용하는 방법에 대해서 알아보겠습니다.</p>

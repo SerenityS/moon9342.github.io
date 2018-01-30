@@ -58,7 +58,7 @@
 	  <pubDate>2018-01-27T15:30:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/continuous-integration</guid>
 	  <description><![CDATA[
-	     <p><strong>CI(Continuous Integration)란 무엇인가?</strong></p>
+	     <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> CI(Continuous Integration)란 무엇인가?</strong></p>
 
 <p>경영이나 디자인 계열의 사람들은 <code class="highlighter-rouge">CI</code>라고 하면 <code class="highlighter-rouge">Corporate Identity</code>라고 알고 있습니다. 
 하지만 IT개열의 개발자들은 CI라고 하면 절대 다수가 <code class="highlighter-rouge">Continuous Integration</code>이라고 알고 있습니다. 
@@ -139,7 +139,7 @@ Build-Test-Release-Deploy까지 진행하고 그 결과를 개발자나 다른 �
 	  <pubDate>2018-01-26T13:39:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/architecture-platform-terminology</guid>
 	  <description><![CDATA[
-	     <p><strong>Library, Framework, Architecture, Platform 용어 정리</strong></p>
+	     <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Library, Framework, Architecture, Platform 용어 정리</strong></p>
 
 <p>너무나 많이 들어본 용어들입니다. 의미도 대충 알고 있습니다. 하지만 <strong>명확하게 설명해봐!!</strong>
 라고 한다면 주춤 주춤하게 만드는 용어이기도 합니다.</p>
@@ -148,7 +148,7 @@ Build-Test-Release-Deploy까지 진행하고 그 결과를 개발자나 다른 �
 
 <hr />
 
-<h1 id="library">Library</h1>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Library</strong></p>
 
 <p>가장 쉬운 개념입니다. 일반적으로 <code class="highlighter-rouge">Library</code>는 다른 프로그램에서 링크 되기 위해 사용되는 하나 이상의 <code class="highlighter-rouge">function</code> 혹은 <code class="highlighter-rouge">class</code>
 들의 집합이며 이들은 일반적으로 파일형태로 존재합니다.</p>
@@ -179,7 +179,7 @@ JSON 데이터를 아주 쉽게 핸들링 할 수 있습니다.</p>
 
 <hr />
 
-<h2 id="platform">Platform</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Platform</strong></p>
 
 <p><code class="highlighter-rouge">Platform</code>은 <strong>“Software를 실행시킬 수 있는 실행환경(Runtime Environment)”</strong>을 의미합니다.</p>
 
@@ -200,7 +200,7 @@ Web Server와 Web Client(browser)로 구성되는 실행환경이 우리가 작�
 
 <hr />
 
-<h2 id="architecture">Architecture</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Architecture</strong></p>
 
 <p>알고는 있지만 딱히 설명하라면 어버버하게 만드는 개념입니다. <code class="highlighter-rouge">Architecture</code>는 소프트웨어의 특징을 결정짓는 설계 구조
 입니다. 말이 좀 어렵습니다.</p>
@@ -238,7 +238,7 @@ Architecture는 기술적인 설계를 명시하는 것이지 구체적인 구�
 
 <hr />
 
-<h2 id="framework">Framework</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Framework</strong></p>
 
 <p><code class="highlighter-rouge">Framework</code>은 소프트웨어 프로젝트가 개발 될 수 있는 뼈대 구조를 지칭합니다. 역시 말이 좀 어려운데요. 다음과 같은 사항을
 포함합니다.</p>
@@ -287,7 +287,7 @@ Framework은 이런 유지보수 측면에서 강점을 가질 수 있습니다.
 	  <pubDate>2018-01-26T10:48:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/browser-detect-script</guid>
 	  <description><![CDATA[
-	     <p><strong>Client Browser를 확인하기 위한 JavaScript code</strong></p>
+	     <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Client Browser를 확인하기 위한 JavaScript code</strong></p>
 
 <p>제 블로그는 <code class="highlighter-rouge">Chrome</code> 전용입니다. <code class="highlighter-rouge">IE</code>를 이용하면 화면이 보란듯이 깨지게됩니다. 
 그래서 접속한 client의 browser를 알아내서 만약 chrome이 아니면 안내를 해 줄 필요가 있습니다.</p>
@@ -372,7 +372,7 @@ IE 10까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이�
 	  <pubDate>2018-01-25T23:50:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/css-fontawesome-list</guid>
 	  <description><![CDATA[
-	     <p><strong>Font Awesome icon 리스트</strong></p>
+	     <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Font Awesome icon 리스트</strong></p>
 
 <p>블로그나 사이트 작성 시 <code class="highlighter-rouge">icon</code> 이미지들이 많이 필요하게 됩니다. 과거에는 이미지를 찾아서 수정해서 쓰는 형식으로
 이용하였으나 근래에는 icon들을 font와 비슷하게 만들어서 마치 font처럼 icon을 사용할 수 있도록 제공하고 있습니다.</p>
@@ -1029,7 +1029,7 @@ Font Awesome의 폰트는 <code class="highlighter-rouge">GPL</code> 라이선�
 	  <pubDate>2018-01-25T14:11:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/github-gist</guid>
 	  <description><![CDATA[
-	     <p><strong>GitHub Gist</strong></p>
+	     <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> GitHub Gist</strong></p>
 
 <p>블로그로 IT 관련 포스팅을 하는 사람들에게는 굉장히 유용한 도구인 <code class="highlighter-rouge">Gist</code>에 대해 알아보겠습니다. Gist는 우리나라말로 “지스트”라고
 발음합니다.</p>
@@ -1039,7 +1039,7 @@ Font Awesome의 폰트는 <code class="highlighter-rouge">GPL</code> 라이선�
 
 <hr />
 
-<h2 id="code-snippet-관리">Code Snippet 관리</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Code Snippet 관리</strong></p>
 
 <p>IT 개발관련 블로그를 운영하다보면 여러 코드조각들을 블로그에 같이 올리게됩니다. 어떤 경우는 말 그대로 완성되지 않은
 “코드조각” 형태의 코드를 올리기도 하고 어떤 경우는 완성된 형태의 코드를 올리기도 합니다.</p>
@@ -1059,7 +1059,7 @@ Syntax Highlighter를 이용하여 올리면 편합니다. 하지만 완성된 �
 
 <hr />
 
-<h2 id="사용방법">사용방법</h2>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 사용방법</strong></p>
 
 <p>사용방법은 상당히 간단합니다. 일단 GitHub에 로그인해서 노란색 영역을 클릭하시면
 다음과 같은 화면을 보실 수 있습니다.</p>
@@ -1108,13 +1108,9 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 	  <pubDate>2018-01-24T17:51:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/i18n-l10n</guid>
 	  <description><![CDATA[
-	     <p><strong>i18n, l10n</strong></p>
+	     <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> i18n, l10n</strong></p>
 
-<p>아마 프로그래밍을 하는 사람들 중 모르는 사람은 거의 없으리라 생각되지만 그래도 한번 간단히 언급만 해 보겠습니다.</p>
-
-<hr />
-
-<h2 id="i18n--l10n">i18n &amp; l10n</h2>
+<p>아마 많은 분들이 잘 알고 계실테지만 그래도 한번 간단히 언급만 해 보겠습니다.</p>
 
 <p><code class="highlighter-rouge">i18n</code>은 internationalization(국제화)를 표현한 것입니다. 첫글자인 i와 마지막 글자인 n사이에 18개의 글자가 있다고
 해서 저렇게 표현한 겁니다. 아마 IT쪽에 관심이 있는 사람이라면 i18n이 어떤 약자인지는 몰랐어도 국제화라는걸 알고는 있었으리라
@@ -1155,7 +1151,7 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 	  <pubDate>2018-01-21T15:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/what-is-metaprogramming</guid>
 	  <description><![CDATA[
-	     <p><strong>메타프로그래밍 이란?</strong></p>
+	     <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 메타프로그래밍 이란?</strong></p>
 
 <p>메타프로그래밍( <code class="highlighter-rouge">template metaprogramming</code> )이라고 불리는 프로그래밍 기법은 template을 
 기반으로 compiler에게 다른 언어의 프로그램 코드를 생성하도록 하는 방식을 지칭합니다. 결과물이 machine code가 아닌
@@ -1165,9 +1161,11 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 
 <hr />
 
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 장점과 단점</strong></p>
+
 <p>이런 Meta Programming은 다음과 같은 장점과 단점을 가지고 있습니다.</p>
 
-<h4 id="advantage">Advantage</h4>
+<p><strong>Advantage</strong></p>
 
 <ul>
   <li>컴파일 타임에 최적화가 이루어지고 결과적으로 실행 시 수행속도가 빨라질 수 있습니다.</li>
@@ -1178,7 +1176,7 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 결과언어로 적절하게 표현하여 기능상의 확장을 손쉽게 가져올 수 있습니다.</li>
 </ul>
 
-<h4 id="disadvantage">Disadvantage</h4>
+<p><strong>Disadvantage</strong></p>
 
 <ul>
   <li>일반적으로 Template Metaprogramming은 또 다른 형식으로 프로그래밍 하기 때문에
@@ -1207,7 +1205,7 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 	  <pubDate>2018-01-18T11:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/what_is_yaml</guid>
 	  <description><![CDATA[
-	     <p><strong>YAML 이란?</strong></p>
+	     <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> YAML 이란?</strong></p>
 
 <p><code class="highlighter-rouge">YAML</code>은 사람이 쉽게 읽을 수 있는 데이터 직렬화 양식입니다.</p>
 
@@ -1251,7 +1249,7 @@ Spring Boot도 현재 YAML을 지원하고 있습니다.</p>
 	  <pubDate>2018-01-18T10:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/kramdown-image-resize</guid>
 	  <description><![CDATA[
-	     <p><strong>kramdown에서 image resize</strong></p>
+	     <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> kramdown에서 image resize</strong></p>
 
 <p>기본 <code class="highlighter-rouge">markdown</code>에서 이미지를 사용하는 방법은 다음과 같습니다.</p>
 

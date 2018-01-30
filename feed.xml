@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-01-29T16:39:47+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)</title><link href="https://moon9342.github.io/jekyll-travis-ci-public" rel="alternate" type="text/html" title="Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)" /><published>2018-01-28T14:47:00+00:00</published><updated>2018-01-28T14:47:00+00:00</updated><id>https://moon9342.github.io/jekyll-travis-ci-public</id><content type="html" xml:base="https://moon9342.github.io/jekyll-travis-ci-public">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-01-30T01:31:50+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)</title><link href="https://moon9342.github.io/jekyll-travis-ci-public" rel="alternate" type="text/html" title="Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)" /><published>2018-01-28T14:47:00+00:00</published><updated>2018-01-28T14:47:00+00:00</updated><id>https://moon9342.github.io/jekyll-travis-ci-public</id><content type="html" xml:base="https://moon9342.github.io/jekyll-travis-ci-public">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-start.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-struct.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
@@ -12,7 +12,7 @@
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;Travis CI 활용(public Repository)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Travis CI 활용(public Repository)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CI&lt;/code&gt; ( Continuous Integration )의 개념에 대해서 잘 알지 못하시는 분은 &lt;a href=&quot;./continuous-integration.html&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 클릭하셔서 
 간단하게 이해를 하고 오시면 됩니다.&lt;/p&gt;
@@ -28,7 +28,7 @@
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-flag&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; GitHub에 2개의 Repository 준비&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; GitHub에 2개의 Repository 준비&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;먼저 Jekyll Source Folder ( &lt;code class=&quot;highlighter-rouge&quot;&gt;D:/blogmaker&lt;/code&gt; )에 대한 GitHub Repository를 준비합니다. Public으로 생성하셔야 합니다.
 저는 &lt;code class=&quot;highlighter-rouge&quot;&gt;GitHubPageMaker&lt;/code&gt;라는 이름으로 Repository를 생성했습니다. &lt;strong&gt;생성할 때 README.md 파일을 추가해서 생성하지 않습니다.&lt;/strong&gt;&lt;/p&gt;
@@ -47,7 +47,7 @@ Repository의 이름은 형식이 정해져 있습니다. &lt;code class=&quot;h
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-flag&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Local Git Repository 생성 및 Remote 연결&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Local Git Repository 생성 및 Remote 연결&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;GitHub에 원격 Repository가 생성되었으니 이번에는 로컬에 Repository를 생성합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;D:/blogmaker&lt;/code&gt; 폴더에서 command 창을 열고
 다음을 입력합니다.&lt;/p&gt;
@@ -84,7 +84,7 @@ Repository의 이름은 형식이 정해져 있습니다. &lt;code class=&quot;h
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-flag&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Git Submodule 생성&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Git Submodule 생성&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Jekyll Source Folder( &lt;code class=&quot;highlighter-rouge&quot;&gt;D:/blogmaker&lt;/code&gt; )에 대한 Repository와 실제 블로그를 운영할 Repository를
 git submodule로 묶습니다. Submodule의 개념은 &lt;a href=&quot;https://git-scm.com/book/ko/v1/Git-%EB%8F%84%EA%B5%AC-%EC%84%9C%EB%B8%8C%EB%AA%A8%EB%93%88&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;
@@ -116,7 +116,7 @@ git submodule로 묶습니다. Submodule의 개념은 &lt;a href=&quot;https://g
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-flag&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; _config.yml 1차 수정&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; _config.yml 1차 수정&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Jekyll Source Folder( &lt;code class=&quot;highlighter-rouge&quot;&gt;D:/blogmaker&lt;/code&gt; )에 있는 내용을 컴파일 하면 그 결과가 output 폴더에 들어가도록
 &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;을 수정합니다.&lt;/p&gt;
@@ -125,7 +125,7 @@ git submodule로 묶습니다. Submodule의 개념은 &lt;a href=&quot;https://g
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-flag&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Travis 사이트에 접속&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Travis 사이트에 접속&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Travis 사이트에 접속해서 GitHub Repository에 대한 연결을 활성화 시킵니다.&lt;/p&gt;
 
@@ -150,7 +150,7 @@ GitHub Page와 연동되는 Repository이기 때문에 결국 Jekyll로 컴파�
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-flag&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Token 생성&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Token 생성&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Travis CI에서 다른 Repository로 push를 하기 위해서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;token&lt;/code&gt;이 필요합니다.&lt;/p&gt;
 
@@ -198,7 +198,7 @@ Jekyll Source Folder에 대한 Repository이름을 주면 됩니다. 주의하�
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-flag&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 사용되는 파일 수정&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 사용되는 파일 수정&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;이제 &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;.travis.yml&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Rakefile&lt;/code&gt; 파일을 아래와 같이 적절하게 수정해야 합니다. 
 &lt;code class=&quot;highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;언어로 작성된 script를 보는게 영 껄끄럽지만 어렵지 않는 내용이니 천천히 보시면 됩니다.&lt;/p&gt;
@@ -458,7 +458,7 @@ end&lt;/pre&gt;&lt;/noscript&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-flag&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Private Repository 사용&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Private Repository 사용&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;우리는 두개의 Repository를 사용하고 있고 둘 다 Public으로 사용하고 있습니다. 당연한 말이지만
 이 중 중요한 것은 여러 설정과 실제 원본내용이 들어있는 Jekyll Source Folder에 대한 Repository인
@@ -479,14 +479,14 @@ GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public�
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-flag&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Travis CI를 이용할 경우 속도문제&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Travis CI를 이용할 경우 속도문제&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Travis CI를 돌려보면 알겠지만 내부적으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;을 매번 수행합니다. 이 간단한 것 하나 해결하는데
-2분가량의 시간이 들고 대부분의 시간이 설치시간입니다. 이 문제를 해결할 수 있는 방법 역시 있습니다.&lt;/p&gt;
+2분가량의 시간이 걸리고 대부분의 시간이 설치시간입니다. 이 문제를 해결할 수 있는 방법 역시 있습니다.&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cache&lt;/code&gt; 처리인데요. 이 부분은 나중에 포스팅 할 예정입니다. 
 문제가 꼬리에 꼬리를 물면서 계속 튕겨 나오네요. 그러면서 배우는 거죠 머 ^^;
-일단 이런 문제가 있어요~ 라는 문제 제기만 하고 이번 글은 정리하도록 하겠습니다.&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</summary></entry><entry><title type="html">What is Continuous Integration?</title><link href="https://moon9342.github.io/continuous-integration" rel="alternate" type="text/html" title="What is Continuous Integration?" /><published>2018-01-27T15:30:00+00:00</published><updated>2018-01-27T15:30:00+00:00</updated><id>https://moon9342.github.io/continuous-integration</id><content type="html" xml:base="https://moon9342.github.io/continuous-integration">&lt;p&gt;&lt;strong&gt;CI(Continuous Integration)란 무엇인가?&lt;/strong&gt;&lt;/p&gt;
+일단 이런 문제가 있어요~ 라는 문제 제기만 하고 이번 글은 정리하도록 하겠습니다.&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</summary></entry><entry><title type="html">What is Continuous Integration?</title><link href="https://moon9342.github.io/continuous-integration" rel="alternate" type="text/html" title="What is Continuous Integration?" /><published>2018-01-27T15:30:00+00:00</published><updated>2018-01-27T15:30:00+00:00</updated><id>https://moon9342.github.io/continuous-integration</id><content type="html" xml:base="https://moon9342.github.io/continuous-integration">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; CI(Continuous Integration)란 무엇인가?&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;경영이나 디자인 계열의 사람들은 &lt;code class=&quot;highlighter-rouge&quot;&gt;CI&lt;/code&gt;라고 하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;Corporate Identity&lt;/code&gt;라고 알고 있습니다. 
 하지만 IT개열의 개발자들은 CI라고 하면 절대 다수가 &lt;code class=&quot;highlighter-rouge&quot;&gt;Continuous Integration&lt;/code&gt;이라고 알고 있습니다. 
@@ -545,7 +545,7 @@ Build-Test-Release-Deploy까지 진행하고 그 결과를 개발자나 다른 �
 &lt;hr /&gt;
 
 &lt;p&gt;간단하게 CI의 개념에 대해서만 살펴보았습니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;Travis CI&lt;/code&gt;와 같은 것은 사용하기 그리 어렵지 않으니 한번 사용해 보시면 느낌이 확
-오실겁니다.&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">CI(Continuous Integration)란 무엇인가?</summary></entry><entry><title type="html">Library, Framework, Architecture, Platform</title><link href="https://moon9342.github.io/architecture-platform-terminology" rel="alternate" type="text/html" title="Library, Framework, Architecture, Platform" /><published>2018-01-26T13:39:00+00:00</published><updated>2018-01-26T13:39:00+00:00</updated><id>https://moon9342.github.io/architecture-platform-terminology</id><content type="html" xml:base="https://moon9342.github.io/architecture-platform-terminology">&lt;p&gt;&lt;strong&gt;Library, Framework, Architecture, Platform 용어 정리&lt;/strong&gt;&lt;/p&gt;
+오실겁니다.&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">CI(Continuous Integration)란 무엇인가?</summary></entry><entry><title type="html">Library, Framework, Architecture, Platform</title><link href="https://moon9342.github.io/architecture-platform-terminology" rel="alternate" type="text/html" title="Library, Framework, Architecture, Platform" /><published>2018-01-26T13:39:00+00:00</published><updated>2018-01-26T13:39:00+00:00</updated><id>https://moon9342.github.io/architecture-platform-terminology</id><content type="html" xml:base="https://moon9342.github.io/architecture-platform-terminology">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Library, Framework, Architecture, Platform 용어 정리&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;너무나 많이 들어본 용어들입니다. 의미도 대충 알고 있습니다. 하지만 &lt;strong&gt;명확하게 설명해봐!!&lt;/strong&gt;
 라고 한다면 주춤 주춤하게 만드는 용어이기도 합니다.&lt;/p&gt;
@@ -554,7 +554,7 @@ Build-Test-Release-Deploy까지 진행하고 그 결과를 개발자나 다른 �
 
 &lt;hr /&gt;
 
-&lt;h1 id=&quot;library&quot;&gt;Library&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Library&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;가장 쉬운 개념입니다. 일반적으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;Library&lt;/code&gt;는 다른 프로그램에서 링크 되기 위해 사용되는 하나 이상의 &lt;code class=&quot;highlighter-rouge&quot;&gt;function&lt;/code&gt; 혹은 &lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;
 들의 집합이며 이들은 일반적으로 파일형태로 존재합니다.&lt;/p&gt;
@@ -585,7 +585,7 @@ JSON 데이터를 아주 쉽게 핸들링 할 수 있습니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;platform&quot;&gt;Platform&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Platform&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Platform&lt;/code&gt;은 &lt;strong&gt;“Software를 실행시킬 수 있는 실행환경(Runtime Environment)”&lt;/strong&gt;을 의미합니다.&lt;/p&gt;
 
@@ -606,7 +606,7 @@ Web Server와 Web Client(browser)로 구성되는 실행환경이 우리가 작�
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;architecture&quot;&gt;Architecture&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Architecture&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;알고는 있지만 딱히 설명하라면 어버버하게 만드는 개념입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;Architecture&lt;/code&gt;는 소프트웨어의 특징을 결정짓는 설계 구조
 입니다. 말이 좀 어렵습니다.&lt;/p&gt;
@@ -644,7 +644,7 @@ Architecture는 기술적인 설계를 명시하는 것이지 구체적인 구�
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;framework&quot;&gt;Framework&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Framework&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Framework&lt;/code&gt;은 소프트웨어 프로젝트가 개발 될 수 있는 뼈대 구조를 지칭합니다. 역시 말이 좀 어려운데요. 다음과 같은 사항을
 포함합니다.&lt;/p&gt;
@@ -670,7 +670,7 @@ Framework은 이런 유지보수 측면에서 강점을 가질 수 있습니다.
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Framework&lt;/code&gt;부분은 사실 더 써야 하는 사항이 많습니다. 하지만 차이점 위주로 살펴본 것이니 위의 내용 정도만
-이해해도 충분하지 않을까 합니다.&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">Library, Framework, Architecture, Platform 용어 정리</summary></entry><entry><title type="html">클라이언트 Browser 확인방법</title><link href="https://moon9342.github.io/browser-detect-script" rel="alternate" type="text/html" title="클라이언트 Browser 확인방법" /><published>2018-01-26T10:48:00+00:00</published><updated>2018-01-26T10:48:00+00:00</updated><id>https://moon9342.github.io/browser-detect-script</id><content type="html" xml:base="https://moon9342.github.io/browser-detect-script">&lt;p&gt;&lt;strong&gt;Client Browser를 확인하기 위한 JavaScript code&lt;/strong&gt;&lt;/p&gt;
+이해해도 충분하지 않을까 합니다.&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">Library, Framework, Architecture, Platform 용어 정리</summary></entry><entry><title type="html">클라이언트 Browser 확인방법</title><link href="https://moon9342.github.io/browser-detect-script" rel="alternate" type="text/html" title="클라이언트 Browser 확인방법" /><published>2018-01-26T10:48:00+00:00</published><updated>2018-01-26T10:48:00+00:00</updated><id>https://moon9342.github.io/browser-detect-script</id><content type="html" xml:base="https://moon9342.github.io/browser-detect-script">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Client Browser를 확인하기 위한 JavaScript code&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;제 블로그는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Chrome&lt;/code&gt; 전용입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;IE&lt;/code&gt;를 이용하면 화면이 보란듯이 깨지게됩니다. 
 그래서 접속한 client의 browser를 알아내서 만약 chrome이 아니면 안내를 해 줄 필요가 있습니다.&lt;/p&gt;
@@ -732,7 +732,7 @@ IE 10까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이�
 &lt;hr /&gt;
 
 &lt;p&gt;여하간 제 블로그는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Chrome&lt;/code&gt; 전용이기 때문에 제가 사용하는 Jasper2 theme의 &lt;code class=&quot;highlighter-rouge&quot;&gt;head.html&lt;/code&gt;에 저 위의 코드를
-적당히 수정해서 이용중입니다. 언제까지 이런 &lt;strong&gt;cross browsing issue&lt;/strong&gt;에 시달려야하는지 안타깝습니다. ㅎㅎ&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">Client Browser를 확인하기 위한 JavaScript code</summary></entry><entry><title type="html">Font Awesome Icon List</title><link href="https://moon9342.github.io/css-fontawesome-list" rel="alternate" type="text/html" title="Font Awesome Icon List" /><published>2018-01-25T23:50:00+00:00</published><updated>2018-01-25T23:50:00+00:00</updated><id>https://moon9342.github.io/css-fontawesome-list</id><content type="html" xml:base="https://moon9342.github.io/css-fontawesome-list">&lt;p&gt;&lt;strong&gt;Font Awesome icon 리스트&lt;/strong&gt;&lt;/p&gt;
+적당히 수정해서 이용중입니다. 언제까지 이런 &lt;strong&gt;cross browsing issue&lt;/strong&gt;에 시달려야하는지 안타깝습니다. ㅎㅎ&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">Client Browser를 확인하기 위한 JavaScript code</summary></entry><entry><title type="html">Font Awesome Icon List</title><link href="https://moon9342.github.io/css-fontawesome-list" rel="alternate" type="text/html" title="Font Awesome Icon List" /><published>2018-01-25T23:50:00+00:00</published><updated>2018-01-25T23:50:00+00:00</updated><id>https://moon9342.github.io/css-fontawesome-list</id><content type="html" xml:base="https://moon9342.github.io/css-fontawesome-list">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Font Awesome icon 리스트&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;블로그나 사이트 작성 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;icon&lt;/code&gt; 이미지들이 많이 필요하게 됩니다. 과거에는 이미지를 찾아서 수정해서 쓰는 형식으로
 이용하였으나 근래에는 icon들을 font와 비슷하게 만들어서 마치 font처럼 icon을 사용할 수 있도록 제공하고 있습니다.&lt;/p&gt;
@@ -1380,7 +1380,7 @@ Font Awesome의 폰트는 &lt;code class=&quot;highlighter-rouge&quot;&gt;GPL&lt
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;GitHub Gist 활용&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; GitHub Gist 활용&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GitHub&lt;/code&gt;의 &lt;code class=&quot;highlighter-rouge&quot;&gt;Gist&lt;/code&gt;에 대해서 잘 알지 못하시는 분은 &lt;a href=&quot;./github-gist.html&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 클릭하셔서 
 간단하게 Gist에 대한 이해를 하고 오시면 됩니다.&lt;/p&gt;
@@ -1556,6 +1556,8 @@ gist를 불러올 때 JavaScript 링크를 붙였넣는것이 아닙니다. 만�
 
 &lt;hr /&gt;
 
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 오류 해결&lt;/strong&gt;&lt;/p&gt;
+
 &lt;p&gt;한방에 된다면 좋겠지만 잘 안될 수 있습니다.&lt;/p&gt;
 
 &lt;p&gt;가장 많이 나는 오류는 &lt;code class=&quot;highlighter-rouge&quot;&gt;SSL_connect&lt;/code&gt; 오류입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;Windows 10&lt;/code&gt; 사용자들은 다음과 
@@ -1602,7 +1604,7 @@ gist를 불러올 때 JavaScript 링크를 붙였넣는것이 아닙니다. 만�
 
 &lt;p&gt;위와 같이 해서 Code Snippet을 원하는 곳에 붙여 사용할 수 있습니다. gist에서 제공하는
 default theme가 맘에 안드시면 다음의 &lt;a href=&quot;http://codersblock.com/blog/customizing-github-gists/&quot; target=&quot;_blank&quot;&gt;CUSTOMIZING GITHUB GISTS&lt;/a&gt;를 
-방문해 보세요. 조금만 살펴보시면 원하는 style로 gist를 사용하실 수 있습니다.&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</summary></entry><entry><title type="html">What is GitHub Gist?</title><link href="https://moon9342.github.io/github-gist" rel="alternate" type="text/html" title="What is GitHub Gist?" /><published>2018-01-25T14:11:00+00:00</published><updated>2018-01-25T14:11:00+00:00</updated><id>https://moon9342.github.io/github-gist</id><content type="html" xml:base="https://moon9342.github.io/github-gist">&lt;p&gt;&lt;strong&gt;GitHub Gist&lt;/strong&gt;&lt;/p&gt;
+방문해 보세요. 조금만 살펴보시면 원하는 style로 gist를 사용하실 수 있습니다.&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</summary></entry><entry><title type="html">What is GitHub Gist?</title><link href="https://moon9342.github.io/github-gist" rel="alternate" type="text/html" title="What is GitHub Gist?" /><published>2018-01-25T14:11:00+00:00</published><updated>2018-01-25T14:11:00+00:00</updated><id>https://moon9342.github.io/github-gist</id><content type="html" xml:base="https://moon9342.github.io/github-gist">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; GitHub Gist&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;블로그로 IT 관련 포스팅을 하는 사람들에게는 굉장히 유용한 도구인 &lt;code class=&quot;highlighter-rouge&quot;&gt;Gist&lt;/code&gt;에 대해 알아보겠습니다. Gist는 우리나라말로 “지스트”라고
 발음합니다.&lt;/p&gt;
@@ -1612,7 +1614,7 @@ default theme가 맘에 안드시면 다음의 &lt;a href=&quot;http://codersblo
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;code-snippet-관리&quot;&gt;Code Snippet 관리&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Code Snippet 관리&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;IT 개발관련 블로그를 운영하다보면 여러 코드조각들을 블로그에 같이 올리게됩니다. 어떤 경우는 말 그대로 완성되지 않은
 “코드조각” 형태의 코드를 올리기도 하고 어떤 경우는 완성된 형태의 코드를 올리기도 합니다.&lt;/p&gt;
@@ -1632,7 +1634,7 @@ Syntax Highlighter를 이용하여 올리면 편합니다. 하지만 완성된 �
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;사용방법&quot;&gt;사용방법&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 사용방법&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;사용방법은 상당히 간단합니다. 일단 GitHub에 로그인해서 노란색 영역을 클릭하시면
 다음과 같은 화면을 보실 수 있습니다.&lt;/p&gt;
@@ -1658,13 +1660,9 @@ Syntax Highlighter를 이용하여 올리면 편합니다. 하지만 완성된 �
 &lt;p&gt;저는 Jekyll기반의 GitHub Page에서 블로그를 운영하고 있기 때문에 조금 다른 방식을 이용합니다.
 Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합니다.&lt;/p&gt;
 
-&lt;p&gt;이 방식에 대해서는 &lt;a href=&quot;./jekyll-gist.html&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 참조하세요!&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">GitHub Gist</summary></entry><entry><title type="html">What is i18n, l10n?</title><link href="https://moon9342.github.io/i18n-l10n" rel="alternate" type="text/html" title="What is i18n, l10n?" /><published>2018-01-24T17:51:00+00:00</published><updated>2018-01-24T17:51:00+00:00</updated><id>https://moon9342.github.io/i18n-l10n</id><content type="html" xml:base="https://moon9342.github.io/i18n-l10n">&lt;p&gt;&lt;strong&gt;i18n, l10n&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이 방식에 대해서는 &lt;a href=&quot;./jekyll-gist.html&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 참조하세요!&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">GitHub Gist</summary></entry><entry><title type="html">What is i18n, l10n?</title><link href="https://moon9342.github.io/i18n-l10n" rel="alternate" type="text/html" title="What is i18n, l10n?" /><published>2018-01-24T17:51:00+00:00</published><updated>2018-01-24T17:51:00+00:00</updated><id>https://moon9342.github.io/i18n-l10n</id><content type="html" xml:base="https://moon9342.github.io/i18n-l10n">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; i18n, l10n&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;아마 프로그래밍을 하는 사람들 중 모르는 사람은 거의 없으리라 생각되지만 그래도 한번 간단히 언급만 해 보겠습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;i18n--l10n&quot;&gt;i18n &amp;amp; l10n&lt;/h2&gt;
+&lt;p&gt;아마 많은 분들이 잘 알고 계실테지만 그래도 한번 간단히 언급만 해 보겠습니다.&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;i18n&lt;/code&gt;은 internationalization(국제화)를 표현한 것입니다. 첫글자인 i와 마지막 글자인 n사이에 18개의 글자가 있다고
 해서 저렇게 표현한 겁니다. 아마 IT쪽에 관심이 있는 사람이라면 i18n이 어떤 약자인지는 몰랐어도 국제화라는걸 알고는 있었으리라
@@ -1695,7 +1693,7 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;TypeScript Interface&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; TypeScript Interface&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;interface&lt;/code&gt;는 우리가 알고 있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Java&lt;/code&gt;의 interface와 문법적으로 유사합니다. 하지만 객체지향에서 말하는 interface와는
 의미적으로 좀 차이가 있습니다. 그 부분은 예제 중간중간에 살펴보기로 하고 지금은 TypeScript의 interface 
@@ -1710,7 +1708,7 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;Basic Exam&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Basic Exam&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;그럼 간단한 예를 통해 알아보도록 하겠습니다.&lt;/p&gt;
 
@@ -1744,7 +1742,7 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;Parameter Type Check&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Parameter Type Check&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;비슷한 용도로 함수의 인자를 넘길 때 인자의 type으로 interface를 이용할 수 있습니다. 
 아래의 예를 한번 살펴보죠.&lt;/p&gt;
@@ -1773,7 +1771,7 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;Duck Typing&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Duck Typing&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;아래의 코드에서 문법 오류가 일어날까요?&lt;/p&gt;
 
@@ -1815,7 +1813,7 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;Optional Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Optional Properties&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;TypeScript interface의 모든 property와 method는 구현하는 클래스 혹은 구현 객체에서 기본적으로 모두 재정의되어야 합니다. 
 하지만 &lt;code class=&quot;highlighter-rouge&quot;&gt;Optional Property&lt;/code&gt;를 이용하면 property 중 &lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt; 가 붙어있는 property는 구현하지 않아도 상관없습니다. 즉, 선택적으로 
@@ -1850,7 +1848,7 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;Readonly Properties&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Readonly Properties&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;readonly&lt;/code&gt; keyword를 이용해 객체가 처음 생성되는 시점에만 property들을 수정가능하도록 설정할 수 있습니다.&lt;br /&gt;
 한번 값이 세팅되면 그 후에는 수정할 수 없게됩니다.&lt;/p&gt;
@@ -1864,8 +1862,47 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 &lt;span class=&quot;nx&quot;&gt;p1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// 오류 발생&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;TypeScript는 또 &lt;code class=&quot;highlighter-rouge&quot;&gt;ReadonlyArray&amp;lt;T&amp;gt;&lt;/code&gt; 형태의 Array를 지원합니다. 이름에서 의미하는 것처럼 생성된 후에는
+Array를 변경할 수 없습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;roArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ReadonlyArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;roArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// 코드 에러&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;roArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 코드 에러&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;roArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;             &lt;span class=&quot;c1&quot;&gt;// 코드 에러&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;roArray&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 가능&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위의 코드도 쉽게 이해할 수 있습니다. 마지막 코드 정도만 주의하면 될 듯 합니다.&lt;/p&gt;
+
+&lt;p&gt;이렇게 &lt;code class=&quot;highlighter-rouge&quot;&gt;readonly&lt;/code&gt; property는 &lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;와 비슷한 역할을 하게됩니다. 단 const는 변수의 선언에
+사용되며 readonly는 property 지정에 사용된다는 점만 기억하시면 됩니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Function Types&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;interface는 function의 type을 지정하는데 사용할 수 있습니다. 이 경우 parameter의 리스트와
+리턴타입만을 가지고 있는 함수의 선언과 비슷한 형태를 가지게 됩니다. 아래의 예를 보죠.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kr&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myInterface&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myAge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myFunc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myInterface&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;myAge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`이름 : &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;, 나이 : &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;myAge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;myFunc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;홍길동&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
 &lt;p&gt;이이 포스트의 내용은 &lt;a href=&quot;http://www.typescriptlang.org&quot; target=&quot;_blank&quot;&gt;TypeScript official home page&lt;/a&gt;을 참조했습니다.
- 조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!&lt;/p&gt;</content><author><name>TypeScript</name></author><category term="front end" /><summary type="html">TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface</summary></entry><entry><title type="html">Babel을 사용해보자</title><link href="https://moon9342.github.io/javascript-babel" rel="alternate" type="text/html" title="Babel을 사용해보자" /><published>2018-01-24T02:30:00+00:00</published><updated>2018-01-24T02:30:00+00:00</updated><id>https://moon9342.github.io/javascript-babel</id><content type="html" xml:base="https://moon9342.github.io/javascript-babel">&lt;p&gt;&lt;strong&gt;Babel이란 무엇인가?&lt;/strong&gt;&lt;/p&gt;
+ 조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!&lt;/p&gt;</content><author><name>TypeScript</name></author><category term="front end" /><summary type="html">TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface</summary></entry><entry><title type="html">Babel을 사용해보자</title><link href="https://moon9342.github.io/javascript-babel" rel="alternate" type="text/html" title="Babel을 사용해보자" /><published>2018-01-24T02:30:00+00:00</published><updated>2018-01-24T02:30:00+00:00</updated><id>https://moon9342.github.io/javascript-babel</id><content type="html" xml:base="https://moon9342.github.io/javascript-babel">&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Babel이란 무엇인가?&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;아무 생각없이 &lt;code class=&quot;highlighter-rouge&quot;&gt;Babel&lt;/code&gt;을 쓰고 있지만 예전부터 궁금했던 Babel이란 이름이 내가 알고 있는 그 바벨탑의 바벨인가? 
 라는 의문에 이름의 근원을 찾아보고 이왕 블로그를 한 김에 Babel의 간단한 사용법 정도만 정리해 보도록 하겠습니다.

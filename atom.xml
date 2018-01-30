@@ -35,7 +35,7 @@
       <item>
         <title>What is Continuous Integration?</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;CI(Continuous Integration)란 무엇인가?&lt;/strong&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; CI(Continuous Integration)란 무엇인가?&lt;/strong&gt;&lt;/p&gt;
 
 </description>
         
@@ -50,7 +50,7 @@
       <item>
         <title>Library, Framework, Architecture, Platform</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;Library, Framework, Architecture, Platform 용어 정리&lt;/strong&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Library, Framework, Architecture, Platform 용어 정리&lt;/strong&gt;&lt;/p&gt;
 
 </description>
         
@@ -65,7 +65,7 @@
       <item>
         <title>클라이언트 Browser 확인방법</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;Client Browser를 확인하기 위한 JavaScript code&lt;/strong&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Client Browser를 확인하기 위한 JavaScript code&lt;/strong&gt;&lt;/p&gt;
 
 </description>
         
@@ -80,7 +80,7 @@
       <item>
         <title>Font Awesome Icon List</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;Font Awesome icon 리스트&lt;/strong&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Font Awesome icon 리스트&lt;/strong&gt;&lt;/p&gt;
 
 </description>
         
@@ -120,7 +120,7 @@
       <item>
         <title>What is GitHub Gist?</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;GitHub Gist&lt;/strong&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; GitHub Gist&lt;/strong&gt;&lt;/p&gt;
 
 </description>
         
@@ -135,7 +135,7 @@
       <item>
         <title>What is i18n, l10n?</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;i18n, l10n&lt;/strong&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; i18n, l10n&lt;/strong&gt;&lt;/p&gt;
 
 </description>
         
@@ -173,7 +173,7 @@
       <item>
         <title>Babel을 사용해보자</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;Babel이란 무엇인가?&lt;/strong&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Babel이란 무엇인가?&lt;/strong&gt;&lt;/p&gt;
 
 </description>
         
@@ -188,7 +188,7 @@
       <item>
         <title>JavaScript의 strict mode란 무엇인가?</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;“use strict”를 써야하는 이유&lt;/strong&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; “use strict”를 써야하는 이유&lt;/strong&gt;&lt;/p&gt;
 
 </description>
         
@@ -318,7 +318,7 @@
       <item>
         <title>What is Meta Programming?</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;메타프로그래밍 이란?&lt;/strong&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 메타프로그래밍 이란?&lt;/strong&gt;&lt;/p&gt;
 
 </description>
         
@@ -333,7 +333,7 @@
       <item>
         <title>What is YAML?</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;YAML 이란?&lt;/strong&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; YAML 이란?&lt;/strong&gt;&lt;/p&gt;
 
 </description>
         
@@ -348,7 +348,7 @@
       <item>
         <title>GitHub Page에서 Image Resize 방법</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;kramdown에서 image resize&lt;/strong&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; kramdown에서 image resize&lt;/strong&gt;&lt;/p&gt;
 
 </description>
         
@@ -513,7 +513,7 @@
       <item>
         <title>JavaScript History</title>
         
-          <description>&lt;p&gt;&lt;strong&gt;JavaScript&lt;/strong&gt;, &lt;strong&gt;ECMAScript&lt;/strong&gt;, &lt;strong&gt;TypeScript&lt;/strong&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; JavaScript&lt;/strong&gt;, &lt;strong&gt;ECMAScript&lt;/strong&gt;, &lt;strong&gt;TypeScript&lt;/strong&gt;&lt;/p&gt;
 
 </description>
         

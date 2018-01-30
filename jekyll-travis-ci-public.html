@@ -228,7 +228,7 @@ into the {body} of the default.hbs template -->
 
 <hr />
 
-<p><strong>Travis CI 활용(public Repository)</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Travis CI 활용(public Repository)</strong></p>
 
 <p><code class="highlighter-rouge">CI</code> ( Continuous Integration )의 개념에 대해서 잘 알지 못하시는 분은 <a href="./continuous-integration.html" target="_blank">여기</a>를 클릭하셔서 
 간단하게 이해를 하고 오시면 됩니다.</p>
@@ -244,7 +244,7 @@ into the {body} of the default.hbs template -->
 
 <hr />
 
-<p><strong><i class="fa fa-flag" style="color:#01077c"></i> GitHub에 2개의 Repository 준비</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> GitHub에 2개의 Repository 준비</strong></p>
 
 <p>먼저 Jekyll Source Folder ( <code class="highlighter-rouge">D:/blogmaker</code> )에 대한 GitHub Repository를 준비합니다. Public으로 생성하셔야 합니다.
 저는 <code class="highlighter-rouge">GitHubPageMaker</code>라는 이름으로 Repository를 생성했습니다. <strong>생성할 때 README.md 파일을 추가해서 생성하지 않습니다.</strong></p>
@@ -263,7 +263,7 @@ Repository의 이름은 형식이 정해져 있습니다. <code class="highlight
 
 <hr />
 
-<p><strong><i class="fa fa-flag" style="color:#01077c"></i> Local Git Repository 생성 및 Remote 연결</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Local Git Repository 생성 및 Remote 연결</strong></p>
 
 <p>GitHub에 원격 Repository가 생성되었으니 이번에는 로컬에 Repository를 생성합니다. <code class="highlighter-rouge">D:/blogmaker</code> 폴더에서 command 창을 열고
 다음을 입력합니다.</p>
@@ -300,7 +300,7 @@ Repository의 이름은 형식이 정해져 있습니다. <code class="highlight
 
 <hr />
 
-<p><strong><i class="fa fa-flag" style="color:#01077c"></i> Git Submodule 생성</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Git Submodule 생성</strong></p>
 
 <p>Jekyll Source Folder( <code class="highlighter-rouge">D:/blogmaker</code> )에 대한 Repository와 실제 블로그를 운영할 Repository를
 git submodule로 묶습니다. Submodule의 개념은 <a href="https://git-scm.com/book/ko/v1/Git-%EB%8F%84%EA%B5%AC-%EC%84%9C%EB%B8%8C%EB%AA%A8%EB%93%88" target="_blank">여기</a>
@@ -332,7 +332,7 @@ git submodule로 묶습니다. Submodule의 개념은 <a href="https://git-scm.c
 
 <hr />
 
-<p><strong><i class="fa fa-flag" style="color:#01077c"></i> _config.yml 1차 수정</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> _config.yml 1차 수정</strong></p>
 
 <p>Jekyll Source Folder( <code class="highlighter-rouge">D:/blogmaker</code> )에 있는 내용을 컴파일 하면 그 결과가 output 폴더에 들어가도록
 <code class="highlighter-rouge">_config.yml</code>을 수정합니다.</p>
@@ -341,7 +341,7 @@ git submodule로 묶습니다. Submodule의 개념은 <a href="https://git-scm.c
 
 <hr />
 
-<p><strong><i class="fa fa-flag" style="color:#01077c"></i> Travis 사이트에 접속</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Travis 사이트에 접속</strong></p>
 
 <p>Travis 사이트에 접속해서 GitHub Repository에 대한 연결을 활성화 시킵니다.</p>
 
@@ -366,7 +366,7 @@ GitHub Page와 연동되는 Repository이기 때문에 결국 Jekyll로 컴파�
 
 <hr />
 
-<p><strong><i class="fa fa-flag" style="color:#01077c"></i> Token 생성</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Token 생성</strong></p>
 
 <p>Travis CI에서 다른 Repository로 push를 하기 위해서는 <code class="highlighter-rouge">token</code>이 필요합니다.</p>
 
@@ -414,7 +414,7 @@ Jekyll Source Folder에 대한 Repository이름을 주면 됩니다. 주의하�
 
 <hr />
 
-<p><strong><i class="fa fa-flag" style="color:#01077c"></i> 사용되는 파일 수정</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 사용되는 파일 수정</strong></p>
 
 <p>이제 <code class="highlighter-rouge">_config.yml</code>, <code class="highlighter-rouge">.travis.yml</code>, <code class="highlighter-rouge">Rakefile</code> 파일을 아래와 같이 적절하게 수정해야 합니다. 
 <code class="highlighter-rouge">Ruby</code>언어로 작성된 script를 보는게 영 껄끄럽지만 어렵지 않는 내용이니 천천히 보시면 됩니다.</p>
@@ -674,7 +674,7 @@ end</pre></noscript>
 
 <hr />
 
-<p><strong><i class="fa fa-flag" style="color:#01077c"></i> Private Repository 사용</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Private Repository 사용</strong></p>
 
 <p>우리는 두개의 Repository를 사용하고 있고 둘 다 Public으로 사용하고 있습니다. 당연한 말이지만
 이 중 중요한 것은 여러 설정과 실제 원본내용이 들어있는 Jekyll Source Folder에 대한 Repository인
@@ -695,10 +695,10 @@ GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public�
 
 <hr />
 
-<p><strong><i class="fa fa-flag" style="color:#01077c"></i> Travis CI를 이용할 경우 속도문제</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Travis CI를 이용할 경우 속도문제</strong></p>
 
 <p>Travis CI를 돌려보면 알겠지만 내부적으로 <code class="highlighter-rouge">bundle install</code>을 매번 수행합니다. 이 간단한 것 하나 해결하는데
-2분가량의 시간이 들고 대부분의 시간이 설치시간입니다. 이 문제를 해결할 수 있는 방법 역시 있습니다.</p>
+2분가량의 시간이 걸리고 대부분의 시간이 설치시간입니다. 이 문제를 해결할 수 있는 방법 역시 있습니다.</p>
 
 <p><code class="highlighter-rouge">cache</code> 처리인데요. 이 부분은 나중에 포스팅 할 예정입니다. 
 문제가 꼬리에 꼬리를 물면서 계속 튕겨 나오네요. 그러면서 배우는 거죠 머 ^^;

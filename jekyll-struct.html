@@ -228,7 +228,7 @@ into the {body} of the default.hbs template -->
 
 <hr />
 
-<p><strong>Github Page Publishing</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Github Page Publishing</strong></p>
 
 <p>이전 포스트에서 로컬 서버를 실행시켜 <a href="http://jekyllthemes.org/themes/jasper2/" target="_blank">Jasper2</a> theme를 이용한 블로그가 
 실행되는 것 까지 확인을 했습니다.</p>
@@ -429,8 +429,9 @@ exclude:
 
 <hr />
 
-<p><code class="highlighter-rouge">Travis-CI</code>에 대한 설정은 다른 포스트에서 살펴보기로 하고 여기서는 수동으로 결과 파일을 Git Repository
-(GitHub Page에 대한 Repository)에 올리는 것으로 설명합니다.</p>
+<p><code class="highlighter-rouge">Travis-CI</code>에 대한 설정은 <a href="./jekyll-travis-ci-public.html" target="_blank">다른 포스트</a>에서 살펴보기로 하고 
+여기서는 수동으로 결과 파일을 Git Repository (GitHub Page에 대한 Repository)에 올리는 것으로 설명합니다.
+( <code class="highlighter-rouge">destination: ../[GitHubPage]/</code> 으로 설정되어 있다고 가정 )</p>
 
 <p>이제 <code class="highlighter-rouge">D:/[GitHubPage]/</code>파일안의 내용을 GitHub Page에 publishing하시면 됩니다.</p>
 
@@ -720,7 +721,7 @@ repository의 이름을 (자신의 github id).github.io로 지정해야 합니�
                     <h2 class="post-card-title">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3)</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>{% include githubpage-jekyll-setup-table-of-contents.html %} --- **웹 폰트 설정** 블로그를 운영할 때 가장 신경써야 하는 부분 중 하나는 `readability`입니다. Jasper2는 영문일 경우 상당히 가독성이 좋은데 한글을 사용하니 폰트때문에 가독성이 확 떨어지더군요. 그래서 폰트를 좀</p>
+                    <p>{% include githubpage-jekyll-setup-table-of-contents.html %} --- **{% include subtitle-fontawesome.html %} 웹 폰트 설정** 블로그를 운영할 때 가장 신경써야 하는 부분 중 하나는 `readability`입니다. Jasper2는 영문일 경우 상당히 가독성이 좋은데 한글을 사용하니 폰트때문에 가독성이 확</p>
                 </section>
             </a>
             <footer class="post-card-meta">
