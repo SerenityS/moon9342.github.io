@@ -42,6 +42,362 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>TypeScript 강좌(7) - Class</title>
+	  <link>https://moon9342.github.io/typescript-class</link>
+		
+				
+		
+				
+		
+				
+						<author>TypeScript</author>
+				
+		
+				
+		
+	  <pubDate>2018-01-30T18:04:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/typescript-class</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
+    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
+    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
+    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
+    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
+    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript Class</strong></p>
+
+<p>기존의 <code class="highlighter-rouge">JavaScript</code>는 재사용 가능한 component를 만들기 위해 함수와 prototype에 기반한 상속을 이용했습니다. 하지만
+기존 객체지향에 익숙해 있는 개발자들에게는 상당히 생소한 개념이었죠. 그래서 ECMAScript 2015( <code class="highlighter-rouge">ES6</code> )에서는 
+개발자들이 좀 더 쉽게 JavaScript Application을 구현할 수 있도록 전통적인 class 기반의 객체지향 개념을 도입했습니다.</p>
+
+<p><code class="highlighter-rouge">TypeScript</code> 역시 이 class기반의 객체지향 기법을 이용해 Application을 개발할 수 있습니다.</p>
+
+<p>일단 ECMAScript 2015( <code class="highlighter-rouge">ES6</code> )의 class는 다음과 같이 정의하고 사용할 수 있습니다.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
+
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">,</span><span class="nx">bauthor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span> <span class="o">=</span> <span class="nx">bauthor</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">printInfo</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`제목: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">}</span><span class="s2">, 저자: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">,</span><span class="s1">'괴테'</span><span class="p">);</span>
+<span class="nx">book</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>위의 코드는 data type의 정보를 포함하고 있지 않기 때문에 <code class="highlighter-rouge">TypeScript</code>로 변형하면 오류가 발생합니다.
+적절히 타입 정보를 포함해 코드를 수정하면 다음과 같습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
+
+    <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="nx">bauthor</span><span class="p">:</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span> <span class="o">=</span> <span class="nx">bauthor</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">printInfo</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`제목: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">}</span><span class="s2">, 저자: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="na">book</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">,</span><span class="s1">'괴테'</span><span class="p">);</span>
+<span class="nx">book</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>위의 코드는 <code class="highlighter-rouge">Java</code>에서 우리가 익히 보아왔던 class의 형태입니다. 생성자를 표현하는 부분이 좀 생소하지만 쉽게
+이해할 수 있을 듯 합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Inheritance</strong></p>
+
+<p>일반적인 객체지향언어의 <code class="highlighter-rouge">Inheritance</code> 개념 역시 TypeScript에도 사용할 수 있습니다. 다음의 코드를 보죠.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
+
+    <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="nl">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+    <span class="c1">// 상위 클래스의 생성자</span>
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="nx">bauthor</span><span class="p">:</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span> <span class="o">=</span> <span class="nx">bauthor</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 상위 클래스의 method</span>
+    <span class="c1">// 입력 인자가 있으면 사용하고 없으면 default 사용</span>
+    <span class="nx">printInfo</span><span class="p">(</span><span class="nx">input</span><span class="p">:</span><span class="nx">string</span> <span class="o">=</span> <span class="s1">'Initial'</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`제목: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">}</span><span class="s2">, 저자: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// class의 상속</span>
+<span class="kd">class</span> <span class="nx">EBook</span> <span class="kd">extends</span> <span class="nx">Book</span> <span class="p">{</span>
+
+    <span class="na">btype</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+    <span class="kd">constructor</span><span class="p">(</span><span class="na">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="na">bauthor</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="na">btype</span><span class="p">:</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 상위 class 생성자 호출</span>
+        <span class="k">super</span><span class="p">(</span><span class="nx">btitle</span><span class="p">,</span> <span class="nx">bauthor</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">btype</span> <span class="o">=</span> <span class="nx">btype</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// method overriding</span>
+    <span class="nx">printInfo</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="c1">// 상위 class의 method 호출</span>
+        <span class="k">super</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`제목: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">}</span><span class="s2">, 
+                     저자: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span><span class="p">}</span><span class="s2">,
+                     타입: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btype</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// IS-A relationship에 의한 상위 class type 사용</span>
+<span class="kd">let</span> <span class="na">book</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EBook</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">,</span><span class="s1">'괴테'</span><span class="p">,</span>
+    <span class="s1">'PDF'</span><span class="p">);</span>
+
+<span class="c1">// dynamic binding에 의한 overriding method 호출.</span>
+<span class="nx">book</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>기존 class를 확장하여 새로운 class를 정의하는 방법입니다. <code class="highlighter-rouge">IS-A Relationship</code> 역시 성립합니다. 그로 인한
+상위 타입으로 객체를 사용할 수 있습니다. 또한 위의 예에서 처럼 <code class="highlighter-rouge">method overriding</code>의 개념 역시 존재하고 
+<code class="highlighter-rouge">dynamic binding</code> 개념 역시 존재합니다. 물론 <code class="highlighter-rouge">TypeScript</code>에서는 공식적으로 저 용어를 사용하지는 않습니다.
+다만 우리가 <code class="highlighter-rouge">Java</code>언어에서 알고 있던 객체지향 개념이 그대로 TypeScript에도 일부 적용된다고 보시면 됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Access Modifier</strong></p>
+
+<p><code class="highlighter-rouge">TypeScript</code>는 3가지 종류의 접근제어 연산자를 제공합니다. 우리에게 익숙한 <code class="highlighter-rouge">public</code>, <code class="highlighter-rouge">protected</code>, <code class="highlighter-rouge">private</code> 
+키워드로 제공되며 <strong>default값은 <code class="highlighter-rouge">public</code></strong>입니다. 즉, Access Modifier를 명시하지 않으면 모두 <code class="highlighter-rouge">public</code>으로 간주됩니다.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">public</code> : 접근제한이 없습니다. class외부에서 자유롭게 접근이 가능합니다.</li>
+  <li><code class="highlighter-rouge">protected</code> : class 외부에서 접근할 수 없습니다. 단, 상속받은 하위 class에서는 접근이 가능합니다.</li>
+  <li><code class="highlighter-rouge">privatre</code> : class 외부에서 접근할 수 없습니다. 상속받은 하위 class에서도 접근이 불가능합니다.</li>
+</ul>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
+
+    <span class="kr">protected</span> <span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+    <span class="kr">public</span> <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="kr">private</span> <span class="nx">_bauthor</span><span class="p">:</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">public</span> <span class="nx">printInfo</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`제목: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">}</span><span class="s2">, 저자: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">_bauthor</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// private property인 _bauthor의 getter</span>
+    <span class="kd">get</span> <span class="nx">bauthor</span><span class="p">():</span> <span class="nx">string</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_bauthor</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// private property인 _bauthor의 setter</span>
+    <span class="kd">set</span> <span class="nx">bauthor</span><span class="p">(</span><span class="na">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_bauthor</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">EBook</span> <span class="kd">extends</span> <span class="nx">Book</span> <span class="p">{</span>
+
+    <span class="kr">private</span> <span class="na">btype</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+    <span class="kr">public</span> <span class="kd">constructor</span><span class="p">(</span><span class="na">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="na">bauthor</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="na">btype</span><span class="p">:</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">(</span><span class="nx">btitle</span><span class="p">,</span> <span class="nx">bauthor</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">btype</span> <span class="o">=</span> <span class="nx">btype</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">public</span> <span class="nx">printInfo</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`제목: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">}</span><span class="s2">, 
+                     저자: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span><span class="p">}</span><span class="s2">,
+                     타입: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btype</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="na">book</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EBook</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">,</span><span class="s1">'괴테'</span><span class="p">,</span>
+    <span class="s1">'PDF'</span><span class="p">);</span>
+
+<span class="nx">book</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>위의 예제에서는 다음의 코드를 주의해서 보아야 합니다. 
+생성자의 인자로 <code class="highlighter-rouge">private _bauthor:string</code>라고 선언된 부분이 보입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kr">protected</span> <span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+    <span class="kr">public</span> <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="kr">private</span> <span class="nx">_bauthor</span><span class="p">:</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>생성자에 인자를 명시할 때 access modifier를 같이 명시하면 위의 예처럼 명시적으로
+해당 property가 선언되어 사용할 수 있게 됩니다.</p>
+
+<p>일반적으로 <code class="highlighter-rouge">private property</code>의 이름은 앞에 <code class="highlighter-rouge">_</code>를 관용적으로 써주게 됩니다. 이렇게 사용하는 이유는
+관용적 coding convention 때문에 그렇습니다. ECMAScript에서는 개발자들이 private의 의미로 사용되는
+property에 일반적으로 <code class="highlighter-rouge">_</code>를 붙여서 사용했었습니다.</p>
+
+<p>또 다른 이유는 <code class="highlighter-rouge">setter</code>와 <code class="highlighter-rouge">getter</code>의 이름때문에 그렇습니다. 다음의 코드에서 보듯이 <code class="highlighter-rouge">TypeScript</code>에서 
+getter와 setter의 표현은 우리가 알고 있는 다른 언어의 getter, setter와 다릅니다. 그리고 이렇게
+선언된 getter와 setter가 어떻게 사용되는지도 유의해서 보시기 바랍니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">// private property인 _bauthor의 getter</span>
+    <span class="kd">get</span> <span class="nx">bauthor</span><span class="p">():</span> <span class="nx">string</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_bauthor</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// private property인 _bauthor의 setter</span>
+    <span class="kd">set</span> <span class="nx">bauthor</span><span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_bauthor</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Readonly Property</strong></p>
+
+<p>class의 property를 <code class="highlighter-rouge">readonly</code>로 지정할 수 있습니다. readonly로 지정되면 property가 선언될 때 혹은 생성자안에서
+반드시 초기화를 진행해야 합니다. 다음의 예제를 참고하시면 됩니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
+
+    <span class="kr">public</span> <span class="nx">readonly</span> <span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">book</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">);</span>
+
+<span class="nx">book</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="s1">'파우스트'</span><span class="p">;</span>   <span class="c1">// 코드 에러</span>
+</code></pre></div></div>
+
+<p>다음의 예제처럼 생성자의 parameter를 readonly로 선언하면 따로 class의 property로 선언할 필요가 없습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
+
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">readonly</span> <span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">book</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">book</span><span class="p">.</span><span class="nx">btitle</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> static Property</strong></p>
+
+<p><code class="highlighter-rouge">static</code> 키워드 역시 사용할 수 있습니다. ECMAScript 2015에서는 static을 method에만 적용할 수 있었지만
+TypeScript는 property에도 적용할 수 있습니다. static property는 class의 이름으로 직접 access를 할 수 있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
+
+    <span class="kr">public</span> <span class="nx">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">;</span>
+    <span class="kr">static</span> <span class="nx">count</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
+        <span class="nx">Book</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">book1</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">book2</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="s1">'파우스트'</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Book</span><span class="p">.</span><span class="nx">count</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Abstract Class</strong></p>
+
+<p><code class="highlighter-rouge">abstract class</code>는 하나이상의 <code class="highlighter-rouge">abstract method</code>를 가지고 있는 class를 의미합니다. method의 선언만을 가지고 있기
+때문에 직접적인 객체생성을 할 수 없고 상속을 이용해 하위 클래스에서 abstract method를 overriding해서 사용하게 됩니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">abstract</span> <span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
+
+    <span class="kr">public</span> <span class="nx">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">;</span>
+
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kr">abstract</span> <span class="nx">printInfo</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nx">EBook</span> <span class="kd">extends</span> <span class="nx">Book</span> <span class="p">{</span>
+
+    <span class="nx">printInfo</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="na">book</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EBook</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">);</span>
+<span class="nx">book</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> interface의 의미로 class사용</strong></p>
+
+<p>이 부분은 기존의 다른 언어와 다릅니다. <strong>class를 확장해서 interface를 정의</strong>할 수 있습니다. 다음의 코드를 참조하세요</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
+
+    <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">EBook</span> <span class="kd">extends</span> <span class="nx">Book</span> <span class="p">{</span>
+
+    <span class="nl">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">book</span><span class="p">:</span><span class="nx">EBook</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">btitle</span><span class="p">:</span> <span class="s1">'파우스트'</span><span class="p">,</span>
+    <span class="na">bauthor</span><span class="p">:</span> <span class="s1">'괴테'</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>이번 포스트에서는 <code class="highlighter-rouge">TypeScript</code>의 class에 대해서 살펴보았습니다. 객체지향 언어의 class와 상당히 유사하면서도
+약간의 차이점이 있었습니다. 차이점 위주로 기억하시면 될 듯 합니다.</p>
+
+<p>이 포스트의 내용은 <a href="http://www.typescriptlang.org" target="_blank">TypeScript official home page</a>을 참조했습니다.
+조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>TypeScript 강좌(6) - Interface</title>
 	  <link>https://moon9342.github.io/typescript-interface</link>
 		
@@ -58,7 +414,8 @@
 	  <pubDate>2018-01-24T09:51:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-interface</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -66,6 +423,7 @@
     <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
     <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
     <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />
@@ -574,6 +932,8 @@ interface내에 정의해서 사용합니다.</p>
 
 <hr />
 
+<p><strong>interface는 type check를 위해 사용되기 때문에 interface로는 객체를 생성할 수 없습니다.</strong></p>
+
 <p>일단 이 정도만 알아두어도 될 듯 보입니다. 
 내용이 생각보다 많은데 생각보다 많이 어렵지는 않습니다. 단지 헷갈릴 뿐이죠 ^^
 여러번 정독하면서 쓰임새를 알아두고 실제 코드에서 활용하면서 익히셔야 합니다.</p>
@@ -601,7 +961,8 @@ interface내에 정의해서 사용합니다.</p>
 	  <pubDate>2018-01-23T17:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-destructuring</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -609,6 +970,7 @@ interface내에 정의해서 사용합니다.</p>
     <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
     <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
     <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />
@@ -924,7 +1286,8 @@ Destructuring이 완벽하게 똑같지는 않다는 것입니다.</p>
 	  <pubDate>2018-01-22T19:14:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-variable</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -932,6 +1295,7 @@ Destructuring이 완벽하게 똑같지는 않다는 것입니다.</p>
     <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
     <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
     <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />
@@ -1219,7 +1583,8 @@ var는 중복선언이 가능합니다. 다음과 같이 말이죠.</p>
 	  <pubDate>2018-01-22T16:44:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-datatype-2</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -1227,6 +1592,7 @@ var는 중복선언이 가능합니다. 다음과 같이 말이죠.</p>
     <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
     <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
     <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />
@@ -1434,7 +1800,8 @@ TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정�
 	  <pubDate>2018-01-22T13:07:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-datatype-1</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -1442,6 +1809,7 @@ TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정�
     <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
     <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
     <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />
@@ -1713,7 +2081,8 @@ myStr : Hello
 	  <pubDate>2018-01-21T17:42:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-introduction</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -1721,6 +2090,7 @@ myStr : Hello
     <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
     <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
     <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />

@@ -8,6 +8,31 @@
     
       
       <item>
+        <title>TypeScript 강좌(7) - Class</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-introduction.html&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-datatype-1.html&quot;&gt;TypeScript 강좌(2) - Data Type(Part 1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-datatype-2.html&quot;&gt;TypeScript 강좌(3) - Data Type(Part 2)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-variable.html&quot;&gt;TypeScript 강좌(4) - 변수 선언&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-destructuring.html&quot;&gt;TypeScript 강좌(5) - Destructuring&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-interface.html&quot;&gt;TypeScript 강좌(6) - Interface&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-class.html&quot;&gt;TypeScript 강좌(7) - Class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Tue, 30 Jan 2018 18:04:00 +0000</pubDate>
+        <link>
+        https://moon9342.github.io/typescript-class</link>
+        <guid isPermaLink="true">https://moon9342.github.io/typescript-class</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Front-End 발전 역사와 개발 생태계</title>
         
           <description>&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
@@ -165,7 +190,8 @@
       <item>
         <title>TypeScript 강좌(6) - Interface</title>
         
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-introduction.html&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-datatype-1.html&quot;&gt;TypeScript 강좌(2) - Data Type(Part 1)&lt;/a&gt;&lt;/li&gt;
@@ -173,6 +199,7 @@
     &lt;li&gt;&lt;a href=&quot;./typescript-variable.html&quot;&gt;TypeScript 강좌(4) - 변수 선언&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-destructuring.html&quot;&gt;TypeScript 강좌(5) - Destructuring&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-interface.html&quot;&gt;TypeScript 강좌(6) - Interface&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-class.html&quot;&gt;TypeScript 강좌(7) - Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -218,7 +245,8 @@
       <item>
         <title>TypeScript 강좌(5) - Destructuring</title>
         
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-introduction.html&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-datatype-1.html&quot;&gt;TypeScript 강좌(2) - Data Type(Part 1)&lt;/a&gt;&lt;/li&gt;
@@ -226,6 +254,7 @@
     &lt;li&gt;&lt;a href=&quot;./typescript-variable.html&quot;&gt;TypeScript 강좌(4) - 변수 선언&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-destructuring.html&quot;&gt;TypeScript 강좌(5) - Destructuring&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-interface.html&quot;&gt;TypeScript 강좌(6) - Interface&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-class.html&quot;&gt;TypeScript 강좌(7) - Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -241,7 +270,8 @@
       <item>
         <title>TypeScript 강좌(4) - 변수 선언</title>
         
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-introduction.html&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-datatype-1.html&quot;&gt;TypeScript 강좌(2) - Data Type(Part 1)&lt;/a&gt;&lt;/li&gt;
@@ -249,6 +279,7 @@
     &lt;li&gt;&lt;a href=&quot;./typescript-variable.html&quot;&gt;TypeScript 강좌(4) - 변수 선언&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-destructuring.html&quot;&gt;TypeScript 강좌(5) - Destructuring&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-interface.html&quot;&gt;TypeScript 강좌(6) - Interface&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-class.html&quot;&gt;TypeScript 강좌(7) - Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -264,7 +295,8 @@
       <item>
         <title>TypeScript 강좌(3) - Data Type(Part 2)</title>
         
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-introduction.html&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-datatype-1.html&quot;&gt;TypeScript 강좌(2) - Data Type(Part 1)&lt;/a&gt;&lt;/li&gt;
@@ -272,6 +304,7 @@
     &lt;li&gt;&lt;a href=&quot;./typescript-variable.html&quot;&gt;TypeScript 강좌(4) - 변수 선언&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-destructuring.html&quot;&gt;TypeScript 강좌(5) - Destructuring&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-interface.html&quot;&gt;TypeScript 강좌(6) - Interface&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-class.html&quot;&gt;TypeScript 강좌(7) - Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -287,7 +320,8 @@
       <item>
         <title>TypeScript 강좌(2) - Data Type(Part 1)</title>
         
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-introduction.html&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-datatype-1.html&quot;&gt;TypeScript 강좌(2) - Data Type(Part 1)&lt;/a&gt;&lt;/li&gt;
@@ -295,6 +329,7 @@
     &lt;li&gt;&lt;a href=&quot;./typescript-variable.html&quot;&gt;TypeScript 강좌(4) - 변수 선언&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-destructuring.html&quot;&gt;TypeScript 강좌(5) - Destructuring&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-interface.html&quot;&gt;TypeScript 강좌(6) - Interface&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-class.html&quot;&gt;TypeScript 강좌(7) - Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -310,7 +345,8 @@
       <item>
         <title>TypeScript 강좌(1) - Introduction</title>
         
-          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-introduction.html&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-datatype-1.html&quot;&gt;TypeScript 강좌(2) - Data Type(Part 1)&lt;/a&gt;&lt;/li&gt;
@@ -318,6 +354,7 @@
     &lt;li&gt;&lt;a href=&quot;./typescript-variable.html&quot;&gt;TypeScript 강좌(4) - 변수 선언&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-destructuring.html&quot;&gt;TypeScript 강좌(5) - Destructuring&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-interface.html&quot;&gt;TypeScript 강좌(6) - Interface&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-class.html&quot;&gt;TypeScript 강좌(7) - Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
