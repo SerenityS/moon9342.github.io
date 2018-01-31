@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-01-31T04:09:17+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Front-End 발전 역사와 개발 생태계</title><link href="https://moon9342.github.io/front-end-ecosystem" rel="alternate" type="text/html" title="Front-End 발전 역사와 개발 생태계" /><published>2018-01-29T13:31:00+00:00</published><updated>2018-01-29T13:31:00+00:00</updated><id>https://moon9342.github.io/front-end-ecosystem</id><content type="html" xml:base="https://moon9342.github.io/front-end-ecosystem">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-01-31T04:49:43+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Front-End 발전 역사와 개발 생태계</title><link href="https://moon9342.github.io/front-end-ecosystem" rel="alternate" type="text/html" title="Front-End 발전 역사와 개발 생태계" /><published>2018-01-29T13:31:00+00:00</published><updated>2018-01-29T13:31:00+00:00</updated><id>https://moon9342.github.io/front-end-ecosystem</id><content type="html" xml:base="https://moon9342.github.io/front-end-ecosystem">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;이번 포스트는 과거 JavaScript 탄생부터 시작해서 어떻게 발전해왔는지에 대한 내용과 &lt;br /&gt;
 현재 Front End 개발에 있어서 무엇을 알아야 하는 지에 대한 전반적인 기술 상황에 대해서 알아보겠습니다.&lt;/p&gt;
@@ -1915,7 +1915,7 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 
 &lt;p&gt;TypeScript에서 interface는 새로운 데이터 타입을 만드는 추상 데이터 타입(&lt;code class=&quot;highlighter-rouge&quot;&gt;abstract data type&lt;/code&gt;)으로 사용이 되며
 일반 변수, 함수, 클래스의 type check를 위해 사용됩니다. interface 이용하여 타입을 선언하면 
-interface안의 property의 선언과 method의 구현이 강제되기 때문에 프로그래밍의 일관성을 확보할 수 있습니다.&lt;/p&gt;
+interface안에 명시된 property의 선언과 method의 구현이 강제되기 때문에 프로그래밍의 일관성을 확보할 수 있습니다.&lt;/p&gt;
 
 &lt;p&gt;참고로 ES6는 interface를 지원하지 않습니다. TypeScript만 지원합니다. 
 그렇기 때문에 interface를 컴파일 한 결과물을 보면 interface의 내용은 나타나지 않게됩니다.&lt;/p&gt;
@@ -2012,7 +2012,7 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 
 &lt;p&gt;왜 이런 현상이 발생할까요?&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;TypeScript의 중요한 원칙 중 하나는 type-checking을 가지고 있는 값들의 형태를 가지고 판단한다는 것입니다.&lt;/strong&gt; 말이 좀 
+&lt;p&gt;&lt;strong&gt;TypeScript의 중요한 원칙 중 하나는 가지고 있는 값들의 형태를 가지고 type-checking을 수행한다는 것입니다.&lt;/strong&gt; 말이 좀 
 어렵네요. 풀어서 설명하자면 TypeScript에서 type-checking은 선언된 타입만을 비교하는것이 아니라 
 실제 이용될 수 있는 형태의 값들을 가지고 있느냐 그렇지 않느냐를 가지고 한다는 의미입니다.&lt;/p&gt;
 
@@ -2023,15 +2023,15 @@ interface안의 property의 선언과 method의 구현이 강제되기 때문에
 말하자면 class의 상속이나 interface의 구현으로 타입을 구분하는 것이 아니라 객체가 특정 타입에 걸맞는 property와 method를 
 가지고 있으면 해당 type으로 간주한다는 의미로 받아들이시면 됩니다.&lt;/p&gt;
 
-&lt;p&gt;해서 결론적으로 저 위의 코드는 에러없이 사용할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;해서 저 위의 코드는 에러없이 사용할 수 있습니다.&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Optional Properties&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;TypeScript interface의 모든 property와 method는 구현하는 클래스 혹은 구현 객체에서 기본적으로 모두 재정의되어야 합니다. 
-하지만 &lt;code class=&quot;highlighter-rouge&quot;&gt;Optional Property&lt;/code&gt;를 이용하면 property 중 &lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt; 가 붙어있는 property는 구현하지 않아도 상관없습니다. 즉, 선택적으로 
-구현여부를 결정할 수 있는 property가 optional property입니다.&lt;/p&gt;
+하지만 &lt;code class=&quot;highlighter-rouge&quot;&gt;Optional Property&lt;/code&gt;( property 중 &lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt; 가 붙어있는 property를 의미합니다. )를 이용하면 해당 property는 
+재정의하지 않아도 상관없습니다. 즉, 선택적으로 구현여부를 결정할 수 있는 property가 optional property입니다.&lt;/p&gt;
 
 &lt;p&gt;아래의 예를 가지고 살펴보겠습니다.&lt;/p&gt;
 
