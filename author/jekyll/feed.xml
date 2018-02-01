@@ -22,6 +22,8 @@
       
             
       
+            
+      
    
    <title>
    <![CDATA[ jekyll - IT Blog ]]>
@@ -47,6 +49,8 @@
 		
 				
 						<author>jekyll</author>
+				
+		
 				
 		
 				
@@ -566,6 +570,8 @@ GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public�
 		
 				
 		
+				
+		
 	  <pubDate>2018-01-25T15:30:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-gist</guid>
 	  <description><![CDATA[
@@ -827,6 +833,8 @@ default theme가 맘에 안드시면 다음의 <a href="http://codersblock.com/b
 		
 				
 		
+				
+		
 	  <pubDate>2018-01-18T01:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-sitemap</guid>
 	  <description><![CDATA[
@@ -957,6 +965,8 @@ sitemap.xml 파일을 추가합니다. 정상적으로 처리되면 다음과 �
 		
 				
 						<author>jekyll</author>
+				
+		
 				
 		
 				
@@ -1251,6 +1261,8 @@ subclass: &#39;post page&#39;
 		
 				
 		
+				
+		
 	  <pubDate>2018-01-17T19:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-rouge</guid>
 	  <description><![CDATA[
@@ -1382,6 +1394,8 @@ function syntaxHighlight(code) {
 		
 				
 		
+				
+		
 	  <pubDate>2018-01-16T18:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-font</guid>
 	  <description><![CDATA[
@@ -1474,6 +1488,8 @@ gulp를 설치하고 <code class="highlighter-rouge">gulpfile.js</code> 파일�
 		
 				
 						<author>jekyll</author>
+				
+		
 				
 		
 				
@@ -1737,6 +1753,8 @@ repository의 이름을 (자신의 github id).github.io로 지정해야 합니�
 		
 				
 						<author>jekyll</author>
+				
+		
 				
 		
 				

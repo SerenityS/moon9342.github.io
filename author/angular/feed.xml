@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>https://moon9342.github.io/</title>
+   
+   <link>https://moon9342.github.io/</link>
+   <description>Development & Technical Training</description>
+   <language>en-uk</language>
+   
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+               
+               
+                  <managingEditor>Angular</managingEditor>
+            
+      
+   
+   <title>
+   <![CDATA[ Angular - IT Blog ]]>
+   </title>
+   <description>
+   <![CDATA[ Development & Technical Training ]]>
+   </description>
+   <link>https://moon9342.github.io/</link>
+   <image>
+   <url>https://moon9342.github.io/assets/built/images/favicon.jpg</url>
+   <title>Angular - IT Blog</title>
+   <link>https://moon9342.github.io/</link>
+   </image>
+   <generator>Jekyll 3.6.2</generator>
+   <lastBuildDate></lastBuildDate>
+   <atom:link href="https://moon9342.github.io/author/angular/rss.xml" rel="self" type="application/rss+xml"/>
+   <ttl>60</ttl>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+
+</channel>
+</rss>

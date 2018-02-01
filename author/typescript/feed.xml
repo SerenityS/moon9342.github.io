@@ -22,6 +22,8 @@
       
             
       
+            
+      
    
    <title>
    <![CDATA[ TypeScript - IT Blog ]]>
@@ -51,6 +53,8 @@
 		
 				
 						<author>TypeScript</author>
+				
+		
 				
 		
 				
@@ -407,6 +411,8 @@ TypeScript는 property에도 적용할 수 있습니다. static property는 clas
 		
 				
 						<author>TypeScript</author>
+				
+		
 				
 		
 				
@@ -958,6 +964,8 @@ interface내에 정의해서 사용합니다.</p>
 		
 				
 		
+				
+		
 	  <pubDate>2018-01-23T17:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-destructuring</guid>
 	  <description><![CDATA[
@@ -1283,6 +1291,8 @@ Destructuring이 완벽하게 똑같지는 않다는 것입니다.</p>
 		
 				
 		
+				
+		
 	  <pubDate>2018-01-22T19:14:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-variable</guid>
 	  <description><![CDATA[
@@ -1580,6 +1590,8 @@ var는 중복선언이 가능합니다. 다음과 같이 말이죠.</p>
 		
 				
 		
+				
+		
 	  <pubDate>2018-01-22T16:44:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-datatype-2</guid>
 	  <description><![CDATA[
@@ -1793,6 +1805,8 @@ TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정�
 		
 				
 						<author>TypeScript</author>
+				
+		
 				
 		
 				
@@ -2074,6 +2088,8 @@ myStr : Hello
 		
 				
 						<author>TypeScript</author>
+				
+		
 				
 		
 				

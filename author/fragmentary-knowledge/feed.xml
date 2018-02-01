@@ -22,6 +22,8 @@
                   <managingEditor>fragmentary-knowledge</managingEditor>
             
       
+            
+      
    
    <title>
    <![CDATA[ fragmentary-knowledge - IT Blog ]]>
@@ -53,6 +55,8 @@
 		
 				
 						<author>fragmentary-knowledge</author>
+				
+		
 				
 		
 	  <pubDate>2018-01-27T15:30:00+00:00</pubDate>
@@ -137,6 +141,8 @@ Build-Test-Release-Deploy까지 진행하고 그 결과를 개발자나 다른 �
 		
 				
 						<author>fragmentary-knowledge</author>
+				
+		
 				
 		
 	  <pubDate>2018-01-26T13:39:00+00:00</pubDate>
@@ -287,6 +293,8 @@ Framework은 이런 유지보수 측면에서 강점을 가질 수 있습니다.
 						<author>fragmentary-knowledge</author>
 				
 		
+				
+		
 	  <pubDate>2018-01-26T10:48:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/browser-detect-script</guid>
 	  <description><![CDATA[
@@ -376,6 +384,8 @@ IE 10까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이�
 		
 				
 						<author>fragmentary-knowledge</author>
+				
+		
 				
 		
 	  <pubDate>2018-01-25T23:50:00+00:00</pubDate>
@@ -1053,6 +1063,8 @@ Font Awesome의 폰트는 <code class="highlighter-rouge">GPL</code> 라이선�
 						<author>fragmentary-knowledge</author>
 				
 		
+				
+		
 	  <pubDate>2018-01-25T14:11:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/github-gist</guid>
 	  <description><![CDATA[
@@ -1132,6 +1144,8 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 						<author>fragmentary-knowledge</author>
 				
 		
+				
+		
 	  <pubDate>2018-01-24T17:51:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/i18n-l10n</guid>
 	  <description><![CDATA[
@@ -1179,6 +1193,8 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 		
 				
 						<author>fragmentary-knowledge</author>
+				
+		
 				
 		
 	  <pubDate>2018-01-21T15:00:00+00:00</pubDate>
@@ -1240,6 +1256,8 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 						<author>fragmentary-knowledge</author>
 				
 		
+				
+		
 	  <pubDate>2018-01-18T11:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/what_is_yaml</guid>
 	  <description><![CDATA[
@@ -1289,6 +1307,8 @@ Spring Boot도 현재 YAML을 지원하고 있습니다.</p>
 		
 				
 						<author>fragmentary-knowledge</author>
+				
+		
 				
 		
 	  <pubDate>2018-01-18T10:00:00+00:00</pubDate>
