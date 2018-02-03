@@ -234,12 +234,13 @@ JavaScript라는 언어의 위상도 상당히 올라갔습니다. ( <code class
 이름을 LiveScript에서 <code class="highlighter-rouge">JavaScript</code>로 변경하게 된 것입니다.</p>
 
 <blockquote>
-  <p><strong>이름의 변경 순서가 <code class="highlighter-rouge">Mocha</code> -&gt; <code class="highlighter-rouge">LiveScript</code> -&gt; <code class="highlighter-rouge">JavaScript</code> 가 되는군요.</strong></p>
+  <p><strong>이름의 변경 순서가 <code class="highlighter-rouge">Mocha</code> <i class="fa fa-arrow-right"></i> <code class="highlighter-rouge">LiveScript</code> 
+<i class="fa fa-arrow-right"></i> <code class="highlighter-rouge">JavaScript</code> 가 되는군요.</strong></p>
 </blockquote>
 
-<p>MS(마이크로소프트)에서는 이에 대응하기 위해 <code class="highlighter-rouge">JScript</code>를 만들고 IE 3부터 JScript를 포함시켜서 제공했지요. 당연한 말이지만
-JavaScript와 JScript는 서로 비슷하지만 특징이 다릅니다. 그로인해 우리가 잘 알고있는 JavaScript의 고질적인 문제인 파편화현상이
-발생하게 됩니다.</p>
+<p>MS(Microsoft)에서는 이에 대응하기 위해 <code class="highlighter-rouge">JScript</code>를 만들고 <code class="highlighter-rouge">IE 3</code>부터 JScript를 포함시켜서 제공했지요. 당연한 말이지만
+JavaScript와 JScript는 서로 비슷하지만 특징이 다릅니다. 그로인해 우리가 잘 알고있는 JavaScript의 고질적인 문제인 
+<code class="highlighter-rouge">Fragmentation</code>(파편화 현상)이 발생하게 됩니다.</p>
 
 <hr />
 
@@ -261,13 +262,16 @@ ECMAScript가 host되는 환경 중 하나일 뿐입니다.</p>
   <p><strong><code class="highlighter-rouge">JavaScript</code> = <code class="highlighter-rouge">ECMAScript</code> + <code class="highlighter-rouge">BOM</code> + <code class="highlighter-rouge">DOM</code></strong></p>
 </blockquote>
 
-<p>현재 ECMAScript version은 7까지 나와있습니다. 정확한 의미의 차이는 분명히 있지만 그냥 저냥 대충 통용해서 사용합니다.</p>
+<p>현재 ECMAScript version은 7까지 나와있습니다. (<code class="highlighter-rouge">ECMAScript 2016</code> = <code class="highlighter-rouge">ES7</code>)</p>
+
+<p>이렇듯 <code class="highlighter-rouge">JavaScript</code>와 <code class="highlighter-rouge">ECMAScript</code>는 정확한 의미의 차이는 분명히 있지만 그냥 저냥 대충 통용해서 사용합니다. 흔히 우리가
+JavaScript라고 표현하면 ECMAScript를 의미한다고 보시면 됩니다.</p>
 
 <hr />
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript</strong></p>
 
-<p>그러면 TypeScript는 또 어떤걸까요? 요즘에 왜 TypeScript가 대세로 떠오른 걸까요?</p>
+<p>그러면 TypeScript는 또 어떤걸까요? 왜 TypeScript가 대세로 떠오른 걸까요?</p>
 
 <p><code class="highlighter-rouge">TypeScript</code>는 Microsoft에서 개발하여 2012년에 발표한 오픈 소스 프로그래밍 언어입니다. 
 JavaScript로 대규모 application개발을 하기 위해 개발되었고 컴파일 과정을 거치면 JavaScript가 되는 언어입니다.
@@ -275,10 +279,12 @@ CoffeeScript 처럼 compile하면 JavaScript가 생성되는 변환 언어의 �
 그냥 JavaScript로 개발하면 되지 굳이 이런 변환언어를 사용하는 이유는 무엇일까요? ( 이런 프로그래밍을 
 <a href="./what-is-metaprogramming.html" target="_blank">메타프로그래밍</a> 이라고 합니다. )</p>
 
-<p><strong>가장 큰 이유는 기능의 추가에 있습니다.</strong><br />
-변환언어의 가장 큰 장점은 기능을 쉽게 추가할 수 있다는 것인데 추상 클래스, 인터페이스, 정적 데이터타입 사용, 
-엄격한 타입 체크등을 JavaScript에 추가하여 개발을 쉽게 끌고 갈 수 있습니다.<br />
-즉, 전통적인 OOP방식으로 개발을 진행할 수 있다는 것이 큰 장점으로 꼽을 수 있습니다.</p>
+<p><strong>가장 큰 이유는 기능의 추가에 있습니다.</strong></p>
+
+<p>변환언어의 가장 큰 장점은 변환되는 언어에 기능을 쉽게 추가할 수 있다는 것인데 예를 들면, 추상 클래스, 인터페이스, 
+정적 데이터타입 사용, 엄격한 타입 체크등을 JavaScript에 추가하여 개발을 쉽게 끌고 갈 수 있습니다.</p>
+
+<p>즉, 전통적인 OOP방식으로 JavaScript개발을 진행할 수 있다는 것이죠.</p>
 
 <blockquote>
   <p><strong>기존 객체지향 언어(Java,C++,C#)를 알고 있고 JavaScript를 알고 있으면 TypeScript를 아주 쉽게
@@ -286,29 +292,37 @@ CoffeeScript 처럼 compile하면 JavaScript가 생성되는 변환 언어의 �
 </blockquote>
 
 <p>TypeScript는 다른 변환언어와는 다르게 <strong>JavaScript의 superset</strong>입니다. 그렇기 때문에 이미 JavaScript를 알고 있으면
-쉽게 TypeScript를 사용할 수 있으며 ES6(ECMAScript 2015)에서 제공되는 기능 중 필요한 것만 골라서 이용할 수 있습니다. 
+쉽게 TypeScript를 사용할 수 있으며 <code class="highlighter-rouge">ES6</code>(ECMAScript 2015)나 <code class="highlighter-rouge">ES7</code>(ECMAScript 2016)에서 제공되는 기능 중 필요한 것만 
+골라서 이용할 수 있습니다. 
 아래의 그림은 TypeScript와 ECMAScript간의 포함관계를 보여줍니다.</p>
 
 <p><img src="assets/built/images/es5-es6-typescript-circle-diagram.png" alt="Image" /></p>
+<div class="img-reference">( 이미지 출처 : https://angular2buch.de )</div>
 
 <p>2017년 3월부로 TypeScript는 Google의 공식언어 중 하나로 채택되었습니다. MS에서 개발한 언어를 Google이
-표준언어로 채택하다니 놀랍습니다. 그만큼 TypeScript가 좋다는 의미겠지요.</p>
+표준언어로 채택하다니 놀랍습니다. 그만큼 TypeScript의 언어적 기능이 좋고 앞으로의 발전가능성이 많다는 의미겠지요.</p>
 
-<p>기존 Google의 사내 표준언어 (Canonical Language)는 C, C++, Java, JavaScript, Python, Go 정도였는데 
+<p>기존 Google의 사내 표준언어 (<code class="highlighter-rouge">Canonical Language</code>)는 C, C++, Java, JavaScript, Python, Go 정도였는데 
 Google은 이 중 JavaScript를 이용하여 AngularJS(1.x)를 개발해왔었습니다.</p>
 
 <p>하지만 AngualrJS(1.x)의 차기버전인 Angular(2.x)를 개발하면서 JavaScript의 기능상의 한계를 느끼게 되고
-결국 2014년에 Google에서 발표한 <code class="highlighter-rouge">AtScript</code>를 사용하게 됩니다.</p>
+결국 2014년에 Google에서 발표한 <code class="highlighter-rouge">AtScript</code>를 이용해 Angular(2.x)를 개발하게 됩니다.</p>
 
-<p>하지만 최종적으로는 TypeScript가 Angular의 표준언어 중 하나로 채택이 됩니다. 기존의 AtScript로 작성했던 Angular 2를
-몽땅 TypeScript로 전환했습니다. 그러면서 기존 Google에서 JavaScript의 
-대체 언어로 밀고있었던 <code class="highlighter-rouge">Dart</code>의 위상 역시 살짝 하락한 상태입니다. (물론 Google은 아니라고 하지만요. )</p>
+<p>하지만 최종적으로는 TypeScript가 Angular의 표준언어 중 하나로 채택이 됩니다. 그러면서 기존의 AtScript로 작성했던 
+Angular 2를 몽땅 TypeScript로 전환했습니다. Google에서 말하기로는 변환이 아주 쉬웠다고 하더군요.</p>
+
+<p>이렇게 TypeScript의 위상이 올라가면서 기존 Google에서 JavaScript의 대체 언어로 밀고있었던 
+<code class="highlighter-rouge">Dart</code>의 위상 역시 살짝 하락한 상태입니다. (물론 Google은 아니라고 하지만요. )</p>
 
 <blockquote>
   <p><code class="highlighter-rouge">Angular</code>는 공식적으로 3개의 언어를 지원합니다. (TypeScript, JavaScript, Dart)   <br />
 그런데 공식문서에서나 커뮤니티활동에서 가장 많이 사용되는것은 <code class="highlighter-rouge">TypeScript</code>입니다. 
 결국 Angular는 꼭 해야할 것 중 하나이니 TypeScript도 그냥 해야지요..머..</p>
 </blockquote>
+
+<p>End.</p>
+
+<hr />
 
                 </div>
             </section>
@@ -550,7 +564,7 @@ Google은 이 중 JavaScript를 이용하여 AngularJS(1.x)를 개발해왔었�
                     <h2 class="post-card-title">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1)</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>{% include githubpage-jekyll-setup-table-of-contents.html %} --- **{% include subtitle-fontawesome.html %} 환경설정** `Jekyll`을 이용한 기본적인 Github page를 생성하는 방법은 여러 블로그에 자세하게 나와 있으니 저는 제가 사용하는 [Jasper2](http://jekyllthemes.org/themes/jasper2/){: target="_blank" } theme를 이용하여 Github page를 생성하고</p>
+                    <p>{% include githubpage-jekyll-setup-table-of-contents.html %} --- **{% include subtitle-fontawesome.html %} 환경설정** `Jekyll`을 이용해 `GitHub Page`에 기본적인 블로그를 생성하는 방법은 여러 다른 블로그나 사이트에 자세하게 나와 있으니 저는 제가 사용하는 [Jasper2](http://jekyllthemes.org/themes/jasper2/){: target="_blank" } theme를 이용하여</p>
                 </section>
             </a>
             <footer class="post-card-meta">

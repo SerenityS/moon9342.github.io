@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-02T06:30:05+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">TypeScript 강좌(7) - Class</title><link href="https://moon9342.github.io/typescript-class" rel="alternate" type="text/html" title="TypeScript 강좌(7) - Class" /><published>2018-01-30T18:04:00+00:00</published><updated>2018-01-30T18:04:00+00:00</updated><id>https://moon9342.github.io/typescript-class</id><content type="html" xml:base="https://moon9342.github.io/typescript-class">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-03T03:37:14+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">TypeScript 강좌(7) - Class</title><link href="https://moon9342.github.io/typescript-class" rel="alternate" type="text/html" title="TypeScript 강좌(7) - Class" /><published>2018-01-30T18:04:00+00:00</published><updated>2018-01-30T18:04:00+00:00</updated><id>https://moon9342.github.io/typescript-class</id><content type="html" xml:base="https://moon9342.github.io/typescript-class">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
 객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-introduction.html&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
@@ -832,7 +832,7 @@ relative_source:
 
 destination: ./output/
 # compile된 결과가 생성되는 폴더
-# 이 폴더안의 내용이 우리가 운영하는 블로그 내용이 컴파일되서 들어간다.
+# 이 폴더안으로 우리가 운영하는 블로그 내용이 컴파일되서 들어간다.
 # 이 폴더안의 내용을 github repository(https://username.github.io)에 push
 # 만약 Travis-CI를 이용할 예정이면 이 부분을 git submodule로
 # github repository(https://username.github.io)에 연결해야 한다.
@@ -2054,7 +2054,7 @@ relative_source:
 
 destination: ./output/
 # compile된 결과가 생성되는 폴더
-# 이 폴더안의 내용이 우리가 운영하는 블로그 내용이 컴파일되서 들어간다.
+# 이 폴더안으로 우리가 운영하는 블로그 내용이 컴파일되서 들어간다.
 # 이 폴더안의 내용을 github repository(https://username.github.io)에 push
 # 만약 Travis-CI를 이용할 예정이면 이 부분을 git submodule로
 # github repository(https://username.github.io)에 연결해야 한다.
