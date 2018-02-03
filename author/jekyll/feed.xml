@@ -104,7 +104,7 @@ site regeneration 시간이 너무 오래걸려서 내가 수정한 혹은 작�
   <p><strong>bundle exec jekyll serve --limit_posts 1</strong></p>
 </blockquote>
 
-<p>마지막으로 수정된 포스트 1개만 가지고 site를 regeneration시키게 됩니다. 물론 기존의 내용은 컴파일 되지 않기때문에
+<p>시간상으로 마지막으로 등록된 포스트 1개만 가지고 site를 regeneration시키게 됩니다. 물론 기존의 내용은 컴파일 되지 않기때문에
 사이트에 나타나지는 않겠지만 현재 작업하고 있는 포스트에 대한 내용은 빠르게 확인이 가능합니다. 이렇게 작업하고 최종적으로는
 site 전체를 다시 build해 주시면 될 듯 합니다.</p>
 
