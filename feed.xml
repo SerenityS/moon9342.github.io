@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-03T12:28:04+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9)</title><link href="https://moon9342.github.io/jekyll-regenerate-speed-up" rel="alternate" type="text/html" title="Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9)" /><published>2018-02-02T15:14:00+00:00</published><updated>2018-02-02T15:14:00+00:00</updated><id>https://moon9342.github.io/jekyll-regenerate-speed-up</id><content type="html" xml:base="https://moon9342.github.io/jekyll-regenerate-speed-up">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-03T17:37:35+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9)</title><link href="https://moon9342.github.io/jekyll-regenerate-speed-up" rel="alternate" type="text/html" title="Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9)" /><published>2018-02-02T15:14:00+00:00</published><updated>2018-02-02T15:14:00+00:00</updated><id>https://moon9342.github.io/jekyll-regenerate-speed-up</id><content type="html" xml:base="https://moon9342.github.io/jekyll-regenerate-speed-up">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-start.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-struct.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
@@ -57,9 +57,9 @@ site 전체를 다시 build해 주시면 될 듯 합니다.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;assets/built/images/need-of-vcs.png&quot; alt=&quot;need-of-vcs&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;위의 그림은 누구나 한번쯤 겪어봤을 만한 상황입니다. 파일을 계속 수정해 나가면서 이름을 바꾸어 저정하는 경우죠.
+&lt;p&gt;위의 그림은 누구나 한번쯤 겪어봤을 만한 상황입니다. 파일을 계속 수정해 나가면서 이름을 바꾸어 저장하는 경우입니다.
 그 당시야 최종 파일이 어떤것인지 알 수 있겠지만 시간이 흐르면 당연히 저 중 어떤 파일이 최종 Report파일인지 알 수
-없어지게 됩니다.&lt;/p&gt;
+없게 됩니다.&lt;/p&gt;
 
 &lt;p&gt;아래의 그림은 조금 다른 경우입니다.&lt;/p&gt;
 
@@ -297,6 +297,12 @@ branch를 Working directory에 가져온 것입니다. 지금부터 하는 작�
 &lt;p&gt;실제로 파일을 변경하거나 추가해서 hotfix branch에서 작업한 후 다시 master branch를 checkout해보시면 아까 했던 작업이 master
 branch에는 영향을 미치지 않는다는 것을 확인하실 수 있습니다. 이 부분은 개별적으로 실습해 보시길 바랍니다.&lt;/p&gt;
 
+&lt;p&gt;참고로 모든 branch를 확인하기 위해서는 다음의 명령을 실행하시면 됩니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;git branch -a&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Branch Merge&lt;/strong&gt;&lt;/p&gt;
@@ -449,7 +455,78 @@ Remote Repository와 연결되어 있는 Local Repository가 됩니다.&lt;/p&gt
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; git remote&lt;/strong&gt;&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html"></summary></entry><entry><title type="html">TypeScript 강좌(7) - Class</title><link href="https://moon9342.github.io/typescript-class" rel="alternate" type="text/html" title="TypeScript 강좌(7) - Class" /><published>2018-01-30T18:04:00+00:00</published><updated>2018-01-30T18:04:00+00:00</updated><id>https://moon9342.github.io/typescript-class</id><content type="html" xml:base="https://moon9342.github.io/typescript-class">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; git remote&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub에 빈 Remote Repository를 생성한 후 &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote&lt;/code&gt;를 이용하여 Local Repository와 연결할 수 있습니다.
+다음과 같은 명령을 이용합니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;git remote add origin “Remote Repository URL”&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;연결이 성공했는지를 다음의 명령어를 이용해서 확인해 볼 수 있습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;git remote -v&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; git push&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git remote&lt;/code&gt;를 이용하여 Local Repository와 Remote Repository가 연결되었으면 이제 자신이 작업한 내용을
+Remote Repository에 upload를 할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;이 때 &lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt; 명령을 이용하면 파일을 upload할 수 있는데 기본적으로 Remote Repository의 master branch에
+upload되게 됩니다. 따라서 만약 다른 branch의 내용을 upload하려 하면 다음과 같이 명령을 실행시켜야 합니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;git push origin “local branch명”&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;위의 명령에서 origin은 원격 저장소의 별칭입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote&lt;/code&gt;를 이용하여 Remote Repository를 연결할 때 
+이 &lt;code class=&quot;highlighter-rouge&quot;&gt;origin&lt;/code&gt;이라는 별칭을 이용해서 원격 연결을 했었습니다.&lt;/p&gt;
+
+&lt;p&gt;만약 &lt;code class=&quot;highlighter-rouge&quot;&gt;origin&lt;/code&gt; 저장소에 Local의 모든 branch를 push하려면 다음과 같이 명령을 수행하시면 됩니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;git push origin --all&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt;가 진행될 때 Remote Repository에 같은 이름의 branch가 존재한다면 내용이 변경될 것이고 만약
+해당 branch가 존재하지 않는다면 새로운 branch를 Remote Repository에 생성하게 됩니다. 같은 이름의 branch가
+존재하지만 내역이 다르다면 당연히 push는 일어나지 않고 작업이 거부됩니다.&lt;/p&gt;
+
+&lt;p&gt;간단한 예를 들자면 Local Repository의 master branch의 내용을 Remote Repository에 push하려면 다음과 같이
+실행하시면 됩니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;git push origin master&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;만약 Local Repository의 hotfix branch의 내용을 Remote Repository에 push하려면 다음과 같이 실행하시면 됩니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;git push origin hotfix&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; git fetch &amp;amp; git pull&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Remote Repository를 이용하다 보면 다른 누군가가 먼저 commit할 경우가 있습니다. 이런 경우
+git은 당연히 파일의 내용이 서로 상이하기 때문에 push를 허용하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;Remote Repository와 Local Repository를 적절히 서로 맞춰야 하며 이럴 때 사용하는 것이 &lt;code class=&quot;highlighter-rouge&quot;&gt;git fetch&lt;/code&gt; 입니다.
+즉, fetch는 Remote Repository의 commit들을 Local Repository로 가져오는 역할을 하고 사용자는 
+Local Repository로 가져온 commit들을 자신의 작업과 적절히 병합하여 Remote Repository에 push해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;은 Remote Repository의 정보를 가져오면서 자동으로 Local branch에 병합하는 명령어 입니다. 편하게 
+사용할 수 는 있지만 만약 conflict가 발생하면 내역 확인이 쉽지 않은 단점이 있습니다.&lt;/p&gt;
+
+&lt;p&gt;End.&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html"></summary></entry><entry><title type="html">TypeScript 강좌(7) - Class</title><link href="https://moon9342.github.io/typescript-class" rel="alternate" type="text/html" title="TypeScript 강좌(7) - Class" /><published>2018-01-30T18:04:00+00:00</published><updated>2018-01-30T18:04:00+00:00</updated><id>https://moon9342.github.io/typescript-class</id><content type="html" xml:base="https://moon9342.github.io/typescript-class">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
 객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-introduction.html&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
