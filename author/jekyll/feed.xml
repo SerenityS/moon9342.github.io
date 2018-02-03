@@ -44,6 +44,78 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9)</title>
+	  <link>https://moon9342.github.io/jekyll-regenerate-speed-up</link>
+		
+				
+						<author>jekyll</author>
+				
+		
+				
+		
+				
+		
+				
+		
+				
+		
+	  <pubDate>2018-02-02T15:14:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/jekyll-regenerate-speed-up</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./jekyll-start.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Site Regeneration 속도 올리기</strong></p>
+
+<p>블로그에 포스트개수가 많아지고 기능이 추가될수록 Jekyll의 <code class="highlighter-rouge">site generation 속도</code>가 현저하게 떨어지게 됩니다. 어쩔 수 없는
+일이긴 합니다. 포스트가 1,000개 정도 되면 컴퓨터 사양에 따라 많이 다르겠지만 약 1분 가량의 시간이 걸리게 된답니다.
+처음에야 포스트가 얼마 없다보니 금방 site가 생성되지만 말이죠.</p>
+
+<p>일반적으로 우리가 새로운 포스트를 쓸 때 로컬에서 <code class="highlighter-rouge">watch</code> mode를 이용해서 파일이 변경되면 다시 site를 regeneration하도록 설정하고
+사용합니다. 그래야 변경된 내용을 빠르게 확인할 수 있기 때문이지요.</p>
+
+<p>하지만 우리가 포스트의 내용을 변경해서 저장할 때 마다 가지고 있는 모든 폴더에 있는 파일을 검색하고 generation하는 건 비효율적입니다. 
+site regeneration 시간이 너무 오래걸려서 내가 수정한 혹은 작성한 내용을 확인하기 위해 많이 기다려야 하는 것이지요. 
+추후에 블로그에 글 내용이 많아지신다면 무슨 말인지 충분히 공감하실 겁니다.</p>
+
+<p>이 문제를 해결하기 위해 간단한 설정하나를 추가해 보도록 하겠습니다.
+지금까지 우리는 site를 생성하고 로컬 웹서버를 이용해 실행시키기 위해 다음과 같이 명령을 실행시켰습니다.</p>
+
+<blockquote>
+  <p><strong>bundle exec jekyll serve</strong></p>
+</blockquote>
+
+<p>이제 저 명령 뒤에 option을 하나 주시면 됩니다. <code class="highlighter-rouge">--limit_posts</code> 라는 option은데 뒤쪽에 숫자 인자가 들어옵니다. 
+예를 들어 다음과 같이 실행시키면</p>
+
+<blockquote>
+  <p><strong>bundle exec jekyll serve --limit_posts 1</strong></p>
+</blockquote>
+
+<p>마지막으로 수정된 포스트 1개만 가지고 site를 regeneration시키게 됩니다. 물론 기존의 내용은 컴파일 되지 않기때문에
+사이트에 나타나지는 않겠지만 현재 작업하고 있는 포스트에 대한 내용은 빠르게 확인이 가능합니다. 이렇게 작업하고 최종적으로는
+site 전체를 다시 build해 주시면 될 듯 합니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)</title>
 	  <link>https://moon9342.github.io/jekyll-travis-ci-public</link>
 		
@@ -72,6 +144,7 @@
     <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
     <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
     <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -585,6 +658,7 @@ GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public�
     <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
     <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
     <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -848,6 +922,7 @@ default theme가 맘에 안드시면 다음의 <a href="http://codersblock.com/b
     <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
     <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
     <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -988,6 +1063,7 @@ sitemap.xml 파일을 추가합니다. 정상적으로 처리되면 다음과 �
     <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
     <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
     <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -1276,6 +1352,7 @@ subclass: &#39;post page&#39;
     <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
     <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
     <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -1409,6 +1486,7 @@ function syntaxHighlight(code) {
     <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
     <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
     <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -1512,6 +1590,7 @@ gulp를 설치하고 <code class="highlighter-rouge">gulpfile.js</code> 파일�
     <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
     <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
     <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -1779,6 +1858,7 @@ repository의 이름을 (자신의 github id).github.io로 지정해야 합니�
     <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
     <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
     <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />

@@ -8,6 +8,47 @@
     
       
       <item>
+        <title>Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9)</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-start.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-struct.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-font.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-rouge.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-search.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Fri, 02 Feb 2018 15:14:00 +0000</pubDate>
+        <link>
+        https://moon9342.github.io/jekyll-regenerate-speed-up</link>
+        <guid isPermaLink="true">https://moon9342.github.io/jekyll-regenerate-speed-up</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Git과 GitHub의 간단 사용법</title>
+        
+          <description>&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Fri, 02 Feb 2018 14:21:00 +0000</pubDate>
+        <link>
+        https://moon9342.github.io/git-github</link>
+        <guid isPermaLink="true">https://moon9342.github.io/git-github</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>TypeScript 강좌(7) - Class</title>
         
           <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
@@ -60,6 +101,7 @@
     &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -145,6 +187,7 @@
     &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -425,6 +468,7 @@
     &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -450,6 +494,7 @@
     &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -475,6 +520,7 @@
     &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -500,6 +546,7 @@
     &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -525,6 +572,7 @@
     &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -550,6 +598,7 @@
     &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>

@@ -1,4 +1,148 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-03T03:37:14+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">TypeScript 강좌(7) - Class</title><link href="https://moon9342.github.io/typescript-class" rel="alternate" type="text/html" title="TypeScript 강좌(7) - Class" /><published>2018-01-30T18:04:00+00:00</published><updated>2018-01-30T18:04:00+00:00</updated><id>https://moon9342.github.io/typescript-class</id><content type="html" xml:base="https://moon9342.github.io/typescript-class">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-03T07:00:55+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9)</title><link href="https://moon9342.github.io/jekyll-regenerate-speed-up" rel="alternate" type="text/html" title="Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9)" /><published>2018-02-02T15:14:00+00:00</published><updated>2018-02-02T15:14:00+00:00</updated><id>https://moon9342.github.io/jekyll-regenerate-speed-up</id><content type="html" xml:base="https://moon9342.github.io/jekyll-regenerate-speed-up">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-start.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-struct.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-font.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-rouge.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-search.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Site Regeneration 속도 올리기&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;블로그에 포스트개수가 많아지고 기능이 추가될수록 Jekyll의 &lt;code class=&quot;highlighter-rouge&quot;&gt;site generation 속도&lt;/code&gt;가 현저하게 떨어지게 됩니다. 어쩔 수 없는
+일이긴 합니다. 포스트가 1,000개 정도 되면 컴퓨터 사양에 따라 많이 다르겠지만 약 1분 가량의 시간이 걸리게 된답니다.
+처음에야 포스트가 얼마 없다보니 금방 site가 생성되지만 말이죠.&lt;/p&gt;
+
+&lt;p&gt;일반적으로 우리가 새로운 포스트를 쓸 때 로컬에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;watch&lt;/code&gt; mode를 이용해서 파일이 변경되면 다시 site를 regeneration하도록 설정하고
+사용합니다. 그래야 변경된 내용을 빠르게 확인할 수 있기 때문이지요.&lt;/p&gt;
+
+&lt;p&gt;하지만 우리가 포스트의 내용을 변경해서 저장할 때 마다 가지고 있는 모든 폴더에 있는 파일을 검색하고 generation하는 건 비효율적입니다. 
+site regeneration 시간이 너무 오래걸려서 내가 수정한 혹은 작성한 내용을 확인하기 위해 많이 기다려야 하는 것이지요. 
+추후에 블로그에 글 내용이 많아지신다면 무슨 말인지 충분히 공감하실 겁니다.&lt;/p&gt;
+
+&lt;p&gt;이 문제를 해결하기 위해 간단한 설정하나를 추가해 보도록 하겠습니다.
+지금까지 우리는 site를 생성하고 로컬 웹서버를 이용해 실행시키기 위해 다음과 같이 명령을 실행시켰습니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;bundle exec jekyll serve&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이제 저 명령 뒤에 option을 하나 주시면 됩니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;--limit_posts&lt;/code&gt; 라는 option은데 뒤쪽에 숫자 인자가 들어옵니다. 
+예를 들어 다음과 같이 실행시키면&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;bundle exec jekyll serve --limit_posts 1&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;마지막으로 수정된 포스트 1개만 가지고 site를 regeneration시키게 됩니다. 물론 기존의 내용은 컴파일 되지 않기때문에
+사이트에 나타나지는 않겠지만 현재 작업하고 있는 포스트에 대한 내용은 빠르게 확인이 가능합니다. 이렇게 작업하고 최종적으로는
+site 전체를 다시 build해 주시면 될 듯 합니다.&lt;/p&gt;
+
+&lt;p&gt;End.&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository) Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</summary></entry><entry><title type="html">Git과 GitHub의 간단 사용법</title><link href="https://moon9342.github.io/git-github" rel="alternate" type="text/html" title="Git과 GitHub의 간단 사용법" /><published>2018-02-02T14:21:00+00:00</published><updated>2018-02-02T14:21:00+00:00</updated><id>https://moon9342.github.io/git-github</id><content type="html" xml:base="https://moon9342.github.io/git-github">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Git&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;GitHub&lt;/code&gt;에 대한 간단한 설명입니다. 간단한 이론과 함께 실습을 통해 command 기반의 명령어로 
+어떤일을 처리할 수 있는지를 알아보도록 하겠습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 누구나 한번쯤은 겪었던 일&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/need-of-vcs.png&quot; alt=&quot;need-of-vcs&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 그림은 누구나 한번쯤 겪어봤을 만한 상황입니다. 파일을 계속 수정해 나가면서 이름을 바꾸어 저정하는 경우죠.
+그 당시야 최종 파일이 어떤것인지 알 수 있겠지만 시간이 흐르면 당연히 저 중 어떤 파일이 최종 Report파일인지 알 수
+없어지게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;아래의 그림은 조금 다른 경우입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/vcs-conflict.png&quot; alt=&quot;vcs-conflict&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;img-reference&quot;&gt;( 이미지 출처 : http://slidedeck.io/cursor-education )&lt;/div&gt;
+
+&lt;p&gt;여러명이 공동으로 같은 파일을 작업할 때 파일 내용을 덮어쓰는 문제가 생길 수 있습니다. 다른 사람이 작업한 사항을
+유실할 수 있다는 것이죠.&lt;/p&gt;
+
+&lt;p&gt;이와 같은 문제가 항시 빈번하게 발생하게되고 이를 해결하기 위해 나온 시스템이 바로 &lt;code class=&quot;highlighter-rouge&quot;&gt;VCS&lt;/code&gt;( Version Control System )
+입니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Version Control System ( VCS )&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VCS&lt;/code&gt; 는 파일의 변화를 시간에 따라 기록했다가 나중에 특정 시점의 버전을 다시 꺼내올 수 있는 시스템을 의미합니다. 이런 VCS는
+다음과 같은 특징을 가지고 있습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;각 파일을 이전 상태로 되돌릴 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;시간에 따라 수정 내용을 비교해 볼 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;누가 문제를 일으켰는지 쉽게 추적할 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;파일을 잘못 고쳤을 때 쉽게 복구할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Centralized Version Control System ( CVCS )&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CVCS&lt;/code&gt;는 중앙집중식 버전 관리 시스템입니다. 우리가 예전에 사용했던 &lt;code class=&quot;highlighter-rouge&quot;&gt;CVS&lt;/code&gt;나 &lt;code class=&quot;highlighter-rouge&quot;&gt;Subversion&lt;/code&gt;같은 제품이 이 범주에 
+들어갑니다.&lt;/p&gt;
+
+&lt;p&gt;파일을 관리하는 서버가 별도록 존재하고 클라이언트는 중앙 서버에서 파일을 받아서 사용하는 개념입니다. 그림으로
+표현하면 다음과 같습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/centralized-version-control-system.png&quot; alt=&quot;centralized-version-control-system&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;img-reference&quot;&gt;( 이미지 출처 : https://git-scm.com/ )&lt;/div&gt;
+
+&lt;p&gt;여기서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout&lt;/code&gt;이라는 용어가 나오는데 나중에 우리가 살펴볼 Git의 Checkout과는 다른 
+개념임에 유의하셔야 합니다.&lt;/p&gt;
+
+&lt;p&gt;이런 CVCS는 중앙서버에 문제가 발생하면 다른 사람과의 협업 자체가 불가능해지게 됩니다. 또한 중앙서버의 하드디스크에
+문제가 발생하면 프로젝트의 모든 History를 잃어버리게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;Backup서버를 운영하면 이런 문제점을 일시 해결할 순 있지만 본질적인 문제는 남아있게 됩니다. 
+( 백업서버까지 날라간다면??? )&lt;/p&gt;
+
+&lt;p&gt;이런 문제점을 해결하기 위해 분산형 VCS가 등장하게 됩니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Distributed Version Control System ( DVCS )&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DVCS&lt;/code&gt;는 분산 버전 관리 시스템입니다. 우리가 알고 있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Git&lt;/code&gt;이 대표적 제품입니다. 이 외에 다른 제품들도 있지만
+Git만 알아두어도 됩니다.&lt;/p&gt;
+
+&lt;p&gt;이 방식은 &lt;code class=&quot;highlighter-rouge&quot;&gt;CVCS&lt;/code&gt;처럼 클라이언트가 파일의 마지막 Snapshot을 Checkout하는 방식이 아닙니다. 클라이언트는 서버 저장소를
+통째로 로컬에 복제해서 사용합니다. 즉, 그림으로 보면 다음과 같습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/distributed-version-control-system.png&quot; alt=&quot;distributed-version-control-system&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;img-reference&quot;&gt;( 이미지 출처 : https://git-scm.com/ )&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Git의 탄생&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Linux&lt;/code&gt; kernel은 대규모의 open source project입니다. 이 project의 버전관리를 위해 초기에는
+&lt;code class=&quot;highlighter-rouge&quot;&gt;BitKeeper&lt;/code&gt;라는 상용 DVCS를 사용했었는데 2005년도에 이 BitKeeper의 무료사용이 제고되면서 &lt;code class=&quot;highlighter-rouge&quot;&gt;리누스 토발즈&lt;/code&gt;의 주도로
+Linux 개발 커뮤니티가 자체 VCS를 개발했는데 이게 바로 &lt;code class=&quot;highlighter-rouge&quot;&gt;Git&lt;/code&gt;입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Git&lt;/code&gt;은 다음과 같은 특징을 가집니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;단순한 구조에서 오는 빠른 속도&lt;/li&gt;
+  &lt;li&gt;완벽한 분산처리&lt;/li&gt;
+  &lt;li&gt;branch를 사용한 비선형적 개발 가능&lt;/li&gt;
+  &lt;li&gt;속도나 크기면에서 대형 Project에 적합&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Git의 데이터 저장 방식은 이 포스트의 범주를 넘어가니 그 부분은 제외하겠습니다. 실제 Git이 어떤 방식으로 데이터를 저장하는가에
+대한 내용은 &lt;a href=&quot;https://git-scm.com/book/en/v2/Getting-Started-Git-Basics&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 클릭해 살펴보시면 
+될 듯 합니다.&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html"></summary></entry><entry><title type="html">TypeScript 강좌(7) - Class</title><link href="https://moon9342.github.io/typescript-class" rel="alternate" type="text/html" title="TypeScript 강좌(7) - Class" /><published>2018-01-30T18:04:00+00:00</published><updated>2018-01-30T18:04:00+00:00</updated><id>https://moon9342.github.io/typescript-class</id><content type="html" xml:base="https://moon9342.github.io/typescript-class">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
 객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-introduction.html&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
@@ -528,6 +672,7 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  &lt;code
     &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -1006,7 +1151,7 @@ GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public�
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cache&lt;/code&gt; 처리인데요. 이 부분은 나중에 포스팅 할 예정입니다. 
 문제가 꼬리에 꼬리를 물면서 계속 튕겨 나오네요. 그러면서 배우는 거죠 머 ^^;
-일단 이런 문제가 있어요~ 라는 문제 제기만 하고 이번 글은 정리하도록 하겠습니다.&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</summary></entry><entry><title type="html">What is Continuous Integration?</title><link href="https://moon9342.github.io/continuous-integration" rel="alternate" type="text/html" title="What is Continuous Integration?" /><published>2018-01-27T15:30:00+00:00</published><updated>2018-01-27T15:30:00+00:00</updated><id>https://moon9342.github.io/continuous-integration</id><content type="html" xml:base="https://moon9342.github.io/continuous-integration">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
+일단 이런 문제가 있어요~ 라는 문제 제기만 하고 이번 글은 정리하도록 하겠습니다.&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository) Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</summary></entry><entry><title type="html">What is Continuous Integration?</title><link href="https://moon9342.github.io/continuous-integration" rel="alternate" type="text/html" title="What is Continuous Integration?" /><published>2018-01-27T15:30:00+00:00</published><updated>2018-01-27T15:30:00+00:00</updated><id>https://moon9342.github.io/continuous-integration</id><content type="html" xml:base="https://moon9342.github.io/continuous-integration">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;CI는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Continuous Integration&lt;/code&gt;의 약자로 우리나라 말로 굳이 번역하자면 
 &lt;strong&gt;“지속적인 통합”&lt;/strong&gt; 정도가 되겠네요.&lt;/p&gt;
@@ -1923,6 +2068,7 @@ Font Awesome의 폰트는 &lt;code class=&quot;highlighter-rouge&quot;&gt;GPL&lt
     &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -2151,87 +2297,4 @@ gist를 불러올 때 JavaScript 링크를 붙였넣는것이 아닙니다. 만�
 
 &lt;p&gt;위와 같이 해서 Code Snippet을 원하는 곳에 붙여 사용할 수 있습니다. gist에서 제공하는
 default theme가 맘에 안드시면 다음의 &lt;a href=&quot;http://codersblock.com/blog/customizing-github-gists/&quot; target=&quot;_blank&quot;&gt;CUSTOMIZING GITHUB GISTS&lt;/a&gt;를 
-방문해 보세요. 조금만 살펴보시면 원하는 style로 gist를 사용하실 수 있습니다.&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</summary></entry><entry><title type="html">What is GitHub Gist?</title><link href="https://moon9342.github.io/github-gist" rel="alternate" type="text/html" title="What is GitHub Gist?" /><published>2018-01-25T14:11:00+00:00</published><updated>2018-01-25T14:11:00+00:00</updated><id>https://moon9342.github.io/github-gist</id><content type="html" xml:base="https://moon9342.github.io/github-gist">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Code Snippet&lt;/code&gt;을 관리하기 위한 도구입니다. 블로그로 IT 관련 포스팅을 하는 사람들에게는 굉장히 유용한 도구로
-사용이 됩니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;Gist&lt;/code&gt;는 우리나라말로 “지스트”라고 발음하며 GitHub에서 서비스 하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;만일 Gist에 대해서는 알고 있고 jekyll기반의 GitHub Page에서 사용하는 방법에 대해서 알고 싶으신 분은 
-&lt;a href=&quot;./jekyll-gist.html&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 참조하세요!&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Code Snippet 관리&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;IT 개발관련 블로그를 운영하다보면 여러 코드조각들을 블로그에 같이 올리게됩니다. 어떤 경우는 말 그대로 완성되지 않은
-“코드조각” 형태의 코드를 올리기도 하고 어떤 경우는 완성된 형태의 코드를 올리기도 합니다.&lt;/p&gt;
-
-&lt;p&gt;텍스트 형태로 그냥 포스팅을 하면 보기가 너무 좋지 않으니 일반적으로 Syntax Highlighter를 많이 이용하게 됩니다. 다양한 
-종류의 Syntax Highlighter가 있고 이를 이용하면 보기 좋게 코드들을 블로그에 올릴 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;설명을 하기 위한 코드조각들은 일반적으로 수정이나 공유의 빈도가 상대적으로 적기 때문에 그냥 &lt;code class=&quot;highlighter-rouge&quot;&gt;Rouge&lt;/code&gt;와 같은
-Syntax Highlighter를 이용하여 올리면 편합니다. 하지만 완성된 코드를 포스팅하는 경우 추후에 기능의 보완이라든지
-오류에 대한 수정같은 이슈가 생길 수 있고 이렇게 변경된 코드는 다른 사람과 공유할 때 문제가 발생할 수 밖에 없습니다.
-하나의 완성된 코드를 블로그 여기저기에서 가져다가 쓰는 경우 역시 마찬가지의 이슈가 발생할 수 있겠죠.&lt;/p&gt;
-
-&lt;p&gt;결국 &lt;strong&gt;“YouTube에 동영상을 올리고 블로그에 삽입하는 것처럼 이런 코드조각들도 그렇게 관리하고 공유하면 편하겠다”&lt;/strong&gt; 
-라고 사람들이 생각하게 되고 이를 위한 온라인 서비스도 여러 개 생기게 되었는데 그 중 하나가 &lt;code class=&quot;highlighter-rouge&quot;&gt;GitHub&lt;/code&gt;에서 제공하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Gist&lt;/code&gt;입니다.&lt;/p&gt;
-
-&lt;p&gt;결론적으로 Gist는 Code Snippet을 관리하고 공유하도록 도와주는 서비스라고 생각하시면 됩니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 사용방법&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;사용방법은 상당히 간단합니다. 일단 GitHub에 로그인해서 노란색 영역을 클릭하시면
-다음과 같은 화면을 보실 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/github-gist-create.jpg&quot; alt=&quot;Gist 생성&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;New gist&lt;/code&gt; 메뉴를 선택하면 Code Snippet을 생성할 수 있는 화면으로 전환됩니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/github-gist-snippet-create.png&quot; alt=&quot;Code Snippet 작성&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;코드 내용을 입력하고 &lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt; 혹은 &lt;code class=&quot;highlighter-rouge&quot;&gt;secret&lt;/code&gt; 형태로 gist를 생성합니다.&lt;/p&gt;
-
-&lt;p&gt;생성이 되면 아마 다음과 같은 화면을 보실 수 있을텐데 이렇게 작성된 gist를 블로그에
-올리려면 Embed라고 되어있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;JavaScript link code&lt;/code&gt;를 가져다가 블로그에 삽입하면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/github-gist-snippet-use.png&quot; alt=&quot;Code Snippet 공유&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;실제로 한번 작업해 보시면 자신이 작성한 Code Snippet을 블로그에 쉽게 포함 시킬 수
-있으실 겁니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;저는 Jekyll기반의 GitHub Page에서 블로그를 운영하고 있기 때문에 조금 다른 방식을 이용합니다.
-Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합니다.&lt;/p&gt;
-
-&lt;p&gt;이 방식에 대해서는 &lt;a href=&quot;./jekyll-gist.html&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 참조하세요!&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html"></summary></entry><entry><title type="html">What is i18n, l10n?</title><link href="https://moon9342.github.io/i18n-l10n" rel="alternate" type="text/html" title="What is i18n, l10n?" /><published>2018-01-24T17:51:00+00:00</published><updated>2018-01-24T17:51:00+00:00</updated><id>https://moon9342.github.io/i18n-l10n</id><content type="html" xml:base="https://moon9342.github.io/i18n-l10n">&lt;p&gt;&lt;img src=&quot;assets/built/images/tldr-white-logo.png&quot; alt=&quot;tldr&quot; class=&quot;myTLDRStyle&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;국제화와 지역화 작업을 의미합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; i18n, l10n&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;아마 많은 분들이 잘 알고 계실테지만 그래도 한번 간단히 언급만 해 보겠습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;i18n&lt;/code&gt;은 internationalization(국제화)를 표현한 것입니다. 첫글자인 i와 마지막 글자인 n사이에 18개의 글자가 있다고
-해서 저렇게 표현한 겁니다. 아마 IT쪽에 관심이 있는 사람이라면 i18n이 어떤 약자인지는 몰랐어도 국제화라는걸 알고는 있었으리라
-생각됩니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;l10n&lt;/code&gt;역시 마찬가지로 localization(현지화)를 표현한 것입니다. 첫글자인 l과 마지막 글자인 n사이에 10개의 글자가 있다라는 
-것이겠죠?&lt;/p&gt;
-
-&lt;p&gt;일반적으로 우리가 작성한 프로그램을 다른 언어로 출시할때는 당연히 해당 언어로 현지화를 진행해야 합니다. 내용의 번역부터 시작해서
-각종 단위(통화단위, 도량형 단위, 숫자의 표현, 날짜표현 양식 등)의 변환등을 의미하겠죠. 하지만 &lt;strong&gt;현지화의 가장 중요한 점은 타겟
-문화에 맞도록 컨텐츠를 조절&lt;/strong&gt;하는 것입니다. 이게 힘든 작업이죠. 개발자에게 맡기면 산으로 갑니다. (^^)&lt;/p&gt;
-
-&lt;p&gt;여하간 이런 현지화를 다른 여러 타겟(여러 나라)를 대상으로 우리의 프로그램을 조정하는 작업이 바로 &lt;code class=&quot;highlighter-rouge&quot;&gt;i18n support&lt;/code&gt;라고 불리는 국제화
-작업이라고 보시면 될 듯 합니다.&lt;/p&gt;
-
-&lt;p&gt;그냥 그렇다구요.&lt;/p&gt;
-
-&lt;p&gt;i18n 작업을 할 때 &lt;strong&gt;주의해야 할 점&lt;/strong&gt;에 대해서는 다른 훌륭한 포스트들을 참조해주세요~ 사실 저도
-작업 경험이 딱 한번 있습니다. (&lt;del&gt;하고 싶지 않아요.. 할 생각도 없구요&lt;/del&gt;)&lt;/p&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html"></summary></entry></feed>
+방문해 보세요. 조금만 살펴보시면 원하는 style로 gist를 사용하실 수 있습니다.&lt;/p&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository) Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</summary></entry></feed>
