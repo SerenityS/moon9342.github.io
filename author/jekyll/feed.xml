@@ -44,7 +44,7 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
-	  <title>Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9)</title>
+	  <title>Jekyll 기반의 GitHub Page 생성(9)</title>
 	  <link>https://moon9342.github.io/jekyll-regenerate-speed-up</link>
 		
 				
@@ -116,7 +116,7 @@ site 전체를 다시 build해 주시면 될 듯 합니다.</p>
 	</item>
 
 	<item>
-	  <title>Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8)</title>
+	  <title>Jekyll 기반의 GitHub Page 생성(8)</title>
 	  <link>https://moon9342.github.io/jekyll-travis-ci-public</link>
 		
 				
@@ -634,7 +634,7 @@ GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public�
 	</item>
 
 	<item>
-	  <title>Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7)</title>
+	  <title>Jekyll 기반의 GitHub Page 생성(7)</title>
 	  <link>https://moon9342.github.io/jekyll-gist</link>
 		
 				
