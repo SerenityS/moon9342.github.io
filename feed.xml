@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-05T09:27:25+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Jekyll 기반의 GitHub Page 생성(9)</title><link href="https://moon9342.github.io/jekyll-regenerate-speed-up" rel="alternate" type="text/html" title="Jekyll 기반의 GitHub Page 생성(9)" /><published>2018-02-02T15:14:00+00:00</published><updated>2018-02-02T15:14:00+00:00</updated><id>https://moon9342.github.io/jekyll-regenerate-speed-up</id><content type="html" xml:base="https://moon9342.github.io/jekyll-regenerate-speed-up">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-05T12:41:59+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Jekyll 기반의 GitHub Page 생성(9)</title><link href="https://moon9342.github.io/jekyll-regenerate-speed-up" rel="alternate" type="text/html" title="Jekyll 기반의 GitHub Page 생성(9)" /><published>2018-02-02T15:14:00+00:00</published><updated>2018-02-02T15:14:00+00:00</updated><id>https://moon9342.github.io/jekyll-regenerate-speed-up</id><content type="html" xml:base="https://moon9342.github.io/jekyll-regenerate-speed-up">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-start&quot;&gt;Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-struct&quot;&gt;Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
@@ -744,7 +744,8 @@ generate를 다 쓰지 않고 앞글자인 &lt;code class=&quot;highlighter-roug
 &lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 사용할 Component import&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;설치가 다 되었으니 이제 사용할 Angular Material Component를 코드에 import해야 합니다.
-여기서 사용할 것은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Expansion Panel&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Table&lt;/code&gt; Component입니다.&lt;/p&gt;
+여기서 사용할 것은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Table&lt;/code&gt; Component입니다. 해당 Component를 사용하기 위해 import하는 작업이 필요합니다.
+추후에 구현에 필요한 Component들이 더 추가되어야 하고 실습을 진행하면서 필요한 Component들을 추가하도록 하겠습니다.&lt;/p&gt;
 
 &lt;p&gt;우리 project에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;src/app&lt;/code&gt; 폴더 안에 있는 Root Module인 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.module.ts&lt;/code&gt; 파일을 열어 다음과 같이 수정합니다.&lt;/p&gt;
 
@@ -756,8 +757,6 @@ generate를 다 쓰지 않고 앞글자인 &lt;code class=&quot;highlighter-roug
 
 &lt;span class=&quot;c1&quot;&gt;// MatTableModule,MatExpansionModule  import 구문 추가&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;MatTableModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material/table'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;MatExpansionModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material/expansion'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
 
 &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./app.component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
@@ -769,8 +768,7 @@ generate를 다 쓰지 않고 앞글자인 &lt;code class=&quot;highlighter-roug
   &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;BrowserModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;BrowserAnimationsModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// BrowserAnimationsModule 추가&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;MatTableModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;           &lt;span class=&quot;c1&quot;&gt;// MatTableModule&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;MatExpansionModule&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;// MatExpansionModule&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;MatTableModule&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;// MatTableModule&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;providers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;

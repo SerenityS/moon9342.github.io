@@ -289,7 +289,8 @@ generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</co
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 사용할 Component import</strong></p>
 
 <p>설치가 다 되었으니 이제 사용할 Angular Material Component를 코드에 import해야 합니다.
-여기서 사용할 것은 <code class="highlighter-rouge">Expansion Panel</code>과 <code class="highlighter-rouge">Table</code> Component입니다.</p>
+여기서 사용할 것은 <code class="highlighter-rouge">Table</code> Component입니다. 해당 Component를 사용하기 위해 import하는 작업이 필요합니다.
+추후에 구현에 필요한 Component들이 더 추가되어야 하고 실습을 진행하면서 필요한 Component들을 추가하도록 하겠습니다.</p>
 
 <p>우리 project에서 <code class="highlighter-rouge">src/app</code> 폴더 안에 있는 Root Module인 <code class="highlighter-rouge">app.module.ts</code> 파일을 열어 다음과 같이 수정합니다.</p>
 
@@ -301,8 +302,6 @@ generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</co
 
 <span class="c1">// MatTableModule,MatExpansionModule  import 구문 추가</span>
 <span class="k">import</span> <span class="p">{</span><span class="nx">MatTableModule</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/table'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">MatExpansionModule</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/expansion'</span><span class="p">;</span>
-
 
 <span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
 
@@ -314,8 +313,7 @@ generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</co
   <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
     <span class="nx">BrowserModule</span><span class="p">,</span>
     <span class="nx">BrowserAnimationsModule</span><span class="p">,</span>  <span class="c1">// BrowserAnimationsModule 추가</span>
-    <span class="nx">MatTableModule</span><span class="p">,</span>           <span class="c1">// MatTableModule</span>
-    <span class="nx">MatExpansionModule</span>        <span class="c1">// MatExpansionModule</span>
+    <span class="nx">MatTableModule</span>            <span class="c1">// MatTableModule</span>
   <span class="p">],</span>
   <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
   <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
