@@ -48,11 +48,11 @@
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./angular-lecture-introduction.html">Angular 강좌(1) - Introduction</a></li>
-    <li><a href="./angular-lecture-development-environment.html">Angular 강좌(2) - 개발환경세팅</a></li>
-    <li><a href="./angular-lecture-component.html">Angular 강좌(3) - Component</a></li>
-    <li><a href="./angular-lecture-material.html">Angular 강좌(4) - Angular Material</a></li>
-    <li><a href="./angular-lecture-exercise-1.html">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
 </ul>
 
 <hr />
@@ -187,11 +187,11 @@ generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</co
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./angular-lecture-introduction.html">Angular 강좌(1) - Introduction</a></li>
-    <li><a href="./angular-lecture-development-environment.html">Angular 강좌(2) - 개발환경세팅</a></li>
-    <li><a href="./angular-lecture-component.html">Angular 강좌(3) - Component</a></li>
-    <li><a href="./angular-lecture-material.html">Angular 강좌(4) - Angular Material</a></li>
-    <li><a href="./angular-lecture-exercise-1.html">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
 </ul>
 
 <hr />
@@ -448,11 +448,11 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./angular-lecture-introduction.html">Angular 강좌(1) - Introduction</a></li>
-    <li><a href="./angular-lecture-development-environment.html">Angular 강좌(2) - 개발환경세팅</a></li>
-    <li><a href="./angular-lecture-component.html">Angular 강좌(3) - Component</a></li>
-    <li><a href="./angular-lecture-material.html">Angular 강좌(4) - Angular Material</a></li>
-    <li><a href="./angular-lecture-exercise-1.html">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
 </ul>
 
 <hr />
@@ -711,11 +711,11 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./angular-lecture-introduction.html">Angular 강좌(1) - Introduction</a></li>
-    <li><a href="./angular-lecture-development-environment.html">Angular 강좌(2) - 개발환경세팅</a></li>
-    <li><a href="./angular-lecture-component.html">Angular 강좌(3) - Component</a></li>
-    <li><a href="./angular-lecture-material.html">Angular 강좌(4) - Angular Material</a></li>
-    <li><a href="./angular-lecture-exercise-1.html">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
 </ul>
 
 <hr />
@@ -896,11 +896,11 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./angular-lecture-introduction.html">Angular 강좌(1) - Introduction</a></li>
-    <li><a href="./angular-lecture-development-environment.html">Angular 강좌(2) - 개발환경세팅</a></li>
-    <li><a href="./angular-lecture-component.html">Angular 강좌(3) - Component</a></li>
-    <li><a href="./angular-lecture-material.html">Angular 강좌(4) - Angular Material</a></li>
-    <li><a href="./angular-lecture-exercise-1.html">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
 </ul>
 
 <hr />
@@ -1020,13 +1020,13 @@ Angular로 진행하고 있고 Angular를 단지 web framework에서만 사용�
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
+    <li><a href="./typescript-introduction">TypeScript 강좌(1) - Introduction</a></li>
+    <li><a href="./typescript-datatype-1">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
+    <li><a href="./typescript-datatype-2">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
+    <li><a href="./typescript-variable">TypeScript 강좌(4) - 변수 선언</a></li>
+    <li><a href="./typescript-destructuring">TypeScript 강좌(5) - Destructuring</a></li>
+    <li><a href="./typescript-interface">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />
@@ -1596,13 +1596,13 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
+    <li><a href="./typescript-introduction">TypeScript 강좌(1) - Introduction</a></li>
+    <li><a href="./typescript-datatype-1">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
+    <li><a href="./typescript-datatype-2">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
+    <li><a href="./typescript-variable">TypeScript 강좌(4) - 변수 선언</a></li>
+    <li><a href="./typescript-destructuring">TypeScript 강좌(5) - Destructuring</a></li>
+    <li><a href="./typescript-interface">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />

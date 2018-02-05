@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-05T09:03:14+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Jekyll 기반의 GitHub Page 생성(9)</title><link href="https://moon9342.github.io/jekyll-regenerate-speed-up" rel="alternate" type="text/html" title="Jekyll 기반의 GitHub Page 생성(9)" /><published>2018-02-02T15:14:00+00:00</published><updated>2018-02-02T15:14:00+00:00</updated><id>https://moon9342.github.io/jekyll-regenerate-speed-up</id><content type="html" xml:base="https://moon9342.github.io/jekyll-regenerate-speed-up">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-05T09:27:25+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Jekyll 기반의 GitHub Page 생성(9)</title><link href="https://moon9342.github.io/jekyll-regenerate-speed-up" rel="alternate" type="text/html" title="Jekyll 기반의 GitHub Page 생성(9)" /><published>2018-02-02T15:14:00+00:00</published><updated>2018-02-02T15:14:00+00:00</updated><id>https://moon9342.github.io/jekyll-regenerate-speed-up</id><content type="html" xml:base="https://moon9342.github.io/jekyll-regenerate-speed-up">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-start.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-struct.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-font.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-rouge.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-search.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-start&quot;&gt;Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-struct&quot;&gt;Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-font&quot;&gt;Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-rouge&quot;&gt;Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-search&quot;&gt;Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap&quot;&gt;Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-gist&quot;&gt;Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public&quot;&gt;Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up&quot;&gt;Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -528,11 +528,11 @@ Local Repository로 가져온 commit들을 자신의 작업과 적절히 병합�
 
 &lt;hr /&gt;</content><author><name>fragmentary-knowledge</name></author><category term="miscellaneous article" /><summary type="html">Introduction</summary></entry><entry><title type="html">Angular 강좌(5) - 실습(1)</title><link href="https://moon9342.github.io/angular-lecture-exercise-1" rel="alternate" type="text/html" title="Angular 강좌(5) - 실습(1)" /><published>2018-02-01T16:42:00+00:00</published><updated>2018-02-01T16:42:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-exercise-1</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-exercise-1">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction.html&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment.html&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component.html&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material.html&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1.html&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -642,11 +642,11 @@ generate를 다 쓰지 않고 앞글자인 &lt;code class=&quot;highlighter-roug
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1)</summary></entry><entry><title type="html">Angular 강좌(4) - Angular Material</title><link href="https://moon9342.github.io/angular-lecture-material" rel="alternate" type="text/html" title="Angular 강좌(4) - Angular Material" /><published>2018-02-01T14:00:00+00:00</published><updated>2018-02-01T14:00:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-material</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-material">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction.html&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment.html&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component.html&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material.html&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1.html&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -878,11 +878,11 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1)</summary></entry><entry><title type="html">Angular 강좌(3) - Component</title><link href="https://moon9342.github.io/angular-lecture-component" rel="alternate" type="text/html" title="Angular 강좌(3) - Component" /><published>2018-01-31T17:10:00+00:00</published><updated>2018-01-31T17:10:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-component</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-component">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction.html&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment.html&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component.html&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material.html&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1.html&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -1116,11 +1116,11 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1)</summary></entry><entry><title type="html">Angular 강좌(2) - 개발환경세팅</title><link href="https://moon9342.github.io/angular-lecture-development-environment" rel="alternate" type="text/html" title="Angular 강좌(2) - 개발환경세팅" /><published>2018-01-31T14:11:00+00:00</published><updated>2018-01-31T14:11:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-development-environment</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-development-environment">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction.html&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment.html&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component.html&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material.html&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1.html&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -1276,11 +1276,11 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1)</summary></entry><entry><title type="html">Angular 강좌(1) - Introduction</title><link href="https://moon9342.github.io/angular-lecture-introduction" rel="alternate" type="text/html" title="Angular 강좌(1) - Introduction" /><published>2018-01-31T10:04:00+00:00</published><updated>2018-01-31T10:04:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-introduction</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-introduction">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction.html&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment.html&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component.html&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material.html&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1.html&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -1375,13 +1375,13 @@ Angular로 진행하고 있고 Angular를 단지 web framework에서만 사용�
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1)</summary></entry><entry><title type="html">TypeScript 강좌(7) - Class</title><link href="https://moon9342.github.io/typescript-class" rel="alternate" type="text/html" title="TypeScript 강좌(7) - Class" /><published>2018-01-30T18:04:00+00:00</published><updated>2018-01-30T18:04:00+00:00</updated><id>https://moon9342.github.io/typescript-class</id><content type="html" xml:base="https://moon9342.github.io/typescript-class">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./typescript-introduction.html&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./typescript-datatype-1.html&quot;&gt;TypeScript 강좌(2) - Data Type(Part 1)&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./typescript-datatype-2.html&quot;&gt;TypeScript 강좌(3) - Data Type(Part 2)&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./typescript-variable.html&quot;&gt;TypeScript 강좌(4) - 변수 선언&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./typescript-destructuring.html&quot;&gt;TypeScript 강좌(5) - Destructuring&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./typescript-interface.html&quot;&gt;TypeScript 강좌(6) - Interface&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./typescript-class.html&quot;&gt;TypeScript 강좌(7) - Class&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-introduction&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-datatype-1&quot;&gt;TypeScript 강좌(2) - Data Type(Part 1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-datatype-2&quot;&gt;TypeScript 강좌(3) - Data Type(Part 2)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-variable&quot;&gt;TypeScript 강좌(4) - 변수 선언&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-destructuring&quot;&gt;TypeScript 강좌(5) - Destructuring&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-interface&quot;&gt;TypeScript 강좌(6) - Interface&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./typescript-class&quot;&gt;TypeScript 강좌(7) - Class&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -1902,15 +1902,15 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  &lt;code
 
 &lt;hr /&gt;</content><author><name>JavaScript</name></author><category term="front end" /><summary type="html">Introduction</summary></entry><entry><title type="html">Jekyll 기반의 GitHub Page 생성(8)</title><link href="https://moon9342.github.io/jekyll-travis-ci-public" rel="alternate" type="text/html" title="Jekyll 기반의 GitHub Page 생성(8)" /><published>2018-01-28T14:47:00+00:00</published><updated>2018-01-28T14:47:00+00:00</updated><id>https://moon9342.github.io/jekyll-travis-ci-public</id><content type="html" xml:base="https://moon9342.github.io/jekyll-travis-ci-public">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-start.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-struct.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-font.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-rouge.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-search.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-gist.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up.html&quot;&gt;Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-start&quot;&gt;Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-struct&quot;&gt;Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-font&quot;&gt;Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-rouge&quot;&gt;Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-search&quot;&gt;Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap&quot;&gt;Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-gist&quot;&gt;Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public&quot;&gt;Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up&quot;&gt;Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;

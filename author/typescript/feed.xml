@@ -64,13 +64,13 @@
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
+    <li><a href="./typescript-introduction">TypeScript 강좌(1) - Introduction</a></li>
+    <li><a href="./typescript-datatype-1">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
+    <li><a href="./typescript-datatype-2">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
+    <li><a href="./typescript-variable">TypeScript 강좌(4) - 변수 선언</a></li>
+    <li><a href="./typescript-destructuring">TypeScript 강좌(5) - Destructuring</a></li>
+    <li><a href="./typescript-interface">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />
@@ -429,13 +429,13 @@ TypeScript는 property에도 적용할 수 있습니다. static property는 clas
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
+    <li><a href="./typescript-introduction">TypeScript 강좌(1) - Introduction</a></li>
+    <li><a href="./typescript-datatype-1">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
+    <li><a href="./typescript-datatype-2">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
+    <li><a href="./typescript-variable">TypeScript 강좌(4) - 변수 선언</a></li>
+    <li><a href="./typescript-destructuring">TypeScript 강좌(5) - Destructuring</a></li>
+    <li><a href="./typescript-interface">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />
@@ -984,13 +984,13 @@ interface내에 정의해서 사용합니다.</p>
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
+    <li><a href="./typescript-introduction">TypeScript 강좌(1) - Introduction</a></li>
+    <li><a href="./typescript-datatype-1">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
+    <li><a href="./typescript-datatype-2">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
+    <li><a href="./typescript-variable">TypeScript 강좌(4) - 변수 선언</a></li>
+    <li><a href="./typescript-destructuring">TypeScript 강좌(5) - Destructuring</a></li>
+    <li><a href="./typescript-interface">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />
@@ -1317,13 +1317,13 @@ Destructuring이 완벽하게 똑같지는 않다는 것입니다.</p>
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
+    <li><a href="./typescript-introduction">TypeScript 강좌(1) - Introduction</a></li>
+    <li><a href="./typescript-datatype-1">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
+    <li><a href="./typescript-datatype-2">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
+    <li><a href="./typescript-variable">TypeScript 강좌(4) - 변수 선언</a></li>
+    <li><a href="./typescript-destructuring">TypeScript 강좌(5) - Destructuring</a></li>
+    <li><a href="./typescript-interface">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />
@@ -1622,13 +1622,13 @@ var는 중복선언이 가능합니다. 다음과 같이 말이죠.</p>
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
+    <li><a href="./typescript-introduction">TypeScript 강좌(1) - Introduction</a></li>
+    <li><a href="./typescript-datatype-1">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
+    <li><a href="./typescript-datatype-2">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
+    <li><a href="./typescript-variable">TypeScript 강좌(4) - 변수 선언</a></li>
+    <li><a href="./typescript-destructuring">TypeScript 강좌(5) - Destructuring</a></li>
+    <li><a href="./typescript-interface">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />
@@ -1847,13 +1847,13 @@ TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정�
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
+    <li><a href="./typescript-introduction">TypeScript 강좌(1) - Introduction</a></li>
+    <li><a href="./typescript-datatype-1">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
+    <li><a href="./typescript-datatype-2">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
+    <li><a href="./typescript-variable">TypeScript 강좌(4) - 변수 선언</a></li>
+    <li><a href="./typescript-destructuring">TypeScript 강좌(5) - Destructuring</a></li>
+    <li><a href="./typescript-interface">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />
@@ -2136,13 +2136,13 @@ myStr : Hello
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
+    <li><a href="./typescript-introduction">TypeScript 강좌(1) - Introduction</a></li>
+    <li><a href="./typescript-datatype-1">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
+    <li><a href="./typescript-datatype-2">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
+    <li><a href="./typescript-variable">TypeScript 강좌(4) - 변수 선언</a></li>
+    <li><a href="./typescript-destructuring">TypeScript 강좌(5) - Destructuring</a></li>
+    <li><a href="./typescript-interface">TypeScript 강좌(6) - Interface</a></li>
+    <li><a href="./typescript-class">TypeScript 강좌(7) - Class</a></li>
 </ul>
 
 <hr />

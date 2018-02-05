@@ -48,15 +48,15 @@
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -625,15 +625,15 @@ Local Repository로 가져온 commit들을 자신의 작업과 적절히 병합�
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -2158,15 +2158,15 @@ Font Awesome의 폰트는 <code class="highlighter-rouge">GPL</code> 라이선�
 	  <description><![CDATA[
 	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
