@@ -55,7 +55,7 @@
     <meta property="og:site_name" content="IT Blog" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="TypeScript 강좌(2) - Data Type(Part 1)" />
-    <meta property="og:description" content="TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과 객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7)" />
+    <meta property="og:description" content="TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7) - Class TypeScript Data Type boolean number string Array Tuple enum 프로그래밍 언어를" />
     <meta property="og:url" content="https://moon9342.github.io/typescript-datatype-1" />
     <meta property="og:image" content="https://moon9342.github.io/assets/built/images/typescript-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -65,7 +65,7 @@
     <meta property="article:tag" content="Front End" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="TypeScript 강좌(2) - Data Type(Part 1)" />
-    <meta name="twitter:description" content="TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과 객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7)" />
+    <meta name="twitter:description" content="TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7) - Class TypeScript Data Type boolean number string Array Tuple enum 프로그래밍 언어를" />
     <meta name="twitter:url" content="https://moon9342.github.io/" />
     <meta name="twitter:image" content="https://moon9342.github.io/assets/built/images/typescript-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -97,7 +97,7 @@
         "@type": "WebPage",
         "@id": "https://moon9342.github.io/typescript-datatype-1"
     },
-    "description": "TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과 객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7)"
+    "description": "TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7) - Class TypeScript Data Type boolean number string Array Tuple enum 프로그래밍 언어를"
 }
     </script>
 
@@ -215,8 +215,7 @@ into the {body} of the default.hbs template -->
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
+                    <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -267,7 +266,7 @@ var는 전통적으로 javascript의 변수를 선언하기 위한 keyword로 �
 <p><img src="assets/built/images/webstorm-project-datatype-boolean.png" alt="코드비교" /></p>
 
 <p>JavaScript에는 <strong>생성자 함수</strong>라는게 있습니다. <br />
-원래 Javascript는 객체지향언어가 아닙니다. <code class="highlighter-rouge">Prototype</code>기반의 언어입니다.
+원래 JavaScript는 객체지향언어가 아닙니다. <code class="highlighter-rouge">Prototype</code>기반의 함수형 언어입니다.
 그래서 JavaScript 초기버전에는 <code class="highlighter-rouge">class</code>가 도입되지 않았습니다. class는 ECMAScript 2015(ES6)에 도입되었습니다. 
 class가 도입되기 이전에는 함수를 이용해서 객체를 생성하는 <strong>생성자 함수</strong>라는걸 사용했습니다. 
 지금도 역시 사용하고 있구요. 우리가 알고있는 <code class="highlighter-rouge">new Date();</code> 이런게 다 생성자 함수를 이용한 객체의 생성입니다.</p>
@@ -310,7 +309,7 @@ class가 도입되기 이전에는 함수를 이용해서 객체를 생성하는
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> number</strong></p>
 
-<p>TypeScript는 정수와 실수를 구분하지 않습니다. 모두 다 실수( <code class="highlighter-rouge">floating point values</code> )입니다. data type으로는
+<p>TypeScript는 정수와 실수를 구분하지 않습니다. 모두 다 실수( floating point values )입니다. data type으로는
 <code class="highlighter-rouge">number</code>를 사용합니다. 대응되는 wrapper 생성자 함수는 <code class="highlighter-rouge">Number</code>가 되겠네요.
 기본적인 10진수, 16진수에 더해 ECMAScript 2015에서 2진수, 8진수의 사용도 추가되었습니다.</p>
 
@@ -326,8 +325,8 @@ class가 도입되기 이전에는 함수를 이용해서 객체를 생성하는
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> string</strong></p>
 
-<p>문자열을 지칭합니다. 기본적으로 double quotes (<code class="highlighter-rouge">"</code>) 와 single quotes (<code class="highlighter-rouge">'</code>) 둘 다 이용할 수 있습니다.
-대응되는 wrapper 생성자 함수는 <code class="highlighter-rouge">String</code> 입니다.</p>
+<p>문자열을 지칭합니다. 기본적으로 double quotes (<code class="highlighter-rouge">"</code>) 와 single quotes (<code class="highlighter-rouge">'</code>) 둘 다 이용할 수 있습니다. 일반적으로는
+single quotes (<code class="highlighter-rouge">'</code>)를 이용합니다. 대응되는 wrapper 생성자 함수는 <code class="highlighter-rouge">String</code> 입니다.</p>
 
 <p>한가지 더 기억해야 할 것이 있는데 <code class="highlighter-rouge">template string</code>이라는 걸 사용할 수 있습니다. backquote ( ` ) 를 이용하여
 여러줄에 걸쳐 문자열을 입력할 수 있고 <code class="highlighter-rouge">${ expr }</code> 형태로 embedded expression을 사용할 수 있습니다.</p>
@@ -339,7 +338,7 @@ class가 도입되기 이전에는 함수를 이용해서 객체를 생성하는
 a
 sample
 Text =&gt; </span><span class="p">${</span> <span class="nx">myNumber</span> <span class="o">+</span> <span class="mi">100</span> <span class="p">}</span><span class="s2">
-myStr : </span><span class="p">${</span> <span class="nx">myStr</span><span class="p">}</span><span class="s2">
+myStr : </span><span class="p">${</span> <span class="nx">myStr</span> <span class="p">}</span><span class="s2">
 `</span><span class="p">;</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myTemplateString</span><span class="p">);</span>
@@ -473,6 +472,10 @@ myStr : Hello
 <p>여기까지는 아마 우리가 알고있던 JavaScript와 거의 동일하니 이해하는데 어려움은 없을 듯 보입니다.
 나머지 data type은 다음 포스트에서 이어가도록 하죠.</p>
 
+<p>End.</p>
+
+<hr />
+
 <p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
     해당 사이트를 방문하세요!!</span></p>
 <ul class="lecture-reference">
@@ -577,7 +580,7 @@ myStr : Hello
                                     
                                         
                                         
-                                            <li><a href="/typescript-class">TypeScript 강좌(7) - Class</a></li>
+                                            <li><a href="/angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
                                         
                                     
                                   
@@ -586,7 +589,44 @@ myStr : Hello
                                     
                                         
                                         
-                                            <li><a href="/front-end-ecosystem">Front-End 발전 역사와 개발 생태계</a></li>
+                                            <li><a href="/angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/angular-lecture-component">Angular 강좌(3) - Component</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
                                         
                                     
                                   
@@ -610,8 +650,6 @@ myStr : Hello
                                   
                                     
                                         
-                                        
-                                            <li><a href="/typescript-interface">TypeScript 강좌(6) - Interface</a></li>
                                         
                                     
                                   
@@ -692,7 +730,7 @@ myStr : Hello
                         <footer class="read-next-card-footer">
                             <a href="/tag/front-end/">
                                 
-                                    See all 10 posts  →
+                                    See all 15 posts  →
                                 
                             </a>
                         </footer>
@@ -774,7 +812,7 @@ myStr : Hello
                     <h2 class="post-card-title">TypeScript 강좌(1) - Introduction</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과 객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data</p>
+                    <p>TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6)</p>
                 </section>
             </a>
             <footer class="post-card-meta">

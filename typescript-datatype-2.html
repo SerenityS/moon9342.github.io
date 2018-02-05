@@ -55,7 +55,7 @@
     <meta property="og:site_name" content="IT Blog" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="TypeScript 강좌(3) - Data Type(Part 2)" />
-    <meta property="og:description" content="TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과 객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7)" />
+    <meta property="og:description" content="TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7) - Class TypeScript Data Type any void null &amp; undefined never type assertions" />
     <meta property="og:url" content="https://moon9342.github.io/typescript-datatype-2" />
     <meta property="og:image" content="https://moon9342.github.io/assets/built/images/typescript-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -65,7 +65,7 @@
     <meta property="article:tag" content="Front End" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="TypeScript 강좌(3) - Data Type(Part 2)" />
-    <meta name="twitter:description" content="TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과 객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7)" />
+    <meta name="twitter:description" content="TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7) - Class TypeScript Data Type any void null &amp; undefined never type assertions" />
     <meta name="twitter:url" content="https://moon9342.github.io/" />
     <meta name="twitter:image" content="https://moon9342.github.io/assets/built/images/typescript-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -97,7 +97,7 @@
         "@type": "WebPage",
         "@id": "https://moon9342.github.io/typescript-datatype-2"
     },
-    "description": "TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과 객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7)"
+    "description": "TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7) - Class TypeScript Data Type any void null &amp; undefined never type assertions"
 }
     </script>
 
@@ -215,8 +215,7 @@ into the {body} of the default.hbs template -->
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
+                    <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -250,7 +249,7 @@ into the {body} of the default.hbs template -->
 즉, 동적으로 로딩되는 데이터의 타입이 runtime에 결정되므로 컴파일 타임에 data type을 지정할 수 없는 경우입니다.<br />
 (하지만 사실 우리는 대부분 데이터 타입을 정해놓고 구현을 진행하긴 합니다. ^^)</p>
 
-<p>이런 경우 어떠한 data type도 될 수 있다라는 의미로 <code class="highlighter-rouge">any</code> data type을 이용할 수 있습니다.
+<p>이런 경우 <strong>“어떠한 data type도 될 수 있다”</strong>라는 의미로 <code class="highlighter-rouge">any</code> data type을 이용할 수 있습니다.
 data type에 구애받지 않고 쉽게 코드를 작성할 수 있도록 만들어주지만 위에서 언급한 특정 목적을 제외하고는
 <strong>당연히 사용하지 않는것이 좋습니다.</strong></p>
 
@@ -309,7 +308,7 @@ data type에 구애받지 않고 쉽게 코드를 작성할 수 있도록 만들
 </code></pre></div></div>
 
 <p>하지만 null과 undefined는 <strong>다른 모든 type의 subtype</strong>입니다. 
-쉽게 말하면 다른 모든 type에 null과 undefined를 assign할 수 있다는 말입니다.</p>
+쉽게 말하면 다른 모든 type에 null과 undefined 값을 assign할 수 있다는 말입니다.</p>
 
 <p>여기서 주의해야 할 점은 만약 <code class="highlighter-rouge">--strictNullChecks</code> flag를 이용해 <code class="highlighter-rouge">.ts</code>파일을 컴파일 할 경우 null과 undefined는 void 혹은
 자신의 data type에만 assign될 수 있게됩니다.
@@ -387,7 +386,7 @@ data type에 구애받지 않고 쉽게 코드를 작성할 수 있도록 만들
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Type assertions</strong></p>
 
-<p><code class="highlighter-rouge">Type assertions</code>는 컴파일러에게 “이 타입 사용이 맞아!!”라는 의미를 전달하는 것입니다. Type assertions
+<p><code class="highlighter-rouge">Type assertions</code>는 컴파일러에게 <strong>“이 타입 사용이 맞아!!”</strong>라는 의미를 전달하는 것입니다. Type assertions
 은 type casting과 같은 의미로 사용되지만 실제 특별한 체크작업이나 데이터 재구조화 작업이 발생하지 않습니다.
 TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정한 후 컴파일을 진행합니다.
 ( TypeScript가 따로 검증하지 않는다는 거죠. )</p>
@@ -408,6 +407,10 @@ TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정�
 
 <p>여기까지가 TypeScript의 기본 data type입니다. 다음 포스트는 변수를 선언하기 위한 키워드인 
 <code class="highlighter-rouge">var</code>, <code class="highlighter-rouge">let</code>, <code class="highlighter-rouge">const</code>에 대해서 알아보도록 하겠습니다.</p>
+
+<p>End.</p>
+
+<hr />
 
 <p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
     해당 사이트를 방문하세요!!</span></p>
@@ -513,7 +516,7 @@ TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정�
                                     
                                         
                                         
-                                            <li><a href="/typescript-class">TypeScript 강좌(7) - Class</a></li>
+                                            <li><a href="/angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
                                         
                                     
                                   
@@ -522,7 +525,44 @@ TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정�
                                     
                                         
                                         
-                                            <li><a href="/front-end-ecosystem">Front-End 발전 역사와 개발 생태계</a></li>
+                                            <li><a href="/angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/angular-lecture-component">Angular 강좌(3) - Component</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
                                         
                                     
                                   
@@ -546,8 +586,6 @@ TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정�
                                   
                                     
                                         
-                                        
-                                            <li><a href="/typescript-interface">TypeScript 강좌(6) - Interface</a></li>
                                         
                                     
                                   
@@ -628,7 +666,7 @@ TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정�
                         <footer class="read-next-card-footer">
                             <a href="/tag/front-end/">
                                 
-                                    See all 10 posts  →
+                                    See all 15 posts  →
                                 
                             </a>
                         </footer>
@@ -710,7 +748,7 @@ TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정�
                     <h2 class="post-card-title">TypeScript 강좌(2) - Data Type(Part 1)</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과 객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data</p>
+                    <p>TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6)</p>
                 </section>
             </a>
             <footer class="post-card-meta">

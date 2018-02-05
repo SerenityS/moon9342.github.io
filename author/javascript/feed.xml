@@ -62,7 +62,7 @@
 	  <pubDate>2018-01-29T13:31:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/front-end-ecosystem</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p>이번 포스트는 과거 JavaScript 탄생부터 시작해서 어떻게 발전해왔는지에 대한 내용과 <br />
 현재 Front End 개발에 있어서 무엇을 알아야 하는 지에 대한 전반적인 기술 상황에 대해서 알아보겠습니다.</p>
@@ -196,8 +196,8 @@ npm이 어떻게 동작하는지 아실 수 있습니다. 굳이 Node.js에 대�
   <li><strong>Transpiler</strong> : Babel, <code class="highlighter-rouge">TypeScript</code></li>
 </ul>
 
-<p><img src="assets/built/images/typescript-vs-babel.jpg" alt="babel vs typescript" />
-<strong>이미지 출처 : (http://news.softpedia.com/news/angular-2-survey-shows-typescript-s-popularity-among-developers-490695.shtml)</strong></p>
+<p><img src="assets/built/images/typescript-vs-babel.jpg" alt="babel vs typescript" /></p>
+<div class="img-reference">( 이미지 출처 : http://news.softpedia.com/news )</div>
 
 <p>Cross Browsing을 위한 Transpiler입니다. 비교 대상은 아닙니다. 둘 다 알아둘 필요는 있지만 
 저는 <code class="highlighter-rouge">TypeScript</code>는 반드시 해야 한다고 생각합니다. 앞으로 TypeScript는 더 발전할 듯 보이거든요. 
@@ -247,6 +247,10 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
 <p>그리고 <strong>“이것정도는 알고가자”</strong>에서 제가 강조한 것들은 제가 현재 사용하는 것들입니다.
 그것들이 더 좋다는 보장은 어디에도 없습니다. 자기 손에 익숙한게 최고입니다. ^^</p>
 
+<p>End.</p>
+
+<hr />
+
 	  ]]></description>
 	</item>
 
@@ -269,7 +273,7 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
 	  <pubDate>2018-01-24T02:30:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/javascript-babel</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p>아무 생각없이 <code class="highlighter-rouge">Babel</code>을 쓰고 있지만 예전부터 궁금했던 Babel이란 이름이 내가 알고 있는 그 바벨탑의 바벨인가? 
 라는 의문에 이름의 근원을 찾아보고 이왕 찾아본 김에 Babel의 간단한 사용법 정도만 정리해 보도록 하겠습니다.
@@ -279,7 +283,7 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Babel이란 이름의 기원</strong></p>
 
-<p>결론적으로 <a href="https://babeljs.io/" target="_blank">Babel Official Home Page</a> 에서는 이름에 대한 근원을 찾을수는 없었습니다. 
+<p>결론적으로 <a href="https://babeljs.io/" target="_blank">Babel Official HomePage</a> 에서는 이름에 대한 근원을 찾을수는 없었습니다. 
 어딘가에 숨어있는지는 모르겠지만요. 여하간 Babel은 성경 영어로 구약성서 창세기에 그 근원을 두고 있습니다.
 ( 왠지 산으로 가는 느낌입니다. )</p>
 
@@ -289,7 +293,7 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
 하나의 높은 탑을 건설하게 되었는데 이게 그 <code class="highlighter-rouge">Babel</code>(바벨탑)이랍니다.</p>
 
 <p>하지만 인간들의 그러한 동기를 아시는 하나님께서 그들이 탑을 세우지 못하고 전 세계로 흩어지게끔 그들의 언어를 여러개로
-나누셔서 서로간의 의사소통이 되지 않도록 하셨답니다. 말이 안통하자 탑 공사는 중단되고 결국 언어가 맞는 사람끼리 뿔뿔히
+나누셔서 서로간의 의사소통이 되지 않도록 하셨답니다. 서로 말이 통하지 않자 탑 공사는 중단되고 결국 언어가 맞는 사람끼리 뿔뿔히
 흩어져 살게되었다라는 이야기지요.</p>
 
 <p>그래서 <code class="highlighter-rouge">Babel</code>의 사전적 의미는 “와글와글”, “바벨탑”, “거대한 탑” 의 의미를 가지게 되었다고 합니다.</p>
@@ -414,6 +418,9 @@ browser는 최신 ECMAScript 문법을 다 지원하지 못하거든요. 특히 
 <p>이 포스트의 내용은 <a href="https://babeljs.io/" target="_blank">Babel Official Home Page</a>을 참조했습니다.
 조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</p>
 
+<p>End.</p>
+
+<hr />
 
 	  ]]></description>
 	</item>
@@ -437,7 +444,7 @@ browser는 최신 ECMAScript 문법을 다 지원하지 못하거든요. 특히 
 	  <pubDate>2018-01-24T01:35:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/javascript-use-strict</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p><code class="highlighter-rouge">"use strict"</code>는 ES5에서 새롭게 나온 directive입니다. 실제 수행 문장이 아니라 literal expression이기 
 때문에 이전 버전의 JavaScript에서는 무시됩니다.</p>
@@ -501,6 +508,11 @@ directive정도로 인식하시면 될 듯 합니다.</p>
 <p>이 포스트의 내용은 <a href="https://www.w3schools.com/js/js_strict.asp" target="_blank">w3schools.com</a>을 참조했습니다.
 조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</p>
 
+<p>End.</p>
+
+<hr />
+
+
 	  ]]></description>
 	</item>
 
@@ -523,7 +535,7 @@ directive정도로 인식하시면 될 듯 합니다.</p>
 	  <pubDate>2018-01-14T15:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/javascript-history</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p>아마도 <code class="highlighter-rouge">JavaScript</code>, <code class="highlighter-rouge">ECMAScript</code>, <code class="highlighter-rouge">TypeScript</code>라는 용어를 많이 들어봤을 텐데 정확하게 어떤 차이가 있는지
 이번 포스트에서 간단하게 정리를 해 보겠습니다.</p>
@@ -555,7 +567,7 @@ JavaScript와 JScript는 서로 비슷하지만 특징이 다릅니다. 그로�
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> ECMAScript</strong></p>
 
 <p>여하간 Netscape사는 이 JavaScript의 표준을 잡기 위해 <code class="highlighter-rouge">ECMA</code>(정보 통신기술 표준화 기구)에 표준화 작업을 요청합니다. 당연히
-JavaScript라는 이름을 사용하려고 했지만 Sun과의 license 문제 때문에 <code class="highlighter-rouge">ECMAScript</code>라는 이름으로 표준화가 진행되게 됩니다.</p>
+JavaScript라는 이름을 사용하려고 했지만 Sun과의 라이선스 문제 때문에 <code class="highlighter-rouge">ECMAScript</code>라는 이름으로 표준화가 진행되게 됩니다.</p>
 
 <p>이렇게만 놓고 보면 JavaScript와 ECMAScript가 비슷한 의미로 사용되는 것처럼 보이는데 사실 작은 차이가 있습니다.</p>
 
@@ -564,7 +576,7 @@ JavaScript라는 이름을 사용하려고 했지만 Sun과의 license 문제 �
 2개의 Module은 <code class="highlighter-rouge">BOM(Browser Object Model)</code>, <code class="highlighter-rouge">DOM(Document Object Model)</code>을 지칭합니다.</p>
 
 <p>달리 말하자면 ECMAScript는 JavaScript를 구성하는 Core Script언어로 웹 환경에서만 사용되는 언어가 아닙니다. 웹 환경은 
-ECMAScript가 host되는 환경 중 하나일 뿐입니다.</p>
+ECMAScript가 사용되는 환경 중 하나일 뿐입니다.</p>
 
 <blockquote>
   <p><strong><code class="highlighter-rouge">JavaScript</code> = <code class="highlighter-rouge">ECMAScript</code> + <code class="highlighter-rouge">BOM</code> + <code class="highlighter-rouge">DOM</code></strong></p>
@@ -595,7 +607,7 @@ CoffeeScript 처럼 compile하면 JavaScript가 생성되는 변환 언어의 �
 <p>즉, 전통적인 OOP방식으로 JavaScript개발을 진행할 수 있다는 것이죠.</p>
 
 <blockquote>
-  <p><strong>기존 객체지향 언어(Java,C++,C#)를 알고 있고 JavaScript를 알고 있으면 TypeScript를 아주 쉽게
+  <p><strong>기존 객체지향 언어(Java, C++, C#)를 알고 있고 JavaScript를 알고 있으면 TypeScript를 아주 쉽게
 배울 수 있습니다.</strong></p>
 </blockquote>
 
@@ -611,12 +623,12 @@ CoffeeScript 처럼 compile하면 JavaScript가 생성되는 변환 언어의 �
 표준언어로 채택하다니 놀랍습니다. 그만큼 TypeScript의 언어적 기능이 좋고 앞으로의 발전가능성이 많다는 의미겠지요.</p>
 
 <p>기존 Google의 사내 표준언어 (<code class="highlighter-rouge">Canonical Language</code>)는 C, C++, Java, JavaScript, Python, Go 정도였는데 
-Google은 이 중 JavaScript를 이용하여 AngularJS(1.x)를 개발해왔었습니다.</p>
+Google은 이 중 JavaScript를 이용하여 AngularJS(1.x)를 개발했었습니다.</p>
 
 <p>하지만 AngualrJS(1.x)의 차기버전인 Angular(2.x)를 개발하면서 JavaScript의 기능상의 한계를 느끼게 되고
 결국 2014년에 Google에서 발표한 <code class="highlighter-rouge">AtScript</code>를 이용해 Angular(2.x)를 개발하게 됩니다.</p>
 
-<p>하지만 최종적으로는 TypeScript가 Angular의 표준언어 중 하나로 채택이 됩니다. 그러면서 기존의 AtScript로 작성했던 
+<p>하지만 TypeScript가 Angular의 표준언어 중 하나로 채택이 되면서 기존의 AtScript로 작성했던 
 Angular 2를 몽땅 TypeScript로 전환했습니다. Google에서 말하기로는 변환이 아주 쉬웠다고 하더군요.</p>
 
 <p>이렇게 TypeScript의 위상이 올라가면서 기존 Google에서 JavaScript의 대체 언어로 밀고있었던 

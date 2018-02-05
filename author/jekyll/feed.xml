@@ -62,17 +62,17 @@
 	  <pubDate>2018-02-02T15:14:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-regenerate-speed-up</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -134,17 +134,17 @@ site 전체를 다시 build해 주시면 될 듯 합니다.</p>
 	  <pubDate>2018-01-28T14:47:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-travis-ci-public</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -625,6 +625,10 @@ GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public�
 문제가 꼬리에 꼬리를 물면서 계속 튕겨 나오네요. 그러면서 배우는 거죠 머 ^^;
 일단 이런 문제가 있어요~ 라는 문제 제기만 하고 이번 글은 정리하도록 하겠습니다.</p>
 
+<p>End.</p>
+
+<hr />
+
 
 	  ]]></description>
 	</item>
@@ -648,17 +652,17 @@ GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public�
 	  <pubDate>2018-01-25T15:30:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-gist</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -889,12 +893,16 @@ gist를 불러올 때 JavaScript 링크를 붙였넣는것이 아닙니다. 만�
 default theme가 맘에 안드시면 다음의 <a href="http://codersblock.com/blog/customizing-github-gists/" target="_blank">CUSTOMIZING GITHUB GISTS</a>를 
 방문해 보세요. 조금만 살펴보시면 원하는 style로 gist를 사용하실 수 있습니다.</p>
 
+<p>End.</p>
+
+<hr />
+
 
 	  ]]></description>
 	</item>
 
 	<item>
-	  <title>Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6)</title>
+	  <title>Jekyll 기반의 GitHub Page 생성(6)</title>
 	  <link>https://moon9342.github.io/jekyll-sitemap</link>
 		
 				
@@ -912,17 +920,17 @@ default theme가 맘에 안드시면 다음의 <a href="http://codersblock.com/b
 	  <pubDate>2018-01-18T01:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-sitemap</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -933,7 +941,7 @@ default theme가 맘에 안드시면 다음의 <a href="http://codersblock.com/b
 처리해 보겠습니다. 이 작업을 하지 않으면 작성된 글이 웹에 노출될 확률이 현저하게 떨어집니다.</p>
 
 <p>Google이 제공하는 <code class="highlighter-rouge">Google Search Console</code>을 이용하여 내 GitHub Page의 domain을 등록시키고 <code class="highlighter-rouge">sitemap.xml</code>을
-생성해 Search Console에 제출하면 됩니다. sitemap.xml을 등록해 두면 Google 검색 크롤러가 주기적으로
+생성해 Google Search Console에 제출하면 됩니다. sitemap.xml을 등록해 두면 Google 검색 크롤러가 주기적으로
 페이지를 크롤링하여 indexing하게 됩니다.</p>
 
 <p>그럼 간단히 시작해 보겠습니다.</p>
@@ -1020,7 +1028,7 @@ layout: null
 
 <p><img src="assets/built/images/search_console_menu.png" alt="Google Search Console Menu" /></p>
 
-<p>왼쪽 메뉴의 크롤링 - Sitemaps를 선택해 <code class="highlighter-rouge">sitemap.xml</code>을 추가합니다. 먼저 테스트를 진행한 다음 이상이 없으면 
+<p>왼쪽 메뉴의 <strong>크롤링 - Sitemaps</strong>를 선택해 <code class="highlighter-rouge">sitemap.xml</code>을 추가합니다. 먼저 테스트를 진행한 다음 이상이 없으면 
 sitemap.xml 파일을 추가합니다. 정상적으로 처리되면 다음과 같은 화면을 보실 수 있습니다.</p>
 
 <p><img src="assets/built/images/search_console_status.png" alt="Google Search Console status" /></p>
@@ -1030,12 +1038,16 @@ sitemap.xml 파일을 추가합니다. 정상적으로 처리되면 다음과 �
 어떻게 되어 있나를 확인할 수 있습니다.</p>
 </blockquote>
 
+<p>End.</p>
+
+<hr />
+
 
 	  ]]></description>
 	</item>
 
 	<item>
-	  <title>Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5)</title>
+	  <title>Jekyll 기반의 GitHub Page 생성(5)</title>
 	  <link>https://moon9342.github.io/jekyll-search</link>
 		
 				
@@ -1053,17 +1065,17 @@ sitemap.xml 파일을 추가합니다. 정상적으로 처리되면 다음과 �
 	  <pubDate>2018-01-17T20:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-search</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -1319,12 +1331,16 @@ subclass: &#39;post page&#39;
 
 <p>검색 결과 화면에 대한 css는 취향에 맞게 설정해 사용하면 됩니다.!!</p>
 
+<p>End.</p>
+
+<hr />
+
 
 	  ]]></description>
 	</item>
 
 	<item>
-	  <title>Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4)</title>
+	  <title>Jekyll 기반의 GitHub Page 생성(4)</title>
 	  <link>https://moon9342.github.io/jekyll-rouge</link>
 		
 				
@@ -1342,17 +1358,17 @@ subclass: &#39;post page&#39;
 	  <pubDate>2018-01-17T19:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-rouge</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -1453,12 +1469,15 @@ function syntaxHighlight(code) {
 <span class="p">}</span>
 </code></pre></div></div>
 
+<p>End.</p>
+
+<hr />
 
 	  ]]></description>
 	</item>
 
 	<item>
-	  <title>Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3)</title>
+	  <title>Jekyll 기반의 GitHub Page 생성(3)</title>
 	  <link>https://moon9342.github.io/jekyll-font</link>
 		
 				
@@ -1476,17 +1495,17 @@ function syntaxHighlight(code) {
 	  <pubDate>2018-01-16T18:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-font</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -1555,14 +1574,18 @@ gulp를 설치하고 <code class="highlighter-rouge">gulpfile.js</code> 파일�
 결과적으로 <code class="highlighter-rouge">assets/built</code> 폴더에 수정된 내용으로 minified된 css파일이 생성되게 됩니다.</p>
 
 <p>이제 다시 <code class="highlighter-rouge">bundle exec jekyll serve</code>을 수행하면 새로 만들어진 css를 이용하여 
-블로그가 생성될 것이고 한글로 쓴 내용이 나눔고딕으로 변경되는 것을 볼 수 있습니다.</p>
+블로그가 생성될 것이고 한글로 쓴 내용의 폰트가 나눔고딕으로 변경되는 것을 볼 수 있습니다.</p>
+
+<p>End.</p>
+
+<hr />
 
 
 	  ]]></description>
 	</item>
 
 	<item>
-	  <title>Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2)</title>
+	  <title>Jekyll 기반의 GitHub Page 생성(2)</title>
 	  <link>https://moon9342.github.io/jekyll-struct</link>
 		
 				
@@ -1580,17 +1603,17 @@ gulp를 설치하고 <code class="highlighter-rouge">gulpfile.js</code> 파일�
 	  <pubDate>2018-01-16T12:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-struct</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -1627,9 +1650,9 @@ push해 주어야 합니다.</p>
 <hr />
 
 <p>위에서 언급했듯이 <code class="highlighter-rouge">D:/blogmaker</code>가 우리의 Jekyll Source Folder입니다.
-설정을 이용해 컴파일 과정을 거치면 destination 폴더에 결과물을 저장하게 됩니다. 
-Jekyll은 YAML 파일로 설정을 지정합니다.
-(<code class="highlighter-rouge">YAML</code>에 대한 간단한 설명은 <a href="./what_is_yaml.html" target="_blank">YAML이란</a> 링크를 클릭해 보세요.)</p>
+설정된 대로 컴파일 과정을 거치면 destination 폴더에 결과물을 저장하게 됩니다. 
+Jekyll은 설정파일로 YAML 파일을 이용합니다. <code class="highlighter-rouge">YAML</code>에 대한 설명은 <a href="./what_is_yaml.html" target="_blank">YAML이란</a> 
+링크에 간단히 정리되어 있습니다.</p>
 
 <p>이 설정에 대한 파일이 바로 <code class="highlighter-rouge">_config.yml</code>입니다. 블로그 생성에 대한 전체 환경 세팅을 담당하는 파일이라고 생각하시면 됩니다.</p>
 
@@ -1790,8 +1813,7 @@ exclude:
 합니다. (<a href="https://jekyllrb.com/docs/usage/#override-default-development-settings" target="_blank">참고링크</a>)</p>
 
 <blockquote>
-  <p>위의 작업을 하지 않으면 정상적으로 URL이 생성되지 않습니다. 
-(http://localhost:4000 으로 세팅됩니다.)</p>
+  <p>위의 작업을 하지 않으면 정상적으로 URL이 생성되지 않습니다. localhost로 세팅됩니다.</p>
 </blockquote>
 
 <hr />
@@ -1800,21 +1822,22 @@ exclude:
 여기서는 수동으로 결과 파일을 GitHub Repository (GitHub Page에 대한 Repository)에 올리는 것으로 설명합니다.
 ( <code class="highlighter-rouge">destination: ../[GitHubPage]/</code> 으로 설정되어 있다고 가정 )</p>
 
-<p>이제 <code class="highlighter-rouge">D:/[GitHubPage]/</code>파일안의 내용을 GitHub Page에 publishing하시면 됩니다.</p>
+<p>이제 <code class="highlighter-rouge">D:/[GitHubPage]/</code>파일안의 내용을 GitHub Page에 Publishing하시면 됩니다.</p>
 
 <blockquote>
-  <p>먼저 <a href="http://github.com/" target="_blank">GitHub</a>에 접속해서 새로운 repository를 생성합니다. 주의할 점은
-repository의 이름을 (자신의 github id).github.io로 지정해야 합니다.</p>
+  <p>먼저 <a href="http://github.com/" target="_blank">GitHub</a>에 접속해서 새로운 Repository를 생성합니다. 주의할 점은
+Repository의 이름을 (자신의 github id).github.io로 지정해야 합니다.</p>
 </blockquote>
 
 <blockquote>
-  <p>Git을 이용하여 방금 만든 <code class="highlighter-rouge">D:/[GitHubPage]/</code> 안의 내용을 repository에 push합니다.</p>
+  <p>Git을 이용하여 방금 만든 <code class="highlighter-rouge">D:/[GitHubPage]/</code> 안의 내용을 Repository에 push합니다.</p>
 </blockquote>
 
 <p>정상적으로 push가 진행되었다면 이제 https://(자신의 github id).github.io로 접속해서 블로그가 잘 
 개설이 되었는지 확인합니다.</p>
 
-<p>이 포스트에서는 <code class="highlighter-rouge">Git</code>과 <code class="highlighter-rouge">GitHub</code>에 대한 기본적인 사용법에 대해서는 다루지 않습니다. 해당 부분은 다른 포스트나
+<p>이 포스트에서는 <code class="highlighter-rouge">Git</code>과 <code class="highlighter-rouge">GitHub</code>에 대한 기본적인 사용법에 대해서는 다루지 않습니다. 해당 부분은 저의 
+<a href="./git-github.html" target="_blank">다른 포스트</a>나
 혹은 <a href="https://rogerdudler.github.io/git-guide/index.ko.html" target="_blank">여기</a>를 이용하여 살펴보시면
 될 듯 합니다.</p>
 
@@ -1830,7 +1853,7 @@ repository의 이름을 (자신의 github id).github.io로 지정해야 합니�
 	</item>
 
 	<item>
-	  <title>Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1)</title>
+	  <title>Jekyll 기반의 GitHub Page 생성(1)</title>
 	  <link>https://moon9342.github.io/jekyll-start</link>
 		
 				
@@ -1848,17 +1871,17 @@ repository의 이름을 (자신의 github id).github.io로 지정해야 합니�
 	  <pubDate>2018-01-15T15:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-start</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />

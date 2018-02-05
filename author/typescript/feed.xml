@@ -62,8 +62,7 @@
 	  <pubDate>2018-01-30T18:04:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-class</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -395,6 +394,10 @@ TypeScript는 property에도 적용할 수 있습니다. static property는 clas
 <p>이번 포스트에서는 <code class="highlighter-rouge">TypeScript</code>의 class에 대해서 살펴보았습니다. 객체지향 언어의 class와 상당히 유사하면서도
 약간의 차이점이 있었습니다. 차이점 위주로 기억하시면 될 듯 합니다.</p>
 
+<p>End.</p>
+
+<hr />
+
 <p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
     해당 사이트를 방문하세요!!</span></p>
 <ul class="lecture-reference">
@@ -424,8 +427,7 @@ TypeScript는 property에도 적용할 수 있습니다. static property는 clas
 	  <pubDate>2018-01-24T09:51:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-interface</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -948,6 +950,10 @@ interface내에 정의해서 사용합니다.</p>
 내용이 생각보다 많은데 생각보다 많이 어렵지는 않습니다. 단지 헷갈릴 뿐이죠 ^^
 여러번 정독하면서 쓰임새를 알아두고 실제 코드에서 활용하면서 익히셔야 합니다.</p>
 
+<p>End.</p>
+
+<hr />
+
 <p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
     해당 사이트를 방문하세요!!</span></p>
 <ul class="lecture-reference">
@@ -976,8 +982,7 @@ interface내에 정의해서 사용합니다.</p>
 	  <pubDate>2018-01-23T17:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-destructuring</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -1278,6 +1283,10 @@ Destructuring이 완벽하게 똑같지는 않다는 것입니다.</p>
 
 <p>꼭 사용해야 할 필요는 없지만 알아두면 편하고 좋은 <code class="highlighter-rouge">Destructuring</code>에 대해서 알아보았습니다.</p>
 
+<p>End.</p>
+
+<hr />
+
 <p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
     해당 사이트를 방문하세요!!</span></p>
 <ul class="lecture-reference">
@@ -1306,8 +1315,7 @@ Destructuring이 완벽하게 똑같지는 않다는 것입니다.</p>
 	  <pubDate>2018-01-22T19:14:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-variable</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -1580,6 +1588,10 @@ var는 중복선언이 가능합니다. 다음과 같이 말이죠.</p>
 
 <p>변수 선언에 대한 keyword에 대해서는 이정도 알아두시면 될 듯 보입니다. 다음 주제는 <code class="highlighter-rouge">Destructuring</code>(디스트럭쳐링)입니다.</p>
 
+<p>End.</p>
+
+<hr />
+
 <p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
     해당 사이트를 방문하세요!!</span></p>
 <ul class="lecture-reference">
@@ -1608,8 +1620,7 @@ var는 중복선언이 가능합니다. 다음과 같이 말이죠.</p>
 	  <pubDate>2018-01-22T16:44:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-datatype-2</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -1643,7 +1654,7 @@ var는 중복선언이 가능합니다. 다음과 같이 말이죠.</p>
 즉, 동적으로 로딩되는 데이터의 타입이 runtime에 결정되므로 컴파일 타임에 data type을 지정할 수 없는 경우입니다.<br />
 (하지만 사실 우리는 대부분 데이터 타입을 정해놓고 구현을 진행하긴 합니다. ^^)</p>
 
-<p>이런 경우 어떠한 data type도 될 수 있다라는 의미로 <code class="highlighter-rouge">any</code> data type을 이용할 수 있습니다.
+<p>이런 경우 <strong>“어떠한 data type도 될 수 있다”</strong>라는 의미로 <code class="highlighter-rouge">any</code> data type을 이용할 수 있습니다.
 data type에 구애받지 않고 쉽게 코드를 작성할 수 있도록 만들어주지만 위에서 언급한 특정 목적을 제외하고는
 <strong>당연히 사용하지 않는것이 좋습니다.</strong></p>
 
@@ -1702,7 +1713,7 @@ data type에 구애받지 않고 쉽게 코드를 작성할 수 있도록 만들
 </code></pre></div></div>
 
 <p>하지만 null과 undefined는 <strong>다른 모든 type의 subtype</strong>입니다. 
-쉽게 말하면 다른 모든 type에 null과 undefined를 assign할 수 있다는 말입니다.</p>
+쉽게 말하면 다른 모든 type에 null과 undefined 값을 assign할 수 있다는 말입니다.</p>
 
 <p>여기서 주의해야 할 점은 만약 <code class="highlighter-rouge">--strictNullChecks</code> flag를 이용해 <code class="highlighter-rouge">.ts</code>파일을 컴파일 할 경우 null과 undefined는 void 혹은
 자신의 data type에만 assign될 수 있게됩니다.
@@ -1780,7 +1791,7 @@ data type에 구애받지 않고 쉽게 코드를 작성할 수 있도록 만들
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Type assertions</strong></p>
 
-<p><code class="highlighter-rouge">Type assertions</code>는 컴파일러에게 “이 타입 사용이 맞아!!”라는 의미를 전달하는 것입니다. Type assertions
+<p><code class="highlighter-rouge">Type assertions</code>는 컴파일러에게 <strong>“이 타입 사용이 맞아!!”</strong>라는 의미를 전달하는 것입니다. Type assertions
 은 type casting과 같은 의미로 사용되지만 실제 특별한 체크작업이나 데이터 재구조화 작업이 발생하지 않습니다.
 TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정한 후 컴파일을 진행합니다.
 ( TypeScript가 따로 검증하지 않는다는 거죠. )</p>
@@ -1801,6 +1812,10 @@ TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정�
 
 <p>여기까지가 TypeScript의 기본 data type입니다. 다음 포스트는 변수를 선언하기 위한 키워드인 
 <code class="highlighter-rouge">var</code>, <code class="highlighter-rouge">let</code>, <code class="highlighter-rouge">const</code>에 대해서 알아보도록 하겠습니다.</p>
+
+<p>End.</p>
+
+<hr />
 
 <p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
     해당 사이트를 방문하세요!!</span></p>
@@ -1830,8 +1845,7 @@ TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정�
 	  <pubDate>2018-01-22T13:07:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-datatype-1</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -1882,7 +1896,7 @@ var는 전통적으로 javascript의 변수를 선언하기 위한 keyword로 �
 <p><img src="assets/built/images/webstorm-project-datatype-boolean.png" alt="코드비교" /></p>
 
 <p>JavaScript에는 <strong>생성자 함수</strong>라는게 있습니다. <br />
-원래 Javascript는 객체지향언어가 아닙니다. <code class="highlighter-rouge">Prototype</code>기반의 언어입니다.
+원래 JavaScript는 객체지향언어가 아닙니다. <code class="highlighter-rouge">Prototype</code>기반의 함수형 언어입니다.
 그래서 JavaScript 초기버전에는 <code class="highlighter-rouge">class</code>가 도입되지 않았습니다. class는 ECMAScript 2015(ES6)에 도입되었습니다. 
 class가 도입되기 이전에는 함수를 이용해서 객체를 생성하는 <strong>생성자 함수</strong>라는걸 사용했습니다. 
 지금도 역시 사용하고 있구요. 우리가 알고있는 <code class="highlighter-rouge">new Date();</code> 이런게 다 생성자 함수를 이용한 객체의 생성입니다.</p>
@@ -1925,7 +1939,7 @@ class가 도입되기 이전에는 함수를 이용해서 객체를 생성하는
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> number</strong></p>
 
-<p>TypeScript는 정수와 실수를 구분하지 않습니다. 모두 다 실수( <code class="highlighter-rouge">floating point values</code> )입니다. data type으로는
+<p>TypeScript는 정수와 실수를 구분하지 않습니다. 모두 다 실수( floating point values )입니다. data type으로는
 <code class="highlighter-rouge">number</code>를 사용합니다. 대응되는 wrapper 생성자 함수는 <code class="highlighter-rouge">Number</code>가 되겠네요.
 기본적인 10진수, 16진수에 더해 ECMAScript 2015에서 2진수, 8진수의 사용도 추가되었습니다.</p>
 
@@ -1941,8 +1955,8 @@ class가 도입되기 이전에는 함수를 이용해서 객체를 생성하는
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> string</strong></p>
 
-<p>문자열을 지칭합니다. 기본적으로 double quotes (<code class="highlighter-rouge">"</code>) 와 single quotes (<code class="highlighter-rouge">'</code>) 둘 다 이용할 수 있습니다.
-대응되는 wrapper 생성자 함수는 <code class="highlighter-rouge">String</code> 입니다.</p>
+<p>문자열을 지칭합니다. 기본적으로 double quotes (<code class="highlighter-rouge">"</code>) 와 single quotes (<code class="highlighter-rouge">'</code>) 둘 다 이용할 수 있습니다. 일반적으로는
+single quotes (<code class="highlighter-rouge">'</code>)를 이용합니다. 대응되는 wrapper 생성자 함수는 <code class="highlighter-rouge">String</code> 입니다.</p>
 
 <p>한가지 더 기억해야 할 것이 있는데 <code class="highlighter-rouge">template string</code>이라는 걸 사용할 수 있습니다. backquote ( ` ) 를 이용하여
 여러줄에 걸쳐 문자열을 입력할 수 있고 <code class="highlighter-rouge">${ expr }</code> 형태로 embedded expression을 사용할 수 있습니다.</p>
@@ -1954,7 +1968,7 @@ class가 도입되기 이전에는 함수를 이용해서 객체를 생성하는
 a
 sample
 Text =&gt; </span><span class="p">${</span> <span class="nx">myNumber</span> <span class="o">+</span> <span class="mi">100</span> <span class="p">}</span><span class="s2">
-myStr : </span><span class="p">${</span> <span class="nx">myStr</span><span class="p">}</span><span class="s2">
+myStr : </span><span class="p">${</span> <span class="nx">myStr</span> <span class="p">}</span><span class="s2">
 `</span><span class="p">;</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myTemplateString</span><span class="p">);</span>
@@ -2088,6 +2102,10 @@ myStr : Hello
 <p>여기까지는 아마 우리가 알고있던 JavaScript와 거의 동일하니 이해하는데 어려움은 없을 듯 보입니다.
 나머지 data type은 다음 포스트에서 이어가도록 하죠.</p>
 
+<p>End.</p>
+
+<hr />
+
 <p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
     해당 사이트를 방문하세요!!</span></p>
 <ul class="lecture-reference">
@@ -2116,8 +2134,7 @@ myStr : Hello
 	  <pubDate>2018-01-21T17:42:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-introduction</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -2244,7 +2261,7 @@ compiler option에 대해서는 다른 포스트에서 알아보기로 하고 �
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tmp</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">());</span>
 </code></pre></div></div>
 
-<p>내가 알고있던 javascript가 아니라서 당황스럽지요? 별로 어렵지 않습니다. 객체지향 언어를 알고 이으면
+<p>내가 알고있던 javascript가 아니라서 당황스럽지요? 별로 어렵지 않습니다. 객체지향 언어를 알고 있으면
 더욱 더 쉽게 접근할 수 있습니다. 여하간 이렇게 코딩을 하고 저장하면 자동적으로 컴파일을 진행하고 그 결과
 파일(.js)을 생성해 줍니다.</p>
 
@@ -2323,6 +2340,10 @@ console에 대한 tslint 오류를 없애보도록 하죠.</p>
   <p><code class="highlighter-rouge">tslint</code>는 실 개발시에는 필요하지만 처음 TypeScript를 공부할 때는 끄고 하시는게 정신건강에 이로울 수 있습니다.
 사실 쓸데없는 <code class="highlighter-rouge">coding convention</code>도 많거든요.</p>
 </blockquote>
+
+<p>End.</p>
+
+<hr />
 
 	  ]]></description>
 	</item>

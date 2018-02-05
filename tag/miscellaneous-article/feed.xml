@@ -46,17 +46,17 @@
 	  <pubDate>2018-02-02T15:14:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-regenerate-speed-up</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -118,7 +118,7 @@ site 전체를 다시 build해 주시면 될 듯 합니다.</p>
 	  <pubDate>2018-02-02T14:21:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/git-github</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p><code class="highlighter-rouge">Git</code>과 <code class="highlighter-rouge">GitHub</code>에 대한 간단한 설명입니다. 간단한 이론과 함께 실습을 통해 command 기반의 명령어로 
 어떤일을 처리할 수 있는지를 알아보도록 하겠습니다.</p>
@@ -623,17 +623,17 @@ Local Repository로 가져온 commit들을 자신의 작업과 적절히 병합�
 	  <pubDate>2018-01-28T14:47:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-travis-ci-public</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -1114,6 +1114,10 @@ GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public�
 문제가 꼬리에 꼬리를 물면서 계속 튕겨 나오네요. 그러면서 배우는 거죠 머 ^^;
 일단 이런 문제가 있어요~ 라는 문제 제기만 하고 이번 글은 정리하도록 하겠습니다.</p>
 
+<p>End.</p>
+
+<hr />
+
 
 	  ]]></description>
 	</item>
@@ -1137,7 +1141,7 @@ GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public�
 	  <pubDate>2018-01-27T15:30:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/continuous-integration</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p>CI는 <code class="highlighter-rouge">Continuous Integration</code>의 약자로 우리나라 말로 굳이 번역하자면 
 <strong>“지속적인 통합”</strong> 정도가 되겠네요.</p>
@@ -1170,8 +1174,8 @@ GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public�
 
 <p>그림으로 표현하면 아래와 같이 단순하게 표현할 수 있겠네요.</p>
 
-<p><img src="assets/built/images/fail-fast-continuous-integration.png" alt="CI 동작방식-Simple" />
-( <strong>이미지 출처 : https://blog.snap-ci.com/categories/continuous-integration/</strong> )</p>
+<p><img src="assets/built/images/fail-fast-continuous-integration.png" alt="CI 동작방식-Simple" /></p>
+<div class="img-reference">( 이미지 출처 : https://blog.snap-ci.com/categories/continuous-integration )</div>
 
 <p>사실 더 복잡하지만 위의 그림처럼 단순하게 바라보시면 될 듯 합니다. <code class="highlighter-rouge">CI Server</code>가 통합된 코드를 자동으로 
 Build-Test-Release-Deploy까지 진행하고 그 결과를 개발자나 다른 관련있는 사람에게 알려주게 됩니다.</p>
@@ -1196,10 +1200,13 @@ Build-Test-Release-Deploy까지 진행하고 그 결과를 개발자나 다른 �
   </li>
 </ul>
 
-<hr />
-
 <p>간단하게 CI의 개념에 대해서만 살펴보았습니다. <code class="highlighter-rouge">Travis CI</code>와 같은 것은 사용하기 그리 어렵지 않으니 한번 사용해 보시면 느낌이 확
 오실겁니다.</p>
+
+<p>End.</p>
+
+<hr />
+
 
 	  ]]></description>
 	</item>
@@ -1223,7 +1230,7 @@ Build-Test-Release-Deploy까지 진행하고 그 결과를 개발자나 다른 �
 	  <pubDate>2018-01-26T13:39:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/architecture-platform-terminology</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p><code class="highlighter-rouge">Library</code>, <code class="highlighter-rouge">Framework</code>, <code class="highlighter-rouge">Architecture</code>, <code class="highlighter-rouge">Platform</code>은 우리가 너무나 많이 들어본 용어이고 그 의미도 
 대충 알고 있습니다. 하지만 <strong>명확하게 설명해봐!!</strong> 라고 한다면 주춤 주춤하게 만드는 용어이기도 합니다.</p>
@@ -1345,10 +1352,12 @@ Framework은 이런 유지보수 측면에서 강점을 가질 수 있습니다.
 <p>개발 시 기본 골격이 되는 프로그램 코드가 제공되는것이 일반적인데 이 또한 Framework의 특징이라고 할 수 있습니다.
 ( <code class="highlighter-rouge">Scaffolding</code> 이라고 합니다. )</p>
 
-<hr />
-
-<p><code class="highlighter-rouge">Framework</code>부분은 사실 더 써야 하는 사항이 많습니다. 하지만 차이점 위주로 살펴본 것이니 위의 내용 정도만
+<p>Framework부분은 사실 더 써야 하는 사항이 많습니다. 하지만 차이점 위주로 살펴본 것이니 위의 내용 정도만
 이해해도 충분하지 않을까 합니다.</p>
+
+<p>End.</p>
+
+<hr />
 
 
 	  ]]></description>
@@ -1373,7 +1382,7 @@ Framework은 이런 유지보수 측면에서 강점을 가질 수 있습니다.
 	  <pubDate>2018-01-26T10:48:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/browser-detect-script</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p>사이트에 접속한 Client Web Browser의 종류를 알아내는 방법입니다.</p>
 
@@ -1406,7 +1415,7 @@ Framework은 이런 유지보수 측면에서 강점을 가질 수 있습니다.
 </code></pre></div></div>
 
 <p>JavaScript의 <code class="highlighter-rouge">navigator</code>객체를 조사하면 browser의 종류를 판별할 수 있습니다. 
-IE 10까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이후 버전은 이름이 또 바뀌어서 다른 식으로 
+<code class="highlighter-rouge">IE 10</code>까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이후 버전은 이름이 또 바뀌어서 다른 식으로 
 판단해야 합니다. 전 IE는 관심밖이라…</p>
 
 <hr />
@@ -1438,10 +1447,12 @@ IE 10까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이�
 
 <p>추가적으로 해당 구현에 대한 소스코드까지 프로그래밍 언어별로 제공하고 있으니 필요하면 다운로드 받아서 사용하면 될 듯 싶습니다.</p>
 
-<hr />
-
 <p>여하간 제 블로그는 <code class="highlighter-rouge">Chrome</code> 전용이기 때문에 제가 사용하는 Jasper2 theme의 <code class="highlighter-rouge">head.html</code>에 저 위의 코드를
 적당히 수정해서 이용중입니다. 언제까지 이런 <strong>cross browsing issue</strong>에 시달려야하는지 안타깝습니다. ㅎㅎ</p>
+
+<p>End.</p>
+
+<hr />
 
 
 	  ]]></description>
@@ -1466,7 +1477,7 @@ IE 10까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이�
 	  <pubDate>2018-01-25T23:50:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/css-fontawesome-list</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p>블로그나 사이트 작성 시 <code class="highlighter-rouge">icon</code> 이미지들이 많이 필요하게 되는데 이 아이콘을 마치 폰트처럼 사용할 수 있도록
 서비스를 제공하는 곳이 있습니다. <code class="highlighter-rouge">Font Awesome</code>이라는 곳인데 이 곳에서 제공하는 icon 리스트입니다.</p>
@@ -2120,6 +2131,8 @@ Font Awesome의 폰트는 <code class="highlighter-rouge">GPL</code> 라이선�
 
 </ul>
 
+<hr />
+
 
 	  ]]></description>
 	</item>
@@ -2143,17 +2156,17 @@ Font Awesome의 폰트는 <code class="highlighter-rouge">GPL</code> 라이선�
 	  <pubDate>2018-01-25T15:30:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/jekyll-gist</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
+	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
-    <li><a href="./jekyll-start.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up.html">Jasper2 Theme를 이용한 Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
+    <li><a href="./jekyll-start.html">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
+    <li><a href="./jekyll-struct.html">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
+    <li><a href="./jekyll-font.html">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
+    <li><a href="./jekyll-rouge.html">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
+    <li><a href="./jekyll-search.html">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
+    <li><a href="./jekyll-sitemap.html">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
+    <li><a href="./jekyll-gist.html">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
+    <li><a href="./jekyll-travis-ci-public.html">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
+    <li><a href="./jekyll-regenerate-speed-up.html">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
 </ul>
 
 <hr />
@@ -2384,6 +2397,10 @@ gist를 불러올 때 JavaScript 링크를 붙였넣는것이 아닙니다. 만�
 default theme가 맘에 안드시면 다음의 <a href="http://codersblock.com/blog/customizing-github-gists/" target="_blank">CUSTOMIZING GITHUB GISTS</a>를 
 방문해 보세요. 조금만 살펴보시면 원하는 style로 gist를 사용하실 수 있습니다.</p>
 
+<p>End.</p>
+
+<hr />
+
 
 	  ]]></description>
 	</item>
@@ -2407,7 +2424,7 @@ default theme가 맘에 안드시면 다음의 <a href="http://codersblock.com/b
 	  <pubDate>2018-01-25T14:11:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/github-gist</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p><code class="highlighter-rouge">Code Snippet</code>을 관리하기 위한 도구입니다. 블로그로 IT 관련 포스팅을 하는 사람들에게는 굉장히 유용한 도구로
 사용이 됩니다. <code class="highlighter-rouge">Gist</code>는 우리나라말로 “지스트”라고 발음하며 GitHub에서 서비스 하고 있습니다.</p>
@@ -2458,12 +2475,14 @@ Syntax Highlighter를 이용하여 올리면 편합니다. 하지만 완성된 �
 <p>실제로 한번 작업해 보시면 자신이 작성한 Code Snippet을 블로그에 쉽게 포함 시킬 수
 있으실 겁니다.</p>
 
-<hr />
-
 <p>저는 Jekyll기반의 GitHub Page에서 블로그를 운영하고 있기 때문에 조금 다른 방식을 이용합니다.
 Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합니다.</p>
 
 <p>이 방식에 대해서는 <a href="./jekyll-gist.html" target="_blank">여기</a>를 참조하세요!</p>
+
+<p>End.</p>
+
+<hr />
 
 
 	  ]]></description>
@@ -2488,15 +2507,13 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 	  <pubDate>2018-01-24T17:51:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/i18n-l10n</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
-<p>국제화와 지역화 작업을 의미합니다.</p>
+<p>국제화와 지역화 작업을 의미하는 i18n과 l10n에 대해서 알아보도록 하겠습니다.</p>
 
 <hr />
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> i18n, l10n</strong></p>
-
-<p>아마 많은 분들이 잘 알고 계실테지만 그래도 한번 간단히 언급만 해 보겠습니다.</p>
 
 <p><code class="highlighter-rouge">i18n</code>은 internationalization(국제화)를 표현한 것입니다. 첫글자인 i와 마지막 글자인 n사이에 18개의 글자가 있다고
 해서 저렇게 표현한 겁니다. 아마 IT쪽에 관심이 있는 사람이라면 i18n이 어떤 약자인지는 몰랐어도 국제화라는걸 알고는 있었으리라
@@ -2516,6 +2533,10 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 
 <p>i18n 작업을 할 때 <strong>주의해야 할 점</strong>에 대해서는 다른 훌륭한 포스트들을 참조해주세요~ 사실 저도
 작업 경험이 딱 한번 있습니다. (<del>하고 싶지 않아요.. 할 생각도 없구요</del>)</p>
+
+<p>End.</p>
+
+<hr />
 
 	  ]]></description>
 	</item>

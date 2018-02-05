@@ -62,7 +62,7 @@
 	  <pubDate>2018-02-02T14:21:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/git-github</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p><code class="highlighter-rouge">Git</code>과 <code class="highlighter-rouge">GitHub</code>에 대한 간단한 설명입니다. 간단한 이론과 함께 실습을 통해 command 기반의 명령어로 
 어떤일을 처리할 수 있는지를 알아보도록 하겠습니다.</p>
@@ -567,7 +567,7 @@ Local Repository로 가져온 commit들을 자신의 작업과 적절히 병합�
 	  <pubDate>2018-01-27T15:30:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/continuous-integration</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p>CI는 <code class="highlighter-rouge">Continuous Integration</code>의 약자로 우리나라 말로 굳이 번역하자면 
 <strong>“지속적인 통합”</strong> 정도가 되겠네요.</p>
@@ -600,8 +600,8 @@ Local Repository로 가져온 commit들을 자신의 작업과 적절히 병합�
 
 <p>그림으로 표현하면 아래와 같이 단순하게 표현할 수 있겠네요.</p>
 
-<p><img src="assets/built/images/fail-fast-continuous-integration.png" alt="CI 동작방식-Simple" />
-( <strong>이미지 출처 : https://blog.snap-ci.com/categories/continuous-integration/</strong> )</p>
+<p><img src="assets/built/images/fail-fast-continuous-integration.png" alt="CI 동작방식-Simple" /></p>
+<div class="img-reference">( 이미지 출처 : https://blog.snap-ci.com/categories/continuous-integration )</div>
 
 <p>사실 더 복잡하지만 위의 그림처럼 단순하게 바라보시면 될 듯 합니다. <code class="highlighter-rouge">CI Server</code>가 통합된 코드를 자동으로 
 Build-Test-Release-Deploy까지 진행하고 그 결과를 개발자나 다른 관련있는 사람에게 알려주게 됩니다.</p>
@@ -626,10 +626,13 @@ Build-Test-Release-Deploy까지 진행하고 그 결과를 개발자나 다른 �
   </li>
 </ul>
 
-<hr />
-
 <p>간단하게 CI의 개념에 대해서만 살펴보았습니다. <code class="highlighter-rouge">Travis CI</code>와 같은 것은 사용하기 그리 어렵지 않으니 한번 사용해 보시면 느낌이 확
 오실겁니다.</p>
+
+<p>End.</p>
+
+<hr />
+
 
 	  ]]></description>
 	</item>
@@ -653,7 +656,7 @@ Build-Test-Release-Deploy까지 진행하고 그 결과를 개발자나 다른 �
 	  <pubDate>2018-01-26T13:39:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/architecture-platform-terminology</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p><code class="highlighter-rouge">Library</code>, <code class="highlighter-rouge">Framework</code>, <code class="highlighter-rouge">Architecture</code>, <code class="highlighter-rouge">Platform</code>은 우리가 너무나 많이 들어본 용어이고 그 의미도 
 대충 알고 있습니다. 하지만 <strong>명확하게 설명해봐!!</strong> 라고 한다면 주춤 주춤하게 만드는 용어이기도 합니다.</p>
@@ -775,10 +778,12 @@ Framework은 이런 유지보수 측면에서 강점을 가질 수 있습니다.
 <p>개발 시 기본 골격이 되는 프로그램 코드가 제공되는것이 일반적인데 이 또한 Framework의 특징이라고 할 수 있습니다.
 ( <code class="highlighter-rouge">Scaffolding</code> 이라고 합니다. )</p>
 
-<hr />
-
-<p><code class="highlighter-rouge">Framework</code>부분은 사실 더 써야 하는 사항이 많습니다. 하지만 차이점 위주로 살펴본 것이니 위의 내용 정도만
+<p>Framework부분은 사실 더 써야 하는 사항이 많습니다. 하지만 차이점 위주로 살펴본 것이니 위의 내용 정도만
 이해해도 충분하지 않을까 합니다.</p>
+
+<p>End.</p>
+
+<hr />
 
 
 	  ]]></description>
@@ -803,7 +808,7 @@ Framework은 이런 유지보수 측면에서 강점을 가질 수 있습니다.
 	  <pubDate>2018-01-26T10:48:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/browser-detect-script</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p>사이트에 접속한 Client Web Browser의 종류를 알아내는 방법입니다.</p>
 
@@ -836,7 +841,7 @@ Framework은 이런 유지보수 측면에서 강점을 가질 수 있습니다.
 </code></pre></div></div>
 
 <p>JavaScript의 <code class="highlighter-rouge">navigator</code>객체를 조사하면 browser의 종류를 판별할 수 있습니다. 
-IE 10까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이후 버전은 이름이 또 바뀌어서 다른 식으로 
+<code class="highlighter-rouge">IE 10</code>까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이후 버전은 이름이 또 바뀌어서 다른 식으로 
 판단해야 합니다. 전 IE는 관심밖이라…</p>
 
 <hr />
@@ -868,10 +873,12 @@ IE 10까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이�
 
 <p>추가적으로 해당 구현에 대한 소스코드까지 프로그래밍 언어별로 제공하고 있으니 필요하면 다운로드 받아서 사용하면 될 듯 싶습니다.</p>
 
-<hr />
-
 <p>여하간 제 블로그는 <code class="highlighter-rouge">Chrome</code> 전용이기 때문에 제가 사용하는 Jasper2 theme의 <code class="highlighter-rouge">head.html</code>에 저 위의 코드를
 적당히 수정해서 이용중입니다. 언제까지 이런 <strong>cross browsing issue</strong>에 시달려야하는지 안타깝습니다. ㅎㅎ</p>
+
+<p>End.</p>
+
+<hr />
 
 
 	  ]]></description>
@@ -896,7 +903,7 @@ IE 10까지는 저 위의 방법으로 알아낼 수 있으나 Edge와 그 이�
 	  <pubDate>2018-01-25T23:50:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/css-fontawesome-list</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p>블로그나 사이트 작성 시 <code class="highlighter-rouge">icon</code> 이미지들이 많이 필요하게 되는데 이 아이콘을 마치 폰트처럼 사용할 수 있도록
 서비스를 제공하는 곳이 있습니다. <code class="highlighter-rouge">Font Awesome</code>이라는 곳인데 이 곳에서 제공하는 icon 리스트입니다.</p>
@@ -1550,6 +1557,8 @@ Font Awesome의 폰트는 <code class="highlighter-rouge">GPL</code> 라이선�
 
 </ul>
 
+<hr />
+
 
 	  ]]></description>
 	</item>
@@ -1573,7 +1582,7 @@ Font Awesome의 폰트는 <code class="highlighter-rouge">GPL</code> 라이선�
 	  <pubDate>2018-01-25T14:11:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/github-gist</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p><code class="highlighter-rouge">Code Snippet</code>을 관리하기 위한 도구입니다. 블로그로 IT 관련 포스팅을 하는 사람들에게는 굉장히 유용한 도구로
 사용이 됩니다. <code class="highlighter-rouge">Gist</code>는 우리나라말로 “지스트”라고 발음하며 GitHub에서 서비스 하고 있습니다.</p>
@@ -1624,12 +1633,14 @@ Syntax Highlighter를 이용하여 올리면 편합니다. 하지만 완성된 �
 <p>실제로 한번 작업해 보시면 자신이 작성한 Code Snippet을 블로그에 쉽게 포함 시킬 수
 있으실 겁니다.</p>
 
-<hr />
-
 <p>저는 Jekyll기반의 GitHub Page에서 블로그를 운영하고 있기 때문에 조금 다른 방식을 이용합니다.
 Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합니다.</p>
 
 <p>이 방식에 대해서는 <a href="./jekyll-gist.html" target="_blank">여기</a>를 참조하세요!</p>
+
+<p>End.</p>
+
+<hr />
 
 
 	  ]]></description>
@@ -1654,15 +1665,13 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 	  <pubDate>2018-01-24T17:51:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/i18n-l10n</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
-<p>국제화와 지역화 작업을 의미합니다.</p>
+<p>국제화와 지역화 작업을 의미하는 i18n과 l10n에 대해서 알아보도록 하겠습니다.</p>
 
 <hr />
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> i18n, l10n</strong></p>
-
-<p>아마 많은 분들이 잘 알고 계실테지만 그래도 한번 간단히 언급만 해 보겠습니다.</p>
 
 <p><code class="highlighter-rouge">i18n</code>은 internationalization(국제화)를 표현한 것입니다. 첫글자인 i와 마지막 글자인 n사이에 18개의 글자가 있다고
 해서 저렇게 표현한 겁니다. 아마 IT쪽에 관심이 있는 사람이라면 i18n이 어떤 약자인지는 몰랐어도 국제화라는걸 알고는 있었으리라
@@ -1682,6 +1691,10 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 
 <p>i18n 작업을 할 때 <strong>주의해야 할 점</strong>에 대해서는 다른 훌륭한 포스트들을 참조해주세요~ 사실 저도
 작업 경험이 딱 한번 있습니다. (<del>하고 싶지 않아요.. 할 생각도 없구요</del>)</p>
+
+<p>End.</p>
+
+<hr />
 
 	  ]]></description>
 	</item>
@@ -1705,7 +1718,7 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 	  <pubDate>2018-01-21T15:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/what-is-metaprogramming</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p>특정 형태의 코드를 작성한 후 컴파일하면 그 코드가 의미하는 다른언어의 코드( <code class="highlighter-rouge">Java</code>나 <code class="highlighter-rouge">C++</code> )가 생성되는 프로그래밍을 
 지칭합니다.</p>
@@ -1744,6 +1757,10 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 상당히 높습니다. 따라서 이식성의 문제가 발생할 여지를 가지고 있습니다.</li>
 </ul>
 
+<p>End.</p>
+
+<hr />
+
 	  ]]></description>
 	</item>
 
@@ -1766,7 +1783,7 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 	  <pubDate>2018-01-18T11:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/what_is_yaml</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p><code class="highlighter-rouge">YAML</code>은 <code class="highlighter-rouge">JSON</code>이나 <code class="highlighter-rouge">XML</code>처럼 데이터를 표현하는 하나의 양식입니다. 처음에는 좀 다른 의미였지만 현재는
 데이터를 표현하는 목적으로 사용됩니다.</p>
@@ -1775,7 +1792,7 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> YAML 이란?</strong></p>
 
-<p><code class="highlighter-rouge">YAML</code>은 사람이 쉽게 읽을 수 있는 데이터 직렬화 양식입니다.</p>
+<p><code class="highlighter-rouge">YAML</code>은 데이터를 사람이 쉽게 읽을 수 있는 형태로 표현하는데 사용되는 데이터 직렬화 양식입니다.</p>
 
 <p>데이터 직렬화(Data Serialization)란 구조화된 데이터를 특정 format으로 변환하는 개념입니다.
 단, 변환된 format은 본래 구조화된 데이터로 복구될 수 있어야 하고 변환된 format 형태로 공유 혹은 저장되는 것을 허용해야 합니다.</p>
@@ -1796,6 +1813,9 @@ Spring Boot도 현재 YAML을 지원하고 있습니다.</p>
 
 <p>(<del>그런데 사실.. 그런날은 올거 같지 않습니다.</del>)</p>
 
+<p>End.</p>
+
+<hr />
 
 	  ]]></description>
 	</item>
@@ -1819,7 +1839,7 @@ Spring Boot도 현재 YAML을 지원하고 있습니다.</p>
 	  <pubDate>2018-01-18T10:00:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/kramdown-image-resize</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p>kramdown에서 image를 표현할 때 resize하는 방법입니다.</p>
 
@@ -1833,13 +1853,16 @@ Spring Boot도 현재 YAML을 지원하고 있습니다.</p>
 <p>GitHub Page는 현재 markdown engine으로 <code class="highlighter-rouge">kramdown</code>을 사용할 수 있습니다. kramdown에서는
 다음의 문법으로 이미지를 원하는 사이즈로 resizing 할 수 있습니다.</p>
 
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">이미지 텍스트</span><span class="p">](</span><span class="sx">https://github.com/favicon.ico</span><span class="p">)</span>{:height="100px" width="100px"}
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">이미지 텍스트</span><span class="p">](</span><span class="sx">https://github.com/favicon.ico</span><span class="p">)</span>{: height="100px" width="100px"}
 </code></pre></div></div>
 
-<p>조금 더 일반화 시켜서 말하자면 <code class="highlighter-rouge">{:height="100px" width="100px"}</code> 부분은 Tag로 변환될 때 
+<p>조금 더 일반화 시켜서 말하자면 <code class="highlighter-rouge">{: height="100px" width="100px"}</code> 부분은 Tag로 변환될 때 
 특정 속성을 붙이는 역할을 합니다. 만약 <code class="highlighter-rouge">{: class="myStyle" }</code>이라고 했다면
 만들어지는 Tag에 <code class="highlighter-rouge">class="myStyle"</code>이라는 속성이 붙게됩니다.</p>
 
+<p>End.</p>
+
+<hr />
 
 	  ]]></description>
 	</item>

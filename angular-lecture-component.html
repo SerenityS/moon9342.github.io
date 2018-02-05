@@ -11,7 +11,7 @@
 
 
 
-    <title>JavaScript의 strict mode란 무엇인가?</title>
+    <title>Angular 강좌(3) - Component</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -48,26 +48,26 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="Development & Technical Training" />
     <link rel="shortcut icon" href="https://moon9342.github.io/assets/built/images/favicon.jpg" type="image/png" />
-    <link rel="canonical" href="https://moon9342.github.io/javascript-use-strict" />
+    <link rel="canonical" href="https://moon9342.github.io/angular-lecture-component" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="IT Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="JavaScript의 strict mode란 무엇인가?" />
-    <meta property="og:description" content="Introduction "use strict"는 ES5에서 새롭게 나온 directive입니다. 실제 수행 문장이 아니라 literal expression이기 때문에 이전 버전의 JavaScript에서는 무시됩니다. 일반적으로 JavaScript 코드 최 상단에 이 “use strict”가 위치하는데 이 의미에 대해서 간단하게 정리해 봤습니다. “use strict”를 써야하는 이유 “use strict”의 목적은 우리의 코드가 strict mode로 실행되게끔 지시하는 것입니다. 여기서 말하는 strict" />
-    <meta property="og:url" content="https://moon9342.github.io/javascript-use-strict" />
-    <meta property="og:image" content="https://moon9342.github.io/assets/built/images/javascript-logo.jpg" />
+    <meta property="og:title" content="Angular 강좌(3) - Component" />
+    <meta property="og:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Component 개요 Angular는 front end web application framework입니다. 우리는 Angular로 Web Browser상에서 동작하는 Client가 사용하는 응용 프로그램을 만들어 낼 수 있고 이런 프로그램은" />
+    <meta property="og:url" content="https://moon9342.github.io/angular-lecture-component" />
+    <meta property="og:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2018-01-24T01:35:00+00:00" />
-    <meta property="article:modified_time" content="2018-01-24T01:35:00+00:00" />
+    <meta property="article:published_time" content="2018-01-31T17:10:00+00:00" />
+    <meta property="article:modified_time" content="2018-01-31T17:10:00+00:00" />
     <meta property="article:tag" content="Front End" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="JavaScript의 strict mode란 무엇인가?" />
-    <meta name="twitter:description" content="Introduction "use strict"는 ES5에서 새롭게 나온 directive입니다. 실제 수행 문장이 아니라 literal expression이기 때문에 이전 버전의 JavaScript에서는 무시됩니다. 일반적으로 JavaScript 코드 최 상단에 이 “use strict”가 위치하는데 이 의미에 대해서 간단하게 정리해 봤습니다. “use strict”를 써야하는 이유 “use strict”의 목적은 우리의 코드가 strict mode로 실행되게끔 지시하는 것입니다. 여기서 말하는 strict" />
+    <meta name="twitter:title" content="Angular 강좌(3) - Component" />
+    <meta name="twitter:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Component 개요 Angular는 front end web application framework입니다. 우리는 Angular로 Web Browser상에서 동작하는 Client가 사용하는 응용 프로그램을 만들어 낼 수 있고 이런 프로그램은" />
     <meta name="twitter:url" content="https://moon9342.github.io/" />
-    <meta name="twitter:image" content="https://moon9342.github.io/assets/built/images/javascript-logo.jpg" />
+    <meta name="twitter:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="IT Blog" />
     <meta name="twitter:label2" content="Filed under" />
@@ -86,18 +86,18 @@
         "name": "IT Blog",
         "logo": "https://moon9342.github.io/"
     },
-    "url": "https://moon9342.github.io/javascript-use-strict",
+    "url": "https://moon9342.github.io/angular-lecture-component",
     "image": {
         "@type": "ImageObject",
-        "url": "https://moon9342.github.io/assets/built/images/javascript-logo.jpg",
+        "url": "https://moon9342.github.io/assets/built/images/angular-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://moon9342.github.io/javascript-use-strict"
+        "@id": "https://moon9342.github.io/angular-lecture-component"
     },
-    "description": "Introduction "use strict"는 ES5에서 새롭게 나온 directive입니다. 실제 수행 문장이 아니라 literal expression이기 때문에 이전 버전의 JavaScript에서는 무시됩니다. 일반적으로 JavaScript 코드 최 상단에 이 “use strict”가 위치하는데 이 의미에 대해서 간단하게 정리해 봤습니다. “use strict”를 써야하는 이유 “use strict”의 목적은 우리의 코드가 strict mode로 실행되게끔 지시하는 것입니다. 여기서 말하는 strict"
+    "description": "Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Component 개요 Angular는 front end web application framework입니다. 우리는 Angular로 Web Browser상에서 동작하는 Client가 사용하는 응용 프로그램을 만들어 낼 수 있고 이런 프로그램은"
 }
     </script>
 
@@ -134,7 +134,7 @@
     </script>
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="JavaScript의 strict mode란 무엇인가?" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Angular 강좌(3) - Component" href="/feed.xml" />
 
 
 </head>
@@ -192,7 +192,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="24 January 2018">24 January 2018</time>
+                    <time class="post-full-meta-date" datetime="31 January 2018">31 January 2018</time>
                     
                         <span class="date-divider">/</span>
                         
@@ -202,86 +202,258 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">JavaScript의 strict mode란 무엇인가?</h1>
+                <h1 class="post-full-title">Angular 강좌(3) - Component</h1>
             </header>
 
             
 <!--
             post에 cover image를 표시하지 않게 설정
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/javascript-logo.jpg)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/angular-logo.png)">
             </figure>
 -->
             
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p><strong class="post_introduction">Introduction</strong></p>
-
-<p><code class="highlighter-rouge">"use strict"</code>는 ES5에서 새롭게 나온 directive입니다. 실제 수행 문장이 아니라 literal expression이기 
-때문에 이전 버전의 JavaScript에서는 무시됩니다.</p>
-
-<p>일반적으로 JavaScript 코드 최 상단에 이 “use strict”가 위치하는데 이 의미에 대해서 간단하게 
-정리해 봤습니다.</p>
+                    <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction.html">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment.html">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component.html">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material.html">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1.html">Angular 강좌(5) - 실습(1)</a></li>
+</ul>
 
 <hr />
 
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> “use strict”를 써야하는 이유</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component 개요</strong></p>
 
-<p>“use strict”의 목적은 우리의 코드가 <code class="highlighter-rouge">strict mode</code>로 실행되게끔 지시하는 것입니다. 
-여기서 말하는 strict mode란 프로그램 실행 시 예외를 발생시킬 만한 몇가지 특이한 동작을 
-수행할 수 없도록 엄격한 제한이 걸려있는 실행 <code class="highlighter-rouge">context</code>를 지칭합니다. 
-즉, 일반적으로 동작하는 코드를 “use strict”를 이용하면 에러가 발생할 수 있다는 말이지요.</p>
+<p><code class="highlighter-rouge">Angular</code>는 front end web application framework입니다.</p>
 
-<p>“use strict”는 함수별로 따로 지정할 수 있습니다. 즉, 함수내부에 “use strict”를 선언하면
-해당 함수는 strict mode로 실행되게 됩니다.</p>
+<p>우리는 Angular로 Web Browser상에서 동작하는 Client가 사용하는 응용 프로그램을 만들어 낼 수 있고 이런 프로그램은 
+사용자가 직접 접근할 수 있는 <code class="highlighter-rouge">View</code>라는 것을 가지고 동작합니다.</p>
 
-<p>몇가지 예를 들어보죠.</p>
+<p>전체 웹 어플리케이션 화면이 하나의 View가 될 수도 있고 어플리케이션 화면의 기능이나 목적에 따라 
+세부 View들로 분할 되어 웹 어플리케이션의 화면을 구성할 수 도 있습니다.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"use strict"</span><span class="p">;</span>
+<p>예를 들면 다음과 같이 View를 분할해서 화면을 구성할 수 있습니다.</p>
 
-<span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>        <span class="c1">// x가 선언되지 않았기 때문에 error 발생</span>
+<p><img src="assets/built/images/view-layout.png" alt="view layout" /></p>
+<div class="img-reference">( 이미지 출처 : https://msdn.microsoft.com/ko-kr/library/jj553856(v=vs.85).aspx )</div>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
-</code></pre></div></div>
+<p>위의 그림에서 A는 로고영역, B는 사진에 대한 설명영역, C는 주 사진보기 영역, D는 컬렉션에 있는 다른 사진의 미리보기
+영역입니다.</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">x</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>       <span class="c1">// strict mode가 아니기 때문에 에러 아님.</span>
+<p>이렇듯 우리는 화면을 여러 View들로 분할해서 구성할 수 있다는 것이죠.</p>
 
-<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span> <span class="p">{</span>
-    <span class="s2">"use strict"</span><span class="p">;</span>
-    <span class="nx">y</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>   <span class="c1">// y가 선언되지 않았기 때문에 에러 발생</span>
-<span class="p">}</span>
+<p>분할된 View들은 결국 Angular에서 <code class="highlighter-rouge">Component</code>의 단위가 됩니다. 실제로 Component는 View를 rendering하는 주체가 되기 때문에
+어떤 정보로 View를 rendering할 것인가에 대한 정보를 가지고 있어야 합니다. 이 정보를 우리는 <code class="highlighter-rouge">Template</code>이라는 것으로 표현합니다.</p>
 
-<span class="nx">myFunction</span><span class="p">();</span>
-</code></pre></div></div>
+<hr />
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"use strict"</span><span class="p">;</span>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Template</strong></p>
 
-<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
-
-<span class="k">delete</span> <span class="nx">x</span><span class="p">;</span>   <span class="c1">// strict mode에서는 delete를 사용할 수 없다.   </span>
-</code></pre></div></div>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"use strict"</span><span class="p">;</span>
-
-<span class="kd">var</span> <span class="kr">public</span> <span class="o">=</span> <span class="mi">1500</span><span class="p">;</span>   <span class="c1">// strict mode에서는 키워드로 변수명을 쓸수 없다.</span>
-</code></pre></div></div>
-
-<p>그 외의 예로는 함수의 매개변수의 리스트에서 중복된 부분이 있을 때 오류를 발생시키고 동일한 라이브러리를 중복해서
-로딩하는 경우 에러를 발생시킵니다. (예를 들면, <code class="highlighter-rouge">jQuery</code> library 중복로딩 )</p>
-
-<p>결론적으로 잠재적인 오류가 발생할 수 있는 여지를 막아주도록 코드에 대한 문법 사항을 엄걱하게 지키도록 하는
-directive정도로 인식하시면 될 듯 합니다.</p>
+<p><code class="highlighter-rouge">Template</code>은 View를 rendering하기 위해 필요한 HTML Element와 Angular의 문법요소 그리고 클라이언트 이벤트 처리 코드를 
+담고 있습니다.</p>
 
 <blockquote>
-  <p>결론은 <strong>고민하지 말고 무조건 써야된다!!</strong> 입니다. ^^</p>
+  <p>Application 실행 시 Angular는 Component와 Template의 정보를 이용하여 View를 그리게 됩니다.</p>
 </blockquote>
 
-<p>이 포스트의 내용은 <a href="https://www.w3schools.com/js/js_strict.asp" target="_blank">w3schools.com</a>을 참조했습니다.
-조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</p>
+<p><img src="assets/built/images/angular-template.png" alt="angular template" /></p>
+<div class="img-reference">( 이미지 출처 : https://angular.io/guide/architecture )</div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component - class</strong></p>
+
+<p>기존에 만들어 놓았던 bookSearch-angular app을 살펴보면서 코드상으로 Component를 이해해보죠. WebStorm에서 우리가
+작성한 프로젝트를 보면 <code class="highlighter-rouge">src</code> 폴더가 보입니다. 이 <code class="highlighter-rouge">src</code>폴더를 보면 <code class="highlighter-rouge">index.html</code> 파일이 존재하는데 이 파일이 우리 app의
+시작파일이라고 생각하시면 됩니다. 즉, http://localhost:4200 으로 접속하면 rendering되는 파일이 바로 이 <code class="highlighter-rouge">index.html</code>입니다.</p>
+
+<p>아래의 내용은 <code class="highlighter-rouge">index.html</code> 입니다.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>BookSearchAngular<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;base</span> <span class="na">href=</span><span class="s">"/"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"icon"</span> <span class="na">type=</span><span class="s">"image/x-icon"</span> <span class="na">href=</span><span class="s">"favicon.ico"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;app-root&gt;&lt;/app-root&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code>라는 태그 대신에 특정 내용이 화면에 보이는 구조이군요. 즉, <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code>이 하나의 
+View라는 의미입니다. 당연히 그에 대응되는 Component가 존재하겠네요.</p>
+
+<p><code class="highlighter-rouge">src/app</code> 폴더에 보면 <code class="highlighter-rouge">app.component.ts</code> 파일이 있습니다. Component를 정의한 파일이고 TypeScript로 작성되어 있기 때문에
+확장자는 <code class="highlighter-rouge">.ts</code>를 이용합니다. 파일을 열어보면 다음과 같은 내용이 들어있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-root'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./app.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./app.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppComponent</span> <span class="p">{</span>
+  <span class="nx">title</span> <span class="o">=</span> <span class="s1">'app'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>코드에서 맨 마지막에 나타나듯이 Component는 <code class="highlighter-rouge">class</code>입니다. 하지만 무조건 class를 선언한다고 해서
+해당 class가 Component가 되는것은 아닙니다. 이 class가 Component로 사용된다는 것을 Angular에게
+알려주어야 Angular가 Component로 동작을 시킬수 있을 겁니다. 그래서 특정 표현을 이용해 
+해당 class가 Component임을 Angular에게 알려주어야 합니다.</p>
+
+<p><code class="highlighter-rouge">@Component</code>라고 표현되는 부분이 바로 <code class="highlighter-rouge">Component Decorator</code>입니다. 무언가와 많이 비슷하죠? <code class="highlighter-rouge">Java</code>의
+Annotation 생각하시면 됩니다. class상단에 Component Decorator를 이용해 Angular가 해당 class를 Component로
+인지할 수 있도록 합니다.</p>
+
+<p><code class="highlighter-rouge">@Component</code>를 이용하려면 당연히 Component Decorator를 사용할 수 있는 상태여야 하고 이 Component Decorator는
+<code class="highlighter-rouge">@angular/core</code>라고 표현되는 Angluar Core package에서 제공합니다. 해서 아래와 같은 코드가 필요합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+</code></pre></div></div>
+<p>위의 코드는 Component Decorator를 사용하기 위해 import 한 것입니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component - Metadata</strong></p>
+
+<p>위에서 Component Decorator에 대해서 알아봤는데 이 Component Decorator를 이용해 설정 정보를 Angular Framework에게
+전달할 수 있습니다. 이를 <code class="highlighter-rouge">Metadata</code>라고 하며 다음과 같은 코드로 표현됩니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-root'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./app.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./app.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Component Decorator안에 표현될 수 있는 metadata는 사실 상당히 종류가 많지만 필수요소는 없습니다. 하지만 <code class="highlighter-rouge">select</code>와 
+<code class="highlighter-rouge">template 정보</code>는 존재하지 않으면 화면에 표현이 되지 않기 때문에 거의 필수요소라 볼 수 있습니다.</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">select</code> : template 코드안에서 해당 Component를 이용할 때 사용할 HTML Element명을 정의합니다. 위와 같은 경우 
+작성된 Component는 <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code> HTML Element로 사용할 수 있습니다.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">template 정보</code> :  <code class="highlighter-rouge">template</code> 혹은 <code class="highlighter-rouge">templateUrl</code>을 이용할 수 있습니다. <code class="highlighter-rouge">template</code>은 View를 rendering할 때 필요한
+HTML을 inline형태로 직접 기술할 수 있습니다. <code class="highlighter-rouge">templateUrl</code>은 template code를 따로 HTML 파일로 분리할 때 사용합니다.</p>
+  </li>
+</ul>
+
+<p>위의 예제에서는 사용할 css파일에 대한 <code class="highlighter-rouge">styleUrls</code>도 같이 지정해 놓았습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Module &amp; Bootstrapping</strong></p>
+
+<p><code class="highlighter-rouge">Bootstrapping</code>이란 browser에서 application이 최초로 실행될 때 진행되는 과정을 의미합니다. 우리가 작성한 Component는
+application이 bootstrapping될 때 Angular에 의해서 제어되게 됩니다.</p>
+
+<p>Angular에는 <code class="highlighter-rouge">Module</code> 개념이 있습니다. Module은 Application을 구성하는 단위로 관련된 요소를 하나로 묶어 놓은 것으로 생각하시면
+됩니다. Angular는 Module단위로 application 코드를 인식하기 때문에 모든 Angular application은 반드시 하나 이상의 Module을 
+가지게 되며 최상위 모듈을 우리는 <code class="highlighter-rouge">Root Module</code>이라고 부릅니다.</p>
+
+<blockquote>
+  <p><strong>이러한 Module안에 Component와 같은 것들을 선언해 놓아야 비로소 사용할 수 있게 됩니다.</strong></p>
+</blockquote>
+
+<p><code class="highlighter-rouge">Root Module</code>은 관례상 <code class="highlighter-rouge">AppModule</code>이라 명하고 class로 표현하게 됩니다. <code class="highlighter-rouge">src/app</code> 폴더안에 <code class="highlighter-rouge">app.module.ts</code> 파일이 존재하는데
+이 파일안에 Root Module이 정의되어 있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Angular CLI로 생성한 우리 project의 <code class="highlighter-rouge">app.module.ts</code> 파일 내용입니다. 보시는 것처럼 <code class="highlighter-rouge">AppModule</code> class가 정의되어 있고
+상단에 <code class="highlighter-rouge">@NgModule</code> Decorator를 이용하여 우리의 class가 Module임을 명시했습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+</code></pre></div></div>
+<p>위의 코드는 아까 살펴본 Component인 <code class="highlighter-rouge">app.component.ts</code> 파일로부터 AppComponent class를 import하는 부분입니다. 
+이렇게 import한 class를 Module안에서 <code class="highlighter-rouge">declarations</code>를 이용해 선언해서 사용하게 됩니다.</p>
+
+<p><code class="highlighter-rouge">@NgModule</code> Decorator의 metadata 중 <code class="highlighter-rouge">bootstrap</code>은 application이 bootstrapping할 때 어떤 Component를 사용할 것인지를
+배열로 선언합니다. 즉, <code class="highlighter-rouge">bootstrap</code>은 browser가 최초로 index.html을 읽어들여 application을 시작할 때 사용할 
+Component를 명시하게 됩니다.</p>
+
+<p>이렇게 <code class="highlighter-rouge">@NgModule</code> Decorator의 metadata에 Component를 등록하는 이유는 Angular가 application 실행 시 <code class="highlighter-rouge">.ts</code>로 작성한 
+우리 코드를 <code class="highlighter-rouge">JavaScript</code> 코드로 compile할 때 필요하기 때문입니다.</p>
+
+<p>마지막으로 <code class="highlighter-rouge">src/main.ts</code> 파일을 열어보면 다음과 같은 코드를 볼 수 있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">platformBrowserDynamic</span><span class="p">().</span><span class="nx">bootstrapModule</span><span class="p">(</span><span class="nx">AppModule</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>Angular는 저 위의 코드로 <code class="highlighter-rouge">AppModule</code>을 읽어들이고 Module안에 등록된 여러 Component들을 <code class="highlighter-rouge">JavaScript</code> 코드로 compile하게
+되는 것 입니다.</p>
+
+<blockquote>
+  <p>지금까지 살펴본 것처럼 만약 Angular CLI를 이용하지 않으면 우리가 직접 <code class="highlighter-rouge">.ts</code> 파일을 만들어서 등록하는 과정을 직접해야
+합니다. Angular CLI를 이용하면 기본 Skeleton 코드의 생성과 등록절차까지 자동으로 처리되게 됩니다.</p>
+</blockquote>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component Tree</strong></p>
+
+<p>위의 설명을 좀 정리해 보면 Angular application안에는 여러 View들이 존재할 수 있습니다. 따로 설명은 안했지만 하나의 
+View안에 여러개의 View들이 child형태로 존재할 수 도 있겠지요. View는 Component와 대응된다고 했으니 결국 Component안에
+Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 우리는 <code class="highlighter-rouge">Component Tree</code>라고 합니다.</p>
+
+<p>그림으로 표현하자면 다음과 같이 표현될 수 있습니다.</p>
+
+<p><img src="assets/built/images/component-tree.png" alt="view layout" /></p>
+<div class="img-reference">( 이미지 출처 : https://angular.io/guide/architecture )</div>
+
+<p>좀 어렵게 표현하자면 application의 화면구성을 끝내면 그 내용을 토대로 View를 결정해서 Component단위로 Modeling 해야
+합니다.</p>
+
+<hr />
+
+<p>이번 포스트에서는 Component에 대해서 알아보았습니다. 여기까지의 내용을 가지고 간단한 실습을 진행하고 그 다음 내용으로
+넘어가야 될 듯 보입니다. 실습을 진행하기에 앞서 <code class="highlighter-rouge">Angular Material</code>에 대해 먼저 알아보고 Material을 이용하여 
+도서 검색 application에 맞게 화면을 분할 하고 Component를 생성하는 실습을 진행하도록 하겠습니다.</p>
 
 <p>End.</p>
 
 <hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
 
 
                 </div>
@@ -297,26 +469,26 @@ directive정도로 인식하시면 될 듯 합니다.</p>
                     
                 
                     
+                
+                    
+                
+                    
+                
+                    
                         <section class="author-card">
                             
-                                <img class="author-profile-image" src="/assets/built/images/javascript-author-logo.png" alt="javascript" />
+                                <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="angular" />
                             
                             <section class="author-card-content">
-                                <h4 class="author-card-name"><a href="/author/javascript">JavaScript</a></h4>
+                                <h4 class="author-card-name"><a href="/author/angular">Angular</a></h4>
                                 
-                                    <p>JavaScript 관련 Posts</p>
+                                    <p>Angular Framework 관련 Posts</p>
                                 
                             </section>
                         </section>
                         <div class="post-full-footer-right">
-                            <a class="author-card-button" href="/author/javascript">Read More</a>
+                            <a class="author-card-button" href="/author/angular">Read More</a>
                         </div>
-                    
-                
-                    
-                
-                    
-                
                     
                 
                 <!-- /author  -->
@@ -330,8 +502,8 @@ directive정도로 인식하시면 될 듯 합니다.</p>
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            this.page.url = 'https://moon9342.github.io/javascript-use-strict';
-                            this.page.identifier = '/javascript-use-strict';
+                            this.page.url = 'https://moon9342.github.io/angular-lecture-component';
+                            this.page.identifier = '/angular-lecture-component';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -398,16 +570,13 @@ directive정도로 인식하시면 될 듯 합니다.</p>
                                 
                                   
                                     
-                                        
-                                        
-                                            <li><a href="/angular-lecture-component">Angular 강좌(3) - Component</a></li>
-                                        
-                                    
                                   
                                 
                                   
                                     
                                         
+                                        
+                                            <li><a href="/angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
                                         
                                     
                                   
@@ -464,6 +633,9 @@ directive정도로 인식하시면 될 듯 합니다.</p>
                                   
                                 
                                   
+                                    
+                                        
+                                        
                                     
                                   
                                 
@@ -545,12 +717,12 @@ directive정도로 인식하시면 될 듯 합니다.</p>
                 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/javascript-babel">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/babel-logo.png)"></div>
+            <a class="post-card-image-link" href="/angular-lecture-material">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/javascript-babel">
+            <a class="post-card-content-link" href="/angular-lecture-material">
                 <header class="post-card-header">
                     
                         
@@ -560,10 +732,10 @@ directive정도로 인식하시면 될 듯 합니다.</p>
                         
                     
 
-                    <h2 class="post-card-title">Babel을 사용해보자</h2>
+                    <h2 class="post-card-title">Angular 강좌(4) - Angular Material</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>**Introduction**{: class="post_introduction" } 아무 생각없이 `Babel`을 쓰고 있지만 예전부터 궁금했던 Babel이란 이름이 내가 알고 있는 그 바벨탑의 바벨인가? 라는 의문에 이름의 근원을 찾아보고 이왕 찾아본 김에 Babel의 간단한 사용법 정도만 정리해 보도록 하겠습니다.</p>
+                    <p>{% include angular-lecture-table-of-contents.html %} --- **{% include subtitle-fontawesome.html %} Angular Material** `Material Design`은 모바일과 데스크탑 그리고 그 외 다양한 디바이스들의 application을 개발할 때 하나의 일관된 디자인을 적용하고자 Google이 공개한 `Design guideline`입니다. > 머티리얼</p>
                 </section>
             </a>
             <footer class="post-card-meta">
@@ -571,18 +743,18 @@ directive정도로 인식하시면 될 듯 합니다.</p>
                     
                 
                     
+                
+                    
+                
+                    
+                
+                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/javascript-author-logo.png" alt="JavaScript" />
+                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
                         
                         <span class="post-card-author">
-                            <a href="/author/javascript/">JavaScript</a>
+                            <a href="/author/angular/">Angular</a>
                         </span>
-                    
-                
-                    
-                
-                    
-                
                     
                 
             </footer>
@@ -596,12 +768,12 @@ directive정도로 인식하시면 될 듯 합니다.</p>
                 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/typescript-destructuring">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/typescript-logo.png)"></div>
+            <a class="post-card-image-link" href="/angular-lecture-development-environment">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/typescript-destructuring">
+            <a class="post-card-content-link" href="/angular-lecture-development-environment">
                 <header class="post-card-header">
                     
                         
@@ -611,10 +783,10 @@ directive정도로 인식하시면 될 듯 합니다.</p>
                         
                     
 
-                    <h2 class="post-card-title">TypeScript 강좌(5) - Destructuring</h2>
+                    <h2 class="post-card-title">Angular 강좌(2) - 개발환경세팅</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6)</p>
+                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 개발환경 - Node.js, WebStorm, TypeScript</p>
                 </section>
             </a>
             <footer class="post-card-meta">
@@ -624,16 +796,16 @@ directive정도로 인식하시면 될 듯 합니다.</p>
                     
                 
                     
+                
+                    
+                
+                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/typescript-author-logo.png" alt="TypeScript" />
+                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
                         
                         <span class="post-card-author">
-                            <a href="/author/typescript/">TypeScript</a>
+                            <a href="/author/angular/">Angular</a>
                         </span>
-                    
-                
-                    
-                
                     
                 
             </footer>
@@ -655,7 +827,7 @@ directive정도로 인식하시면 될 듯 합니다.</p>
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">JavaScript의 strict mode란 무엇인가?</div>
+    <div class="floating-header-title">Angular 강좌(3) - Component</div>
 
 
 
@@ -664,12 +836,12 @@ directive정도로 인식하시면 될 듯 합니다.</p>
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=JavaScript%EC%9D%98+strict+mode%EB%9E%80+%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%3F&amp;url=https://moon9342.github.io/javascript-use-strict"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Angular+%EA%B0%95%EC%A2%8C%283%29+-+Component&amp;url=https://moon9342.github.io/angular-lecture-component"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://moon9342.github.io/javascript-use-strict"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://moon9342.github.io/angular-lecture-component"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

@@ -28,6 +28,978 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Angular 강좌(5) - 실습(1)</title>
+	  <link>https://moon9342.github.io/angular-lecture-exercise-1</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+	  <pubDate>2018-02-01T16:42:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-exercise-1</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction.html">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment.html">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component.html">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material.html">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1.html">Angular 강좌(5) - 실습(1)</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> AppComponent 수정</strong></p>
+
+<p>이전에 만들어 놓은 bookSearch-angular project를 수정하여 도서검색 application화면을 만들고
+그에 따른 Component들을 생성, 등록까지 진행하도록 하겠습니다.</p>
+
+<p><code class="highlighter-rouge">src/app</code> 폴더안에 <code class="highlighter-rouge">app.component.ts</code> 파일을 열면 다음과 같은 내용을 보실 수 있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-root'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./app.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./app.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppComponent</span> <span class="p">{</span>
+  <span class="nx">title</span> <span class="o">=</span> <span class="s1">'app'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>여기서 <code class="highlighter-rouge">selector: 'app-root'</code> 부분을 보면 이 Component가 <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code>로 되어 있는 부분을 찾아 
+rendering 한다는 것을 알 수 있습니다.  또한 <code class="highlighter-rouge">templateUrl</code>에 의해 <code class="highlighter-rouge">app.component.html</code>을 이용해 rendering한다는 것도
+파악할 수 있겠네요.</p>
+
+<p><code class="highlighter-rouge">index.html</code>을 보시면 다음과 같이 <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code>로 되어있는 부분이 보이고 이 부분이 우리 Component에 의해서
+rendering되게 됩니다.</p>
+
+<p>결국 <code class="highlighter-rouge">index.html</code>안의 <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code> 부분은 <code class="highlighter-rouge">app.component.html</code>의 내용으로 rendering되는 것을 파악할 수 있습니다.</p>
+
+<p>이제 기존의 <code class="highlighter-rouge">app.component.html</code>의 내용을 수정해서 화면을 다시 구성합니다. View를 추가하기 위해 Component를 생성하는
+작업을 진행해야 합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component 추가</strong></p>
+
+<p>화면을 3개의 영역으로 나눌려고 합니다.</p>
+
+<ul>
+  <li>첫번째 영역은 검색 키워드를 입력하고 검색 버튼을 눌러 검색을 실행시키는 View 영역입니다.</li>
+  <li>두번째 영역은 검색된 책을 선택하면 책의 세부정보가 출력되는 View 영역입니다.</li>
+  <li>세번째 영역은 검색된 책들의 리스트를 출력하기 위한 View 영역입니다.</li>
+</ul>
+
+<p>이렇게 3개의 View를 이용해서 화면을 구성할 것이고 3개의 Component를 추가하여 화면을 먼저 구성하려 합니다.</p>
+
+<p>Angular CLI를 이용하여 다음과 같이 실행해서 새로운 Component를 추가합니다.</p>
+
+<blockquote>
+  <p><strong>ng generate component search-box</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/angular-cli-create-component.png" alt="angular-cli-create-component" /></p>
+
+<p>Angular CLI의 <code class="highlighter-rouge">generate</code>를 이용하여 Component 생성 시 Component를 구성하는 관련 파일들을 자동으로 손쉽게 생성할 수 있습니다. 
+generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</code> 만 써도 됩니다. generate는 뒤에 어떤 요소를 생성할 것인지 그리고 요소명은
+무엇인지를 받아 특정 요소를 생성하게 됩니다. 즉, Component만 생성할 수 있는건 아닙니다.</p>
+
+<p>Angular CLI의 generate로 Component를 생성하면 해당 명령의 실행 위치가 어딘지 상관없이 기본적으로 <code class="highlighter-rouge">src/app</code> 하단에
+폴더가 만들어지고 그 안에 Component관련 파일이 들어가게 됩니다. 다음 그림과 같이 폴더와 파일이 생성되게 됩니다.</p>
+
+<p><img src="assets/built/images/angular-cli-create-component-ide.png" alt="angular-cli-create-component-ide" /></p>
+
+<p>생성된 <code class="highlighter-rouge">src/app/search-box</code> 폴더 안에 있는 <code class="highlighter-rouge">search-box.component.ts</code> 파일을 열어서 <code class="highlighter-rouge">selector</code>를 확인해보니 
+<code class="highlighter-rouge">app-search-box</code>로 지정되어 있습니다. 이 Component는 해당 <code class="highlighter-rouge">&lt;app-search-box&gt;&lt;/app-search-box&gt;</code>를 찾아 rendering을 
+하게 되겠네요.</p>
+
+<p>이와 유사하게 2개의 Component를 더 생성합니다. 다음과 같이 실행해서 새로운 Component를 추가합니다.</p>
+
+<blockquote>
+  <p><strong>ng generate component detail-box</strong></p>
+</blockquote>
+
+<blockquote>
+  <p><strong>ng generate component list-box</strong></p>
+</blockquote>
+
+<p>자 이제 생성된 각각의 Component에 대한 selector를 참조해 <code class="highlighter-rouge">src/app</code> 안의 <code class="highlighter-rouge">app.component.html</code>의 내용을 다음과 같이
+수정합니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;app-search-box&gt;&lt;/app-search-box&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;app-detail-box&gt;&lt;/app-detail-box&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;app-list-box&gt;&lt;/app-list-box&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 각 Component의 View 작성</strong></p>
+
+<p>이제 각각의 Component의 <code class="highlighter-rouge">templateUrl</code>에 명시된 html을 Angular Material을 이용해 우리가
+사용할 화면을 만들어 냅니다.</p>
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Angular 강좌(4) - Angular Material</title>
+	  <link>https://moon9342.github.io/angular-lecture-material</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+	  <pubDate>2018-02-01T14:00:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-material</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction.html">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment.html">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component.html">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material.html">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1.html">Angular 강좌(5) - 실습(1)</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular Material</strong></p>
+
+<p><code class="highlighter-rouge">Material Design</code>은 모바일과 데스크탑 그리고 그 외 다양한 디바이스들의 application을 개발할 때 
+하나의 일관된 디자인을 적용하고자 Google이 공개한 <code class="highlighter-rouge">Design guideline</code>입니다.</p>
+
+<blockquote>
+  <p>머티리얼 디자인(Material Design, 코드명: Quantum Paper)이란 플랫 디자인의 장점을 살리면서도 
+빛에 따른 종이의 그림자 효과를 이용하여 입체감을 살리는 디자인 방식을 말한다. 
+2014년 구글이 안드로이드 스마트폰에 적용하면서 널리 퍼지기 시작했다. 플랫 디자인과 마찬가지로 최소한의 요소만을 
+사용하여 대상의 본질을 표현하는 디자인 기법인 미니멀리즘(minimalism)을 추구한다.
+<br />( 자료출처 : https://ko.wikipedia.org )</p>
+</blockquote>
+
+<p>제가 Design에 대한 관심과 지식이 많지 않아서 Material Design에 대한 정의는 위키에서 가져왔습니다.</p>
+
+<p>여하간 이런 Material Design에 대한 concept을 Angular application에 적용하기 위해 만든 Component가 바로 
+<code class="highlighter-rouge">Angular Material</code>입니다.</p>
+
+<p>우리의 예제는 이 Angular Material로 작성할 것이기 때문에 Angular Material을 어떻게 설치,설정하고 사용하는지에 대해서 
+먼저 알아볼 필요가 있습니다.</p>
+
+<p>그럼 천천히 살펴보도록 하죠.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular Material &amp; Angular CDK 설치</strong></p>
+
+<p>제일 먼저 해야 할 일은 Angular Material과 Angular CDK를 설치하는 것입니다.</p>
+
+<p>우리가 만들어 놓은 bookSearch-angular project에서 command 창을 열고 다음 명령을 수행시켜 package를 설치합니다. 
+( 현재 경로는 <code class="highlighter-rouge">D:/bookSearch-angular</code> 입니다. )</p>
+
+<blockquote>
+  <p><strong>npm install --save @angular/material @angular/cdk</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/angular-material-install.png" alt="angular-material-install" /></p>
+
+<p>저 위에 <code class="highlighter-rouge">--save</code> option은 npm@5부터 기본 option으로 바뀌었습니다. 즉, --save는 생략하셔도 됩니다. 잘 아시겠지만 
+저 명령을 수행하면 <code class="highlighter-rouge">package.json</code>의 <code class="highlighter-rouge">dependencies</code>에 설치된 패키지와 버전 정보가 기록되게 됩니다.
+참고로 만약 개발 시에만 사용하는 package를 설치하실려면 --save-dev option을 주시면 됩니다. TypeScript와 같은것은
+사실 transpiler이기 때문에 개발시에만 필요하고 실제 배포까지 할 필요는 없으니 TypeScript같은 건 --save-dev로
+<code class="highlighter-rouge">devDependencies</code>에 포함시키는게 좋습니다. 그런데 우리는 그냥 전역으로 설치해서 쓰고 있죠 ^^;;</p>
+
+<p>여하간 약간의 시간이 지나면 package가 설치됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular Animation Module 설치</strong></p>
+
+<p>몇몇개의 Material Component는 Angular Animation Module에 의존성을 가지고 있습니다. 
+따라서 다음 명령을 수행시켜 Angular Animation Module을 설치해야 합니다.</p>
+
+<blockquote>
+  <p><strong>npm install --save @angular/animations</strong></p>
+</blockquote>
+
+<p>이 <code class="highlighter-rouge">@angular/animations</code> module은 내부적으로 <code class="highlighter-rouge">WebAnimation API</code>을 이용합니다. 그런데 모든 browser들이 
+이 API를 지원하는건 아닙니다. 만약 WebAnimation API를 지원하지 않는 browser를 이용할 경우는 
+<a href="https://github.com/web-animations/web-animations-js" target="_blank">여기</a>를
+클릭해서 나온 내용에 따라 따로 처리해 주셔야 합니다.</p>
+
+<p>이제 우리 project에서 <code class="highlighter-rouge">src/app</code> 폴더 안에 있는 Root Module인 <code class="highlighter-rouge">app.module.ts</code> 파일을 열어 다음과 같이 수정합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="c1">// BrowserAnimationsModule import 구문 추가</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">BrowserAnimationsModule</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser/animations'</span><span class="p">;</span>
+
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span><span class="p">,</span>
+    <span class="nx">BrowserAnimationsModule</span>  <span class="c1">// BrowserAnimationsModule 추가</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 사용할 Component import</strong></p>
+
+<p>설치가 다 되었으니 이제 사용할 Angular Material Component를 코드에 import해야 합니다.
+여기서 사용할 것은 <code class="highlighter-rouge">Expansion Panel</code>과 <code class="highlighter-rouge">Table</code> Component입니다.</p>
+
+<p>우리 project에서 <code class="highlighter-rouge">src/app</code> 폴더 안에 있는 Root Module인 <code class="highlighter-rouge">app.module.ts</code> 파일을 열어 다음과 같이 수정합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="c1">// BrowserAnimationsModule import 구문 추가</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">BrowserAnimationsModule</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser/animations'</span><span class="p">;</span>
+
+<span class="c1">// MatTableModule,MatExpansionModule  import 구문 추가</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">MatTableModule</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/table'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">MatExpansionModule</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/expansion'</span><span class="p">;</span>
+
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span><span class="p">,</span>
+    <span class="nx">BrowserAnimationsModule</span><span class="p">,</span>  <span class="c1">// BrowserAnimationsModule 추가</span>
+    <span class="nx">MatTableModule</span><span class="p">,</span>           <span class="c1">// MatTableModule</span>
+    <span class="nx">MatExpansionModule</span>        <span class="c1">// MatExpansionModule</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 사용할 Theme 설정</strong></p>
+
+<p>application에 적용할 Theme를 설정해 보도록 하죠. 기본적으로 제공되는 
+built-in theme는 현재 4가지가 존재하는데 그 중 하나를 설정하시면 됩니다.</p>
+
+<p>우리는 Angular CLI를 이용하고 있기 때문에 <code class="highlighter-rouge">src</code> 폴더 안에 있는 <code class="highlighter-rouge">style.css</code> 파일을
+열어서 다음의 코드를 넣어주면 됩니다.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="s2">'~@angular/material/prebuilt-themes/indigo-pink.css'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>만약 다른 theme를 이용하고 싶으면 <a href="https://material.angular.io/guide/theming" target="_blank">여기</a>
+를 참조해 다른 이름의 css를 이용하시면 됩니다.</p>
+
+<p>그리고 Angular CLI를 이용하지 않고 application을 만드는 경우에는 <code class="highlighter-rouge">index.html</code>에 <code class="highlighter-rouge">&lt;link&gt;</code> Element를 이용하여
+CSS를 참조시켜야  합니다. 이 부분 역시 <a href="https://material.angular.io/guide/theming" target="_blank">여기</a>를
+클릭하시면 내용을 찾으실 수 있습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Gestures 지원을 위한 HammerJS 설치</strong></p>
+
+<p>사용자 Gestures를 지원하기 위해 몇몇개의 Material Component들은 HammerJS에 의존하고 있습니다. 그렇게 
+때문에 이 HammerJS 역시 설치하고 설정까지 잡아줘야 합니다.</p>
+
+<blockquote>
+  <p><strong>npm install --save hammerjs</strong></p>
+</blockquote>
+
+<p>설치가 끝나면 우리 application의 시작지점(entry point)인 <code class="highlighter-rouge">main.ts</code> 파일을 열어서 제일 상단에
+다음과 같은 코드를 추가해 줘야 합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// hammerjs import 추가</span>
+<span class="k">import</span> <span class="s1">'hammerjs'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">enableProdMode</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">platformBrowserDynamic</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser-dynamic'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app/app.module'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">environment</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./environments/environment'</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">environment</span><span class="p">.</span><span class="nx">production</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">enableProdMode</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">platformBrowserDynamic</span><span class="p">().</span><span class="nx">bootstrapModule</span><span class="p">(</span><span class="nx">AppModule</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Material Icon 사용을 위한 설정</strong></p>
+
+<p>Material은 쉽게 사용할 수 있는 Icon을 제공해 줍니다. 
+마치 <a href="./css-fontawesome-list.html" target="_blank">Font-Awesome</a>처럼 
+사용할 수 있습니다. Material Icon을 사용하기 위해서는 <code class="highlighter-rouge">index.html</code>을 다음과 같이 수정합니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>BookSearchAngular<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;base</span> <span class="na">href=</span><span class="s">"/"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"icon"</span> <span class="na">type=</span><span class="s">"image/x-icon"</span> <span class="na">href=</span><span class="s">"favicon.ico"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Material Icon 설정 --&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"https://fonts.googleapis.com/icon?family=Material+Icons"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;app-root&gt;&lt;/app-root&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Material Icon의 사용방법에 대한 자세한 내용은 <a href="https://google.github.io/material-design-icons/" target="_blank">여기</a>
+를 확인해 보시면 됩니다.</p>
+
+<hr />
+
+<p><code class="highlighter-rouge">Angular Material</code>을 사용하기 위한 설정이 끝났습니다. 
+이제 <a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a>의 
+Components 메뉴를 클릭해 사용할 Component의 종류와 사용방법을 찾아 적절하게 작성만 해 주면 될 듯 싶습니다. 다음 포스트에서
+Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 하겠습니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Angular 강좌(3) - Component</title>
+	  <link>https://moon9342.github.io/angular-lecture-component</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+	  <pubDate>2018-01-31T17:10:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-component</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction.html">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment.html">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component.html">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material.html">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1.html">Angular 강좌(5) - 실습(1)</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component 개요</strong></p>
+
+<p><code class="highlighter-rouge">Angular</code>는 front end web application framework입니다.</p>
+
+<p>우리는 Angular로 Web Browser상에서 동작하는 Client가 사용하는 응용 프로그램을 만들어 낼 수 있고 이런 프로그램은 
+사용자가 직접 접근할 수 있는 <code class="highlighter-rouge">View</code>라는 것을 가지고 동작합니다.</p>
+
+<p>전체 웹 어플리케이션 화면이 하나의 View가 될 수도 있고 어플리케이션 화면의 기능이나 목적에 따라 
+세부 View들로 분할 되어 웹 어플리케이션의 화면을 구성할 수 도 있습니다.</p>
+
+<p>예를 들면 다음과 같이 View를 분할해서 화면을 구성할 수 있습니다.</p>
+
+<p><img src="assets/built/images/view-layout.png" alt="view layout" /></p>
+<div class="img-reference">( 이미지 출처 : https://msdn.microsoft.com/ko-kr/library/jj553856(v=vs.85).aspx )</div>
+
+<p>위의 그림에서 A는 로고영역, B는 사진에 대한 설명영역, C는 주 사진보기 영역, D는 컬렉션에 있는 다른 사진의 미리보기
+영역입니다.</p>
+
+<p>이렇듯 우리는 화면을 여러 View들로 분할해서 구성할 수 있다는 것이죠.</p>
+
+<p>분할된 View들은 결국 Angular에서 <code class="highlighter-rouge">Component</code>의 단위가 됩니다. 실제로 Component는 View를 rendering하는 주체가 되기 때문에
+어떤 정보로 View를 rendering할 것인가에 대한 정보를 가지고 있어야 합니다. 이 정보를 우리는 <code class="highlighter-rouge">Template</code>이라는 것으로 표현합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Template</strong></p>
+
+<p><code class="highlighter-rouge">Template</code>은 View를 rendering하기 위해 필요한 HTML Element와 Angular의 문법요소 그리고 클라이언트 이벤트 처리 코드를 
+담고 있습니다.</p>
+
+<blockquote>
+  <p>Application 실행 시 Angular는 Component와 Template의 정보를 이용하여 View를 그리게 됩니다.</p>
+</blockquote>
+
+<p><img src="assets/built/images/angular-template.png" alt="angular template" /></p>
+<div class="img-reference">( 이미지 출처 : https://angular.io/guide/architecture )</div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component - class</strong></p>
+
+<p>기존에 만들어 놓았던 bookSearch-angular app을 살펴보면서 코드상으로 Component를 이해해보죠. WebStorm에서 우리가
+작성한 프로젝트를 보면 <code class="highlighter-rouge">src</code> 폴더가 보입니다. 이 <code class="highlighter-rouge">src</code>폴더를 보면 <code class="highlighter-rouge">index.html</code> 파일이 존재하는데 이 파일이 우리 app의
+시작파일이라고 생각하시면 됩니다. 즉, http://localhost:4200 으로 접속하면 rendering되는 파일이 바로 이 <code class="highlighter-rouge">index.html</code>입니다.</p>
+
+<p>아래의 내용은 <code class="highlighter-rouge">index.html</code> 입니다.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>BookSearchAngular<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;base</span> <span class="na">href=</span><span class="s">"/"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"icon"</span> <span class="na">type=</span><span class="s">"image/x-icon"</span> <span class="na">href=</span><span class="s">"favicon.ico"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;app-root&gt;&lt;/app-root&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code>라는 태그 대신에 특정 내용이 화면에 보이는 구조이군요. 즉, <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code>이 하나의 
+View라는 의미입니다. 당연히 그에 대응되는 Component가 존재하겠네요.</p>
+
+<p><code class="highlighter-rouge">src/app</code> 폴더에 보면 <code class="highlighter-rouge">app.component.ts</code> 파일이 있습니다. Component를 정의한 파일이고 TypeScript로 작성되어 있기 때문에
+확장자는 <code class="highlighter-rouge">.ts</code>를 이용합니다. 파일을 열어보면 다음과 같은 내용이 들어있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-root'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./app.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./app.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppComponent</span> <span class="p">{</span>
+  <span class="nx">title</span> <span class="o">=</span> <span class="s1">'app'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>코드에서 맨 마지막에 나타나듯이 Component는 <code class="highlighter-rouge">class</code>입니다. 하지만 무조건 class를 선언한다고 해서
+해당 class가 Component가 되는것은 아닙니다. 이 class가 Component로 사용된다는 것을 Angular에게
+알려주어야 Angular가 Component로 동작을 시킬수 있을 겁니다. 그래서 특정 표현을 이용해 
+해당 class가 Component임을 Angular에게 알려주어야 합니다.</p>
+
+<p><code class="highlighter-rouge">@Component</code>라고 표현되는 부분이 바로 <code class="highlighter-rouge">Component Decorator</code>입니다. 무언가와 많이 비슷하죠? <code class="highlighter-rouge">Java</code>의
+Annotation 생각하시면 됩니다. class상단에 Component Decorator를 이용해 Angular가 해당 class를 Component로
+인지할 수 있도록 합니다.</p>
+
+<p><code class="highlighter-rouge">@Component</code>를 이용하려면 당연히 Component Decorator를 사용할 수 있는 상태여야 하고 이 Component Decorator는
+<code class="highlighter-rouge">@angular/core</code>라고 표현되는 Angluar Core package에서 제공합니다. 해서 아래와 같은 코드가 필요합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+</code></pre></div></div>
+<p>위의 코드는 Component Decorator를 사용하기 위해 import 한 것입니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component - Metadata</strong></p>
+
+<p>위에서 Component Decorator에 대해서 알아봤는데 이 Component Decorator를 이용해 설정 정보를 Angular Framework에게
+전달할 수 있습니다. 이를 <code class="highlighter-rouge">Metadata</code>라고 하며 다음과 같은 코드로 표현됩니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-root'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./app.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./app.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Component Decorator안에 표현될 수 있는 metadata는 사실 상당히 종류가 많지만 필수요소는 없습니다. 하지만 <code class="highlighter-rouge">select</code>와 
+<code class="highlighter-rouge">template 정보</code>는 존재하지 않으면 화면에 표현이 되지 않기 때문에 거의 필수요소라 볼 수 있습니다.</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">select</code> : template 코드안에서 해당 Component를 이용할 때 사용할 HTML Element명을 정의합니다. 위와 같은 경우 
+작성된 Component는 <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code> HTML Element로 사용할 수 있습니다.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">template 정보</code> :  <code class="highlighter-rouge">template</code> 혹은 <code class="highlighter-rouge">templateUrl</code>을 이용할 수 있습니다. <code class="highlighter-rouge">template</code>은 View를 rendering할 때 필요한
+HTML을 inline형태로 직접 기술할 수 있습니다. <code class="highlighter-rouge">templateUrl</code>은 template code를 따로 HTML 파일로 분리할 때 사용합니다.</p>
+  </li>
+</ul>
+
+<p>위의 예제에서는 사용할 css파일에 대한 <code class="highlighter-rouge">styleUrls</code>도 같이 지정해 놓았습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Module &amp; Bootstrapping</strong></p>
+
+<p><code class="highlighter-rouge">Bootstrapping</code>이란 browser에서 application이 최초로 실행될 때 진행되는 과정을 의미합니다. 우리가 작성한 Component는
+application이 bootstrapping될 때 Angular에 의해서 제어되게 됩니다.</p>
+
+<p>Angular에는 <code class="highlighter-rouge">Module</code> 개념이 있습니다. Module은 Application을 구성하는 단위로 관련된 요소를 하나로 묶어 놓은 것으로 생각하시면
+됩니다. Angular는 Module단위로 application 코드를 인식하기 때문에 모든 Angular application은 반드시 하나 이상의 Module을 
+가지게 되며 최상위 모듈을 우리는 <code class="highlighter-rouge">Root Module</code>이라고 부릅니다.</p>
+
+<blockquote>
+  <p><strong>이러한 Module안에 Component와 같은 것들을 선언해 놓아야 비로소 사용할 수 있게 됩니다.</strong></p>
+</blockquote>
+
+<p><code class="highlighter-rouge">Root Module</code>은 관례상 <code class="highlighter-rouge">AppModule</code>이라 명하고 class로 표현하게 됩니다. <code class="highlighter-rouge">src/app</code> 폴더안에 <code class="highlighter-rouge">app.module.ts</code> 파일이 존재하는데
+이 파일안에 Root Module이 정의되어 있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Angular CLI로 생성한 우리 project의 <code class="highlighter-rouge">app.module.ts</code> 파일 내용입니다. 보시는 것처럼 <code class="highlighter-rouge">AppModule</code> class가 정의되어 있고
+상단에 <code class="highlighter-rouge">@NgModule</code> Decorator를 이용하여 우리의 class가 Module임을 명시했습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+</code></pre></div></div>
+<p>위의 코드는 아까 살펴본 Component인 <code class="highlighter-rouge">app.component.ts</code> 파일로부터 AppComponent class를 import하는 부분입니다. 
+이렇게 import한 class를 Module안에서 <code class="highlighter-rouge">declarations</code>를 이용해 선언해서 사용하게 됩니다.</p>
+
+<p><code class="highlighter-rouge">@NgModule</code> Decorator의 metadata 중 <code class="highlighter-rouge">bootstrap</code>은 application이 bootstrapping할 때 어떤 Component를 사용할 것인지를
+배열로 선언합니다. 즉, <code class="highlighter-rouge">bootstrap</code>은 browser가 최초로 index.html을 읽어들여 application을 시작할 때 사용할 
+Component를 명시하게 됩니다.</p>
+
+<p>이렇게 <code class="highlighter-rouge">@NgModule</code> Decorator의 metadata에 Component를 등록하는 이유는 Angular가 application 실행 시 <code class="highlighter-rouge">.ts</code>로 작성한 
+우리 코드를 <code class="highlighter-rouge">JavaScript</code> 코드로 compile할 때 필요하기 때문입니다.</p>
+
+<p>마지막으로 <code class="highlighter-rouge">src/main.ts</code> 파일을 열어보면 다음과 같은 코드를 볼 수 있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">platformBrowserDynamic</span><span class="p">().</span><span class="nx">bootstrapModule</span><span class="p">(</span><span class="nx">AppModule</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>Angular는 저 위의 코드로 <code class="highlighter-rouge">AppModule</code>을 읽어들이고 Module안에 등록된 여러 Component들을 <code class="highlighter-rouge">JavaScript</code> 코드로 compile하게
+되는 것 입니다.</p>
+
+<blockquote>
+  <p>지금까지 살펴본 것처럼 만약 Angular CLI를 이용하지 않으면 우리가 직접 <code class="highlighter-rouge">.ts</code> 파일을 만들어서 등록하는 과정을 직접해야
+합니다. Angular CLI를 이용하면 기본 Skeleton 코드의 생성과 등록절차까지 자동으로 처리되게 됩니다.</p>
+</blockquote>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component Tree</strong></p>
+
+<p>위의 설명을 좀 정리해 보면 Angular application안에는 여러 View들이 존재할 수 있습니다. 따로 설명은 안했지만 하나의 
+View안에 여러개의 View들이 child형태로 존재할 수 도 있겠지요. View는 Component와 대응된다고 했으니 결국 Component안에
+Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 우리는 <code class="highlighter-rouge">Component Tree</code>라고 합니다.</p>
+
+<p>그림으로 표현하자면 다음과 같이 표현될 수 있습니다.</p>
+
+<p><img src="assets/built/images/component-tree.png" alt="view layout" /></p>
+<div class="img-reference">( 이미지 출처 : https://angular.io/guide/architecture )</div>
+
+<p>좀 어렵게 표현하자면 application의 화면구성을 끝내면 그 내용을 토대로 View를 결정해서 Component단위로 Modeling 해야
+합니다.</p>
+
+<hr />
+
+<p>이번 포스트에서는 Component에 대해서 알아보았습니다. 여기까지의 내용을 가지고 간단한 실습을 진행하고 그 다음 내용으로
+넘어가야 될 듯 보입니다. 실습을 진행하기에 앞서 <code class="highlighter-rouge">Angular Material</code>에 대해 먼저 알아보고 Material을 이용하여 
+도서 검색 application에 맞게 화면을 분할 하고 Component를 생성하는 실습을 진행하도록 하겠습니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Angular 강좌(2) - 개발환경세팅</title>
+	  <link>https://moon9342.github.io/angular-lecture-development-environment</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+	  <pubDate>2018-01-31T14:11:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-development-environment</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction.html">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment.html">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component.html">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material.html">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1.html">Angular 강좌(5) - 실습(1)</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular 개발환경 - Node.js, WebStorm, TypeScript</strong></p>
+
+<p>이번 포스트에서는 <code class="highlighter-rouge">Angualr</code>의 개발환경을 세팅하고 <code class="highlighter-rouge">Angular CLI</code>를 이용하여 기본적인 Hello World App을 
+생성, 실행하는 것까지 진행하도록 하겠습니다.</p>
+
+<p>제일 먼저 해야 할 일은 Node.js를 설치하는 것입니다. Angular CLI와 TypeScript가 node module로 존재하기 때문에
+<code class="highlighter-rouge">npm</code>을 이용하여 이 두가지를 설치해야 합니다.</p>
+
+<p>먼저 <a href="https://nodejs.org/" target="_blank">Node.js</a>사이트에 접속해 LTS 버전이나 최신버전 둘 중 하나를 선택해
+다운로드 합니다. (어떤것을 설치해도 상관없습니다.)
+<img src="assets/built/images/nodejs-download.jpg" alt="nodejs download" /></p>
+
+<p>저는 LTS 버전으로 다운로드 했습니다. 다운로드가 끝나면 기본 형태로 설치를 진행합니다. 설치가 끝나면
+<code class="highlighter-rouge">C:/Program Files/nodejs</code> 폴더가 만들어지게 됩니다.</p>
+
+<p>이제 command 창을 열어서 다음과 같이 명령어를 실행해봅니다.</p>
+
+<blockquote>
+  <p><strong>npm</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/nodejs-npm.png" alt="nodejs_npm" /></p>
+
+<p><code class="highlighter-rouge">npm</code>(Node Package Manager)이 정상적으로 동작하면 이제 npm을 이용해 typescript를 설치할 수 있습니다.
+설치는 local mode와 global mode로 설치가 가능합니다. 여기서는 편의상 global mode로 설치합니다.
+(일반적으로는 local mode를 선호합니다.)</p>
+
+<p>command 창에서 다음과 같이 명령어를 이용해 typescript를 <code class="highlighter-rouge">global</code>로 설치합니다.</p>
+
+<blockquote>
+  <p><strong>npm install -g typescript</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/nodejs-npm-typescript.png" alt="nodejs_npm_typescript" /></p>
+
+<p><code class="highlighter-rouge">typescript 2.6.2</code>가 설치되었습니다.</p>
+
+<blockquote>
+  <p>global mode로 설치하면 windows 시스템을 기준으로 <code class="highlighter-rouge">$USER_HOME/AppData/Roaming/npm/node_modules</code>에 
+설치됩니다.</p>
+</blockquote>
+
+<p>이제 사용할 <code class="highlighter-rouge">IDE</code>(Integrated Development Environment)를 설치합니다. 여기서는 <code class="highlighter-rouge">WebStorm</code>(유료)을 이용합니다.
+<code class="highlighter-rouge">Visual Studio Code</code>(무료)를 사용하셔도 됩니다. WebStorm은 유료이지만 30일 trial을 사용할 수 있고 Student license로
+1년간 무료로 사용할 수 도 있습니다.</p>
+
+<p><a href="https://www.jetbrains.com/" target="_blank">JetBrains</a>사이트로 접속한 후 
+<a href="https://www.jetbrains.com/webstorm" target="_blank">WebStorm</a>을 다운로드 받습니다.</p>
+
+<p>다운로드가 완료되면 기본형태로 설치합니다. 설치가 끝나면 프로젝트를 생성할 수 있는 화면이 나오게 되는데 
+일단 이 화면에서 대기합니다. 프로젝트는 Angular CLI를 이용해서 생성합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular 개발환경 - Angular CLI</strong></p>
+
+<p>일반적으로 <code class="highlighter-rouge">Framework</code>를 도입할 때 가장 힘든점 중 하나는 개발환경 구축입니다. 기본적인
+폴더구조를 숙지해서 만들어야 하고 기본적으로 사용되는 설정 파일들도 다수 존재합니다. 대부분 머가먼지 알기 힘들죠.
+코드를 작성한 후 Build 설정, Bundler 설정, 테스팅과 배포등 너무 많은 일을 해야하고 설정방법 또한 너무 많고 복잡합니다.</p>
+
+<p>Angular 역시 마찬가지입니다. Mike Brocchi( Angular CLI contributor )의 Twitter 설문을 예로 들어보죠.</p>
+
+<p><img src="assets/built/images/what-is-angular-barrier.png" alt="what is angular barrier" /></p>
+
+<p>Angular는 <code class="highlighter-rouge">Angular CLI</code>를 제공함으로 이런 복잡함을 해결하고 있습니다. Angular CLI를 이용할 경우와 그렇지 않는 경우를 
+간단히 그림으로 표현하면 다음과 같습니다.</p>
+
+<p><img src="assets/built/images/using-angular-cli.png" alt="with angular CLI" /></p>
+<div class="img-reference">( 이미지 출처 : https://www.quora.com/What-is-Angular-CLI )</div>
+
+<p>Angular Project를 쉽게 생성하고 프로젝트를 시작하기 위한 
+<code class="highlighter-rouge">scaffolding</code>을 포함해서 다양한 기능을 제공하는 것이 바로 Angular CLI입니다. 사실 쓰지 않을 이유가 없습니다.</p>
+
+<p>그럼 Angular CLI를 설치해보도록 하죠. command 창을 열어서 다음과 같이 실행합니다.</p>
+
+<blockquote>
+  <p><strong>npm install -g @angular/cli</strong></p>
+</blockquote>
+
+<p><code class="highlighter-rouge">npm</code>을 이용하여 Angular CLI를 global로 설치합니다. 설치하는데 시간이 좀 걸립니다. 설치가 끝나면 
+다음과 같이 입력해서 Angular CLI의 버전을 확인해 보세요.</p>
+
+<blockquote>
+  <p><strong>ng --version</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/angular-cli-version.png" alt="Angular CLI version" /></p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular 프로젝트 생성</strong></p>
+
+<p>Angular CLI의 설치가 끝났으니 이제 Angular CLI를 이용하여 프로젝트를 하나 생성합니다. 프로젝트명은 
+<code class="highlighter-rouge">bookSearch-angular</code>로 하겠습니니다. 프로젝트 폴더는 <code class="highlighter-rouge">D:/bookSearch-angular</code>로 생성할 것이기 때문에 
+저는 현재 command창의 working directory를 <code class="highlighter-rouge">D:/</code>로 잡아놓고 다음과 같이 입력합니다.</p>
+
+<blockquote>
+  <p><strong>ng new bookSearch-angular</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/angular-cli-new-project.png" alt="Angular CLI new project" /></p>
+
+<p>시간이 제법 오래 걸립니다. 필요한 모듈들을 <code class="highlighter-rouge">npm</code>을 이용해 다운로드 받기 때문입니다. 프로젝트 생성이 끝나면
+자동으로 생성된 설정 파일과 기본 Skeleton 코드가 프로젝트 폴더안에 위치하게 됩니다.</p>
+
+<p>설정파일에 대한 내용은 조금 나중에 다시 보기로 하고 일단 WebStorm으로 해당 프로젝트 폴더를 open합니다.
+아래의 그림처럼 WebStorm에서 프로젝트 폴더가 보이게 됩니다.</p>
+
+<p><img src="assets/built/images/webstorm-angular-project-init.png" alt="WebStorm Angular project" /></p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 개발환경 서버를 이용한 Angular 프로젝트 실행</strong></p>
+
+<p>command 창을 열어 프로젝트 root로 working directory를 이동시킨 후 다음의 명령을 실행하면 Webpack을 이용하여 
+우리 소스를 bundling하고 로컬 웹서버를 이용하여 우리 프로젝트를 서비스하게 됩니다.</p>
+
+<blockquote>
+  <p><strong>ng serve</strong></p>
+</blockquote>
+
+<p>명령 수행이 끝나면 <strong>webpack: Compiled successfully.</strong> 메시지가 출력됩니다. 이제 browser를 실행시켜 
+다음 URL로 접속해 정상적으로 출력되는지 확인하시면 됩니다.</p>
+
+<blockquote>
+  <p><strong>http://localhost:4200</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/angular-project-run.png" alt="Angular project run" /></p>
+
+<p>이번 포스트에서는 Angular를 사용하기 위한 위한 개발환경을 구축했습니다. 
+우리 강좌에서는 <strong>Testing과 관련된 사항은 다루지 않을 예정입니다.</strong>
+이제 만들어진 App을 조금씩 수정하면서 우리의 첫 Angular 프로그램을 완성해 나가면 될 듯 합니다.</p>
+
+<p>예제이기 때문에 따로 설명은 하지 않았지만 <code class="highlighter-rouge">Git</code>과 <code class="highlighter-rouge">GitHub</code>를 이용해서 코드를 관리하시는게 좋지 않을까
+생각됩니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Angular 강좌(1) - Introduction</title>
+	  <link>https://moon9342.github.io/angular-lecture-introduction</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+	  <pubDate>2018-01-31T10:04:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-introduction</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction.html">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment.html">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component.html">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material.html">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1.html">Angular 강좌(5) - 실습(1)</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular Version</strong></p>
+
+<p><code class="highlighter-rouge">Angualr</code>의 History와 개요부터 간단하게 살펴보겠습니다.</p>
+
+<p><code class="highlighter-rouge">Angular</code>는 JavaScript based open source front end web application framework 입니다. 길기도 하네요. 
+초기 버전인 <code class="highlighter-rouge">AngularJS</code>는 2010년 발표되었습니다. 지금은 <code class="highlighter-rouge">Angular 1</code>이라고 표현하기도 합니다. 
+버전 정책이 Angular 1.x로 올라가는 것이죠. 그렇게 발전해오다가
+2016년에 <code class="highlighter-rouge">Angular 2</code>가 정식으로 출시되었습니다. 그러면서 Angular 2라고 명시하지 않고 <code class="highlighter-rouge">Angular</code>라는 이름으로 호명하기로
+결정합니다. 지금 우리가 Angular라고 부르는 것은 모두 Angular 2 이후 버전입니다. 2017년 3월에 <code class="highlighter-rouge">Angular 4</code>가 release되었고 
+현재(2018년 1월)기준으로 <code class="highlighter-rouge">Angular 5</code> 까지 나온 상태입니다.</p>
+
+<blockquote>
+  <p>2017년 12월 3일부로 다음의 사항들이 정식으로 release되었습니다.</p>
+  <ul>
+    <li>Angular 5.1.0</li>
+    <li>Angular CLI 1.6.0</li>
+    <li>Angualr Material</li>
+    <li>Angular Material CDK(component dev kit)</li>
+  </ul>
+</blockquote>
+
+<p>정리를 하자면 <code class="highlighter-rouge">AngularJS</code>라고 표현되는 Angular 1은 버전정책이 AngularJS 1.0, AngularJS 1.1, AngularJS 1.2, … 이렇게 
+올라가고 <code class="highlighter-rouge">Angular</code>라고 표현되는 Angular 2는 버전정책이 Angular 2, Angular 3, Angular 4, … 이렇게 올라갑니다. 
+Angular 3는 Router issue때문에 release가 최소되었습니다. 그래서 Angular 2 다음 버전이 Angular 4가 됩니다. 
+2017년 11월에 release된 Angular 5는 Angular 2의 3번째 Major 배포판 이라는 말이지요.</p>
+
+<p>기존의 <code class="highlighter-rouge">AngularJS</code>와 지금의 <code class="highlighter-rouge">Angular</code>는 Architecture측면이나 구현측면에서 큰 차이가 있습니다. 그렇기 때문에 Angular 2가 아키텍쳐가
+발표되었을 때 사실 많은 AngularJS 개발자들이 황당해 했던것도 사실입니다. 여하간 AngularJS는 역사속으로 사라지고 있습니다. 
+사실 Google에서도 AngularJS 시절에는 내부적으로 AngulraJS를 사용하지 않았습니다. 하지만 Angular로 넘어오면서 자사의 개발자체도
+Angular로 진행하고 있고 Angular를 단지 web framework에서만 사용하는 기술이 아닌 모든 platform에 대응할 수 있는 형태로 
+발전시킬려고 노력하고 있습니다.</p>
+
+<blockquote>
+  <p><strong>다음은 기존의 AngularJS와 지금의 Angular의 중요 차이점 중 몇가지 입니다.</strong></p>
+  <ul>
+    <li>Controller와 $scope 기반 개발방식에서 컴포넌트 기반 개발방식(<code class="highlighter-rouge">CBD</code>, Component Based Development)으로 개발방법 변경.</li>
+    <li>주력 개발 언어로 <code class="highlighter-rouge">TypeScript</code> 도입</li>
+    <li>개발환경 지원도구인 <code class="highlighter-rouge">Angular CLI</code> 제공</li>
+  </ul>
+</blockquote>
+
+<p>이외에도 더 많지만 저 위의 3가지만 일단 기억하시면 될 듯 합니다. 저 위의 3가지로 인해 개발 생산성과 성능면에서 큰 향상을
+이루었습니다. 하지만 결정적(?)인 단점이 있습니다. Angular는 대부분의 browser를 지원하고 있는데 <strong><code class="highlighter-rouge">IE</code>의 경우 <code class="highlighter-rouge">9</code>버전 이상부터 
+지원</strong>합니다. 따라서 Cross Browsing의 issue를 가지고 있습니다.</p>
+
+<p>아참..로고도 바꾸었습니다. 테두리가 있는 방패모양의 로고에서 테두리를 빼고 <code class="highlighter-rouge">A</code>글자를 흰색으로 바꾸었습니다. ^^;;
+<img src="assets/built/images/angularjs-angular2-logo-change.jpg" alt="AngularJS to Angular" /></p>
+<div class="img-reference">( 이미지출처 : http://nodesimplified.com/angularjs-to-angular/ )</div>
+
+<p>이 <a href="https://github.com/angular/angular/blob/master/CHANGELOG.md" target="_blank">링크</a>를 
+클릭해 보시면 Angular의 버전 업데이트에 대한 <code class="highlighter-rouge">ChangeLog</code>를 확인할 수 있습니다. 
+일 무지 열심히 하네요. 따라가기 힘들정도입니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular 학습을 위한 pre-requisite</strong></p>
+
+<p>Angular는 <code class="highlighter-rouge">Steep Learning Curve</code>를 가집니다. 배우기가 힘들다는 거죠. 적어도 기본적인 <code class="highlighter-rouge">JavaScript</code> 개발에 대한 지식과
+<code class="highlighter-rouge">TypeScript</code>에 대한 지식, 그리고 객체지향개발(<code class="highlighter-rouge">OOP</code>)에 대한 지식을 필수로 요구합니다. 물론 Angular를 배우면서 같이 하면 
+되긴 하지만 힘든건 사실입니다.</p>
+
+<p>해서 Angular 강좌 역시 기본적으로 다음과 같은 선행지식을 필요로 합니다.</p>
+<ul>
+  <li><code class="highlighter-rouge">JavaScript</code></li>
+  <li><code class="highlighter-rouge">TypeScript</code></li>
+  <li><code class="highlighter-rouge">OOP</code>(Object Oriented Programming)</li>
+  <li>Front End 개발 도구 ( <code class="highlighter-rouge">npm</code>, <code class="highlighter-rouge">babel</code>, <code class="highlighter-rouge">webpack</code>, <code class="highlighter-rouge">gulp</code> 등등)</li>
+</ul>
+
+<p>참고로 이 <a href="./front-end-ecosystem.html" target="_blank">링크</a>에 가보시면 현재 Front End 개발환경에 대한 간단한 
+포스트를 보실 수 있습니다. 
+또한 이 <a href="./typescript-introduction.html" target="_blank">링크</a>에 가보시면 TypeScript에 대한 강좌 역시 보실 수 있습니다.</p>
+
+<p>말은 어렵다고 했지만 하다보면 또 그냥 저냥 하게 됩니다. 일단 기본적인 소개는 이정도로 하고 다음은 개발환경부터
+세팅해 보도록 하겠습니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>TypeScript 강좌(7) - Class</title>
 	  <link>https://moon9342.github.io/typescript-class</link>
 		
@@ -46,8 +1018,7 @@
 	  <pubDate>2018-01-30T18:04:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-class</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -379,6 +1350,10 @@ TypeScript는 property에도 적용할 수 있습니다. static property는 clas
 <p>이번 포스트에서는 <code class="highlighter-rouge">TypeScript</code>의 class에 대해서 살펴보았습니다. 객체지향 언어의 class와 상당히 유사하면서도
 약간의 차이점이 있었습니다. 차이점 위주로 기억하시면 될 듯 합니다.</p>
 
+<p>End.</p>
+
+<hr />
+
 <p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
     해당 사이트를 방문하세요!!</span></p>
 <ul class="lecture-reference">
@@ -408,7 +1383,7 @@ TypeScript는 property에도 적용할 수 있습니다. static property는 clas
 	  <pubDate>2018-01-29T13:31:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/front-end-ecosystem</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p>이번 포스트는 과거 JavaScript 탄생부터 시작해서 어떻게 발전해왔는지에 대한 내용과 <br />
 현재 Front End 개발에 있어서 무엇을 알아야 하는 지에 대한 전반적인 기술 상황에 대해서 알아보겠습니다.</p>
@@ -542,8 +1517,8 @@ npm이 어떻게 동작하는지 아실 수 있습니다. 굳이 Node.js에 대�
   <li><strong>Transpiler</strong> : Babel, <code class="highlighter-rouge">TypeScript</code></li>
 </ul>
 
-<p><img src="assets/built/images/typescript-vs-babel.jpg" alt="babel vs typescript" />
-<strong>이미지 출처 : (http://news.softpedia.com/news/angular-2-survey-shows-typescript-s-popularity-among-developers-490695.shtml)</strong></p>
+<p><img src="assets/built/images/typescript-vs-babel.jpg" alt="babel vs typescript" /></p>
+<div class="img-reference">( 이미지 출처 : http://news.softpedia.com/news )</div>
 
 <p>Cross Browsing을 위한 Transpiler입니다. 비교 대상은 아닙니다. 둘 다 알아둘 필요는 있지만 
 저는 <code class="highlighter-rouge">TypeScript</code>는 반드시 해야 한다고 생각합니다. 앞으로 TypeScript는 더 발전할 듯 보이거든요. 
@@ -593,6 +1568,10 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
 <p>그리고 <strong>“이것정도는 알고가자”</strong>에서 제가 강조한 것들은 제가 현재 사용하는 것들입니다.
 그것들이 더 좋다는 보장은 어디에도 없습니다. 자기 손에 익숙한게 최고입니다. ^^</p>
 
+<p>End.</p>
+
+<hr />
+
 	  ]]></description>
 	</item>
 
@@ -615,8 +1594,7 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
 	  <pubDate>2018-01-24T09:51:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/typescript-interface</guid>
 	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
+	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
 <ul class="table-of-contents-list">
     <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
     <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
@@ -1139,6 +2117,10 @@ interface내에 정의해서 사용합니다.</p>
 내용이 생각보다 많은데 생각보다 많이 어렵지는 않습니다. 단지 헷갈릴 뿐이죠 ^^
 여러번 정독하면서 쓰임새를 알아두고 실제 코드에서 활용하면서 익히셔야 합니다.</p>
 
+<p>End.</p>
+
+<hr />
+
 <p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
     해당 사이트를 방문하세요!!</span></p>
 <ul class="lecture-reference">
@@ -1167,7 +2149,7 @@ interface내에 정의해서 사용합니다.</p>
 	  <pubDate>2018-01-24T02:30:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/javascript-babel</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p>아무 생각없이 <code class="highlighter-rouge">Babel</code>을 쓰고 있지만 예전부터 궁금했던 Babel이란 이름이 내가 알고 있는 그 바벨탑의 바벨인가? 
 라는 의문에 이름의 근원을 찾아보고 이왕 찾아본 김에 Babel의 간단한 사용법 정도만 정리해 보도록 하겠습니다.
@@ -1177,7 +2159,7 @@ interface내에 정의해서 사용합니다.</p>
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Babel이란 이름의 기원</strong></p>
 
-<p>결론적으로 <a href="https://babeljs.io/" target="_blank">Babel Official Home Page</a> 에서는 이름에 대한 근원을 찾을수는 없었습니다. 
+<p>결론적으로 <a href="https://babeljs.io/" target="_blank">Babel Official HomePage</a> 에서는 이름에 대한 근원을 찾을수는 없었습니다. 
 어딘가에 숨어있는지는 모르겠지만요. 여하간 Babel은 성경 영어로 구약성서 창세기에 그 근원을 두고 있습니다.
 ( 왠지 산으로 가는 느낌입니다. )</p>
 
@@ -1187,7 +2169,7 @@ interface내에 정의해서 사용합니다.</p>
 하나의 높은 탑을 건설하게 되었는데 이게 그 <code class="highlighter-rouge">Babel</code>(바벨탑)이랍니다.</p>
 
 <p>하지만 인간들의 그러한 동기를 아시는 하나님께서 그들이 탑을 세우지 못하고 전 세계로 흩어지게끔 그들의 언어를 여러개로
-나누셔서 서로간의 의사소통이 되지 않도록 하셨답니다. 말이 안통하자 탑 공사는 중단되고 결국 언어가 맞는 사람끼리 뿔뿔히
+나누셔서 서로간의 의사소통이 되지 않도록 하셨답니다. 서로 말이 통하지 않자 탑 공사는 중단되고 결국 언어가 맞는 사람끼리 뿔뿔히
 흩어져 살게되었다라는 이야기지요.</p>
 
 <p>그래서 <code class="highlighter-rouge">Babel</code>의 사전적 의미는 “와글와글”, “바벨탑”, “거대한 탑” 의 의미를 가지게 되었다고 합니다.</p>
@@ -1312,6 +2294,9 @@ browser는 최신 ECMAScript 문법을 다 지원하지 못하거든요. 특히 
 <p>이 포스트의 내용은 <a href="https://babeljs.io/" target="_blank">Babel Official Home Page</a>을 참조했습니다.
 조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</p>
 
+<p>End.</p>
+
+<hr />
 
 	  ]]></description>
 	</item>
@@ -1335,7 +2320,7 @@ browser는 최신 ECMAScript 문법을 다 지원하지 못하거든요. 특히 
 	  <pubDate>2018-01-24T01:35:00+00:00</pubDate>
 	  <guid>https://moon9342.github.io/javascript-use-strict</guid>
 	  <description><![CDATA[
-	     <p><img src="assets/built/images/tldr-white-logo.png" alt="tldr" class="myTLDRStyle" /></p>
+	     <p><strong class="post_introduction">Introduction</strong></p>
 
 <p><code class="highlighter-rouge">"use strict"</code>는 ES5에서 새롭게 나온 directive입니다. 실제 수행 문장이 아니라 literal expression이기 
 때문에 이전 버전의 JavaScript에서는 무시됩니다.</p>
@@ -1399,1375 +2384,10 @@ directive정도로 인식하시면 될 듯 합니다.</p>
 <p>이 포스트의 내용은 <a href="https://www.w3schools.com/js/js_strict.asp" target="_blank">w3schools.com</a>을 참조했습니다.
 조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</p>
 
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>TypeScript 강좌(5) - Destructuring</title>
-	  <link>https://moon9342.github.io/typescript-destructuring</link>
-		
-				
-		
-				
-		
-				
-						<author>TypeScript</author>
-				
-		
-				
-		
-				
-		
-	  <pubDate>2018-01-23T17:00:00+00:00</pubDate>
-	  <guid>https://moon9342.github.io/typescript-destructuring</guid>
-	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
-<ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
-</ul>
+<p>End.</p>
 
 <hr />
 
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript Destructuring</strong></p>
-
-<p>이번 포스트의 내용은 <code class="highlighter-rouge">Destructuring</code> 입니다. 
-Destructuring은 ECMAScript 2015 문법인데 TypeScript에서도 지원합니다.</p>
-
-<blockquote>
-  <p>아래의 예제를 정상적으로 실행해보실려면 <code class="highlighter-rouge">tsconfig.json</code>에서 <code class="highlighter-rouge">compilerOptions</code>의 <code class="highlighter-rouge">target</code> 속성을
-<code class="highlighter-rouge">es6</code>로 해 주셔야 합니다.</p>
-</blockquote>
-
-<p>일반적으로 <code class="highlighter-rouge">Destructuring Assignment</code>(비구조할당)라고 하는데 쉽게 말하자면 배열의 요소나 객체의 속성을 
-배열 literal 혹은 객체 literal과 유사한 형태의 문법을 이용하여
-변수에 할당하는 기법입니다. 잘 알아두면 코드를 좀 더 쉽게 작성할 수 있습니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Array Destructuring</strong></p>
-
-<p>다음과 같이 배열이 있을 경우 각 배열의 원소값을 가지는 변수를 만들려고 합니다. 
-아마도 코드는 다음처럼 써야 할 듯 보입니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myArr</span><span class="p">:</span> <span class="nx">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Hello"</span><span class="p">,</span> <span class="s2">"World"</span><span class="p">,</span> <span class="s2">"Moon"</span><span class="p">];</span>
-
-<span class="kd">let</span> <span class="nx">first</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">myArr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-<span class="kd">let</span> <span class="nx">second</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">myArr</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-<span class="kd">let</span> <span class="nx">third</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">myArr</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">first</span><span class="p">);</span>     <span class="c1">// "Hello" 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">second</span><span class="p">);</span>    <span class="c1">// "World" 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">third</span><span class="p">);</span>     <span class="c1">// "Moon" 출력</span>
-</code></pre></div></div>
-
-<p>이 코드를 Destructuring Assignment(비구조할당)를 이용하면 다음과 같이 표현할 수 있습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myArr</span><span class="p">:</span> <span class="nx">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Hello"</span><span class="p">,</span> <span class="s2">"World"</span><span class="p">,</span> <span class="s2">"Moon"</span><span class="p">];</span>
-
-<span class="kd">let</span> <span class="p">[</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">,</span> <span class="nx">third</span><span class="p">]</span> <span class="o">=</span> <span class="nx">myArr</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">first</span><span class="p">);</span>     <span class="c1">// "Hello" 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">second</span><span class="p">);</span>    <span class="c1">// "World" 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">third</span><span class="p">);</span>     <span class="c1">// "Moon" 출력</span>
-</code></pre></div></div>
-
-<p>위의 코드에서 <code class="highlighter-rouge">[first, second, third]</code> 형태를 <code class="highlighter-rouge">Destructuring Array</code>(비구조배열)이라고 합니다.
-즉, <code class="highlighter-rouge">let [first, second, third]</code> 구문은 변수 선언과 동시에 Destructuring Array(비구조배열)을 생성한 것입니다.</p>
-
-<p>만약 Destructuring Array(비구조배열)에 data type을 지정하고 싶은경우는 다음과 같이 하시면 됩니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myArr</span><span class="p">:</span> <span class="nx">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Hello"</span><span class="p">,</span> <span class="s2">"World"</span><span class="p">,</span> <span class="s2">"Moon"</span><span class="p">];</span>
-
-<span class="kd">let</span> <span class="p">[</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">,</span> <span class="nx">third</span><span class="p">]:</span> <span class="nx">string</span><span class="p">[]</span> <span class="o">=</span> <span class="nx">myArr</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>간단한 응용을 보도록 하죠. 두개의 변수에 대한 swap처리입니다. 기본적으로는 임시변수가 있어야 두 변수의 값을 swap처리
-할 수 있지만 Destructuring Assignment를 이용하면 보다 간단하게 할 수 있습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myArr</span><span class="p">:</span> <span class="nx">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Hello"</span><span class="p">,</span> <span class="s2">"World"</span><span class="p">];</span>
-
-<span class="kd">let</span> <span class="p">[</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">]</span> <span class="o">=</span> <span class="nx">myArr</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">first</span><span class="p">);</span>     <span class="c1">// "Hello" 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">second</span><span class="p">);</span>    <span class="c1">// "World" 출력</span>
-
-<span class="p">[</span><span class="nx">second</span><span class="p">,</span> <span class="nx">first</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">];</span>   <span class="c1">// swap 처리</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">first</span><span class="p">);</span>     <span class="c1">// "World" 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">second</span><span class="p">);</span>    <span class="c1">// "Hello" 출력</span>
-</code></pre></div></div>
-
-<p>이런 방식은 함수에 parameter를 전달할 때도 사용할 수 있습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunc</span><span class="p">([</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">]:</span> <span class="p">[</span><span class="nx">number</span><span class="p">,</span> <span class="nx">number</span><span class="p">]):</span> <span class="k">void</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`x의 값은 </span><span class="p">${</span><span class="nx">x</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`y의 값은 </span><span class="p">${</span><span class="nx">y</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="nx">myFunc</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">]);</span>
-</code></pre></div></div>
-
-<p>나머지 몇몇 응용에 대해서 알아보겟습니다. <code class="highlighter-rouge">...</code>을 이용하면 다음과 같은 형태로 서브배열을
-생성할 수 있습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myArr</span><span class="p">:</span> <span class="nx">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
-
-<span class="kd">let</span> <span class="p">[</span><span class="nx">first</span><span class="p">,</span> <span class="p">...</span><span class="nx">others</span><span class="p">]</span> <span class="o">=</span> <span class="nx">myArr</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">first</span><span class="p">);</span>    <span class="c1">// 1 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">others</span><span class="p">);</span>   <span class="c1">// [2, 3, 4] 출력 ( 서브배열 )</span>
-</code></pre></div></div>
-
-<p>다음과 같은 형태로 Destructuring Array를 이용할 수 있습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myArr</span><span class="p">:</span> <span class="nx">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
-
-<span class="kd">let</span> <span class="p">[</span><span class="nx">first</span><span class="p">]</span> <span class="o">=</span> <span class="nx">myArr</span><span class="p">;</span>
-
-<span class="kd">let</span> <span class="p">[,</span><span class="nx">second</span><span class="p">,</span> <span class="p">,</span><span class="nx">fourth</span><span class="p">]</span> <span class="o">=</span> <span class="nx">myArr</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">first</span><span class="p">);</span>     <span class="c1">// 1 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">second</span><span class="p">);</span>    <span class="c1">// 2 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fourth</span><span class="p">);</span>    <span class="c1">// 4 출력</span>
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Object Destructuring</strong></p>
-
-<p>이번에는 객체를 비구조할당을 통해 이용해 보도록 하겠습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">key1</span> <span class="p">:</span> <span class="s2">"Hello World"</span><span class="p">,</span>
-    <span class="na">key2</span> <span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="na">key3</span> <span class="p">:</span> <span class="s2">"TypeScript"</span>
-<span class="p">};</span>
-
-<span class="kd">let</span> <span class="p">{</span> <span class="na">key1</span><span class="p">:</span><span class="nx">a</span><span class="p">,</span> <span class="na">key2</span><span class="p">:</span><span class="nx">b</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>    <span class="c1">// Hello World 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>    <span class="c1">// 100 출력</span>
-</code></pre></div></div>
-<p>새로운 변수 a와 b가 생성되고 <code class="highlighter-rouge">obj.key1</code>의 값의 <code class="highlighter-rouge">key1:a</code>에 의해서 a 변수에 대입됩니다.
-마찬가지로 <code class="highlighter-rouge">obj.key2</code>의 값이 <code class="highlighter-rouge">key2:b</code>에 매칭되서 b 변수에 값이 할당되는 것이구요. <code class="highlighter-rouge">obj.key3</code>는 당연히 무시됩니다.
-변수를 선언할 때 <code class="highlighter-rouge">[ ]</code>가 아닌 <code class="highlighter-rouge">{ }</code>를 이용한다는 것에 주의하셔야 합니다.</p>
-
-<p>만약 객체의 Key( 위의 예제에서는 <code class="highlighter-rouge">key1</code>, <code class="highlighter-rouge">key2</code>, <code class="highlighter-rouge">key3</code> )가 비구조 객체에 쓰이는 변수의 이름과 동일하다면
-간소화된 형태로 이용할 수 있습니다. 아래의 예처럼 말이죠.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">key1</span> <span class="p">:</span> <span class="s2">"Hello World"</span><span class="p">,</span>
-    <span class="na">key2</span> <span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="na">key3</span> <span class="p">:</span> <span class="s2">"TypeScript"</span>
-<span class="p">};</span>
-
-<span class="kd">let</span> <span class="p">{</span> <span class="nx">key1</span><span class="p">,</span> <span class="nx">key2</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key1</span><span class="p">);</span>    <span class="c1">// Hello World 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key2</span><span class="p">);</span>    <span class="c1">// 100 출력</span>
-</code></pre></div></div>
-
-<p>그러면 다음과 같이 표현할 수 도 있겠네요.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="p">{</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="s2">"Hello World"</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">100</span> <span class="p">};</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>    <span class="c1">// Hello World 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>    <span class="c1">// 100 출력</span>
-</code></pre></div></div>
-
-<p>조금 헷갈리긴 하지만 익숙해지면 할 만 합니다. ^^;</p>
-
-<p>아까 위에서 나왔던 <code class="highlighter-rouge">...</code>을 기억하시나요? 배열의 나머지를 가지고 서브배열을 생성할 때 사용했었습니다. 
-Object Destructuring에서도 <code class="highlighter-rouge">...</code>을 이용할 수 있습니다. 아래의 코드를 살펴보도록 하죠.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">myName</span><span class="p">:</span> <span class="s2">"홍길동"</span><span class="p">,</span>
-    <span class="na">myAddress</span><span class="p">:</span> <span class="s2">"서울"</span><span class="p">,</span>
-    <span class="na">myAge</span><span class="p">:</span> <span class="mi">30</span>
-<span class="p">};</span>
-
-<span class="kd">let</span> <span class="p">{</span> <span class="nx">myName</span><span class="p">,</span> <span class="p">...</span><span class="nx">otherInfo</span><span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`이름은 : </span><span class="p">${</span><span class="nx">myName</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`나이는 : </span><span class="p">${</span><span class="nx">otherInfo</span><span class="p">.</span><span class="nx">myAge</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-</code></pre></div></div>
-
-<p>객체의 property의 이름을 다른 것으로 바꿀 수 있습니다. 아래의 코드를 보시죠</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">a</span><span class="p">:</span> <span class="s2">"홍길동"</span><span class="p">,</span>
-    <span class="na">b</span><span class="p">:</span> <span class="s2">"서울"</span><span class="p">,</span>
-    <span class="na">c</span><span class="p">:</span> <span class="mi">30</span>
-<span class="p">};</span>
-
-<span class="kd">let</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span><span class="nx">myName</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span><span class="nx">myAddress</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`이름은 : </span><span class="p">${</span><span class="nx">myName</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>     <span class="c1">// 홍길동 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`주소는 : </span><span class="p">${</span><span class="nx">myAddress</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>  <span class="c1">// 서울 출력</span>
-</code></pre></div></div>
-
-<p>위의 코드에서 주의해야 할 점은 <code class="highlighter-rouge">a:myName, b:myAddress</code>에서 <code class="highlighter-rouge">:</code>의 의미가 data type을 지정하는 것으로 
-사용된 것이 아니라는 것입니다. 만약 데이터 타입을 지정해서 사용하려면 다음과 같이 사용하셔야 합니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">a</span><span class="p">:</span> <span class="s2">"홍길동"</span><span class="p">,</span>
-    <span class="na">b</span><span class="p">:</span> <span class="s2">"서울"</span><span class="p">,</span>
-    <span class="na">c</span><span class="p">:</span> <span class="mi">30</span>
-<span class="p">};</span>
-
-<span class="kd">let</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span><span class="nx">myName</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span><span class="nx">myAddress</span> <span class="p">}:</span> <span class="p">{</span><span class="nl">a</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span><span class="nx">string</span><span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`이름은 : </span><span class="p">${</span><span class="nx">myName</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>     <span class="c1">// 홍길동 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`주소는 : </span><span class="p">${</span><span class="nx">myAddress</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>  <span class="c1">// 서울 출력</span>
-</code></pre></div></div>
-
-<p>점점 복잡해 지는군요. 한가지 주의해야 할 점은 ECMAScript 2015(ES6)에서의 Destructuring과 TypeScript의
-Destructuring이 완벽하게 똑같지는 않다는 것입니다.</p>
-
-<p>이번에 살펴볼 것은 <code class="highlighter-rouge">default</code> 값입니다. Destructuring하려는 속성이 존재하지 않을 때를 대비해서 default값을
-지정할 수 있습니다. 아래의 예를 보시죠.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">obj</span><span class="p">:</span> <span class="p">{</span><span class="nl">myName</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="nx">myAge</span><span class="p">?:</span><span class="nx">number</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">myName</span> <span class="p">:</span> <span class="s2">"홍길동"</span><span class="p">,</span>
-<span class="p">};</span>
-
-
-<span class="kd">let</span> <span class="p">{</span> <span class="na">myName</span><span class="p">:</span><span class="nx">uNmae</span><span class="p">,</span> <span class="na">myAge</span><span class="p">:</span><span class="nx">uAge</span> <span class="o">=</span> <span class="mi">30</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">uNmae</span><span class="p">);</span>  <span class="c1">// 홍길동</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">uAge</span><span class="p">);</span>   <span class="c1">// 30</span>
-</code></pre></div></div>
-
-<p>위의 예에서 <code class="highlighter-rouge">myAge?:number</code> 부분의 <code class="highlighter-rouge">?</code>의 의미는 해당 property가 있을 수도 있고 없을 수도 있다는것을 의미합니다.
-<code class="highlighter-rouge">myAge:uAge = 30</code> 부분이 default value를 사용한 부분입니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 어디에 쓰면 좋을까요?</strong></p>
-
-<p>간단하게 Destructuring이 무엇인지를 살펴보았는데 그럼 도데체 이걸 어디에 써 먹어야 할까요?
-이런식의 응용이 가능하구나 하는 정도로 가볍게 보시면 될 듯 합니다.</p>
-
-<p>첫번째로 생각할 수 있는 응용은 ECMAScript 2015에서 제공되는 <code class="highlighter-rouge">Iteration Protocol</code>과의 연계사용입니다.
-아주 쉽게 생각하면 <strong><code class="highlighter-rouge">Map</code>사용에 응용할 수 있다</strong> 정도로 보시면 됩니다. Map 자료구조는 key와 value의 쌍으로
-데이터를 저장하는 구조이고 다음과 같은 형태로 Destructuring과 함께 이용할 수 있습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="p">();</span>
-
-<span class="nx">map</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"myName"</span><span class="p">,</span><span class="s2">"홍길동"</span><span class="p">);</span>
-<span class="nx">map</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"myAddress"</span><span class="p">,</span><span class="s2">"서울"</span><span class="p">);</span>
-<span class="nx">map</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s2">"myAge"</span><span class="p">,</span><span class="mi">30</span><span class="p">);</span>
-
-<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="p">[</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">]</span> <span class="k">of</span> <span class="nx">map</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">key</span><span class="p">}</span><span class="s2"> 의 값은 </span><span class="p">${</span><span class="nx">value</span><span class="p">}</span><span class="s2"> 입니다.`</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="k">of</span> <span class="nx">map</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 모든 key 값만을 출력할 수 있습니다.</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">key</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="p">[,</span><span class="nx">value</span><span class="p">]</span> <span class="k">of</span> <span class="nx">map</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// 모든 value 값만을 출력할 수 있습니다.</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">value</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>두번째는 함수의 리턴값에 응용하는 것입니다. 리턴값이 두개 이상 필요할 때 우리는 배열형태나 객체형태로 
-리턴을 받게 되는데 Destructuring을 이용하면 편합니다.</p>
-
-<p>다음은 배열을 리턴받는 경우입니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunc</span><span class="p">():</span> <span class="nx">string</span><span class="p">[]</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">arr</span><span class="p">:</span> <span class="nx">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
-    <span class="c1">// 로직처리 ...</span>
-    <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"첫번째 결과값"</span><span class="p">;</span>
-    <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"두번째 결과값"</span><span class="p">;</span>
-
-    <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="p">[</span><span class="nx">result1</span><span class="p">,</span> <span class="nx">result2</span><span class="p">]</span> <span class="o">=</span> <span class="nx">myFunc</span><span class="p">();</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result1</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result2</span><span class="p">);</span>
-</code></pre></div></div>
-
-<p>다음은 객체를 리턴받는 경우입니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunc</span><span class="p">():</span> <span class="p">{</span><span class="nl">result1</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="nx">result2</span><span class="p">?:</span><span class="nx">number</span><span class="p">}</span> <span class="p">{</span>
-
-    <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="na">result1</span> <span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
-        <span class="na">result2</span> <span class="p">:</span> <span class="mi">0</span>
-    <span class="p">};</span>
-    <span class="c1">// 로직처리 ...</span>
-    <span class="nx">obj</span><span class="p">.</span><span class="nx">result1</span> <span class="o">=</span> <span class="s2">"첫번째 결과값"</span><span class="p">;</span>
-    <span class="nx">obj</span><span class="p">.</span><span class="nx">result2</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-
-    <span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="p">{</span><span class="na">result1</span><span class="p">:</span><span class="nx">first</span><span class="p">,</span> <span class="na">result2</span><span class="p">:</span><span class="nx">second</span><span class="p">}</span> <span class="o">=</span> <span class="nx">myFunc</span><span class="p">();</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">first</span><span class="p">);</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">second</span><span class="p">);</span>
-</code></pre></div></div>
-
-<p>꼭 사용해야 할 필요는 없지만 알아두면 편하고 좋은 <code class="highlighter-rouge">Destructuring</code>에 대해서 알아보았습니다.</p>
-
-<p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
-    해당 사이트를 방문하세요!!</span></p>
-<ul class="lecture-reference">
-    <li><a href="http://www.typescriptlang.org" target="_blank">TypeScript Official HomePage</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>TypeScript 강좌(4) - 변수 선언</title>
-	  <link>https://moon9342.github.io/typescript-variable</link>
-		
-				
-		
-				
-		
-				
-						<author>TypeScript</author>
-				
-		
-				
-		
-				
-		
-	  <pubDate>2018-01-22T19:14:00+00:00</pubDate>
-	  <guid>https://moon9342.github.io/typescript-variable</guid>
-	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
-<ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript Variable Declarations</strong></p>
-
-<p>이번 포스트에서는 <code class="highlighter-rouge">var</code>, <code class="highlighter-rouge">let</code>, <code class="highlighter-rouge">const</code>에 대해서 알아보겠습니다. let은 var과 유사하지만 var이
-가지고 있는 우리에게 익숙치 않은 몇가지 사항들을 피하도록 도와줍니다. const는 이름에서 의미하다시피 변수에
-재할당을 금지하는 목적으로 사용하는 것이구요.</p>
-
-<p><strong>결론을 미리 말하자면 <code class="highlighter-rouge">TypeScript</code>는 <code class="highlighter-rouge">let</code>과 <code class="highlighter-rouge">const</code>를 이용합니다.</strong></p>
-
-<p>먼저 <code class="highlighter-rouge">var</code>에 대해서 알아보고 그 다음에 <code class="highlighter-rouge">let</code>, <code class="highlighter-rouge">const</code>에 대해서 알아보도록 하겠습니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> var</strong></p>
-
-<p>코드로 설명하자면 다음과 같이 변수를 선언할 수 있습니다.</p>
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myVar</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>당연한 말이지만 함수내에서도 선언할 수 있습니다.</p>
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunc</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="s2">"Hello World"</span><span class="p">;</span>
-
-    <span class="k">return</span> <span class="nx">message</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>JavaScript는 함수안에 다른 함수를 선언할 수 있습니다. 그러한 경우 내부 함수가 외부 함수가 가지고 있는
-변수를 참조할 수 있습니다. 또한 JavaScript는 1급 함수(<code class="highlighter-rouge">first-class function</code>)를 지원합니다. 쉽게 말하면
-JavaScript의 함수는 <strong>값의 의미</strong>로 사용될 수 있다는 것입니다. 함수가 값의 역할을 하다보니 다음과 같은 형태의
-코드가 가능합니다.</p>
-
-<ul>
-  <li>함수를 변수에 저장.</li>
-  <li>함수를 다른 함수의 인자로 전달.</li>
-  <li>함수를 다른 함수의 리턴값으로 사용.</li>
-</ul>
-
-<p>위와 같은 형태의 함수를 이용할 때는 함수의 이름이 특별히 필요하지 않기 때문에 
-이런 함수는 특별히 이름을 명시하지 않고 사용합니다.
-이런 함수를 우리는 익명함수( <code class="highlighter-rouge">Anonymous function</code> )라고 하죠. 다른 표현으로는 람다( <code class="highlighter-rouge">Lambda</code> )라고도 합니다.
-( 사실 Lambda에 대한 내용은 조금 더 파고 들어야 합니다. 나중에 다른 포스트에서 정리해볼께요 )</p>
-
-<p>위의 내용으로 간단한 예를 들자면 아래와 같습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">outerFunc</span><span class="p">()</span> <span class="p">{</span>
-
-    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-
-    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="mi">100</span><span class="p">;</span>
-        <span class="k">return</span> <span class="nx">b</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">var</span> <span class="nx">myFunc</span> <span class="o">=</span> <span class="nx">outerFunc</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myFunc</span><span class="p">());</span>    <span class="c1">// 200 출력</span>
-</code></pre></div></div>
-
-<p>사실 위의 예제는 좀 이상합니다. 아니 많이 이상하죠.</p>
-
-<p>다음과 같은</p>
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myFunc</span> <span class="o">=</span> <span class="nx">outerFunc</span><span class="p">();</span>
-</code></pre></div></div>
-<p>코드에서 <code class="highlighter-rouge">outerFunc()</code>함수는 수행이 종료되었기
-때문에 그 안에 선언된 변수 <code class="highlighter-rouge">a</code>는 사실 사용할 수 없어야 합니다. 
-우리가 익히 알고 있는 다른 프로그래밍 언어의 변수 scope 개념으로 본다면 말이죠.</p>
-
-<p>하지만 JavaScript의 <code class="highlighter-rouge">var</code> 변수 scope는 좀 다릅니다. <strong><code class="highlighter-rouge">outerFunc()</code> 함수의 호출이 끝났음에도 불구하고 
-<code class="highlighter-rouge">a</code> 변수값이 유지됩니다.</strong> 즉, outerFunc()에 대한 참조가 남아있는 한 메모리에 계속 유지하게 되는 구조입니다.
-( outerFunc() 함수가 실행중인 상태로 간주한다는 의미이기도 합니다. ) 
-그렇기 때문에 위에서 <code class="highlighter-rouge">myFunc()</code>를 호출했을 때 <code class="highlighter-rouge">a</code> 변수를 이용할 수 있는 것입니다.</p>
-
-<p>조금 다른 예제를 살펴보겠습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunc</span><span class="p">(</span><span class="nx">init</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">init</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">return</span> <span class="nx">x</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myFunc</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span>  <span class="c1">// 10 출력</span>
-</code></pre></div></div>
-
-<p><strong>위의 코드는 JavaScript 코드입니다.</strong> <code class="highlighter-rouge">var</code> 변수는 if block 안에서 선언되었음에도 불구하고 
-block 외부에서도 사용이 가능합니다. 위에서 언급했듯이 JavaScript의 var 변수 scope가 좀 독특해서 그렇습니다. 
-var로 선언된 변수는 block에 상관없이 function 내에서 사용이 가능합니다.</p>
-
-<blockquote>
-  <p>이런 특성을 <strong>var은 <code class="highlighter-rouge">function-scoping</code>을 가진다</strong> 라고 표현합니다.</p>
-</blockquote>
-
-<p>var에 대해서 마지막 하나만 더 살펴보고 정리하겠습니다.</p>
-
-<p>다음과 같은 <code class="highlighter-rouge">setTimeout</code>을 이용한 코드가 있을 때 실행결과가 어떻게 출력될까요?</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">setTimeout</span><span class="p">(</span>
-        <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="p">},</span>
-        <span class="mi">1000</span>
-    <span class="p">);</span>
-<span class="p">}</span>   
-</code></pre></div></div>
-
-<p>결과는 다음과 같이 출력됩니다.</p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10
-10
-10
-10
-10
-10
-10
-10
-10
-10
-</code></pre></div></div>
-
-<p>JavaScript를 알고 있는 사람들에게는 꽤나 익숙한 코드형태이자 결과일겁니다. <code class="highlighter-rouge">setTimeout</code>은 두번째 인자로 들어가는
-시간을 delay로 첫번째 인자의 함수를 호출해 주는 역할을 하는 함수입니다. (내부 Thread로 동작하겠죠)</p>
-
-<p>for문은 순식간에 수행될 것이고 1초뒤에 다음 코드가</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="p">}</span>
-</code></pre></div></div>
-
-<p>10번 호출되게 됩니다. 이 때 <code class="highlighter-rouge">i</code>변수는
-상위 for문의 scope를 참조하게 되므로 실제 <code class="highlighter-rouge">console.log(i)</code>가 수행될 때 <code class="highlighter-rouge">i</code>값을 참조하면 10이라는 값을 가지고 있을테니
-화면에 10이 10번 출력되게 됩니다.</p>
-
-<p>그러면 0부터 9까지 순차적으로 출력하려면 어떻게 해야 할까요? 이 작업을 수행하기 위해 <code class="highlighter-rouge">IIFE</code>을 이용합니다.</p>
-
-<blockquote>
-  <p><code class="highlighter-rouge">IIFE</code>는 <strong>Immediately Invoked Function Expression</strong>을 의미합니다.</p>
-</blockquote>
-
-<p>코드를 아래와 같이 수정합니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">tmp</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">setTimeout</span><span class="p">(</span>
-            <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tmp</span><span class="p">);</span> <span class="p">},</span>
-            <span class="mi">1000</span>
-        <span class="p">);</span>
-    <span class="p">})(</span><span class="nx">i</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>즉시 실행되는 함수 표현법(IIFE)를 이용하여 새로운 function scope를 생성해서 
-<code class="highlighter-rouge">i</code>값을 capture하는 방식으로 처리하면 될 듯 합니다.</p>
-
-<p>이 부분을 정확히 이해하기 위해서는 <code class="highlighter-rouge">free variable</code>, <code class="highlighter-rouge">scope chain</code>, <code class="highlighter-rouge">Closure</code>에 대한 이해가 있어야 합니다. 너무 이야기가
-산으로 가니 이 부분은 JavaScript 관련 포스트에서 따로 정리해 보도록 하겠습니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> let</strong></p>
-
-<p>위에서 언급한 var의 모호성을 <code class="highlighter-rouge">let</code>을 이용해 해결할 수 있습니다. 변수를 선언할 때 단순히 var대신 let을 이용하면
-됩니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myVar</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">"Hello World!!"</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">let</code>은 우리에게 친숙한 <code class="highlighter-rouge">block-scoping</code>을 가집니다. ( <code class="highlighter-rouge">lexical-scoping</code> 이라고도 합니다. )</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunc</span><span class="p">(</span><span class="nx">input</span><span class="p">:</span> <span class="kr">boolean</span><span class="p">)</span> <span class="p">{</span>
-    
-    <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>   <span class="c1">// a에 접근이 가능합니다.</span>
-        <span class="k">return</span> <span class="nx">b</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">return</span> <span class="nx">b</span><span class="p">;</span>            <span class="c1">// 코드 에러( b에 접근할 수 없습니다. )</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>let의 또 다른 특징은 변수의 중복 선언이 안된다는 것입니다. 사실 프로그래밍 언어에서는 거의 당연시 여겨지는 것이지만
-var는 중복선언이 가능합니다. 다음과 같이 말이죠.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">f</span><span class="p">()</span> <span class="p">{</span>
-    
-    <span class="kd">var</span> <span class="nx">x</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">x</span><span class="p">;</span>          <span class="c1">// JavaScript의 var은 같은 변수를 중복선언할 수 있습니다. </span>
-    
-    <span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">x</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>자 그럼 아까 var로 선언했을 때 이상하게 동작했던 setTimeout을 이번에는 let을 이용해서
-처리하면 어떻게 될까요?</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">setTimeout</span><span class="p">(</span>
-        <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="p">},</span>
-        <span class="mi">1000</span>
-    <span class="p">);</span>
-<span class="p">}</span>  
-</code></pre></div></div>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">var</code>로 선언했을 때와 다른 결과를 볼 수 있습니다.</p>
-
-<blockquote>
-  <p>결론적으로 <code class="highlighter-rouge">let</code>은 우리가 익히 알던 (다른 언어의) 변수 특징을 가지는 <br />
-변수를 선언하기 위한 keyword라고 생각하시면 됩니다.</p>
-</blockquote>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> const</strong></p>
-
-<p>변수를 선언하기 위한 또 다른 방법은 <code class="highlighter-rouge">const</code>를 이용하는 것입니다. 하지만 const로 선언된 변수에는
-재 할당(re-assign)이 불가능 합니다. 아래의 예처럼 말이죠.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">myName</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">"홍길동"</span><span class="p">;</span>
-
-<span class="nx">myName</span> <span class="o">=</span> <span class="s2">"강감찬"</span><span class="p">;</span>   <span class="c1">// 코드 에러</span>
-</code></pre></div></div>
-
-<p>const를 사용할 때 한가지만 주의하시면 됩니다. 만약 const 변수가 객체를 지칭하게 되면 다른 객체로 reference를
-바꾸지는 못하지만 현재 reference하고 있는 객체의 속성에 대해서는 값을 변경할 수 있습니다.
-아래의 예처럼 말이죠.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">count</span><span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-
-<span class="kd">const</span> <span class="nx">myProfile</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">myName</span><span class="p">:</span> <span class="s2">"홍길동"</span><span class="p">,</span>
-    <span class="na">myAddress</span><span class="p">:</span> <span class="s2">"서울"</span><span class="p">,</span>
-    <span class="na">myCount</span><span class="p">:</span> <span class="nx">count</span>
-<span class="p">};</span>
-
-<span class="nx">myProfile</span> <span class="o">=</span> <span class="p">{</span>                  <span class="c1">// 코드 에러 ( re-assign 안됨 )</span>
-    <span class="na">myName</span><span class="p">:</span> <span class="s2">"강감찬"</span><span class="p">,</span>
-    <span class="na">myAddress</span><span class="p">:</span> <span class="s2">"인천"</span><span class="p">,</span>
-<span class="p">};</span>                   
-
-<span class="nx">myProfile</span><span class="p">.</span><span class="nx">myName</span> <span class="o">=</span> <span class="s2">"강감찬"</span><span class="p">;</span>   <span class="c1">// 가능</span>
-<span class="nx">myProfile</span><span class="p">.</span><span class="nx">myAddress</span> <span class="o">=</span> <span class="s2">"인천"</span><span class="p">;</span>
-<span class="nx">myProfile</span><span class="p">.</span><span class="nx">myCount</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>변수 선언에 대한 keyword에 대해서는 이정도 알아두시면 될 듯 보입니다. 다음 주제는 <code class="highlighter-rouge">Destructuring</code>(디스트럭쳐링)입니다.</p>
-
-<p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
-    해당 사이트를 방문하세요!!</span></p>
-<ul class="lecture-reference">
-    <li><a href="http://www.typescriptlang.org" target="_blank">TypeScript Official HomePage</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>TypeScript 강좌(3) - Data Type(Part 2)</title>
-	  <link>https://moon9342.github.io/typescript-datatype-2</link>
-		
-				
-		
-				
-		
-				
-						<author>TypeScript</author>
-				
-		
-				
-		
-				
-		
-	  <pubDate>2018-01-22T16:44:00+00:00</pubDate>
-	  <guid>https://moon9342.github.io/typescript-datatype-2</guid>
-	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
-<ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript Data Type</strong></p>
-<ul>
-  <li><code class="highlighter-rouge">any</code></li>
-  <li><code class="highlighter-rouge">void</code></li>
-  <li><code class="highlighter-rouge">null &amp; undefined</code></li>
-  <li><code class="highlighter-rouge">never</code></li>
-  <li><code class="highlighter-rouge">type assertions</code></li>
-</ul>
-
-<p>이전 포스트에서 기본적인 data type을 알아보았으니 이번에는 조금 더 색다른 data type을 살펴보도록 하겠습니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> any</strong></p>
-
-<p>Application을 작성하는 시점을 기준으로 할 때 <strong>어떤 변수의 data type을 결정할 수 없는 경우</strong>가 아주 간혹 있습니다.</p>
-
-<p>가장 쉬운 예로 3rd party library를 이용해 dynamic content를 로딩해 저장하는 변수를 생각하시면 됩니다.
-즉, 동적으로 로딩되는 데이터의 타입이 runtime에 결정되므로 컴파일 타임에 data type을 지정할 수 없는 경우입니다.<br />
-(하지만 사실 우리는 대부분 데이터 타입을 정해놓고 구현을 진행하긴 합니다. ^^)</p>
-
-<p>이런 경우 어떠한 data type도 될 수 있다라는 의미로 <code class="highlighter-rouge">any</code> data type을 이용할 수 있습니다.
-data type에 구애받지 않고 쉽게 코드를 작성할 수 있도록 만들어주지만 위에서 언급한 특정 목적을 제외하고는
-<strong>당연히 사용하지 않는것이 좋습니다.</strong></p>
-
-<p>아래의 코드를 살펴보죠.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myVar</span><span class="p">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-
-<span class="nx">myVar</span> <span class="o">=</span> <span class="s2">"Hello World!!"</span><span class="p">;</span> <span class="c1">// 가능</span>
-<span class="nx">myVar</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>            <span class="c1">// 가능 </span>
-</code></pre></div></div>
-
-<p>배열의 data type으로 <code class="highlighter-rouge">any</code>를 이용하여 서로 다른 data type으로 배열을 이용하는게 가능해집니다.
-아래의 코드처럼 말이죠.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myArr</span><span class="p">:</span> <span class="nx">any</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="s2">"Hello"</span><span class="p">,</span> <span class="kc">true</span><span class="p">];</span>
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> void</strong></p>
-
-<p>어디서 많이 본 것입니다. 일반적으로 <code class="highlighter-rouge">void</code>는 함수가 리턴값이 없을 때 함수의 리턴 type으로 이용합니다. 
-아래의 코드를 보시죠.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunc</span><span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">:</span> <span class="k">void</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Hello, </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">!!`</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="nx">myFunc</span><span class="p">(</span><span class="s2">"Moon"</span><span class="p">);</span>
-</code></pre></div></div>
-
-<p>일반 변수를 만약 void로 선언하면 어떻게 될까요? 변수를 void type으로 선언하면 해당 변수에는 
-<code class="highlighter-rouge">null</code> 혹은 <code class="highlighter-rouge">undefined</code>만 assign이 가능합니다. 이렇게 사용할 일이 과연 있을까 싶네요.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myVar</span><span class="p">:</span> <span class="k">void</span><span class="p">;</span>
-<span class="nx">myVar</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>       <span class="c1">// 불가능(코드 에러)</span>
-<span class="nx">myVar</span> <span class="o">=</span> <span class="s2">"Hello"</span><span class="p">;</span>   <span class="c1">// 불가능(코드 에러)</span>
-<span class="nx">myVar</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>      <span class="c1">// 가능</span>
-<span class="nx">myVar</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span> <span class="c1">// 가능</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p>여기서 주의해야 할 점은 <code class="highlighter-rouge">tsconfig.json</code>파일안에 <code class="highlighter-rouge">compilerOptions</code> 부분에 <code class="highlighter-rouge">"strictNullChecks": false</code> option을
-설정해야 한다는 것입니다.</p>
-</blockquote>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> null &amp; undefined</strong></p>
-
-<p>TypeScript에서 <code class="highlighter-rouge">null</code>과 <code class="highlighter-rouge">undefined</code>는 값이자 하나의 data type입니다. 그렇기 때문에 다음과 같이 사용해야 합니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myNull</span><span class="p">:</span> <span class="kc">null</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-
-<span class="kd">let</span> <span class="nx">myUndefined</span><span class="p">:</span> <span class="kc">undefined</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>하지만 null과 undefined는 <strong>다른 모든 type의 subtype</strong>입니다. 
-쉽게 말하면 다른 모든 type에 null과 undefined를 assign할 수 있다는 말입니다.</p>
-
-<p>여기서 주의해야 할 점은 만약 <code class="highlighter-rouge">--strictNullChecks</code> flag를 이용해 <code class="highlighter-rouge">.ts</code>파일을 컴파일 할 경우 null과 undefined는 void 혹은
-자신의 data type에만 assign될 수 있게됩니다.
-(<code class="highlighter-rouge">tsconfig.json</code>파일안에서 <code class="highlighter-rouge">"strictNullChecks": true</code>로 설정한 경우를 의미 )</p>
-
-<blockquote>
-  <p>tsconfig.json파일안에 compilerOptions 부분에 <code class="highlighter-rouge">"strictNullChecks": false</code> option 적용한 경우</p>
-</blockquote>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myName</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">"홍길동"</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">myVoid</span><span class="p">:</span> <span class="k">void</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">myNull</span><span class="p">:</span> <span class="kc">null</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">myUndefined</span><span class="p">:</span> <span class="kc">undefined</span><span class="p">;</span>
-
-<span class="nx">myName</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>            <span class="c1">// 가능</span>
-<span class="nx">myName</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>       <span class="c1">// 가능</span>
-
-<span class="nx">myVoid</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>            <span class="c1">// 가능</span>
-<span class="nx">myVoid</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>       <span class="c1">// 가능</span>
-
-<span class="nx">myNull</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>            <span class="c1">// 가능</span>
-<span class="nx">myNull</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>       <span class="c1">// 가능</span>
-
-<span class="nx">myUndefined</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>       <span class="c1">// 가능</span>
-<span class="nx">myUndefined</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>  <span class="c1">// 가능</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p>tsconfig.json파일안에 compilerOptions 부분에 <code class="highlighter-rouge">"strictNullChecks": true</code> option 적용한 경우</p>
-</blockquote>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myName</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">"홍길동"</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">myVoid</span><span class="p">:</span> <span class="k">void</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">myNull</span><span class="p">:</span> <span class="kc">null</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">myUndefined</span><span class="p">:</span> <span class="kc">undefined</span><span class="p">;</span>
-
-<span class="nx">myName</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>            <span class="c1">// 불가능</span>
-<span class="nx">myName</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>       <span class="c1">// 불가능</span>
-
-<span class="nx">myVoid</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>            <span class="c1">// 불가능</span>
-<span class="nx">myVoid</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>       <span class="c1">// 가능</span>
-
-<span class="nx">myNull</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>            <span class="c1">// 가능</span>
-<span class="nx">myNull</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>       <span class="c1">// 불가능</span>
-
-<span class="nx">myUndefined</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>       <span class="c1">// 불가능</span>
-<span class="nx">myUndefined</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>  <span class="c1">// 가능</span>
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> never</strong></p>
-
-<p><code class="highlighter-rouge">never</code> type은 일반적으로 함수의 리턴 타입으로 사용됩니다. 만약 함수의 리턴 type으로 never가 사용되면 해당
-함수는 항상 exception을 발생시키던가 혹은 절대 return되지 않는다는 것을 의미합니다. 절대 return되지 않는다는
-것은 무한 loop에 빠지는 것등을 의미합니다.</p>
-
-<p>코드상으로 이해하자면 다음과 같은 경우입니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">error</span><span class="p">(</span><span class="nx">message</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="nx">never</span> <span class="p">{</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="nx">error</span><span class="p">(</span><span class="s2">"Something Wrong!!"</span><span class="p">);</span>
-
-
-
-<span class="kd">function</span> <span class="nx">infiniteLoop</span><span class="p">():</span> <span class="nx">never</span> <span class="p">{</span>
-    <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
-        
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Type assertions</strong></p>
-
-<p><code class="highlighter-rouge">Type assertions</code>는 컴파일러에게 “이 타입 사용이 맞아!!”라는 의미를 전달하는 것입니다. Type assertions
-은 type casting과 같은 의미로 사용되지만 실제 특별한 체크작업이나 데이터 재구조화 작업이 발생하지 않습니다.
-TypeScript는 프로그래머가 특정한 type check를 진행했다고 가정한 후 컴파일을 진행합니다.
-( TypeScript가 따로 검증하지 않는다는 거죠. )</p>
-
-<p>Type assertions을 하는 방법은 2가지가 있습니다. angle-bracket syntax(<code class="highlighter-rouge">&lt;&gt;</code>)를 이용하는 방법과 <code class="highlighter-rouge">as</code> syntax를
-이용하는 방법입니다. 아래의 코드를 보죠.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myVar</span><span class="p">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="s2">"Hello World"</span><span class="p">;</span>
-
-<span class="kd">let</span> <span class="nx">myVarCount</span><span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span><span class="nx">myVar</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
-
-<span class="nx">myVarCount</span> <span class="o">=</span> <span class="p">(</span><span class="nx">myVar</span> <span class="k">as</span> <span class="nx">string</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">((</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span><span class="nx">myVar</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">());</span>  <span class="c1">// runtime error</span>
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">any</code> data type과 함께 사용되는 경우가 많으며 데이터 타입을 한정지어서 사용할 수 있도록 도와주는 역할을 합니다.</p>
-
-<p>여기까지가 TypeScript의 기본 data type입니다. 다음 포스트는 변수를 선언하기 위한 키워드인 
-<code class="highlighter-rouge">var</code>, <code class="highlighter-rouge">let</code>, <code class="highlighter-rouge">const</code>에 대해서 알아보도록 하겠습니다.</p>
-
-<p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
-    해당 사이트를 방문하세요!!</span></p>
-<ul class="lecture-reference">
-    <li><a href="http://www.typescriptlang.org" target="_blank">TypeScript Official HomePage</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>TypeScript 강좌(2) - Data Type(Part 1)</title>
-	  <link>https://moon9342.github.io/typescript-datatype-1</link>
-		
-				
-		
-				
-		
-				
-						<author>TypeScript</author>
-				
-		
-				
-		
-				
-		
-	  <pubDate>2018-01-22T13:07:00+00:00</pubDate>
-	  <guid>https://moon9342.github.io/typescript-datatype-1</guid>
-	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
-<ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript Data Type</strong></p>
-<ul>
-  <li><code class="highlighter-rouge">boolean</code></li>
-  <li><code class="highlighter-rouge">number</code></li>
-  <li><code class="highlighter-rouge">string</code></li>
-  <li><code class="highlighter-rouge">Array</code></li>
-  <li><code class="highlighter-rouge">Tuple</code></li>
-  <li><code class="highlighter-rouge">enum</code></li>
-</ul>
-
-<p>프로그래밍 언어를 배울 때 가장 먼저 학습하는 부분이 바로 <code class="highlighter-rouge">Data Type</code>입니다. 이전에도 언급했듯이
-TypeScript는 JavaScript의 superset이기 때문에 JavaScript의 data type을 그대로 이용합니다. 거기에
-추가적인 데이터 타입이 더 존재합니다.</p>
-
-<p>그럼 하나하나 예를 들면서 보도록 하죠.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> boolean</strong></p>
-
-<p>우리가 알고있는 <code class="highlighter-rouge">boolean</code> type입니다. <code class="highlighter-rouge">true</code>와 <code class="highlighter-rouge">false</code> keyword를 사용할 수 있습니다.</p>
-
-<p>TypeScript에서는 변수선언시 <code class="highlighter-rouge">var</code>을 사용하지 않습니다. 
-var는 전통적으로 javascript의 변수를 선언하기 위한 keyword로 사용되고 있지만
-몇가지 우리를 힘들게 하는 특징이 있습니다. 이부분은 나중에 다시 포스팅하기로 하겠습니다.</p>
-
-<p>여하간 TypeScript에서는 var대신 <code class="highlighter-rouge">const</code>와 <code class="highlighter-rouge">let</code>을 이용합니다. 다음과 같이 boolean type의 변수를 선언할
-수 있습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myVar</span><span class="p">:</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>WebStorm에서는 다음그림처럼 확인하시면 편합니다. 왼쪽창에는 <code class="highlighter-rouge">.ts</code>파일, 오른쪽 창에는 변환된 <code class="highlighter-rouge">.js</code>파일을
-열어서 .ts가 어떻게 .js로 변환되는지를 확인해보세요.</p>
-
-<p><img src="assets/built/images/webstorm-project-datatype-boolean.png" alt="코드비교" /></p>
-
-<p>JavaScript에는 <strong>생성자 함수</strong>라는게 있습니다. <br />
-원래 Javascript는 객체지향언어가 아닙니다. <code class="highlighter-rouge">Prototype</code>기반의 언어입니다.
-그래서 JavaScript 초기버전에는 <code class="highlighter-rouge">class</code>가 도입되지 않았습니다. class는 ECMAScript 2015(ES6)에 도입되었습니다. 
-class가 도입되기 이전에는 함수를 이용해서 객체를 생성하는 <strong>생성자 함수</strong>라는걸 사용했습니다. 
-지금도 역시 사용하고 있구요. 우리가 알고있는 <code class="highlighter-rouge">new Date();</code> 이런게 다 생성자 함수를 이용한 객체의 생성입니다.</p>
-
-<p>그 중 특수한 생성자 함수들이 있습니다. <strong>바로 primitive type에 대한 생성자 함수들 입니다.</strong> 
-이런것들을 우리는 흔히 <code class="highlighter-rouge">Wrapper</code>라고 부릅니다. JavaScript에도 Wrapper Object가 존재합니다. 
-<code class="highlighter-rouge">Boolean</code>과 같은 생성자 함수를 이용해서 object를 만들면 우리는 그걸 primitive wrapper object라고 하는거지요.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myVar</span><span class="p">:</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">myBooleanVar</span><span class="p">:</span> <span class="nb">Boolean</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>   
-</code></pre></div></div>
-
-<p>이제 아래의 코드를 살펴보죠.</p>
-
-<figure class="highlight"><pre><code class="language-typescript" data-lang="typescript"><span class="kd">let</span> <span class="nx">myVar</span><span class="p">:</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">myBooleanVar</span><span class="p">:</span> <span class="nb">Boolean</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myVar</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">());</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myBooleanVar</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">());</span></code></pre></figure>
-
-<p>위와 같은 코드는 좀 이상합니다. <code class="highlighter-rouge">myVar</code>는 primitive type임에도 불구하고 method를 호출했습니다.
-그럼에도 이상없이 실행이 잘 됩니다. 그 이유는 자동형변환이 일어나기 때문입니다. <code class="highlighter-rouge">autoboxing</code>이라고 하죠.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myVar</span><span class="p">:</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>    <span class="c1">// 코드 에러</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myVar</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">());</span>
-</code></pre></div></div>
-<p>위의 코드는 에러입니다. boolean type의 변수에 Boolean wrapper object를 assign할 수 없다는 오류가 발생합니다.</p>
-
-<p>혼용해서 사용하는건 좋지 않습니다. JavaScript할 때야 그냥 막(?) 했지만 TypeScript는 data type을 정확히 명시하는
-습관을 들이셔야 합니다.</p>
-
-<blockquote>
-  <p>결론적으로 <code class="highlighter-rouge">booelan</code> / <code class="highlighter-rouge">Boolean</code> 이 존재하는군요. 하나는 primitive data type이고 다른 하나는 primitive wrapper object를
-만들기 위한 생성자 함수입니다. <strong>data type 용도로 사용할 경우는 <code class="highlighter-rouge">boolean</code>을 이용하셔야 합니다.(나머지 data type에 대해서도
-동일합니다. - 권장사항)</strong></p>
-</blockquote>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> number</strong></p>
-
-<p>TypeScript는 정수와 실수를 구분하지 않습니다. 모두 다 실수( <code class="highlighter-rouge">floating point values</code> )입니다. data type으로는
-<code class="highlighter-rouge">number</code>를 사용합니다. 대응되는 wrapper 생성자 함수는 <code class="highlighter-rouge">Number</code>가 되겠네요.
-기본적인 10진수, 16진수에 더해 ECMAScript 2015에서 2진수, 8진수의 사용도 추가되었습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">decimal</span><span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>     
-<span class="kd">let</span> <span class="nx">hex</span><span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mh">0xf00d</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">binary</span><span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mb">0b1010</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">octal</span><span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mo">0o744</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">octal</span><span class="p">.</span><span class="nx">valueOf</span><span class="p">());</span>
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> string</strong></p>
-
-<p>문자열을 지칭합니다. 기본적으로 double quotes (<code class="highlighter-rouge">"</code>) 와 single quotes (<code class="highlighter-rouge">'</code>) 둘 다 이용할 수 있습니다.
-대응되는 wrapper 생성자 함수는 <code class="highlighter-rouge">String</code> 입니다.</p>
-
-<p>한가지 더 기억해야 할 것이 있는데 <code class="highlighter-rouge">template string</code>이라는 걸 사용할 수 있습니다. backquote ( ` ) 를 이용하여
-여러줄에 걸쳐 문자열을 입력할 수 있고 <code class="highlighter-rouge">${ expr }</code> 형태로 embedded expression을 사용할 수 있습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myStr</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">"Hello"</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">myNumber</span><span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-
-<span class="kd">let</span> <span class="nx">myTemplateString</span> <span class="o">=</span> <span class="s2">`this is
-a
-sample
-Text =&gt; </span><span class="p">${</span> <span class="nx">myNumber</span> <span class="o">+</span> <span class="mi">100</span> <span class="p">}</span><span class="s2">
-myStr : </span><span class="p">${</span> <span class="nx">myStr</span><span class="p">}</span><span class="s2">
-`</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myTemplateString</span><span class="p">);</span>
-</code></pre></div></div>
-
-<p>실행결과는 다음과 같습니다.</p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>this is
-a
-sample
-Text =&gt; 200
-myStr : Hello
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Array</strong></p>
-
-<p>TypeScript는 JavaScript와 마찬가지로 <code class="highlighter-rouge">Array</code>를 지원합니다. 배열은 primitive data type이 아닌 객체입니다.
-배열은 두가지 방식으로 사용할 수 있습니다. 일반적인 방식은 다음과 같습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myArr</span><span class="p">:</span> <span class="nx">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Hello"</span><span class="p">,</span> <span class="s2">"Hi"</span><span class="p">,</span> <span class="s2">"안녕하세요"</span><span class="p">];</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myArr</span><span class="p">);</span>
-</code></pre></div></div>
-
-<p>또 다른 방식은 <code class="highlighter-rouge">Array Interface</code>와 <code class="highlighter-rouge">generic</code>을 이용하는 방법입니다. 
-자세한 설명은 다른 포스트에서 진행합니다. 여기서는 어떻게 배열을 선언하고 
-사용하는지만 보시면 됩니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myNumArr</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myNumArr</span><span class="p">);</span>
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Tuple</strong></p>
-
-<p><code class="highlighter-rouge">Tuple</code>은 배열입니다. 특수한 형태의 배열로 인식하시면 됩니다. 
-배열의 각 원소에 대해 각기 다른 data type을 허용합니다.
-다음과 같은 코드를 가지고 이해해보죠</p>
-
-<figure class="highlight"><pre><code class="language-typescript" data-lang="typescript"><span class="kd">let</span> <span class="nx">myTuple</span><span class="p">:</span> <span class="p">[</span><span class="nx">string</span><span class="p">,</span> <span class="nx">number</span><span class="p">];</span>
-
-<span class="nx">myTuple</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Hello"</span><span class="p">,</span> <span class="mi">100</span><span class="p">];</span> <span class="c1">// 가능</span>
-
-<span class="nx">myTuple</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Hello"</span><span class="p">,</span> <span class="s2">"World"</span><span class="p">];</span> <span class="c1">// 에러</span></code></pre></figure>
-
-<p>위의 코드의 제일 마지막 문장인</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">myTuple</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Hello"</span><span class="p">,</span> <span class="s2">"World"</span><span class="p">];</span>
-</code></pre></div></div>
-
-<p>코드는 Tuple의 type선언에 맞지 않기때문에 Error가 발생합니다.</p>
-
-<p>다음의 코드를 살펴보죠</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myTuple</span><span class="p">:</span> <span class="p">[</span><span class="nx">string</span><span class="p">,</span> <span class="nx">number</span><span class="p">];</span>
-
-<span class="nx">myTuple</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Hello"</span><span class="p">,</span> <span class="mi">100</span><span class="p">];</span> <span class="c1">// 가능</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myTuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>  <span class="c1">// "Hello" 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myTuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>  <span class="c1">// 100 출력</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myTuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>  <span class="c1">// undefined 출력</span>
-</code></pre></div></div>
-
-<p>위에서 언급했듯이 배열로 사용합니다. 2칸짜리 배열을 만들고 첫번째 칸에는 string, 두번째 칸에는 number를 data type으로
-가지는 배열입니다.</p>
-
-<p>JavaScript의 배열은 크기를 동적으로 늘릴 수 있습니다. 3번째 칸( <code class="highlighter-rouge">myTuple[2]</code> )에 데이터를 입력해 보겠습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myTuple</span><span class="p">:</span> <span class="p">[</span><span class="nx">string</span><span class="p">,</span> <span class="nx">number</span><span class="p">];</span>
-
-<span class="nx">myTuple</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Hello"</span><span class="p">,</span> <span class="mi">100</span><span class="p">];</span> <span class="c1">// 가능</span>
-
-<span class="nx">myTuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"World"</span><span class="p">;</span> <span class="c1">// 가능</span>
-<span class="nx">myTuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>     <span class="c1">// 가능</span>
-<span class="nx">myTuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>    <span class="c1">// 불가능( 코드 에러 )</span>
-</code></pre></div></div>
-
-<p>3번째 칸에 string과 number는 assign이 되는것을 확인할 수 있습니다. 하지만 boolean은 들어가지 않는군요.</p>
-
-<p>정리하자면 현재 사용할 수 있는 index를 넘어가는 곳에 데이터를 입력할 때는 Tuple선언에서 사용한 data type의
-<code class="highlighter-rouge">union type</code>을 이용합니다. 쉽게 말하면 string 혹은 number가 되어야 한다는 말입니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> enum</strong></p>
-
-<p><code class="highlighter-rouge">enum</code>을 이용할 수 있습니다. C#의 enum과 동일합니다. 
-<strong>숫자 대신 친숙한 이름으로 설정</strong>하기 위해서 이용합니다.
-다음의 코드를 이용해서 살펴보죠</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span> <span class="nx">Red</span><span class="p">,</span> <span class="nx">Green</span><span class="p">,</span> <span class="nx">Blue</span> <span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">myColor</span><span class="p">:</span> <span class="nx">Color</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Red</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myColor</span><span class="p">);</span>   <span class="c1">// 0 출력</span>
-</code></pre></div></div>
-
-<p>별다른 설명이 필요없습니다. 이번에는 다음의 코드를 보죠</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span> <span class="nx">Red</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Green</span><span class="p">,</span> <span class="nx">Blue</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">myColor</span><span class="p">:</span> <span class="nx">Color</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Green</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myColor</span><span class="p">);</span>   <span class="c1">// 2 출력</span>
-
-<span class="nx">myColor</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Blue</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myColor</span><span class="p">);</span>   <span class="c1">// 4 출력</span>
-</code></pre></div></div>
-<p><code class="highlighter-rouge">Color.Red</code>의 값을 1로 설정하면 그 다음 원소들은 당연히 1부터 1씩 증가합니다. <code class="highlighter-rouge">Color.Blue</code>는 4로 명시적으로 지정했네요.</p>
-
-<p>아래의 예제는 좀 특이합니다. string 변수에 <code class="highlighter-rouge">enum</code>을 대입한 후 결과를 출력합니다.</p>
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span> <span class="nx">Red</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Green</span><span class="p">,</span> <span class="nx">Blue</span> <span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">myColorStr</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Green</span><span class="p">;</span>  <span class="c1">// 코드 에러( 문자열에 숫자대입 안됨 )</span>
-
-<span class="kd">let</span> <span class="nx">myColor</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>        <span class="c1">// 가능( 배열로 처리 - index에 주의 )</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myColor</span><span class="p">);</span>                  <span class="c1">// "Blue" 출력</span>
-</code></pre></div></div>
-
-<p>위의 코드에서</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myColorStr</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Green</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>코드는 에러가 발생합니다. 문자열 type에 숫자를 넣으려 했기 때문이죠.
-또한 enum은 배열형태로 사용이 가능한 데 이런 경우 해당 문자열을 바로 이용할 수 있습니다.</p>
-
-<p>여기까지는 아마 우리가 알고있던 JavaScript와 거의 동일하니 이해하는데 어려움은 없을 듯 보입니다.
-나머지 data type은 다음 포스트에서 이어가도록 하죠.</p>
-
-<p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
-    해당 사이트를 방문하세요!!</span></p>
-<ul class="lecture-reference">
-    <li><a href="http://www.typescriptlang.org" target="_blank">TypeScript Official HomePage</a></li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>TypeScript 강좌(1) - Introduction</title>
-	  <link>https://moon9342.github.io/typescript-introduction</link>
-		
-				
-		
-				
-		
-				
-						<author>TypeScript</author>
-				
-		
-				
-		
-				
-		
-	  <pubDate>2018-01-21T17:42:00+00:00</pubDate>
-	  <guid>https://moon9342.github.io/typescript-introduction</guid>
-	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다. 본 강좌는 JavaScript의 기본적인 내용과
-객체지향개념에 대한 기본적인 이해를 하고 있다는 가정하에 진행됩니다.</span></p>
-<ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction.html">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1.html">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2.html">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable.html">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring.html">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface.html">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class.html">TypeScript 강좌(7) - Class</a></li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript 개요 및 WebStorm 개발환경 설정</strong></p>
-
-<p><code class="highlighter-rouge">TypeScript</code>는 Microsoft에서 개발하여 2012년에 발표한 오픈 소스 프로그래밍 언어입니다. 
-대규모 JavaScript application 개발을 목적으로 만들어졌습니다.</p>
-
-<p>TypeScript의 특징은 다음과 같습니다.</p>
-
-<ul>
-  <li><strong>TypeScript는 JavaScript의 Superset입니다.</strong> TypeScript는 JavaScript의 모든 기능을 포함하고 
-그 외 추가적인 기능들을 가지고 있습니다.</li>
-  <li>TypeScript는 컴파일 언어이지만 컴파일 결과가 machine code가 아닌 JavaScript 코드가 나옵니다.
-( 이런 프로그래밍을 <a href="./what-is-metaprogramming.html" target="_blank">메타프로그래밍</a> 이라고 하죠. ) 
-그렇기 때문에 compile 대신에 transpile 이라고도 합니다.</li>
-  <li>TypeScript는 compile 시점에 type checking이 일어나는 <strong>정적 타입 언어</strong>입니다.</li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript 개발환경 설정</strong></p>
-
-<p>여기서는 <code class="highlighter-rouge">Node.js</code>를 이용하여 <code class="highlighter-rouge">npm</code>(Node Package Manager)을 설치하고 이 npm을 이용해 TypeScript를 설치하고 
-사용하는 방법에 대해서 알아보겠습니다.</p>
-
-<p>먼저 <a href="https://nodejs.org/" target="_blank">Node.js</a>사이트에 접속해 LTS 버전이나 최신버전 둘 중 하나를 선택해
-다운로드 합니다. (어떤것을 설치해도 상관없습니다.)
-<img src="assets/built/images/nodejs-download.jpg" alt="nodejs download" /></p>
-
-<p>저는 LTS 버전으로 다운로드 했습니다. 다운로드가 끝나면 기본 형태로 설치를 진행합니다. 설치가 끝나면
-<code class="highlighter-rouge">C:/Program Files/nodejs</code> 폴더가 만들어지게 됩니다.</p>
-
-<p>이제 command 창을 열어서 다음과 같이 명령어를 실행해봅니다.</p>
-
-<blockquote>
-  <p><strong>npm</strong></p>
-</blockquote>
-
-<p><img src="assets/built/images/nodejs-npm.png" alt="nodejs_npm" /></p>
-
-<p><code class="highlighter-rouge">npm</code>(Node Package Manager)이 정상적으로 동작하면 이제 npm을 이용해 typescript를 설치할 수 있습니다.
-설치는 local mode와 global mode로 설치가 가능합니다. 여기서는 편의상 global mode로 설치합니다.
-(일반적으로는 local mode를 선호합니다.)</p>
-
-<p>command 창에서 다음과 같이 명령어를 이용해 typescript를 <code class="highlighter-rouge">global</code>로 설치합니다.</p>
-
-<blockquote>
-  <p><strong>npm install -g typescript</strong></p>
-</blockquote>
-
-<p><img src="assets/built/images/nodejs-npm-typescript.png" alt="nodejs_npm_typescript" /></p>
-
-<p><code class="highlighter-rouge">typescript 2.6.2</code>가 설치되었습니다.</p>
-
-<blockquote>
-  <p>global mode로 설치하면 windows 시스템을 기준으로 <code class="highlighter-rouge">$USER_HOME/AppData/Roaming/npm/node_modules</code>에 
-설치됩니다.</p>
-</blockquote>
-
-<p>이제 사용할 <code class="highlighter-rouge">IDE</code>(Integrated Development Environment)를 설치합니다. 여기서는 <code class="highlighter-rouge">WebStorm</code>(유료)을 이용합니다.
-<code class="highlighter-rouge">Visual Studio Code</code>(무료)를 사용하셔도 됩니다. WebStorm은 유료이지만 30일 trial을 사용할 수 있고 Student license로
-1년간 무료로 사용할 수 도 있습니다.</p>
-
-<p><a href="https://www.jetbrains.com/" target="_blank">JetBrains</a>사이트로 접속한 후 
-<a href="https://www.jetbrains.com/webstorm" target="_blank">WebStorm</a>을 다운로드 받습니다.</p>
-
-<p>다운로드가 완료되면 기본형태로 설치합니다. 설치가 끝나면 프로젝트를 생성할 수 있는 화면이 나오게 되는데 
-폴더 하나를 생성해서 프로젝트를 생성합니다. (폴더명이 프로젝트명이됩니다.) 저는 <code class="highlighter-rouge">D:/TypeScriptTestApp</code> 폴더를 
-생성하면서 프로젝트를 하나 만들었습니다.</p>
-
-<p><img src="assets/built/images/webstorm-project-create.png" alt="webstorm-project-create" /></p>
-
-<p>이제 WebStorm 설정을 해야 합니다.</p>
-
-<blockquote>
-  <p><strong>Files - Settings - Languages &amp; Frameworks - TypeScript</strong> 를 선택하면 아래와 같은 화면을 볼 수 있습니다.</p>
-</blockquote>
-
-<p>사실 WebStorm에 TypeScript가 bundle되어 들어있기 때문에 TypeScript를 따로 설치 안해도 됩니다. 
-하지만 어떻게 설치하는지는 알아둘 필요는 있으니 한번 설치해 본거죠. 그리고 아래의 그림처럼 Compiler 옵션부분을
-check합니다.</p>
-
-<p><img src="assets/built/images/webstorm-project-configure.png" alt="webstorm-project-configure" /></p>
-
-<p>컴파일을 할 때 <code class="highlighter-rouge">tsconfig.json</code>을 참조해 compile option을 설정한다고 해 놓았습니다. 우리는 아직 tsconfig.json
-이 없으니 하나 생성해 줍니다. WebStorm의 하단에 있는 Terminal을 클릭해서 Terminal창을 열고 다음을 입력합니다.</p>
-
-<blockquote>
-  <p><strong>tsc --init</strong></p>
-</blockquote>
-
-<p><img src="assets/built/images/webstorm-project-tsconfig.png" alt="webstorm-project-tsconfig" /></p>
-
-<p>프로젝트를 살펴보면 <code class="highlighter-rouge">tsconfig.json</code>이 생성되어 있는것을 볼 수 있고 안에 무언가가 많이 들어있는것을 확인할 수 있습니다.
-compiler option에 대해서는 다른 포스트에서 알아보기로 하고 이제 간단한 ts 파일(typescript file)을 하나 생성합니다.
-이름을 <code class="highlighter-rouge">hello.ts</code>라고 하죠.</p>
-
-<p><img src="assets/built/images/webstorm-project-file-create.png" alt="webstorm-project-file-create" /></p>
-
-<p>다음과 같은 코드를 입력합니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Greeting</span> <span class="p">{</span>
-    <span class="nl">greeting</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">message</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">greeting</span> <span class="o">=</span> <span class="nx">message</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nx">sayHello</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s2">"Hello "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">greeting</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Greeting</span><span class="p">(</span><span class="s2">"World!!"</span><span class="p">);</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tmp</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">());</span>
-</code></pre></div></div>
-
-<p>내가 알고있던 javascript가 아니라서 당황스럽지요? 별로 어렵지 않습니다. 객체지향 언어를 알고 이으면
-더욱 더 쉽게 접근할 수 있습니다. 여하간 이렇게 코딩을 하고 저장하면 자동적으로 컴파일을 진행하고 그 결과
-파일(.js)을 생성해 줍니다.</p>
-
-<p><img src="assets/built/images/webstorm-project-generate-js.png" alt="webstorm-project-generate-js" /></p>
-
-<p>마지막으로 coding convention을 지정할 수 있는 <code class="highlighter-rouge">tslint</code>를 설치하도록 하겠습니다. 반드시 설치해야하는건 아니지만
-발생할 수 있는 오류를 미리 감지하고 coding convention을 맞추기 위해서 사용하는 것이 일반적입니다.</p>
-
-<p>WebStorm에서 다시 터미널을 열고 다음과 같이 입력하여 tslint를 설치합니다. 역시 global mode로 설치합니다.</p>
-
-<blockquote>
-  <p><strong>npm install -g tslint</strong></p>
-</blockquote>
-
-<p><img src="assets/built/images/webstorm-project-tslint.png" alt="webstorm-project-tslint" /></p>
-
-<p>그리고 다시 설정으로 들어갑니다.</p>
-
-<blockquote>
-  <p><strong>Files - Settings - Languages &amp; Frameworks - TypeScript - TSLint</strong> 를 선택하면 아래와 같은 화면을 볼 수 있습니다.</p>
-</blockquote>
-
-<p>Enable를 check합니다. <code class="highlighter-rouge">tslint.json</code>을 찾아서 Cofiguration file로 이용한다는 군요.</p>
-
-<p><img src="assets/built/images/webstorm-project-tslint-configure.png" alt="webstorm-project-tslint-configure" /></p>
-
-<p><code class="highlighter-rouge">tslint.json</code> 파일이 있어야 하니 Terminal을 열어서 다음과 같이 입력해서 tslint.json도 생성해 줍니다.</p>
-
-<blockquote>
-  <p><strong>tslint --init</strong></p>
-</blockquote>
-
-<p><img src="assets/built/images/webstorm-project-tslint-json.png" alt="webstorm-project-tslint-json" /></p>
-
-<p>이제 우리가 작성한 <code class="highlighter-rouge">hello.ts</code> 파일을 다시 열어보면 여러가지 알수없는(?) 빨간색들이 산재해 있는것을 보실 수 있습니다.
-에러는 아니지만 <code class="highlighter-rouge">tslint</code>에 의해서 coding convention에 위배되는 것들입니다.</p>
-
-<p>적절하게 수정해야 합니다. 설정해야 하는 것이들 많이 있지만 연습삼아 한가지만 설정하겠습니다. 
-console에 대한 tslint 오류를 없애보도록 하죠.</p>
-
-<p>수정한 <code class="highlighter-rouge">tslint.json</code>파일은 다음과 같습니다.</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"defaultSeverity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"extends"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"tslint:recommended"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"jsRules"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-    </span><span class="s2">"rules"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"no-console"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"rulesDirectory"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p>오류를 수정한 최종 <code class="highlighter-rouge">hello.ts</code>파일은 다음과 같습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Greeting</span> <span class="p">{</span>
-    <span class="kr">private</span> <span class="nx">greeting</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">message</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">greeting</span> <span class="o">=</span> <span class="nx">message</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="kr">public</span> <span class="nx">sayHello</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s2">"Hello "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">greeting</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Greeting</span><span class="p">(</span><span class="s2">"World!!"</span><span class="p">);</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">tmp</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">());</span>
-</code></pre></div></div>
-
-<p>여기까지해서 TypeScript를 학습하기 위한 기본적인 환경설정을 잡으시면 됩니다.</p>
-
-<blockquote>
-  <p><code class="highlighter-rouge">tslint</code>는 실 개발시에는 필요하지만 처음 TypeScript를 공부할 때는 끄고 하시는게 정신건강에 이로울 수 있습니다.
-사실 쓸데없는 <code class="highlighter-rouge">coding convention</code>도 많거든요.</p>
-</blockquote>
 
 	  ]]></description>
 	</item>
