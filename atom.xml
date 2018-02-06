@@ -8,6 +8,44 @@
     
       
       <item>
+        <title>MySQL 5.7.2 Windows용 ZIP Archive 설치</title>
+        
+          <description>&lt;p&gt;&lt;strong class=&quot;post_introduction&quot;&gt;Introduction&lt;/strong&gt;&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Mon, 05 Feb 2018 11:11:00 +0000</pubDate>
+        <link>
+        https://moon9342.github.io/mysql-5.7-archive-setting</link>
+        <guid isPermaLink="true">https://moon9342.github.io/mysql-5.7-archive-setting</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Angular 강좌(6) - Data Binding</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Sun, 04 Feb 2018 02:12:00 +0000</pubDate>
+        <link>
+        https://moon9342.github.io/angular-lecture-databinding</link>
+        <guid isPermaLink="true">https://moon9342.github.io/angular-lecture-databinding</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Jekyll 기반의 GitHub Page 생성(9)</title>
         
           <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
@@ -58,6 +96,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -80,6 +119,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -102,6 +142,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -124,6 +165,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -146,6 +188,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>

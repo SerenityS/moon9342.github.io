@@ -55,7 +55,7 @@
     <meta property="og:site_name" content="IT Blog" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Angular 강좌(5) - 실습(1)" />
-    <meta property="og:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) AppComponent 수정 이전에 만들어 놓은 bookSearch-angular project를 수정하여 도서검색 application화면을 만들고 그에 따른 Component들을 생성, 등록까지 진행하도록 하겠습니다. src/app 폴더안에 app.component.ts 파일을 열면" />
+    <meta property="og:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding AppComponent 수정 이전에 만들어 놓은 bookSearch-angular project를 수정하여 도서검색 application화면을 만들고 그에 따른 Component들을 생성, 등록까지 진행하도록 하겠습니다." />
     <meta property="og:url" content="https://moon9342.github.io/angular-lecture-exercise-1" />
     <meta property="og:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -65,7 +65,7 @@
     <meta property="article:tag" content="Front End" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Angular 강좌(5) - 실습(1)" />
-    <meta name="twitter:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) AppComponent 수정 이전에 만들어 놓은 bookSearch-angular project를 수정하여 도서검색 application화면을 만들고 그에 따른 Component들을 생성, 등록까지 진행하도록 하겠습니다. src/app 폴더안에 app.component.ts 파일을 열면" />
+    <meta name="twitter:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding AppComponent 수정 이전에 만들어 놓은 bookSearch-angular project를 수정하여 도서검색 application화면을 만들고 그에 따른 Component들을 생성, 등록까지 진행하도록 하겠습니다." />
     <meta name="twitter:url" content="https://moon9342.github.io/" />
     <meta name="twitter:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -97,7 +97,7 @@
         "@type": "WebPage",
         "@id": "https://moon9342.github.io/angular-lecture-exercise-1"
     },
-    "description": "Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) AppComponent 수정 이전에 만들어 놓은 bookSearch-angular project를 수정하여 도서검색 application화면을 만들고 그에 따른 Component들을 생성, 등록까지 진행하도록 하겠습니다. src/app 폴더안에 app.component.ts 파일을 열면"
+    "description": "Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding AppComponent 수정 이전에 만들어 놓은 bookSearch-angular project를 수정하여 도서검색 application화면을 만들고 그에 따른 Component들을 생성, 등록까지 진행하도록 하겠습니다."
 }
     </script>
 
@@ -222,6 +222,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
     <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
     <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
 </ul>
 
 <hr />
@@ -305,21 +306,183 @@ generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</co
 <p>자 이제 생성된 각각의 Component에 대한 selector를 참조해 <code class="highlighter-rouge">src/app</code> 안의 <code class="highlighter-rouge">app.component.html</code>의 내용을 다음과 같이
 수정합니다.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;app-search-box&gt;&lt;/app-search-box&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;app-detail-box&gt;&lt;/app-detail-box&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;app-list-box&gt;&lt;/app-list-box&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bookSearch-outer"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;app-search-box&gt;&lt;/app-search-box&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;app-detail-box&gt;&lt;/app-detail-box&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;app-list-box&gt;&lt;/app-list-box&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div></div>
+
+<p>또한 <code class="highlighter-rouge">src/app</code> 안의 <code class="highlighter-rouge">app.component.css</code>의 내용을 다음과 같이 작성합니다.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.bookSearch-outer</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 각 Component의 View 작성</strong></p>
 
 <p>이제 각각의 Component의 <code class="highlighter-rouge">templateUrl</code>에 명시된 html을 Angular Material을 이용해 우리가
 사용할 화면을 만들어 냅니다.</p>
+
+<p>제일 먼저 상단의 Search 영역에 대한 HTML을 작성합니다. 다음과 같이 <code class="highlighter-rouge">src/app/search-box</code> 하단의 
+<code class="highlighter-rouge">search-box.component.html</code>의 내용을 수정합니다. 아직은 <code class="highlighter-rouge">search-box.component.ts</code>의 내용은 수정할 
+필요 없습니다.</p>
+
+<noscript><pre>&lt;div class=&quot;example-container&quot;&gt;
+  &lt;mat-toolbar&gt;Search Keyword : &lt;/mat-toolbar&gt;
+  &lt;mat-form-field&gt;
+    &lt;input matInput placeholder=&quot;Search Keyword&quot;&gt;
+  &lt;/mat-form-field&gt;
+  &lt;button mat-raised-button color=&quot;warn&quot;&gt;Search!&lt;/button&gt;
+&lt;/div&gt;
+</pre></noscript>
+<script src="https://gist.github.com/moon9342/c465c969a3dbaf05447f2f79b21883c3.js"> </script>
+
+<p>Angular Material을 이용했기 때문에 해당 Element에 대한 Material Module을 <code class="highlighter-rouge">app.module.ts</code>안에
+import해 줍니다.</p>
+
+<p>다음은 <code class="highlighter-rouge">app.module.ts</code> 파일의 내용입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserAnimationsModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser/animations'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/table'</span><span class="p">;</span>
+
+<span class="c1">// 사용되는 Material Module import</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatFormFieldModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/form-field'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatInputModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatButtonModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/button'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatToolbarModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/toolbar'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SearchBoxComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./search-box/search-box.component'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">DetailBoxComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./detail-box/detail-box.component'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ListBoxComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./list-box/list-box.component'</span><span class="p">;</span>
+
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span><span class="p">,</span>
+    <span class="nx">SearchBoxComponent</span><span class="p">,</span>
+    <span class="nx">DetailBoxComponent</span><span class="p">,</span>
+    <span class="nx">ListBoxComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span><span class="p">,</span>
+    <span class="nx">BrowserAnimationsModule</span><span class="p">,</span>
+    <span class="nx">MatTableModule</span><span class="p">,</span>
+    <span class="nx">MatFormFieldModule</span><span class="p">,</span>     <span class="c1">// Material Module import</span>
+    <span class="nx">MatInputModule</span><span class="p">,</span>
+    <span class="nx">MatButtonModule</span><span class="p">,</span>
+    <span class="nx">MatToolbarModule</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>일단 여기까지 작성하고 실행을 시켜보면 다음과 같은 화면을 볼 수 있습니다.</p>
+
+<p><img src="assets/built/images/search-box-view.png" alt="search-box-view" /></p>
+
+<p>화면이 잘 나오나요? 아직 데이터 바인딩과 이벤트에 대한 내용은 설명하지 않았기 때문에 키워드를 입력하거나 버튼을 눌러도 아무런 
+반응을 하지 않습니다.</p>
+
+<p>이와 비슷하게 가운데 detail-box의 View는 다음과 같이 작성하시면 됩니다. list-box는 데이터 바인딩에 대한 내용을
+배워야지 사용할 수 있으니 list-box의 View는 데이터 바인딩에 대해 설명하고 작성하겠습니다.</p>
+
+<p>아래는 detail-box component의 코드입니다.</p>
+
+<noscript><pre>.example-card {
+  margin: 0 auto;
+}
+
+.example-header-image {
+  background-image: url(&#39;/assets/book-icon.jpg&#39;);
+  background-size: cover;
+}
+</pre></noscript>
+<script src="https://gist.github.com/moon9342/075a4e4503c4d95d963d5455d64965e8.js"> </script>
+
+<p>아래는 현재까지의 <code class="highlighter-rouge">app.module.ts</code> 파일의 내용입니다.</p>
+
+<noscript><pre>import { BrowserModule } from &#39;@angular/platform-browser&#39;;
+import { NgModule } from &#39;@angular/core&#39;;
+
+
+import { AppComponent } from &#39;./app.component&#39;;
+
+import { BrowserAnimationsModule } from &#39;@angular/platform-browser/animations&#39;;
+
+import { MatTableModule } from &#39;@angular/material/table&#39;;
+
+// 사용되는 Material Module import
+import { MatFormFieldModule } from &#39;@angular/material/form-field&#39;;
+import { MatInputModule } from &#39;@angular/material&#39;;
+import { MatButtonModule } from &#39;@angular/material/button&#39;;
+import { MatToolbarModule } from &#39;@angular/material/toolbar&#39;;
+import { MatCardModule } from &#39;@angular/material/card&#39;;
+
+import { SearchBoxComponent } from &#39;./search-box/search-box.component&#39;;
+import { DetailBoxComponent } from &#39;./detail-box/detail-box.component&#39;;
+import { ListBoxComponent } from &#39;./list-box/list-box.component&#39;;
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    SearchBoxComponent,
+    DetailBoxComponent,
+    ListBoxComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatFormFieldModule,     // Material Module import
+    MatInputModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatCardModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+</pre></noscript>
+<script src="https://gist.github.com/moon9342/a6119f25ae107a7c9368b56f40be03a0.js"> </script>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 결과 화면</strong></p>
+
+<p>지금까지 작성한 내용을 실행시켜보면 다음과 같은 화면을 보실 수 있습니다.</p>
+
+<p><img src="assets/built/images/step-1-result.png" alt="step-1-result" /></p>
+
+<hr />
+
+<p>이번 포스트에서는 Component를 추가하고 Angular Material을 이용해 View를 작성해보았습니다. 다음 포스트에서는
+데이터 바인딩에 대한 내용을 알아보도록 하겠습니다.</p>
+
+<p>End.</p>
+
+<hr />
 
 <p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
     조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
@@ -365,6 +528,8 @@ generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</co
                         <div class="post-full-footer-right">
                             <a class="author-card-button" href="/author/angular">Read More</a>
                         </div>
+                    
+                
                     
                 
                 <!-- /author  -->
@@ -425,6 +590,17 @@ generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</co
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                            <li><a href="/angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
                                 
                                   
                                     
@@ -451,8 +627,6 @@ generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</co
                                   
                                     
                                         
-                                        
-                                            <li><a href="/angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
                                         
                                     
                                   
@@ -580,7 +754,7 @@ generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</co
                         <footer class="read-next-card-footer">
                             <a href="/tag/front-end/">
                                 
-                                    See all 15 posts  →
+                                    See all 16 posts  →
                                 
                             </a>
                         </footer>
@@ -633,6 +807,8 @@ generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</co
                 
                     
                 
+                    
+                
             </footer>
         </div>
     </article>
@@ -662,7 +838,7 @@ generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</co
                     <h2 class="post-card-title">Angular 강좌(4) - Angular Material</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular Material Material Design은 모바일과 데스크탑</p>
+                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular</p>
                 </section>
             </a>
             <footer class="post-card-meta">
@@ -682,6 +858,8 @@ generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</co
                         <span class="post-card-author">
                             <a href="/author/angular/">Angular</a>
                         </span>
+                    
+                
                     
                 
             </footer>

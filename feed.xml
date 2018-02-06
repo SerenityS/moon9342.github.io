@@ -1,4 +1,529 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-05T12:41:59+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Jekyll 기반의 GitHub Page 생성(9)</title><link href="https://moon9342.github.io/jekyll-regenerate-speed-up" rel="alternate" type="text/html" title="Jekyll 기반의 GitHub Page 생성(9)" /><published>2018-02-02T15:14:00+00:00</published><updated>2018-02-02T15:14:00+00:00</updated><id>https://moon9342.github.io/jekyll-regenerate-speed-up</id><content type="html" xml:base="https://moon9342.github.io/jekyll-regenerate-speed-up">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-06T06:44:42+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">MySQL 5.7.2 Windows용 ZIP Archive 설치</title><link href="https://moon9342.github.io/mysql-5.7-archive-setting" rel="alternate" type="text/html" title="MySQL 5.7.2 Windows용 ZIP Archive 설치" /><published>2018-02-05T11:11:00+00:00</published><updated>2018-02-05T11:11:00+00:00</updated><id>https://moon9342.github.io/mysql-5.7-archive-setting</id><content type="html" xml:base="https://moon9342.github.io/mysql-5.7-archive-setting">&lt;p&gt;&lt;strong class=&quot;post_introduction&quot;&gt;Introduction&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;MySQL을 install하지 않고 ZIP Archive를 다운받고 압축 풀어서 사용하는 사용하는 방식에 대한 설명입니다. 
+기존 5.6버전은 JSON에 대한 지원이 되지 않기 때문에 5.7버전을 대상으로 진행합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; MySQL 5.7.2 ZIP Archive Download&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;MySQL을 다운로드 받기 위해 &lt;a href=&quot;https://dev.mysql.com/downloads/mysql/&quot; target=&quot;_blank&quot;&gt;링크&lt;/a&gt;를 눌러 이동합니다.&lt;/p&gt;
+
+&lt;p&gt;아래의 그림처럼 다운로드 링크가 보이게 되는데 이 중 Windows (x86, 64-bit), ZIP Archive으로 되어있는 것을 찾아 
+다운로드 링크를 눌러 다운로드를 받습니다. 링크를 누르면 로그인하거나 회원가입하라는 화면이 나오는데 화면 하단에 보면
+그냥 다운로드 할 수 있는 링크가 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/mysql-download.jpg&quot; alt=&quot;mysql-download&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;다운로드가 끝나면 적절한 위치에 압축을 풀어줍니다. 저는 &lt;code class=&quot;highlighter-rouge&quot;&gt;D:/[Tools]/mysql&lt;/code&gt; 이라는 폴더로 압축된 내용을 풀었습니다. 
+해당 폴더 하단에 보면 기본적으로 다음과 같은 폴더와 파일들이 보이게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/mysql-folder.png&quot; alt=&quot;mysql-folder&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; MySQL System Database 생성&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;ZIP Archive 버전은 MySQL을 기동하기 위한 System Database가 제공되지 않기 때문에 기본 System Database부터 생성해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;먼저 mysql 폴더 하단에 &lt;code class=&quot;highlighter-rouge&quot;&gt;data&lt;/code&gt;라는 폴더를 생성합니다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;그런 다음 &lt;strong&gt;관리자 권한으로 command 창을 열고&lt;/strong&gt; 다음의 명령을 실행합니다. 
+명령을 실행시키는 폴더는 mysql하단의 bin folder에서 실행합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysqld --initialize
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;약간의 시간이 지나면 &lt;code class=&quot;highlighter-rouge&quot;&gt;data&lt;/code&gt; 폴더 하단에 필요한 파일들이 생성됩니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; root 계정 패스워드 변경&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;root계정의 패스워드를 변경하는 부분입니다. 꼭 필요한건 아니지만 현재 root계정은 패스워드 없이 바로 사용할 수 있기 
+때문에 보안상 설정하는게 좋습니다.&lt;/p&gt;
+
+&lt;p&gt;다음과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;mysqld&lt;/code&gt; 명령을 이용해 MySQL 서버를 기동시킵니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysqld --console --explicit_defaults_for_timestamp --skip-grant-tables
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;정상적으로 MySQL 서버가 기동되면 다음과 같은 화면을 보실 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/mysql-daemon-execute.png&quot; alt=&quot;mysql-daemon-execute&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 별도의 command창을 열고 다음의 명령을 입력해서 MySQL console에 진입합니다. 정상적으로 수행되면 &lt;code class=&quot;highlighter-rouge&quot;&gt;mysql&amp;gt;&lt;/code&gt; 프롬프트가
+떨어지게 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u root mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이제 다음의 SQL문을 이용해서 root 계정의 패스워드를 갱신합니다. 패스워드를 &lt;code class=&quot;highlighter-rouge&quot;&gt;root1234&lt;/code&gt;로 변경한다면 다음과 같이 하시면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;update USER set authentication_string=password('root1234') where user='root';
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;변경이 정상적으로 수행되었으면 다음의 구문을 실행합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;flush privileges;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이제 마지막으로 다음과 같은 구문을 실행합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alter user 'root'@'localhost' identified by 'root1234', 'root'@'localhost' password expire never;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이제 &lt;code class=&quot;highlighter-rouge&quot;&gt;exit&lt;/code&gt;를 입력해 MySQL console을 빠져나옵니다. 그런다음 다음의 명령을 실행하면 root 계정의 패스워드를 입력하라고 합니다. 
+아까 설정한 &lt;code class=&quot;highlighter-rouge&quot;&gt;root1234&lt;/code&gt;를 입력하면 MySQL console에 정상적으로 진입할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u root -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; MySQL 서버 중지&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;현재 동작중인 MySQL 서버를 중지시킬려면 command 창에서 다음과 같은 명령을 실행시키시면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysqladmin -u root -p shutdown
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;성공적으로 수행되면 실행되고 있던 MySQL 서버의 실행이 중지됩니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 새로운 사용자 생성 및 권한 부여&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;이전까지 정상적으로 수행되었다면 현재 MySQL 서버는 기동이 중지되어 있을겁니다.&lt;/p&gt;
+
+&lt;p&gt;초기화 작업이 이미 진행되었기 때문에 이제 MySQL 서버를 기동시키기 위해서 다음과 같이 실행하시면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysqld
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;새로운 사용자 계정을 생성하기 위해 새로운 command 창을 열어서 root계정으로 MySQL console에 진입합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u root -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;새로운 사용자를 생성합니다. 아이디는 &lt;code class=&quot;highlighter-rouge&quot;&gt;java&lt;/code&gt;, 패스워드 &lt;code class=&quot;highlighter-rouge&quot;&gt;java&lt;/code&gt;로 설정해서 생성하도록 하겠습니다. 아래의 두 문장을 
+실행합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;create user java identified by 'java';
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;create user java@localhost identified by 'java';
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이제 데이터가 입력될 새로운 데이터베이스를 하나 생성 합니다. 다음의 명령을 이용해 &lt;code class=&quot;highlighter-rouge&quot;&gt;library&lt;/code&gt;라는 이름의 데이터베이스를
+생성하겠습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;create database library;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/mysql-new-user.png&quot; alt=&quot;mysql-new-user&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;새로 생성된 library database에 대한 모든 권한을 조금 전에 추가한 java 계정에게 부여하려면 다음과 같이 하시면 됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;grant all privileges on library.* to java;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;grant all privileges on library.* to java@localhost;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; SQL Script 파일을 이용해 Database 구축&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;만일 기존에 사용하던 Database에 대한 SQL Script 파일을 가지고 있다면 해당 파일을 이용해 간단하게 데이터베이스를
+구축할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;command 창을 열어서 다음과 같은 명령어로 Script를 실행시켜 데이터베이스를 구축할 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u java -p library &amp;lt; SQL_Script_File.sql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;End.&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>Database</name></author><category term="back end" /><summary type="html">Introduction</summary></entry><entry><title type="html">Angular 강좌(6) - Data Binding</title><link href="https://moon9342.github.io/angular-lecture-databinding" rel="alternate" type="text/html" title="Angular 강좌(6) - Data Binding" /><published>2018-02-04T02:12:00+00:00</published><updated>2018-02-04T02:12:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-databinding</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-databinding">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Data Binding&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Angular는 View와 Component에서 발생한 데이터의 변경 사항을 자동으로 일치시키는 기능을 제공하는데 
+이를 데이터 바인딩( &lt;code class=&quot;highlighter-rouge&quot;&gt;Data Binding&lt;/code&gt; )이라고 합니다.&lt;/p&gt;
+
+&lt;p&gt;Angular의 데이터 바인딩은 다음과 같이 크게 두가지 종류가 있습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Two-Way Data Binding&lt;/code&gt; : 일반적으로 양방향 바인딩이라고 합니다. Component와 View의 상태 정보를 자동으로 일치시켜 주는 
+기능입니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;One-Way Data Binding&lt;/code&gt; : 일반적으로 단방향 바인딩이라고 합니다. Component에서 View쪽으로 혹은 View에서 Component쪽으로 
+한 방향으로 데이터를 바인딩 해주는 기능입니다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;위와 같이 크게 두 가지 바인딩이 있지만 실제로 양방향 바인딩은 내부적으로 두개의 단방향 바인딩으로 구성됩니다. 기존 AngularJS
+는 다른 방식으로 양방향 바인딩을 제공했는데 성능상의 문제가 많아서 Angular에서는 이를 단방향 바인딩 2개를 이용해서 기존의
+양방향 바인딩처럼 이용할 수 있도록 제공해 주고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;단방향 바인딩은 다음과 같이 다시 세가지 방식으로 나누어 집니다 .&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Interpolation&lt;/code&gt; : Component에서 선언한 속성을 View에서 사용하는 경우입니다. 다음의 형태를 이용합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Property binding&lt;/code&gt; : View의 DOM이 소유한 property를 &lt;code class=&quot;highlighter-rouge&quot;&gt;[]&lt;/code&gt;를 이용하여 binding하는 경우입니다. 다음의 형태로
+이용합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;property&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;value&quot;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Event bidning&lt;/code&gt; : View의 DOM에 대한 Event handler로 Component의 method를 사용하는 경우입니다. 다음의 형태로 이용합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;function&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위에서 간단하게 Data Binding의 종류와 형태를 살펴보았는데 이전 예제를 이용해서 각각을 코드로 살펴보겠습니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Interpolation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;예제를 통해 &lt;code class=&quot;highlighter-rouge&quot;&gt;Interpolation&lt;/code&gt;의 사용법을 알아보겠습니다. 우리가 작성하고 있는 예제에서 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;search-box.component.html&lt;/code&gt;을 다음과 같이 수정합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;example-container&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;mat-toolbar&amp;gt;&lt;/span&gt;Search Keyword : {{ keyword }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mat-toolbar&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;mat-form-field&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;matInput&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;placeholder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Search Keyword&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/mat-form-field&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mat-raised-button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;color=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;warn&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Search!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위의 코드에서  &lt;code class=&quot;highlighter-rouge&quot;&gt;{{ keyword }}&lt;/code&gt;  부분을 찾을 수 있는데 이 표현이 바로 Interpolation이라고
+부르는 단방향 바인딩 입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;keyword&lt;/code&gt; 라는 이름의 Component 속성을 찾아 그 값을 View에 표현하라는 것이지요.&lt;/p&gt;
+
+&lt;p&gt;따라서 우리의 Component에는 저 &lt;code class=&quot;highlighter-rouge&quot;&gt;keyword&lt;/code&gt;라는 이름의 속성이 존재해야 합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;search-box.component.ts&lt;/code&gt; 파일을 
+살펴보면 class안에 해당 속성이 존재하는 것을 볼 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'app-search-box'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;templateUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./search-box.component.html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;styleUrls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./search-box.component.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SearchBoxComponent&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;keyword&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Java'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;ngOnInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SearchBoxComponent&lt;/code&gt;안의 keyword란 속성에 있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Java&lt;/code&gt;란 값이 View에 그대로 출력되게 됩니다. 실행시켜서 확인해
+보시면 될 듯 합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Event Binding&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Event bidnging&lt;/code&gt; 역시 단방향 바인딩의 한 종류로 DOM의 Event Handler로 Component의 method를 활용할 수 있는
+방법입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;search-box&lt;/code&gt; Component의 View에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Search&lt;/code&gt; 버튼을 클릭하면 입력된 키워드가 위쪽 키워드 표시영역에
+출력되도록 코드를 작성하면 다음과 같습니다.&lt;/p&gt;
+
+&lt;p&gt;아래는 수정된 &lt;code class=&quot;highlighter-rouge&quot;&gt;search-box.component.html&lt;/code&gt;입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;example-container&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;mat-toolbar&amp;gt;&lt;/span&gt;Search Keyword : {{keyword}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mat-toolbar&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;mat-form-field&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;matInput&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;inputKeyword&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;placeholder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Search Keyword&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/mat-form-field&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mat-raised-button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;color=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;warn&quot;&lt;/span&gt;
+          &lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)=&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setKeyword&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;inputKeyword&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Search!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;아래는 수정된 &lt;code class=&quot;highlighter-rouge&quot;&gt;search-box.component.ts&lt;/code&gt; 입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'app-search-box'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;templateUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./search-box.component.html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;styleUrls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./search-box.component.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SearchBoxComponent&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;keyword&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Java'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;ngOnInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;setKeyword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;keyword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;keyword&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;keyword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위의 코드는 버튼을 클릭했을 때 키워드 입력상자에서 값을 가져와 Component의 method를 호출하여 Component 속성의
+값을 변화시킵니다. 이렇게 변경된 Component의 속성은 Interpolation을 통해 다시 View에 출력되게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/event-binding-exam.png&quot; alt=&quot;event-binding-exam&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Two-Way Data Binding&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;이번에는 양방향 바인딩에 대해서 알아보겠습니다. 키워드 입력상자( &lt;code class=&quot;highlighter-rouge&quot;&gt;input&lt;/code&gt; ) 상자에 키워드를 입력할 때 사용자가 입력한 내용이 
+위쪽 키워드 표시영역에 출력되도록 처리해보겠습니다.&lt;/p&gt;
+
+&lt;p&gt;양방향 바인딩을 사용하는 가장 쉬운 방법은 &lt;code class=&quot;highlighter-rouge&quot;&gt;FormModule&lt;/code&gt;이 제공하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;NgModel&lt;/code&gt; directive를 이용하는 것입니다. 
+따라서 먼저 FormModule을 import하는 부분부터 처리해 주셔야 합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;app.module.ts&lt;/code&gt; 파일에 FormModule에 대한 import 처리를 
+합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 양방향 바인딩을 위한 FormModule import&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FormsModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/forms'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다음과 같이 바인딩할 요소의 속성에 &lt;code class=&quot;highlighter-rouge&quot;&gt;[ (ngModel)]&lt;/code&gt; 과 함께 바인딩할 대상을 선언하시면 됩니다. 다음은 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;search-box.component.html&lt;/code&gt; 입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;example-container&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toolbar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Search&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Keyword&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/mat-toolbar&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;matInput&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;inputKeyword&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;placeholder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Search Keyword&quot;&lt;/span&gt;
+           &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ngModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;keyword&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/mat-form-field&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;raised&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;warn&quot;&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;setKeyword(inputKeyword.value)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Search&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/button&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;실행을 시켜보시면 키워드 입력상자에 글자를 입력할 때 상단의 키워드 표시영역에 같이 출력되는 것을 보실 수 있습니다. 이렇게 양방향
+바인딩이 설정되어 있을 때 사용자가 글자를 입력하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;NgModel&lt;/code&gt;로 바인딩한 값이 변경이 됩니다. 이 때 이벤트가 하나 발생하는데
+이 이벤트를 처리하기 위해 &lt;code class=&quot;highlighter-rouge&quot;&gt;ngModelChange&lt;/code&gt;를 이용할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;위의 코드를 약간 수정해 다음과 같이 작성해보죠.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;example-container&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toolbar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Search&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Keyword&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/mat-toolbar&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;matInput&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;inputKeyword&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;placeholder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Search Keyword&quot;&lt;/span&gt;
+           &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ngModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;keyword&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ngModelChange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;inputChange()&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/mat-form-field&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;raised&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;warn&quot;&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;setKeyword(inputKeyword.value)&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Search&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/button&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(ngModelChange)&lt;/code&gt;에 바인딩 된 &lt;code class=&quot;highlighter-rouge&quot;&gt;inputChange()&lt;/code&gt;는 &lt;code class=&quot;highlighter-rouge&quot;&gt;search-box.component.ts&lt;/code&gt; 안에 class의 method로 정의되어 있어야 합니다.
+데이터가 변경될 때 자동적으로 이벤트가 발생되고 바인딩된 method를 통해 특정 로직을 수행할 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;영문일 경우는 문제없이 잘 수행되지만 한글일 경우는 약간의 문제가 있습니다. 바로바로 화면에 적용되지 않는 것이죠. 양방향 바인딩은
+기본적으로 문자 입력이 완료된 시점에 &lt;code class=&quot;highlighter-rouge&quot;&gt;compositionend&lt;/code&gt;라는 browser가 이벤트가 발생하고 이에 따라 바인딩을 처리합니다. 하지만
+영문과 다르게 한글은 조합형 문자이기 때문에 글자가 다 만들어 지기 전까지는 해당 이벤트가 발생하지 않고 따라서 화면에 출력되지
+않게 되는 것입니다.&lt;/p&gt;
+
+&lt;p&gt;이 문제를 해결하기 위해서는 Angular에서 제공하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;COMPOSITION_BUFFER_MODE&lt;/code&gt; 설정을 변경하시면 됩니다. 설정하는 방법은 아래의
+코드를 참조하시면 됩니다. 아래는 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.module.ts&lt;/code&gt; 파일 입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BrowserModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/platform-browser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NgModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./app.component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BrowserAnimationsModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/platform-browser/animations'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatTableModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material/table'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 사용되는 Material Module import&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatFormFieldModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material/form-field'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatInputModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatButtonModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material/button'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatToolbarModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material/toolbar'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatCardModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material/card'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 양방향 바인딩을 위한 FormModule import&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FormsModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/forms'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SearchBoxComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./search-box/search-box.component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DetailBoxComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./detail-box/detail-box.component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ListBoxComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./list-box/list-box.component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// COMPOSITION_BUFFER_MODE import&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;COMPOSITION_BUFFER_MODE&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/forms'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;NgModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;declarations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;SearchBoxComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;DetailBoxComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ListBoxComponent&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;BrowserModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;BrowserAnimationsModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;MatTableModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;MatFormFieldModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// Material Module import&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;MatInputModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;MatButtonModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;MatToolbarModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;MatCardModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;FormsModule&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;providers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;provide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;COMPOSITION_BUFFER_MODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;useValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}],&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/angular-hangul-input.png&quot; alt=&quot;angular-hangul-input&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Property Binding&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Property binding&lt;/code&gt;을 이용하면 DOM의 HTML Element의 property를 Component의 속성과 바인딩 할 수 있습니다. 이번에는
+&lt;code class=&quot;highlighter-rouge&quot;&gt;detail-box&lt;/code&gt; Component를 이용해서 한번 알아보죠.&lt;/p&gt;
+
+&lt;p&gt;일단 완성된 화면은 다음과 같습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/detail-box-view.png&quot; alt=&quot;detail-box-view&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;제목, 저자, ISBN, 가격, 출판일, 이미지 정보등을 interpolation을 이용해 바인딩 시켰습니다. 약간의 CSS도 포함시켰구요.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;detail-box-component.css&lt;/code&gt;에서 사용된 CSS는 다음과 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.example-card&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;500px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.example-header-image&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;background-image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url('/assets/book-icon.jpg')&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;background-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cover&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.book-image&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100px&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;!important&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;아래는 &lt;code class=&quot;highlighter-rouge&quot;&gt;detail-box.component.html&lt;/code&gt; 입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;mat-card&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;example-card&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;mat-card-header&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mat-card-avatar&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;example-header-image&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mat-card-title&amp;gt;&lt;/span&gt;제목 : {{book.btitle}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mat-card-title&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mat-card-subtitle&amp;gt;&lt;/span&gt;저자 : {{book.bauthor}}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mat-card-subtitle&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/mat-card-header&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mat-card-image&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;book-image&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{book.bimgurl}}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;mat-card-content&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;
+      ISBN : {{book.bisbn}}, 도서 가격 : {{book.bprice}}, 출판일 : {{book.bdate}}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/mat-card-content&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;mat-card-actions&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mat-button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;disabled&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;]=&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bprice&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; 20000&quot;&amp;gt;바로 구입&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/mat-card-actions&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mat-card&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;객체의 속성으로 바인딩 시켰습니다. 당연히 &lt;code class=&quot;highlighter-rouge&quot;&gt;detail-box.component.ts&lt;/code&gt; 안에 class 속성으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;book&lt;/code&gt; 객체가 정의되어 있겠네요.
+주의해서 보셔야 할 부분은&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mat-button&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;disabled&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;]=&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bprice&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; 20000&quot;&amp;gt;바로 구입&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;부분입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;disabled&lt;/code&gt; 라는 속성에 property binding을 이용해 조건을 걸었습니다. 현재 책 값이 20000원 이상이면 바로 구입버튼을
+비활성화 시키는 것이죠. 사용하는 법을 잘 기억해 두시면 될 듯 합니다.&lt;/p&gt;
+
+&lt;p&gt;다음은 데이터가 들어있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;detail-box.component.ts&lt;/code&gt; 입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'app-detail-box'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;templateUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./detail-box.component.html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;styleUrls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./detail-box.component.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DetailBoxComponent&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;btitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Head First Design Patterns: 스토리가 있는 패턴 학습법'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;bauthor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'에릭 프리먼외 3명'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;bprice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;bdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'2005년 08월'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;bisbn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'89-7914-340-0'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;bimgurl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://image.hanbit.co.kr/cover/_m_1340m.gif'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;ngOnInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이번 포스트에서는 Angular의 데이터 바인딩에 대해서 살펴보았습니다. 다음 포스트는 
+지금까지 배운 내용과 Directive에 대한 내용을 섞어 약간 복잡하지만 책의 리스트를 출력하는 View를 살펴보도록 하겠습니다. 
+먼저 기본적인 HTML Table을 이용해 보고 그 다음에 Material Table을 이용해 리스트를 출력해보도록 하겠습니다.&lt;/p&gt;
+
+&lt;p&gt;End.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;span class=&quot;lecture-reference&quot;&gt;Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;lecture-reference&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;https://angular.io/&quot; target=&quot;_blank&quot;&gt;Angular Official HomePage&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://material.angular.io/&quot; target=&quot;_blank&quot;&gt;Angular Material Official HomePage&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
+    &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding</summary></entry><entry><title type="html">Jekyll 기반의 GitHub Page 생성(9)</title><link href="https://moon9342.github.io/jekyll-regenerate-speed-up" rel="alternate" type="text/html" title="Jekyll 기반의 GitHub Page 생성(9)" /><published>2018-02-02T15:14:00+00:00</published><updated>2018-02-02T15:14:00+00:00</updated><id>https://moon9342.github.io/jekyll-regenerate-speed-up</id><content type="html" xml:base="https://moon9342.github.io/jekyll-regenerate-speed-up">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-start&quot;&gt;Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-struct&quot;&gt;Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
@@ -533,6 +1058,7 @@ Local Repository로 가져온 commit들을 자신의 작업과 적절히 병합�
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -616,21 +1142,183 @@ generate를 다 쓰지 않고 앞글자인 &lt;code class=&quot;highlighter-roug
 &lt;p&gt;자 이제 생성된 각각의 Component에 대한 selector를 참조해 &lt;code class=&quot;highlighter-rouge&quot;&gt;src/app&lt;/code&gt; 안의 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.component.html&lt;/code&gt;의 내용을 다음과 같이
 수정합니다.&lt;/p&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align:center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;app-search-box&amp;gt;&amp;lt;/app-search-box&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align:center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;app-detail-box&amp;gt;&amp;lt;/app-detail-box&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align:center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;app-list-box&amp;gt;&amp;lt;/app-list-box&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bookSearch-outer&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align:center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;app-search-box&amp;gt;&amp;lt;/app-search-box&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align:center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;app-detail-box&amp;gt;&amp;lt;/app-detail-box&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align:center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;app-list-box&amp;gt;&amp;lt;/app-list-box&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;또한 &lt;code class=&quot;highlighter-rouge&quot;&gt;src/app&lt;/code&gt; 안의 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.component.css&lt;/code&gt;의 내용을 다음과 같이 작성합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.bookSearch-outer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 각 Component의 View 작성&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;이제 각각의 Component의 &lt;code class=&quot;highlighter-rouge&quot;&gt;templateUrl&lt;/code&gt;에 명시된 html을 Angular Material을 이용해 우리가
 사용할 화면을 만들어 냅니다.&lt;/p&gt;
+
+&lt;p&gt;제일 먼저 상단의 Search 영역에 대한 HTML을 작성합니다. 다음과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;src/app/search-box&lt;/code&gt; 하단의 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;search-box.component.html&lt;/code&gt;의 내용을 수정합니다. 아직은 &lt;code class=&quot;highlighter-rouge&quot;&gt;search-box.component.ts&lt;/code&gt;의 내용은 수정할 
+필요 없습니다.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;&amp;lt;div class=&amp;quot;example-container&amp;quot;&amp;gt;
+  &amp;lt;mat-toolbar&amp;gt;Search Keyword : &amp;lt;/mat-toolbar&amp;gt;
+  &amp;lt;mat-form-field&amp;gt;
+    &amp;lt;input matInput placeholder=&amp;quot;Search Keyword&amp;quot;&amp;gt;
+  &amp;lt;/mat-form-field&amp;gt;
+  &amp;lt;button mat-raised-button color=&amp;quot;warn&amp;quot;&amp;gt;Search!&amp;lt;/button&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/moon9342/c465c969a3dbaf05447f2f79b21883c3.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Angular Material을 이용했기 때문에 해당 Element에 대한 Material Module을 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.module.ts&lt;/code&gt;안에
+import해 줍니다.&lt;/p&gt;
+
+&lt;p&gt;다음은 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.module.ts&lt;/code&gt; 파일의 내용입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BrowserModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/platform-browser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NgModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./app.component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BrowserAnimationsModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/platform-browser/animations'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatTableModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material/table'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// 사용되는 Material Module import&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatFormFieldModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material/form-field'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatInputModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatButtonModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material/button'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatToolbarModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material/toolbar'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SearchBoxComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./search-box/search-box.component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DetailBoxComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./detail-box/detail-box.component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ListBoxComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./list-box/list-box.component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;NgModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;declarations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;SearchBoxComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;DetailBoxComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;ListBoxComponent&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;BrowserModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;BrowserAnimationsModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;MatTableModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;MatFormFieldModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// Material Module import&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;MatInputModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;MatButtonModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;MatToolbarModule&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;providers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;일단 여기까지 작성하고 실행을 시켜보면 다음과 같은 화면을 볼 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/search-box-view.png&quot; alt=&quot;search-box-view&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;화면이 잘 나오나요? 아직 데이터 바인딩과 이벤트에 대한 내용은 설명하지 않았기 때문에 키워드를 입력하거나 버튼을 눌러도 아무런 
+반응을 하지 않습니다.&lt;/p&gt;
+
+&lt;p&gt;이와 비슷하게 가운데 detail-box의 View는 다음과 같이 작성하시면 됩니다. list-box는 데이터 바인딩에 대한 내용을
+배워야지 사용할 수 있으니 list-box의 View는 데이터 바인딩에 대해 설명하고 작성하겠습니다.&lt;/p&gt;
+
+&lt;p&gt;아래는 detail-box component의 코드입니다.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;.example-card {
+  margin: 0 auto;
+}
+
+.example-header-image {
+  background-image: url(&amp;#39;/assets/book-icon.jpg&amp;#39;);
+  background-size: cover;
+}
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/moon9342/075a4e4503c4d95d963d5455d64965e8.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;아래는 현재까지의 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.module.ts&lt;/code&gt; 파일의 내용입니다.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;import { BrowserModule } from &amp;#39;@angular/platform-browser&amp;#39;;
+import { NgModule } from &amp;#39;@angular/core&amp;#39;;
+
+
+import { AppComponent } from &amp;#39;./app.component&amp;#39;;
+
+import { BrowserAnimationsModule } from &amp;#39;@angular/platform-browser/animations&amp;#39;;
+
+import { MatTableModule } from &amp;#39;@angular/material/table&amp;#39;;
+
+// 사용되는 Material Module import
+import { MatFormFieldModule } from &amp;#39;@angular/material/form-field&amp;#39;;
+import { MatInputModule } from &amp;#39;@angular/material&amp;#39;;
+import { MatButtonModule } from &amp;#39;@angular/material/button&amp;#39;;
+import { MatToolbarModule } from &amp;#39;@angular/material/toolbar&amp;#39;;
+import { MatCardModule } from &amp;#39;@angular/material/card&amp;#39;;
+
+import { SearchBoxComponent } from &amp;#39;./search-box/search-box.component&amp;#39;;
+import { DetailBoxComponent } from &amp;#39;./detail-box/detail-box.component&amp;#39;;
+import { ListBoxComponent } from &amp;#39;./list-box/list-box.component&amp;#39;;
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    SearchBoxComponent,
+    DetailBoxComponent,
+    ListBoxComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatFormFieldModule,     // Material Module import
+    MatInputModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatCardModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/moon9342/a6119f25ae107a7c9368b56f40be03a0.js&quot;&gt; &lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 결과 화면&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;지금까지 작성한 내용을 실행시켜보면 다음과 같은 화면을 보실 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/step-1-result.png&quot; alt=&quot;step-1-result&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;이번 포스트에서는 Component를 추가하고 Angular Material을 이용해 View를 작성해보았습니다. 다음 포스트에서는
+데이터 바인딩에 대한 내용을 알아보도록 하겠습니다.&lt;/p&gt;
+
+&lt;p&gt;End.&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;&lt;span class=&quot;lecture-reference&quot;&gt;Angular 강좌는 아래의 책과 사이트를 참조했습니다.
     조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!&lt;/span&gt;&lt;/p&gt;
@@ -640,13 +1328,14 @@ generate를 다 쓰지 않고 앞글자인 &lt;code class=&quot;highlighter-roug
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1)</summary></entry><entry><title type="html">Angular 강좌(4) - Angular Material</title><link href="https://moon9342.github.io/angular-lecture-material" rel="alternate" type="text/html" title="Angular 강좌(4) - Angular Material" /><published>2018-02-01T14:00:00+00:00</published><updated>2018-02-01T14:00:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-material</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-material">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding</summary></entry><entry><title type="html">Angular 강좌(4) - Angular Material</title><link href="https://moon9342.github.io/angular-lecture-material" rel="alternate" type="text/html" title="Angular 강좌(4) - Angular Material" /><published>2018-02-01T14:00:00+00:00</published><updated>2018-02-01T14:00:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-material</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-material">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -691,7 +1380,7 @@ generate를 다 쓰지 않고 앞글자인 &lt;code class=&quot;highlighter-roug
 
 &lt;p&gt;저 위에 &lt;code class=&quot;highlighter-rouge&quot;&gt;--save&lt;/code&gt; option은 npm@5부터 기본 option으로 바뀌었습니다. 즉, --save는 생략하셔도 됩니다. 잘 아시겠지만 
 저 명령을 수행하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt;의 &lt;code class=&quot;highlighter-rouge&quot;&gt;dependencies&lt;/code&gt;에 설치된 패키지와 버전 정보가 기록되게 됩니다.
-참고로 만약 개발 시에만 사용하는 package를 설치하실려면 --save-dev option을 주시면 됩니다. TypeScript와 같은것은
+참고로 만약 개발 시에만 사용하는 package를 설치하실려면 &lt;code class=&quot;highlighter-rouge&quot;&gt;--save-dev&lt;/code&gt; option을 주시면 됩니다. TypeScript와 같은것은
 사실 transpiler이기 때문에 개발시에만 필요하고 실제 배포까지 할 필요는 없으니 TypeScript같은 건 --save-dev로
 &lt;code class=&quot;highlighter-rouge&quot;&gt;devDependencies&lt;/code&gt;에 포함시키는게 좋습니다. 그런데 우리는 그냥 전역으로 설치해서 쓰고 있죠 ^^;;&lt;/p&gt;
 
@@ -719,7 +1408,7 @@ generate를 다 쓰지 않고 앞글자인 &lt;code class=&quot;highlighter-roug
 &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NgModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// BrowserAnimationsModule import 구문 추가&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;BrowserAnimationsModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/platform-browser/animations'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BrowserAnimationsModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/platform-browser/animations'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 
 &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./app.component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -745,7 +1434,7 @@ generate를 다 쓰지 않고 앞글자인 &lt;code class=&quot;highlighter-roug
 
 &lt;p&gt;설치가 다 되었으니 이제 사용할 Angular Material Component를 코드에 import해야 합니다.
 여기서 사용할 것은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Table&lt;/code&gt; Component입니다. 해당 Component를 사용하기 위해 import하는 작업이 필요합니다.
-추후에 구현에 필요한 Component들이 더 추가되어야 하고 실습을 진행하면서 필요한 Component들을 추가하도록 하겠습니다.&lt;/p&gt;
+추후에 구현에 필요한 Component들이 더 추가되어야 하는데 이런 Component들은 실습을 진행하면서 추가하도록 하겠습니다.&lt;/p&gt;
 
 &lt;p&gt;우리 project에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;src/app&lt;/code&gt; 폴더 안에 있는 Root Module인 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.module.ts&lt;/code&gt; 파일을 열어 다음과 같이 수정합니다.&lt;/p&gt;
 
@@ -753,10 +1442,10 @@ generate를 다 쓰지 않고 앞글자인 &lt;code class=&quot;highlighter-roug
 &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NgModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// BrowserAnimationsModule import 구문 추가&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;BrowserAnimationsModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/platform-browser/animations'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BrowserAnimationsModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/platform-browser/animations'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-&lt;span class=&quot;c1&quot;&gt;// MatTableModule,MatExpansionModule  import 구문 추가&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;MatTableModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material/table'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// MatTableModule import 구문 추가&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatTableModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material/table'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./app.component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
@@ -768,7 +1457,7 @@ generate를 다 쓰지 않고 앞글자인 &lt;code class=&quot;highlighter-roug
   &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;BrowserModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;nx&quot;&gt;BrowserAnimationsModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// BrowserAnimationsModule 추가&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;MatTableModule&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;// MatTableModule&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;MatTableModule&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;// MatTableModule 추가&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;providers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
   &lt;span class=&quot;na&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -874,13 +1563,14 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1)</summary></entry><entry><title type="html">Angular 강좌(3) - Component</title><link href="https://moon9342.github.io/angular-lecture-component" rel="alternate" type="text/html" title="Angular 강좌(3) - Component" /><published>2018-01-31T17:10:00+00:00</published><updated>2018-01-31T17:10:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-component</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-component">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding</summary></entry><entry><title type="html">Angular 강좌(3) - Component</title><link href="https://moon9342.github.io/angular-lecture-component" rel="alternate" type="text/html" title="Angular 강좌(3) - Component" /><published>2018-01-31T17:10:00+00:00</published><updated>2018-01-31T17:10:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-component</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-component">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -995,12 +1685,12 @@ Annotation 생각하시면 됩니다. class상단에 Component Decorator를 이�
 &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Component Decorator안에 표현될 수 있는 metadata는 사실 상당히 종류가 많지만 필수요소는 없습니다. 하지만 &lt;code class=&quot;highlighter-rouge&quot;&gt;select&lt;/code&gt;와 
+&lt;p&gt;Component Decorator안에 표현될 수 있는 metadata는 사실 상당히 종류가 많지만 필수요소는 없습니다. 하지만 &lt;code class=&quot;highlighter-rouge&quot;&gt;selector&lt;/code&gt;와 
 &lt;code class=&quot;highlighter-rouge&quot;&gt;template 정보&lt;/code&gt;는 존재하지 않으면 화면에 표현이 되지 않기 때문에 거의 필수요소라 볼 수 있습니다.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;select&lt;/code&gt; : template 코드안에서 해당 Component를 이용할 때 사용할 HTML Element명을 정의합니다. 위와 같은 경우 
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;selector&lt;/code&gt; : template 코드안에서 해당 Component를 이용할 때 사용할 HTML Element명을 정의합니다. 위와 같은 경우 
 작성된 Component는 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;app-root&amp;gt;&amp;lt;/app-root&amp;gt;&lt;/code&gt; HTML Element로 사용할 수 있습니다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -1112,13 +1802,14 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1)</summary></entry><entry><title type="html">Angular 강좌(2) - 개발환경세팅</title><link href="https://moon9342.github.io/angular-lecture-development-environment" rel="alternate" type="text/html" title="Angular 강좌(2) - 개발환경세팅" /><published>2018-01-31T14:11:00+00:00</published><updated>2018-01-31T14:11:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-development-environment</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-development-environment">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding</summary></entry><entry><title type="html">Angular 강좌(2) - 개발환경세팅</title><link href="https://moon9342.github.io/angular-lecture-development-environment" rel="alternate" type="text/html" title="Angular 강좌(2) - 개발환경세팅" /><published>2018-01-31T14:11:00+00:00</published><updated>2018-01-31T14:11:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-development-environment</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-development-environment">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -1272,13 +1963,14 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1)</summary></entry><entry><title type="html">Angular 강좌(1) - Introduction</title><link href="https://moon9342.github.io/angular-lecture-introduction" rel="alternate" type="text/html" title="Angular 강좌(1) - Introduction" /><published>2018-01-31T10:04:00+00:00</published><updated>2018-01-31T10:04:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-introduction</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-introduction">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding</summary></entry><entry><title type="html">Angular 강좌(1) - Introduction</title><link href="https://moon9342.github.io/angular-lecture-introduction" rel="alternate" type="text/html" title="Angular 강좌(1) - Introduction" /><published>2018-01-31T10:04:00+00:00</published><updated>2018-01-31T10:04:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-introduction</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-introduction">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -1371,7 +2063,7 @@ Angular로 진행하고 있고 Angular를 단지 web framework에서만 사용�
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1)</summary></entry><entry><title type="html">TypeScript 강좌(7) - Class</title><link href="https://moon9342.github.io/typescript-class" rel="alternate" type="text/html" title="TypeScript 강좌(7) - Class" /><published>2018-01-30T18:04:00+00:00</published><updated>2018-01-30T18:04:00+00:00</updated><id>https://moon9342.github.io/typescript-class</id><content type="html" xml:base="https://moon9342.github.io/typescript-class">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding</summary></entry><entry><title type="html">TypeScript 강좌(7) - Class</title><link href="https://moon9342.github.io/typescript-class" rel="alternate" type="text/html" title="TypeScript 강좌(7) - Class" /><published>2018-01-30T18:04:00+00:00</published><updated>2018-01-30T18:04:00+00:00</updated><id>https://moon9342.github.io/typescript-class</id><content type="html" xml:base="https://moon9342.github.io/typescript-class">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;TypeScript 강좌는 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-introduction&quot;&gt;TypeScript 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./typescript-datatype-1&quot;&gt;TypeScript 강좌(2) - Data Type(Part 1)&lt;/a&gt;&lt;/li&gt;
@@ -1711,684 +2403,4 @@ TypeScript는 property에도 적용할 수 있습니다. static property는 clas
     해당 사이트를 방문하세요!!&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;lecture-reference&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;http://www.typescriptlang.org&quot; target=&quot;_blank&quot;&gt;TypeScript Official HomePage&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>TypeScript</name></author><category term="front end" /><summary type="html">TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7) - Class</summary></entry><entry><title type="html">Front-End 발전 역사와 개발 생태계</title><link href="https://moon9342.github.io/front-end-ecosystem" rel="alternate" type="text/html" title="Front-End 발전 역사와 개발 생태계" /><published>2018-01-29T13:31:00+00:00</published><updated>2018-01-29T13:31:00+00:00</updated><id>https://moon9342.github.io/front-end-ecosystem</id><content type="html" xml:base="https://moon9342.github.io/front-end-ecosystem">&lt;p&gt;&lt;strong class=&quot;post_introduction&quot;&gt;Introduction&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;이번 포스트는 과거 JavaScript 탄생부터 시작해서 어떻게 발전해왔는지에 대한 내용과 &lt;br /&gt;
-현재 Front End 개발에 있어서 무엇을 알아야 하는 지에 대한 전반적인 기술 상황에 대해서 알아보겠습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; JavaScript 탄생&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;JavaScript라는 언어의 역사는 저의 &lt;a href=&quot;./javascript-history.html&quot; target=&quot;_blank&quot;&gt;다른 포스트&lt;/a&gt;에서도 볼 수 있지만 
-여기서도 간단하게 언급하고 넘어가겠습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt;언어의 역사는 1995년 Netscape사의 Brendan Eich(브랜든 아이크)에 의해 개발된 &lt;code class=&quot;highlighter-rouge&quot;&gt;Mocha&lt;/code&gt;라는 언어부터 시작됩니다.
-이 Mocha라는 언어는 &lt;strong&gt;“Prototype의 개념과 Functional Language(함수형 언어)의 특성을 가지고 Web에 동적으로 활용할 수 있는 
-언어를 만들어보자”&lt;/strong&gt; 라는 취지로 2주일 이라는 굉장히 짧은 기간안에 만들어졌습니다.&lt;/p&gt;
-
-&lt;p&gt;추후에 &lt;strong&gt;Mocha -&amp;gt; LiveScript -&amp;gt; JavaScript&lt;/strong&gt;로 개명되었고 ECMA에 &lt;code class=&quot;highlighter-rouge&quot;&gt;ECMA-262&lt;/code&gt; 기술규격으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;ECMAScript&lt;/code&gt;라는 이름으로 표준화를
-진행하게 됩니다. 이에 대응해 1996년 MicroSoft 측에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;JScript&lt;/code&gt;라는 걸 만들어내서 자사의 IE 3안에 포함시켜 제공하기 시작했습니다.&lt;/p&gt;
-
-&lt;p&gt;이런 JavaScript는 여러가지 문제점을 내포하고 있었는데 가장 큰 문제를 꼽자면&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;구현의 어려움&lt;/li&gt;
-  &lt;li&gt;언어의 모호성&lt;/li&gt;
-  &lt;li&gt;Cross Browsing의 한계&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;정도를 들 수 있습니다. 즉, 사용자 입력값을 검사하는 용도, 사용자의 이벤트를 감지해서 처리하는 용도로는 사용할 수 있지만 
-언어 자체가 가지고 있는 근본적인 문제때문에 사용이 힘들었습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 구세주의 등장 - jQuery&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;이 때 구세주가 등장합니다. 우리가 잘 알고 있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;jQuery&lt;/code&gt; library입니다.&lt;/p&gt;
-
-&lt;p&gt;jQuery는 open source javascript library로 순수 javascript가 가지고 있었던 DOM처리의 어려움과 Cross Browsing에 대한 issue를
-해결하면서 &lt;strong&gt;JavaScript의 대표적 library&lt;/strong&gt;로 사용되게 되었습니다. jQuery로 인해 JavaScript가 조금은 쓸만한 언어로 여기지면서
-사용되기 시작했습니다.&lt;/p&gt;
-
-&lt;p&gt;그러면서 그냥 그냥 아주 소소하게 client web browser안에서 JavaScript 코드와 jQuery 코드가 이용되었던 거지요. 특별히 중요하지도 않은
-단위코드 위주로 사용이 되는 그런 수준이었습니다. 그러면서 우리 기억에도 “알면 좋고 몰라도 상관없는 언어”로 인식되었습니다.&lt;/p&gt;
-
-&lt;p&gt;그렇게시간은 흘러갑니다.!!&lt;/p&gt;
-
-&lt;p&gt;1997년 &lt;code class=&quot;highlighter-rouge&quot;&gt;ECMAScript&lt;/code&gt;의 초판이 나오게 됩니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;ES1&lt;/code&gt;이라고 합니다. 그 후 1999년에 &lt;code class=&quot;highlighter-rouge&quot;&gt;ES3&lt;/code&gt;가 나오게 됩니다. 여기까지 하고 한동안
-ECMAScript 표준은 쿨쿨 잠을 자게 됩니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 다시 JavaScript에 날개를 달아보자 - HTML5&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;1999년 12월 &lt;code class=&quot;highlighter-rouge&quot;&gt;W3C&lt;/code&gt;(World Wide Web Consortium)에서 하나의 발표를 합니다. 아시다시피 W3C는 &lt;code class=&quot;highlighter-rouge&quot;&gt;HTML&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;CSS&lt;/code&gt;의 표준을 
-관장하는 기구입니다. 이때까지 우리가 사용하는 HTML의 버전은 4.01버전이었습니다. W3C는 이 버전을 마지막으로 더 이상 
-HTML의 버전업은 없을 것이라고 공표하게 됩니다. 그때까지 잘 사용해왔던 HTML을 왜 버전업하지 하지 않겠다고 했을까요?&lt;/p&gt;
-
-&lt;p&gt;여러가지 이유가 있지만 프로그래밍 언어의 측면에서 바라보면 HTML이란 언어는 다음과 같은 한계점이 있습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;정형성 : HTML언어는 정형성이 없기때문에 유지보수에 적합하지 않다.&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;확장성 : 정해진 Tag만 이용하기 때문에 언어자체에 대한 기능적 확장이 어렵다.&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;W3C는 저 두가지 이유를 들어 HTML언어를 이대로 끌고 가기 보다는 좀 더 다른 수단을 강구해야 겠다고 판단합니다. W3C의 선택은
-바로 &lt;code class=&quot;highlighter-rouge&quot;&gt;XML&lt;/code&gt;의 도입이었습니다. 즉, HTML이 가지는 두가지 문제점을 해결할 수 있는 XML을 도입해서 새로운 Web언어의 표준을
-끌고 나갈 생각이었습니다. 그 결과 2000년 들어오면서 HTML과 XML이 결합된 새로운 표준인 &lt;code class=&quot;highlighter-rouge&quot;&gt;XHTML 1.0&lt;/code&gt;이 발표되게 됩니다.&lt;/p&gt;
-
-&lt;p&gt;W3C의 이런 의도와는 다르게 몇몇개의 회사들이 모여서 조금 다른 접근을 모색합니다. XML을 도입하지 말고 순수하게 HTML을 기능을
-버전업시킬 수 있는 방법을 찾기 시작한 것이죠. 그래서 &lt;code class=&quot;highlighter-rouge&quot;&gt;WHATWG&lt;/code&gt;(Web Hypertext Application Technology Working Group)이라는 
-Working Group이 만들어지고 이 안에서 기존의 HTML을 발전시킬 방법을 연구하게 됩니다. 
-( 사실 여기서 할 말이 많기 한데 자꾸 산으로 가는 느낌이라 적당히 짜르겠습니다. ) 
-이 WG에서 나온것이 바로 현재의 표준인 &lt;code class=&quot;highlighter-rouge&quot;&gt;HTML5&lt;/code&gt;입니다. HTML을 이용해서 Web Application을 만들자는 취지입니다. 
-이 HTML5안에 Client Web Application을 작성할 수 있는 API가 포함되어 있는데 이게 &lt;code class=&quot;highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt;로
-되어 있습니다. 결국 HTML5가 issue화 되면서 JavaScript의 위상도 조금씩 더 올라가게 됩니다.&lt;/p&gt;
-
-&lt;p&gt;그래서인지 쿨쿨 잠을자던 ECMAScript 개정판(&lt;code class=&quot;highlighter-rouge&quot;&gt;ES5&lt;/code&gt;)이 2009년에 등장합니다. 참고로 4판(&lt;code class=&quot;highlighter-rouge&quot;&gt;ES4&lt;/code&gt;)은 버려졌습니다. 이제 슬슬
-JavaScript에 대한 발전이 시작됩니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; JavaScript의 획기적 전환점 - Node.js&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;2013년 &lt;code class=&quot;highlighter-rouge&quot;&gt;Node.js&lt;/code&gt;가 출시됩니다. 아무리 HTML5라고 해도 이때까지의 JavaScript는 Browser안에서 동작하는 언어였습니다.
-우리가 알고 있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Java&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;C#&lt;/code&gt;과 같은 언어가 될 수 없는 태생적 한계가 있는거죠. 이런 browser에 갇힌 JavaScript를
-browser 외부로 탈출하게끔 만들어준 일등공신이 바로 Node.js입니다. 결국 JavaScript로 다른 언어처럼 OS위에서 동작하는
-일반 application을 작성할 수 있는 길이 열린것이고 그에 따라 언어의 위상이 완전히 변했습니다.&lt;/p&gt;
-
-&lt;p&gt;그에 발맞춰 ECMAScript도 빠르게 변화하기 시작했습니다. 2015년에 ECMAScript 2015(&lt;code class=&quot;highlighter-rouge&quot;&gt;ES6&lt;/code&gt;)가 등장하면서 JavaScript 언어자체에
-아주 큰 변화들이 많이 생겼습니다. 현재 ECMAScript 2016(&lt;code class=&quot;highlighter-rouge&quot;&gt;ES7&lt;/code&gt;)까지 나온 상태입니다. 조금 지나면 &lt;code class=&quot;highlighter-rouge&quot;&gt;ES8&lt;/code&gt;이 표준화되어서 나오겠네요.
-거의 1년마다 새로운 배포판이 나올정도로 빠르게 변화하면서 언어적 측면에서 가지고 있던 많은 문제점들을 극복하려고 노력하고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;현재(2018년 1월) 대부분의 browser들은 &lt;code class=&quot;highlighter-rouge&quot;&gt;ES6&lt;/code&gt;를 지원하고 있습니다. 
-&lt;a href=&quot;https://kangax.github.io/compat-table/es6/&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;에 접속해 보시면 특정 browser에 대해 
-각 ECMAScript의 버전 호환성을 보실 수 있습니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;이제 IE는 고만쓰도록 해요. 제발….&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;아직 완벽하게 Cross Browsing이 안되는데 어떻게 하느냐에 대한 문제는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Babel&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;TypeScript&lt;/code&gt;와 같은 
-transpiler를 이용해서 해결할 수 있습니다. 
-Babel, TypeScript는 ES6(ES7) 문법으로 쓰여있는 JavaScript code를 ES5 형태의 JavaScript로 변환시켜주기 때문에 
-IE에서 ES6지원이 안됨에도 불구하고 ES5로 변환해서 사용할 수 있습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 변화의 속도가 너무 빠름&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;그런데 문제는 기술의 발전 속도가 너무 빠르다는데 있습니다. 또한 알아야 할게 한두 가지가 아니구요. 
-과거 Back End에서 사용했던 프로그래밍 기술과 여러가지 개발 툴의 개념들이 다 Front End로 넘어왔기 때문입니다.
-너무 많은기술들이 빠르게 생기고 빠르게 사라지고 있습니다.&lt;/p&gt;
-
-&lt;p&gt;사실 2-3년전에 자주 사용했던 JavaScript Library와 Framework들 중 많은 것들이 이미 다른 것으로 대체되었습니다. 
-그렇다고 손 놓고 있을 순 없으니 현재 상태에서 우리가 Front End 개발을 하기 위해 필수적으로 알아야 하는 것 몇가지만
-살펴보도록 하겠습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 이것정도는 알고 가자&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Package Manager&lt;/strong&gt; : &lt;code class=&quot;highlighter-rouge&quot;&gt;NPM&lt;/code&gt;, Yarn&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/npm-vs-yarn.png&quot; alt=&quot;npm vs yarn&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;외부 라이브러리를 사용할 경우 해당 라이브러리를 설치, 삭제, 의존성 관리등을 해야 하는데 이를 위한 도구가 
-몇몇 존재합니다. 그중 하나만 하자면 당연 &lt;code class=&quot;highlighter-rouge&quot;&gt;npm&lt;/code&gt;입니다. Node Package Manager의 약자이고 Node.js를 살짝 맛보시면
-npm이 어떻게 동작하는지 아실 수 있습니다. 굳이 Node.js에 대해서 학습할 필요는 없습니다. 당연히 알면 좋지만요.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Transpiler&lt;/strong&gt; : Babel, &lt;code class=&quot;highlighter-rouge&quot;&gt;TypeScript&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/typescript-vs-babel.jpg&quot; alt=&quot;babel vs typescript&quot; /&gt;&lt;/p&gt;
-&lt;div class=&quot;img-reference&quot;&gt;( 이미지 출처 : http://news.softpedia.com/news )&lt;/div&gt;
-
-&lt;p&gt;Cross Browsing을 위한 Transpiler입니다. 비교 대상은 아닙니다. 둘 다 알아둘 필요는 있지만 
-저는 &lt;code class=&quot;highlighter-rouge&quot;&gt;TypeScript&lt;/code&gt;는 반드시 해야 한다고 생각합니다. 앞으로 TypeScript는 더 발전할 듯 보이거든요. 
-하지만 배우기 쉽지 않습니다. 언어적 측면을 파고 들면 내용이 꽤나 많습니다.
-다행히 TypeScript는 ECMAScript의 superset이니 ECMAScript 공부한다고 생각하시면 속 편합니다.&lt;/p&gt;
-
-&lt;p&gt;또한 제 개인적인 생각과는 반대로 TypeScript언어의 단점도 분명히 존재합니다. 엄격한 type checking덕분에
-JavaScript가 가지는 프로그래밍의 유연함이 많이 떨어진다는 것이죠.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;자동화 도구&lt;/strong&gt; : Grunt, &lt;code class=&quot;highlighter-rouge&quot;&gt;Gulp&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/grunt-vs-gulp.jpg&quot; alt=&quot;Grunt vs Gulp&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;빌드, 테스트, 배포등을 위한 자동화 도구입니다. 과거에는 Grunt를 많이 사용했지만 현재는 Gulp인듯 합니다. 
-시간 좀 지나면 Gulp도 Grunt와 마찬가지로 역사속으로 사라지게 되겠지만 지금은 Gulp가 대세입니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;module bundler&lt;/strong&gt; : &lt;code class=&quot;highlighter-rouge&quot;&gt;webpack&lt;/code&gt;, rollup&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/webpack-vs-rollup.png&quot; alt=&quot;webpack vs rollup&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;코드 재사용을 위한 모듈화 도구들과 bundler 역시 여러가지 있는데 요즘 많이 사용하는 건 &lt;code class=&quot;highlighter-rouge&quot;&gt;webpack&lt;/code&gt;입니다.
-ES6 들어오면서 언어적 차원에서 Module을 지원하기 시작했고 이런 Module들을 하나로 모아 Packaing하는 작업이
-필요하게 되었습니다. 이를 위한 도구 역시 발전을 하고 있구요. 과거에는 Common.js, Require.js를 이용하여
-처리했다면 최근에는 webpack, rollup을 이용하여 처리합니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Framework &amp;amp; Library : &lt;code class=&quot;highlighter-rouge&quot;&gt;Angular&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;React&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Vue.js&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;우리의 목적은 사실 저 위의 3가지를 배우는 것입니다. 각기 나름대로의 장점과 특징들을 가지고 있습니다. 개인적으로는 
-블로그내에 저 세가지의 강좌를 개설하는게 2018년 상반기의 블로그 목표입니다. 대세는 Angular이지만 React의 성장세
-역시 가히 폭발적입니다. 아직까지(2018년 1월기준) Vue.js는 Angular와 React 만큼의 성장세는 보이지 않고 있지만 이 역시 어떻게 될지는
-모를일이죠&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 정리&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;위에서 &lt;strong&gt;“이것정도는 알고가자”&lt;/strong&gt;라고 했지만 그 내용을 전부 다 알고 있으면 상당한 경험과 실력을 가진
-Front End 개발자일 것입니다. 또 위에 포함을 안했지만  &lt;code class=&quot;highlighter-rouge&quot;&gt;Git&lt;/code&gt;같은 것은 기본적으로 숙지해야 할 것이구요. 할게 너무 많네요
-천천히 하나씩 해보도록 하죠 머…&lt;/p&gt;
-
-&lt;p&gt;그리고 &lt;strong&gt;“이것정도는 알고가자”&lt;/strong&gt;에서 제가 강조한 것들은 제가 현재 사용하는 것들입니다.
-그것들이 더 좋다는 보장은 어디에도 없습니다. 자기 손에 익숙한게 최고입니다. ^^&lt;/p&gt;
-
-&lt;p&gt;End.&lt;/p&gt;
-
-&lt;hr /&gt;</content><author><name>JavaScript</name></author><category term="front end" /><summary type="html">Introduction</summary></entry><entry><title type="html">Jekyll 기반의 GitHub Page 생성(8)</title><link href="https://moon9342.github.io/jekyll-travis-ci-public" rel="alternate" type="text/html" title="Jekyll 기반의 GitHub Page 생성(8)" /><published>2018-01-28T14:47:00+00:00</published><updated>2018-01-28T14:47:00+00:00</updated><id>https://moon9342.github.io/jekyll-travis-ci-public</id><content type="html" xml:base="https://moon9342.github.io/jekyll-travis-ci-public">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-start&quot;&gt;Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-struct&quot;&gt;Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-font&quot;&gt;Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-rouge&quot;&gt;Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-search&quot;&gt;Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-sitemap&quot;&gt;Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-gist&quot;&gt;Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-travis-ci-public&quot;&gt;Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./jekyll-regenerate-speed-up&quot;&gt;Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Travis CI 활용(public Repository)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CI&lt;/code&gt; ( Continuous Integration )의 개념에 대해서 잘 알지 못하시는 분은 &lt;a href=&quot;./continuous-integration.html&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 클릭하셔서 
-간단하게 이해를 하고 오시면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;이 포스트에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Travis CI&lt;/code&gt;를 이용하여 Jekyll Source Folder안의 내용을 GitHub Repository에 commit했을 때 자동으로 GitHub Page에 
-블로그가 deploy되도록 하는 방법에 대해서 알아보겠습니다.&lt;/p&gt;
-
-&lt;p&gt;일단은 사용하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;GitHub Repository&lt;/code&gt;는 모두 &lt;code class=&quot;highlighter-rouge&quot;&gt;Public&lt;/code&gt;으로 되어 있다고 가정하고 진행합니다. 
-만약 Private Repository를 이용하실려면 좀 더 복잡한 처리와 돈이 들어갑니다. 
-(Travis CI는 GitHub Public Repository에 대해서는 무료이지만 Private Repository에 대해서는 일정량의 금액을 지불해야 합니다.)&lt;/p&gt;
-
-&lt;p&gt;그럼 천천히 한번 진행해 보도록 하죠&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; GitHub에 2개의 Repository 준비&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;먼저 Jekyll Source Folder ( &lt;code class=&quot;highlighter-rouge&quot;&gt;D:/blogmaker&lt;/code&gt; )에 대한 GitHub Repository를 준비합니다. Public으로 생성하셔야 합니다.
-저는 &lt;code class=&quot;highlighter-rouge&quot;&gt;GitHubPageMaker&lt;/code&gt;라는 이름으로 Repository를 생성했습니다. &lt;strong&gt;생성할 때 README.md 파일을 추가해서 생성하지 않습니다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://github.com/moon9342/GitHubPageMaker&lt;/code&gt; 형태로 생성되겠군요.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;그 다음은 GitHub Page에서 운영할 블로그에 대한 GitHub Repository를 준비합니다. 역시 마찬가지로 Public으로 생성하셔야 합니다.
-Repository의 이름은 형식이 정해져 있습니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;{GitHub ID}.github.io&lt;/code&gt; 로 Repository를 생성하셔야 합니다. 
-&lt;strong&gt;생성할 때 README.md 파일 하나 추가해서 생성합니다.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://github.com/moon9342/moon9342.github.io&lt;/code&gt; 형태로 생성되겠네요.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Local Git Repository 생성 및 Remote 연결&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;GitHub에 원격 Repository가 생성되었으니 이번에는 로컬에 Repository를 생성합니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;D:/blogmaker&lt;/code&gt; 폴더에서 command 창을 열고
-다음을 입력합니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;git init&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;D:/blogmaker&lt;/code&gt;에 git Repository를 생성합니다. 이제 다음의 명령어를 이용해서 로컬 Repository에 파일을 추가하고 commit까지 진행
-합니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;git add *&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;git commit -m “initial commit”&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;자 이제 원격 Repository와 연결하는 작업을 수행합니다. 다음의 명령을 이용합니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;git remote add origin https://github.com/moon9342/GitHubPageMaker.git&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;현재의 로컬 Repository가 원격 Repository와 연결되었습니다. 연결상태를 확인하려면 다음과 같이
-입력하면 됩니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;git remote -v&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/git-remote-v.png&quot; alt=&quot;git remote -v&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Git Submodule 생성&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Jekyll Source Folder( &lt;code class=&quot;highlighter-rouge&quot;&gt;D:/blogmaker&lt;/code&gt; )에 대한 Repository와 실제 블로그를 운영할 Repository를
-git submodule로 묶습니다. Submodule의 개념은 &lt;a href=&quot;https://git-scm.com/book/ko/v1/Git-%EB%8F%84%EA%B5%AC-%EC%84%9C%EB%B8%8C%EB%AA%A8%EB%93%88&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;
-나 혹은 다른 블로그를 참조하세요.&lt;/p&gt;
-
-&lt;p&gt;command 창에서 다음과 같이 입력합니다. ( command 창의 현재 경로는 &lt;code class=&quot;highlighter-rouge&quot;&gt;D:/blogmaker&lt;/code&gt; 입니다.)&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;git submodule add https://github.com/moon9342/moon9342.github.io.git output&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;현재 Repository의 하위에 &lt;code class=&quot;highlighter-rouge&quot;&gt;output&lt;/code&gt;이라는 이름의 폴더가 만들어지고 해당 폴더는 &lt;code class=&quot;highlighter-rouge&quot;&gt;moon9342.github.io&lt;/code&gt; Repository에 
-대한 로컬 git Repository가 됩니다. ( 내부적으로 git clone이 실행됩니다. )&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;output&lt;/code&gt;이라는 이름은 다른 이름으로 변경하셔도 됩니다. 단 &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;에 있는 destination 속성의 값과 이 이름이 같아야 합니다.&lt;/p&gt;
-
-&lt;p&gt;정상적으로 clone이 진행되어서 submodule이 생성되면 다음과 같이 입력합니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;git submodule update&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;git은 submodule에 대한 삭제명령을 제공하지 않기 때문에 만약 기존의 submodule을 삭제하려면 다음과 같이 해야 합니다.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Repository 루트에 있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;.gitmodules&lt;/code&gt; 파일 수정&lt;/li&gt;
-  &lt;li&gt;Repository 루트의 &lt;code class=&quot;highlighter-rouge&quot;&gt;.git&lt;/code&gt; 폴더안의 &lt;code class=&quot;highlighter-rouge&quot;&gt;config&lt;/code&gt; 파일 수정 ( [submodule “xxx”] 부분 수정)&lt;/li&gt;
-  &lt;li&gt;git의 cache에서 submodule 삭제 ( &lt;code class=&quot;highlighter-rouge&quot;&gt;git rm --cached module_path&lt;/code&gt; )&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; _config.yml 1차 수정&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Jekyll Source Folder( &lt;code class=&quot;highlighter-rouge&quot;&gt;D:/blogmaker&lt;/code&gt; )에 있는 내용을 컴파일 하면 그 결과가 output 폴더에 들어가도록
-&lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;을 수정합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;의 destination 부분을 찾아 &lt;code class=&quot;highlighter-rouge&quot;&gt;./output/&lt;/code&gt;으로 수정합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Travis 사이트에 접속&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Travis 사이트에 접속해서 GitHub Repository에 대한 연결을 활성화 시킵니다.&lt;/p&gt;
-
-&lt;p&gt;기본적으로 Public Repository만 사용할 수 있습니다. 만약 Private Repository를 사용하고 싶으면 
-별도의 비용을 지불해야 합니다. ( 비용이 좀 비싼편입니다. )&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://travis-ci.org&lt;/code&gt; =&amp;gt; Public Repository를 위한 site입니다. GitHub 계정으로 로그인 합니다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;https://travis-ci.com&lt;/code&gt; =&amp;gt; Private Repository를 위한 site입니다. GitHub 계정으로 로그인 합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/travis-ci-login.png&quot; alt=&quot;travis-ci login&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그림에서와 같이 연동할 GitHub Repository를 선택해서 Enabled 시켜줍니다.&lt;/p&gt;
-
-&lt;p&gt;잠깐 정리하자면, 연동된 GitHub Repository인 GitHubPageMaker에 push가 이루어지면 Travis CI가 &lt;code class=&quot;highlighter-rouge&quot;&gt;.travis.yml&lt;/code&gt; 설정파일을
-찾아서 이를 이용해 특정 작업을 수행하게 됩니다. 당연히 &lt;code class=&quot;highlighter-rouge&quot;&gt;GitHubPageMaker&lt;/code&gt; Repository에 &lt;code class=&quot;highlighter-rouge&quot;&gt;.travis.yml&lt;/code&gt; 파일을 작성해서 넣어 놓아야
-합니다.&lt;/p&gt;
-
-&lt;p&gt;우리는 이 &lt;code class=&quot;highlighter-rouge&quot;&gt;.travis.yml&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Rakefile&lt;/code&gt;을 이용하여 &lt;code class=&quot;highlighter-rouge&quot;&gt;output&lt;/code&gt;안에 있는 내용을 commit하고 push하게 될 것입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;output&lt;/code&gt;은 
-GitHub Page와 연동되는 Repository이기 때문에 결국 Jekyll로 컴파일한 내용이 GitHub Page Repository로 들어가게 되는 겁니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Token 생성&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Travis CI에서 다른 Repository로 push를 하기 위해서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;token&lt;/code&gt;이 필요합니다.&lt;/p&gt;
-
-&lt;p&gt;GitHub에 접속해 Setting &amp;gt; Developer settings &amp;gt; Personal access tokens에 들어가서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Generate New Token&lt;/code&gt;을 클릭합니다.
-적당히 description을 작성하고 Select scopes 중 &lt;code class=&quot;highlighter-rouge&quot;&gt;repo&lt;/code&gt; 선택하고 generate token을 클릭하면 새로운 token이 생성
-됩니다. 이 token을 바로 이용할 건 아니기 때문에 어딘가에 잘 저장해 둡니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/github-personal-access-token.png&quot; alt=&quot;github personal access token&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이 token값을 직접 Travis CI 설정파일( &lt;code class=&quot;highlighter-rouge&quot;&gt;.travis.yml&lt;/code&gt; )에 직접 노출시키면 안되고 이 값을 암호화해서 사용해야 합니다.&lt;br /&gt;
-일단 command 창을 열어서 travis gem을 설치합니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;gem install travis&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;설치가 끝나면 다음의 명령을 이용해서 암호화를 진행합니다. 만약 로그인을 안했다는 메시지가 나오면 
-다음과 같이 로그인 후 진행하시면 됩니다. (ID/PW는 GitHub의 ID/PW를 이용합니다.)&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;travis login --pro&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;travis encrypt GITHUB_TOKEN=&amp;lt;token&amp;gt; -r &amp;lt;repo-name&amp;gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;여기서 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;token&amp;gt;&lt;/code&gt;에는 아까 우리가 획득한 GitHub token을 넣어주시면 됩니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;repo-name&amp;gt;&lt;/code&gt;부분에는 우리의
-Jekyll Source Folder에 대한 Repository이름을 주면 됩니다. 주의하실점은 &lt;code class=&quot;highlighter-rouge&quot;&gt;{ID/RepoName}&lt;/code&gt; 형태로 사용하셔야 
-합니다. 저의 경우를 예로 들자면 다음과 같습니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;travis encrypt GITHUB_TOKEN=123abc456xxx -r moon9342/GitHubPageMaker&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;위의 과정을 거치면 암호화된 값을 얻을 수 있는데 이 값을 아래와 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;.travis.yml&lt;/code&gt;안에 설정하시면 됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;global&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;secure&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;여기에&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;암호화된&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;값을&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;넣습니다.&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 사용되는 파일 수정&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;이제 &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;.travis.yml&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Rakefile&lt;/code&gt; 파일을 아래와 같이 적절하게 수정해야 합니다. 
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;언어로 작성된 script를 보는게 영 껄끄럽지만 어렵지 않는 내용이니 천천히 보시면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; 파일입니다.&lt;/p&gt;
-&lt;noscript&gt;&lt;pre&gt;# Jekyll configuration
-markdown: kramdown
-# kramdown : markdown의 개조판.
-# markdown에서 불편한 사항을 개선한 형태.
-
-highlighter: rouge
-# text highlighter로 rouge이용
-# 2016.02월 이후로 syntax highlighter는 rouge만 지원.
-# Pygments 사용불가.
-
-paginate: 10
-# 작성한 모든 post를 하나의 페이지에 열거할 수 없으니
-# pagination이 필요하고 몇개의 post를 하나의 page에서
-# 보여줄 건지를 설정.
-
-language: &amp;#39;en-uk&amp;#39;
-# 언어 설정
-
-url: https://moon9342.github.io
-# Google Search Console에서 사용하는 sitemap.xml 생성시
-# 이 url key값이 존재하지 않으면 sitemap.xml이
-# 정상적으로 생성되지 않는다.
-# 또한 disqus(댓글시스템)를 이용하기 위해서도 필요.
-# 자신의 github page url을 입력
-# ( https://your_github_id.github.io 형식 )
-
-baseurl: /
-
-# Website info
-title: IT Blog
-# 자신의 blog title.
-
-description: Development &amp;amp; Technical Training
-# blog home에 표시될 blog에 대한 전반적인 설명.
-
-cover: assets/built/images/blog-cover.png
-# blog home에 표시될 blog cover image.
-
-logo:
-logo_dark:
-
-favicon: assets/built/images/favicon.jpg
-# favicon으로 사용할 image
-
-production_url: https://moon9342.github.io/
-# 최종적으로 blog가 운영될 url
-
-source_url: https://github.com/moon9342/GitHubPageMaker/
-# blogmaker(jekyll source folder)에 대한 github repository
-
-# Social info
-navigation: True
-# Navigation bar link를 보여줄건지 여부
-
-subscribers: True
-# subscriber 기능을 사용할건지의 여부
-# 저는 약간의 수정을 통해 subscriber 기능대신
-# lunr.js를 이용한 검색 기능으로 대체 사용했습니다.
-# 검색기능으로 대체하기 위해서
-# `_includes/subscribe-form.html` 파일의 수정이 필요합니다.
-
-twitter:
-facebook:
-# 만약 twitter와 facebook을 이용하면 username을 입력
-
-# Disqus
-disqus: True
-disqus_shortname: sunghoons-blog
-# disqus는 온라인 댓글 시스템. 댓글 기능을 사용하기 위해
-# disqus를 이용할 것인지 여부와 만약 사용하면
-# disqus shortname을 입력 ( disqus username이 아님 )
-
-
-# Google Analytics
-google_analytics:  # replace with your GA tracking identifier
-# Google Analytics을 사용할 경우 GA tracking identifier를 입력
-
-# Permalinks
-permalink: /:title
-# permalink: /author/:author
-# permalink: /tag/:title
-# 각각의 post에 고정주소를 어떤 방식으로 할당할 것인지를 결정
-# 이 값을 바꾸면 작성한 포스트의 저장위치나 파일이름이 변경된다.
-
-# gems and other configs
-plugins: [jekyll-paginate, jekyll-feed, jekyll-gist]
-exclude: [vendor]
-
-feed:
-  path: feed.xml
-
-# Travis-CI 설정입니다.
-safe: False
-lsi: False
-
-username: moon9342
-repo: GitHubPageMaker
-# username : travis-ci와 연동하는 github의 username
-# repo: travis-ci와 연동하는 github의 repository이름
-# https://github.com/&amp;lt;username&amp;gt;/&amp;lt;repository&amp;gt;
-
-branch: master
-# 사용할 branch명
-
-relative_source: 
-
-destination: ./output/
-# compile된 결과가 생성되는 폴더
-# 이 폴더안으로 우리가 운영하는 블로그 내용이 컴파일되서 들어간다.
-# 이 폴더안의 내용을 github repository(https://username.github.io)에 push
-# 만약 Travis-CI를 이용할 예정이면 이 부분을 git submodule로
-# github repository(https://username.github.io)에 연결해야 한다.
-
-production_url:  https://moon9342.github.io/
-source_url:  https://github.com/moon9342/GitHubPageMaker/
-
-# exclude는 Jekyll컴파일 시 destination에 포함될 필요가
-# 없는것들을 명시한다. (node_modules는 포함시키자)
-exclude:
-  - README.md
-  - Rakefile
-  - Gemfile
-  - Gemfile.lock
-  - changelog.md
-  - &amp;quot;*.Rmd&amp;quot;
-  - vendor
-  - .travis.yml
-  - node_modules&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/moon9342/d37bb68b8a51c21d4fe6d1b03dfdfa3e.js&quot;&gt; &lt;/script&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.travis.yml&lt;/code&gt; 파일입니다.&lt;/p&gt;
-&lt;noscript&gt;&lt;pre&gt;sudo: false
-language: ruby
-cache: bundler
-rvm:
-- 2.4.2
-
-install:
-  # Install Jekyll and dependencies
-  - bundle install
-
-before_script:
-  - git config --global user.email &amp;quot;moon9342@gmail.com&amp;quot;
-  - git config --global user.name &amp;quot;Moon Sung Hoon&amp;quot;
-
-script: bundle exec rake site:deploy --quiet #--trace
-
-# Generate your secure token with the travis gem:
-# get Github token from your Travis CI profile page
-# gem install travis
-# GH_TOKEN from https://github.com/settings/tokens
-# travis encrypt &amp;#39;GIT_NAME=&amp;quot;YOUR_USERNAME&amp;quot; GIT_EMAIL=&amp;quot;YOUR_EMAIL&amp;quot; GH_TOKEN=YOUR_TOKEN&amp;#39;
-env:
-  global:
-    secure: &amp;quot;xxxxxxxxxxxxxxxxxxxx&amp;quot;
-branches:
-  only:
-    - master
-&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/moon9342/b413a66b009fa6d2a0018bea7cc00f2f.js&quot;&gt; &lt;/script&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Rakefile&lt;/code&gt; 파일입니다.&lt;/p&gt;
-&lt;noscript&gt;&lt;pre&gt;#############################################################################
-#
-# Modified version of jekyllrb Rakefile
-# https://github.com/jekyll/jekyll/blob/master/Rakefile
-#
-#############################################################################
-
-require &amp;#39;rake&amp;#39;
-require &amp;#39;date&amp;#39;
-require &amp;#39;yaml&amp;#39;
-
-CONFIG = YAML.load(File.read(&amp;#39;_config.yml&amp;#39;))
-USERNAME = CONFIG[&amp;quot;username&amp;quot;]
-REPO = CONFIG[&amp;quot;repo&amp;quot;]
-SOURCE_BRANCH = CONFIG[&amp;quot;branch&amp;quot;]
-DESTINATION_BRANCH = &amp;quot;master&amp;quot;
-
-def check_destination
-  unless Dir.exist? CONFIG[&amp;quot;destination&amp;quot;]
-    sh &amp;quot;git clone https://$GIT_NAME:$GITHUB_TOKEN@github.com/#{USERNAME}/#{REPO}.git #{CONFIG[&amp;quot;destination&amp;quot;]}&amp;quot;
-  end
-end
-
-namespace :site do
-  desc &amp;quot;Generate the site&amp;quot;
-  task :build do
-    check_destination
-    sh &amp;quot;bundle exec jekyll build&amp;quot;
-  end
-
-  desc &amp;quot;Generate the site and serve locally&amp;quot;
-  task :serve do
-    check_destination
-    sh &amp;quot;bundle exec jekyll serve&amp;quot;
-  end
-
-  desc &amp;quot;Generate the site, serve locally and watch for changes&amp;quot;
-  task :watch do
-    sh &amp;quot;bundle exec jekyll serve --watch&amp;quot;
-  end
-
-  desc &amp;quot;Generate the site and push changes to remote origin&amp;quot;
-  task :deploy do
-    # Detect pull request
-    if ENV[&amp;#39;TRAVIS_PULL_REQUEST&amp;#39;].to_s.to_i &amp;gt; 0
-      puts &amp;#39;Pull request detected. Not proceeding with deploy.&amp;#39;
-      exit
-    end
-
-    # Configure git if this is run in Travis CI
-    if ENV[&amp;quot;TRAVIS&amp;quot;]
-      sh &amp;quot;git config --global user.name $GIT_NAME&amp;quot;
-      sh &amp;quot;git config --global user.email $GIT_EMAIL&amp;quot;
-      sh &amp;quot;git config --global push.default simple&amp;quot;
-    end
-
-    # Make sure destination folder exists as git repo
-    check_destination
-
-    sh &amp;quot;git checkout #{SOURCE_BRANCH}&amp;quot;
-    Dir.chdir(CONFIG[&amp;quot;destination&amp;quot;]) { sh &amp;quot;git checkout #{DESTINATION_BRANCH}&amp;quot; }
-
-    # Generate the site
-    sh &amp;quot;bundle exec jekyll build&amp;quot;
-
-    # Commit and push to github
-    sha = `git log`.match(/[a-z0-9]{40}/)[0]
-    Dir.chdir(CONFIG[&amp;quot;destination&amp;quot;]) do
-      # check if there is anything to add and commit, and pushes it
-      sh &amp;quot;if [ -n &amp;#39;$(git status)&amp;#39; ]; then
-            git add --all .;
-            git commit -m &amp;#39;Updating to #{USERNAME}/#{REPO}@#{sha}.&amp;#39;;
-            git push https://$GITHUB_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;
-         fi&amp;quot;
-      puts &amp;quot;Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages&amp;quot;
-    end
-  end
-end&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/moon9342/7e5e5f21be31f2195f6d99bcac627bfe.js&quot;&gt; &lt;/script&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;모든 설정이 끝났습니다. 이제 GitHub에 push작업을 해 보시면 Travis CI가 동작하면서 내부적으로 처리해서 결과를
-알려줍니다. 해보시면 아시겠지만 거의 스팸메일처럼 날라옵니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Travis CI&lt;/code&gt; 사이트에 들어가면 CI Server가 어떻게 처리하는지를 실시간적으로 log를 출력해 보여주는데 그걸 보시면서 
-혹 문제가 있는 부분이 있으면 해결하시면 됩니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/travis-ci-result.png&quot; alt=&quot;travis-ci result&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Private Repository 사용&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;우리는 두개의 Repository를 사용하고 있고 둘 다 Public으로 사용하고 있습니다. 당연한 말이지만
-이 중 중요한 것은 여러 설정과 실제 원본내용이 들어있는 Jekyll Source Folder에 대한 Repository인
-GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public으로 설정하고 
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll Source Folder&lt;/code&gt;는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Private&lt;/code&gt;으로 관리하고 싶은 경우는 위의 과정에서 약간만 손보시면 됩니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;GitHub에서 해당 Repository를 Private으로 설정합니다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;travis-ci.com&lt;/code&gt;으로 접속하셔서 Private Repository에 대한 연결을 활성화 시킵니다.&lt;/li&gt;
-  &lt;li&gt;획득한 token을 암호화 시키는 부분에서 다음과 같이 &lt;code class=&quot;highlighter-rouge&quot;&gt;--pro&lt;/code&gt; 옵션을 추가합니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;travis encrypt GITHUB_TOKEN=123abc456xxx -r moon9342/GitHubPageMaker --pro&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;나머지 부분은 동일합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Travis CI를 이용할 경우 속도문제&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Travis CI를 돌려보면 알겠지만 내부적으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;을 매번 수행합니다. 이 간단한 것 하나 해결하는데
-2분가량의 시간이 걸리고 대부분의 시간이 설치시간입니다. 이 문제를 해결할 수 있는 방법 역시 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cache&lt;/code&gt; 처리인데요. 이 부분은 나중에 포스팅 할 예정입니다. 
-문제가 꼬리에 꼬리를 물면서 계속 튕겨 나오네요. 그러면서 배우는 거죠 머 ^^;
-일단 이런 문제가 있어요~ 라는 문제 제기만 하고 이번 글은 정리하도록 하겠습니다.&lt;/p&gt;
-
-&lt;p&gt;End.&lt;/p&gt;
-
-&lt;hr /&gt;</content><author><name>jekyll</name></author><category term="miscellaneous article" /><summary type="html">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정 Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가 Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용 Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용 Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository) Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>TypeScript</name></author><category term="front end" /><summary type="html">TypeScript 강좌는 여러 절로 구성되어 있습니다. TypeScript 강좌(1) - Introduction TypeScript 강좌(2) - Data Type(Part 1) TypeScript 강좌(3) - Data Type(Part 2) TypeScript 강좌(4) - 변수 선언 TypeScript 강좌(5) - Destructuring TypeScript 강좌(6) - Interface TypeScript 강좌(7) - Class</summary></entry></feed>

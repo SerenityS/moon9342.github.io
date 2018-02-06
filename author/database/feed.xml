@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>https://moon9342.github.io/</title>
+   
+   <link>https://moon9342.github.io/</link>
+   <description>Development & Technical Training</description>
+   <language>en-uk</language>
+   
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+               
+               
+                  <managingEditor>Database</managingEditor>
+            
+      
+   
+   <title>
+   <![CDATA[ Database - IT Blog ]]>
+   </title>
+   <description>
+   <![CDATA[ Development & Technical Training ]]>
+   </description>
+   <link>https://moon9342.github.io/</link>
+   <image>
+   <url>https://moon9342.github.io/assets/built/images/favicon.jpg</url>
+   <title>Database - IT Blog</title>
+   <link>https://moon9342.github.io/</link>
+   </image>
+   <generator>Jekyll 3.6.2</generator>
+   <lastBuildDate></lastBuildDate>
+   <atom:link href="https://moon9342.github.io/author/database/rss.xml" rel="self" type="application/rss+xml"/>
+   <ttl>60</ttl>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>MySQL 5.7.2 Windows용 ZIP Archive 설치</title>
+	  <link>https://moon9342.github.io/mysql-5.7-archive-setting</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Database</author>
+				
+		
+	  <pubDate>2018-02-05T11:11:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/mysql-5.7-archive-setting</guid>
+	  <description><![CDATA[
+	     <p><strong class="post_introduction">Introduction</strong></p>
+
+<p>MySQL을 install하지 않고 ZIP Archive를 다운받고 압축 풀어서 사용하는 사용하는 방식에 대한 설명입니다. 
+기존 5.6버전은 JSON에 대한 지원이 되지 않기 때문에 5.7버전을 대상으로 진행합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> MySQL 5.7.2 ZIP Archive Download</strong></p>
+
+<p>MySQL을 다운로드 받기 위해 <a href="https://dev.mysql.com/downloads/mysql/" target="_blank">링크</a>를 눌러 이동합니다.</p>
+
+<p>아래의 그림처럼 다운로드 링크가 보이게 되는데 이 중 Windows (x86, 64-bit), ZIP Archive으로 되어있는 것을 찾아 
+다운로드 링크를 눌러 다운로드를 받습니다. 링크를 누르면 로그인하거나 회원가입하라는 화면이 나오는데 화면 하단에 보면
+그냥 다운로드 할 수 있는 링크가 있습니다.</p>
+
+<p><img src="assets/built/images/mysql-download.jpg" alt="mysql-download" /></p>
+
+<p>다운로드가 끝나면 적절한 위치에 압축을 풀어줍니다. 저는 <code class="highlighter-rouge">D:/[Tools]/mysql</code> 이라는 폴더로 압축된 내용을 풀었습니다. 
+해당 폴더 하단에 보면 기본적으로 다음과 같은 폴더와 파일들이 보이게 됩니다.</p>
+
+<p><img src="assets/built/images/mysql-folder.png" alt="mysql-folder" /></p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> MySQL System Database 생성</strong></p>
+
+<p>ZIP Archive 버전은 MySQL을 기동하기 위한 System Database가 제공되지 않기 때문에 기본 System Database부터 생성해야 합니다.</p>
+
+<p><strong>먼저 mysql 폴더 하단에 <code class="highlighter-rouge">data</code>라는 폴더를 생성합니다.</strong></p>
+
+<p>그런 다음 <strong>관리자 권한으로 command 창을 열고</strong> 다음의 명령을 실행합니다. 
+명령을 실행시키는 폴더는 mysql하단의 bin folder에서 실행합니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqld --initialize
+</code></pre></div></div>
+
+<p>약간의 시간이 지나면 <code class="highlighter-rouge">data</code> 폴더 하단에 필요한 파일들이 생성됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> root 계정 패스워드 변경</strong></p>
+
+<p>root계정의 패스워드를 변경하는 부분입니다. 꼭 필요한건 아니지만 현재 root계정은 패스워드 없이 바로 사용할 수 있기 
+때문에 보안상 설정하는게 좋습니다.</p>
+
+<p>다음과 같이 <code class="highlighter-rouge">mysqld</code> 명령을 이용해 MySQL 서버를 기동시킵니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqld --console --explicit_defaults_for_timestamp --skip-grant-tables
+</code></pre></div></div>
+
+<p>정상적으로 MySQL 서버가 기동되면 다음과 같은 화면을 보실 수 있습니다.</p>
+
+<p><img src="assets/built/images/mysql-daemon-execute.png" alt="mysql-daemon-execute" /></p>
+
+<p>이제 별도의 command창을 열고 다음의 명령을 입력해서 MySQL console에 진입합니다. 정상적으로 수행되면 <code class="highlighter-rouge">mysql&gt;</code> 프롬프트가
+떨어지게 됩니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root mysql
+</code></pre></div></div>
+
+<p>이제 다음의 SQL문을 이용해서 root 계정의 패스워드를 갱신합니다. 패스워드를 <code class="highlighter-rouge">root1234</code>로 변경한다면 다음과 같이 하시면 됩니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>update USER set authentication_string=password('root1234') where user='root';
+</code></pre></div></div>
+
+<p>변경이 정상적으로 수행되었으면 다음의 구문을 실행합니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flush privileges;
+</code></pre></div></div>
+
+<p>이제 마지막으로 다음과 같은 구문을 실행합니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>alter user 'root'@'localhost' identified by 'root1234', 'root'@'localhost' password expire never;
+</code></pre></div></div>
+
+<p>이제 <code class="highlighter-rouge">exit</code>를 입력해 MySQL console을 빠져나옵니다. 그런다음 다음의 명령을 실행하면 root 계정의 패스워드를 입력하라고 합니다. 
+아까 설정한 <code class="highlighter-rouge">root1234</code>를 입력하면 MySQL console에 정상적으로 진입할 수 있습니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root -p
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> MySQL 서버 중지</strong></p>
+
+<p>현재 동작중인 MySQL 서버를 중지시킬려면 command 창에서 다음과 같은 명령을 실행시키시면 됩니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqladmin -u root -p shutdown
+</code></pre></div></div>
+
+<p>성공적으로 수행되면 실행되고 있던 MySQL 서버의 실행이 중지됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 새로운 사용자 생성 및 권한 부여</strong></p>
+
+<p>이전까지 정상적으로 수행되었다면 현재 MySQL 서버는 기동이 중지되어 있을겁니다.</p>
+
+<p>초기화 작업이 이미 진행되었기 때문에 이제 MySQL 서버를 기동시키기 위해서 다음과 같이 실행하시면 됩니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqld
+</code></pre></div></div>
+
+<p>새로운 사용자 계정을 생성하기 위해 새로운 command 창을 열어서 root계정으로 MySQL console에 진입합니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root -p
+</code></pre></div></div>
+
+<p>새로운 사용자를 생성합니다. 아이디는 <code class="highlighter-rouge">java</code>, 패스워드 <code class="highlighter-rouge">java</code>로 설정해서 생성하도록 하겠습니다. 아래의 두 문장을 
+실행합니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create user java identified by 'java';
+</code></pre></div></div>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create user java@localhost identified by 'java';
+</code></pre></div></div>
+
+<p>이제 데이터가 입력될 새로운 데이터베이스를 하나 생성 합니다. 다음의 명령을 이용해 <code class="highlighter-rouge">library</code>라는 이름의 데이터베이스를
+생성하겠습니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create database library;
+</code></pre></div></div>
+
+<p><img src="assets/built/images/mysql-new-user.png" alt="mysql-new-user" /></p>
+
+<p>새로 생성된 library database에 대한 모든 권한을 조금 전에 추가한 java 계정에게 부여하려면 다음과 같이 하시면 됩니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grant all privileges on library.* to java;
+</code></pre></div></div>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grant all privileges on library.* to java@localhost;
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> SQL Script 파일을 이용해 Database 구축</strong></p>
+
+<p>만일 기존에 사용하던 Database에 대한 SQL Script 파일을 가지고 있다면 해당 파일을 이용해 간단하게 데이터베이스를
+구축할 수 있습니다.</p>
+
+<p>command 창을 열어서 다음과 같은 명령어로 Script를 실행시켜 데이터베이스를 구축할 수 있습니다.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u java -p library &lt; SQL_Script_File.sql
+</code></pre></div></div>
+
+<p>End.</p>
+
+<hr />
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

@@ -55,7 +55,7 @@
     <meta property="og:site_name" content="IT Blog" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Angular 강좌(4) - Angular Material" />
-    <meta property="og:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular Material Material Design은 모바일과 데스크탑 그리고 그 외 다양한 디바이스들의 application을 개발할 때 하나의 일관된 디자인을 적용하고자 Google이 공개한 Design guideline입니다. 머티리얼" />
+    <meta property="og:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular Material Material Design은 모바일과 데스크탑 그리고 그 외 다양한 디바이스들의 application을 개발할 때 하나의 일관된 디자인을 적용하고자" />
     <meta property="og:url" content="https://moon9342.github.io/angular-lecture-material" />
     <meta property="og:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -65,7 +65,7 @@
     <meta property="article:tag" content="Front End" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Angular 강좌(4) - Angular Material" />
-    <meta name="twitter:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular Material Material Design은 모바일과 데스크탑 그리고 그 외 다양한 디바이스들의 application을 개발할 때 하나의 일관된 디자인을 적용하고자 Google이 공개한 Design guideline입니다. 머티리얼" />
+    <meta name="twitter:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular Material Material Design은 모바일과 데스크탑 그리고 그 외 다양한 디바이스들의 application을 개발할 때 하나의 일관된 디자인을 적용하고자" />
     <meta name="twitter:url" content="https://moon9342.github.io/" />
     <meta name="twitter:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -97,7 +97,7 @@
         "@type": "WebPage",
         "@id": "https://moon9342.github.io/angular-lecture-material"
     },
-    "description": "Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular Material Material Design은 모바일과 데스크탑 그리고 그 외 다양한 디바이스들의 application을 개발할 때 하나의 일관된 디자인을 적용하고자 Google이 공개한 Design guideline입니다. 머티리얼"
+    "description": "Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular Material Material Design은 모바일과 데스크탑 그리고 그 외 다양한 디바이스들의 application을 개발할 때 하나의 일관된 디자인을 적용하고자"
 }
     </script>
 
@@ -222,6 +222,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
     <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
     <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
 </ul>
 
 <hr />
@@ -266,7 +267,7 @@ into the {body} of the default.hbs template -->
 
 <p>저 위에 <code class="highlighter-rouge">--save</code> option은 npm@5부터 기본 option으로 바뀌었습니다. 즉, --save는 생략하셔도 됩니다. 잘 아시겠지만 
 저 명령을 수행하면 <code class="highlighter-rouge">package.json</code>의 <code class="highlighter-rouge">dependencies</code>에 설치된 패키지와 버전 정보가 기록되게 됩니다.
-참고로 만약 개발 시에만 사용하는 package를 설치하실려면 --save-dev option을 주시면 됩니다. TypeScript와 같은것은
+참고로 만약 개발 시에만 사용하는 package를 설치하실려면 <code class="highlighter-rouge">--save-dev</code> option을 주시면 됩니다. TypeScript와 같은것은
 사실 transpiler이기 때문에 개발시에만 필요하고 실제 배포까지 할 필요는 없으니 TypeScript같은 건 --save-dev로
 <code class="highlighter-rouge">devDependencies</code>에 포함시키는게 좋습니다. 그런데 우리는 그냥 전역으로 설치해서 쓰고 있죠 ^^;;</p>
 
@@ -294,7 +295,7 @@ into the {body} of the default.hbs template -->
 <span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
 
 <span class="c1">// BrowserAnimationsModule import 구문 추가</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">BrowserAnimationsModule</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser/animations'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserAnimationsModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser/animations'</span><span class="p">;</span>
 
 
 <span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
@@ -320,7 +321,7 @@ into the {body} of the default.hbs template -->
 
 <p>설치가 다 되었으니 이제 사용할 Angular Material Component를 코드에 import해야 합니다.
 여기서 사용할 것은 <code class="highlighter-rouge">Table</code> Component입니다. 해당 Component를 사용하기 위해 import하는 작업이 필요합니다.
-추후에 구현에 필요한 Component들이 더 추가되어야 하고 실습을 진행하면서 필요한 Component들을 추가하도록 하겠습니다.</p>
+추후에 구현에 필요한 Component들이 더 추가되어야 하는데 이런 Component들은 실습을 진행하면서 추가하도록 하겠습니다.</p>
 
 <p>우리 project에서 <code class="highlighter-rouge">src/app</code> 폴더 안에 있는 Root Module인 <code class="highlighter-rouge">app.module.ts</code> 파일을 열어 다음과 같이 수정합니다.</p>
 
@@ -328,10 +329,10 @@ into the {body} of the default.hbs template -->
 <span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
 
 <span class="c1">// BrowserAnimationsModule import 구문 추가</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">BrowserAnimationsModule</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser/animations'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserAnimationsModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser/animations'</span><span class="p">;</span>
 
-<span class="c1">// MatTableModule,MatExpansionModule  import 구문 추가</span>
-<span class="k">import</span> <span class="p">{</span><span class="nx">MatTableModule</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/table'</span><span class="p">;</span>
+<span class="c1">// MatTableModule import 구문 추가</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/table'</span><span class="p">;</span>
 
 <span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
 
@@ -343,7 +344,7 @@ into the {body} of the default.hbs template -->
   <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
     <span class="nx">BrowserModule</span><span class="p">,</span>
     <span class="nx">BrowserAnimationsModule</span><span class="p">,</span>  <span class="c1">// BrowserAnimationsModule 추가</span>
-    <span class="nx">MatTableModule</span>            <span class="c1">// MatTableModule</span>
+    <span class="nx">MatTableModule</span>            <span class="c1">// MatTableModule 추가</span>
   <span class="p">],</span>
   <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
   <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
@@ -487,6 +488,8 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
                         </div>
                     
                 
+                    
+                
                 <!-- /author  -->
             </footer>
 
@@ -545,6 +548,17 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                            <li><a href="/angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
                                 
                                   
                                     
@@ -571,8 +585,6 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
                                   
                                     
                                         
-                                        
-                                            <li><a href="/angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
                                         
                                     
                                   
@@ -700,7 +712,7 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
                         <footer class="read-next-card-footer">
                             <a href="/tag/front-end/">
                                 
-                                    See all 15 posts  →
+                                    See all 16 posts  →
                                 
                             </a>
                         </footer>
@@ -753,6 +765,8 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
                         </span>
                     
                 
+                    
+                
             </footer>
         </div>
     </article>
@@ -782,7 +796,7 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
                     <h2 class="post-card-title">Angular 강좌(3) - Component</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Component 개요 Angular는 front end web</p>
+                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Component</p>
                 </section>
             </a>
             <footer class="post-card-meta">
@@ -802,6 +816,8 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
                         <span class="post-card-author">
                             <a href="/author/angular/">Angular</a>
                         </span>
+                    
+                
                     
                 
             </footer>
