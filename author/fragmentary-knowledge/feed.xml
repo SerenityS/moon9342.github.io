@@ -168,7 +168,7 @@ Linux 개발 커뮤니티가 자체 VCS를 개발했는데 이게 바로 <code c
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Git의 기본</strong></p>
 
-<p><code class="highlighter-rouge">Git</code>은 파일을 3가지 상태로 관리합니다. <code class="highlighter-rouge">Committed</code>, <code class="highlighter-rouge">Modified</code>, <code class="highlighter-rouge">Stated</code>라고 불리는 3가지 상태로 파일을 관리하게 되는데
+<p><code class="highlighter-rouge">Git</code>은 파일을 3가지 상태로 관리합니다. <code class="highlighter-rouge">Committed</code>, <code class="highlighter-rouge">Modified</code>, <code class="highlighter-rouge">Staged</code>라고 불리는 3가지 상태로 파일을 관리하게 되는데
 각각의 의미는 다음과 같습니다.</p>
 
 <blockquote>

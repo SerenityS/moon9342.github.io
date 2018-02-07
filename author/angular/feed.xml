@@ -45,6 +45,2102 @@
    <ttl>60</ttl>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
+	<item>
+	  <title>Angular 강좌(8) - Material Table</title>
+	  <link>https://moon9342.github.io/angular-lecture-material-table</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+				
+		
+	  <pubDate>2018-02-06T21:21:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-material-table</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Material Table Component</strong></p>
+
+<p>드디어 화면 만드는 마지막 과정까지 왔습니다. 이번 포스트에서는 이전에 만들었던 list-box
+Component가 표현하는 부분을 Material Table을 이용해서 작성해 보겠습니다. 기본적인 테이블 구성과 함께 <code class="highlighter-rouge">Pagination</code>
+까지 추가해서 간단하게 <code class="highlighter-rouge">Paging</code>까지 구현해보겠습니다.</p>
+
+<p>사실 설명할 부분이 많지는 않습니다. <code class="highlighter-rouge">DataSource</code>만 Table에 잘 연결하면 알아서 보여주기 때문이죠. 그게 또 Component 기반
+개발의 장점이기도 하구요.</p>
+
+<p>먼저 CSS부터 수정하도록 하겠습니다. 다음은 <code class="highlighter-rouge">list-box.component.css</code> 파일입니다.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.example-container</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">column</span><span class="p">;</span>
+  <span class="nl">min-width</span><span class="p">:</span> <span class="m">300px</span><span class="p">;</span>
+  <span class="nl">margin-top</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.mat-table</span> <span class="p">{</span>
+  <span class="nl">overflow</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="nl">max-height</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.mat-header-cell.mat-sort-header-sorted</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.list-table-style</span> <span class="p">{</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="n">Georgia</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.list-header-style</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">beige</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>그 다음은 <code class="highlighter-rouge">list-box.component.html</code> 파일입니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-container mat-elevation-z8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-table</span> <span class="na">class=</span><span class="s">"list-table-style"</span> <span class="err">#</span><span class="na">table</span> <span class="err">[</span><span class="na">dataSource</span><span class="err">]="</span><span class="na">dataSource</span><span class="err">"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;ng-container</span> <span class="na">matColumnDef=</span><span class="s">"bisbn"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> ISBN <span class="nt">&lt;/mat-header-cell&gt;</span>
+      <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bisbn}} <span class="nt">&lt;/mat-cell&gt;</span>
+    <span class="nt">&lt;/ng-container&gt;</span>
+
+    <span class="nt">&lt;ng-container</span> <span class="na">matColumnDef=</span><span class="s">"btitle"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> Title <span class="nt">&lt;/mat-header-cell&gt;</span>
+      <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.btitle}} <span class="nt">&lt;/mat-cell&gt;</span>
+    <span class="nt">&lt;/ng-container&gt;</span>
+
+    <span class="nt">&lt;ng-container</span> <span class="na">matColumnDef=</span><span class="s">"bauthor"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> Author <span class="nt">&lt;/mat-header-cell&gt;</span>
+      <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bauthor}} <span class="nt">&lt;/mat-cell&gt;</span>
+    <span class="nt">&lt;/ng-container&gt;</span>
+
+    <span class="nt">&lt;ng-container</span> <span class="na">matColumnDef=</span><span class="s">"bprice"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> Price <span class="nt">&lt;/mat-header-cell&gt;</span>
+      <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bprice | translatorKrw }} <span class="nt">&lt;/mat-cell&gt;</span>
+    <span class="nt">&lt;/ng-container&gt;</span>
+
+    <span class="nt">&lt;mat-header-row</span> <span class="na">class=</span><span class="s">"list-header-style"</span> <span class="err">*</span><span class="na">matHeaderRowDef=</span><span class="s">"displayedColumns"</span><span class="nt">&gt;&lt;/mat-header-row&gt;</span>
+    <span class="nt">&lt;mat-row</span> <span class="err">*</span><span class="na">matRowDef=</span><span class="s">"let row; columns: displayedColumns;"</span><span class="nt">&gt;&lt;/mat-row&gt;</span>
+  <span class="nt">&lt;/mat-table&gt;</span>
+
+  <span class="nt">&lt;mat-paginator</span> <span class="err">#</span><span class="na">paginator</span>
+                 <span class="err">[</span><span class="na">pageSize</span><span class="err">]="</span><span class="na">10</span><span class="err">"</span>
+                 <span class="err">[</span><span class="na">pageSizeOptions</span><span class="err">]="[</span><span class="na">5</span><span class="err">,</span> <span class="na">10</span><span class="err">,</span> <span class="na">20</span><span class="err">]"</span>
+                 <span class="na">showFirstLastButtons</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/mat-paginator&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre></div></div>
+
+<p>Table Component를 이용하기 때문에 <code class="highlighter-rouge">app.module.ts</code>에 관련된 Module을 import해 주어야 합니다. 우리의 강의를 
+처음부터 진행했다면 아마 다음의 코드가 이미 import되어 있을 겁니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/table'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>그리고 <code class="highlighter-rouge">Paging</code>처리를 해야 하기 때문에 <code class="highlighter-rouge">MatPaginatorModule</code> 역시 import합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">MatPaginatorModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/paginator'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>위의 HTML에서 가장 중요한 부분은 당연히 DataSource를 바인딩 하는 부분입니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;mat-table</span> <span class="na">class=</span><span class="s">"list-table-style"</span> <span class="err">#</span><span class="na">table</span> <span class="err">[</span><span class="na">dataSource</span><span class="err">]="</span><span class="na">dataSource</span><span class="err">"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>Property binding을 이용하여 Component에 있는 <code class="highlighter-rouge">dataSource</code>라는 속성과 연결시켰습니다. 이 <code class="highlighter-rouge">dataSource</code>라는 속성은
+도서정보에 대한 객체배열을 이용해서 만든 <code class="highlighter-rouge">MatTableDataSource</code> class의 객체입니다. <code class="highlighter-rouge">JSON</code> 데이터를 가져와서 만든객체입니다.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Angular 강좌(7) - 실습(2)</title>
+	  <link>https://moon9342.github.io/angular-lecture-exercise-2</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+				
+		
+	  <pubDate>2018-02-05T16:31:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-exercise-2</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> list-box Component View</strong></p>
+
+<p>이번 포스트에서는 도서 정보를 리스트 형태로 출력하는 list-box Component를 구현해 보도록 하겠습니다.</p>
+
+<p>먼저 HTML Table Element를 이용하여 구현해보겠습니다. 사실 우리는 최종적으로 Material Table Component를 이용할 것이기 
+때문에 HTML Table Element에 대한 CSS처리는 하지 않았습니다.</p>
+
+<p>여하간 만들어지는 list의 형태는 다음 그림과 같습니다.</p>
+
+<p><img src="assets/built/images/listbox-html-table-view.png" alt="listbox-html-table-view" /></p>
+
+<p>더 많은 책이 하단에 쭉 나열됩니다. 상단에는 책의 종류(국내도서, 국외도서, 국내외도서)를 선택할 수 있는 Select 상자가 
+있고 선택한 조건으로 하단에 책들에 대한 리스트가 출력되는 형태입니다.</p>
+
+<p>먼저 <code class="highlighter-rouge">list-box.component.css</code> 파일의 내용입니다. 위쪽 margin을 주기 위한 style을 정의해 놓았습니다.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.example-container</span> <span class="p">{</span>
+  <span class="nl">margin-top</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>다음은 <code class="highlighter-rouge">list-box.component.html</code> 파일의 내용입니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;mat-select</span> <span class="na">placeholder=</span><span class="s">"도서종류"</span>  <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">selectedValue</span><span class="err">"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let category of bookCaterory"</span>
+                  <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">category</span><span class="err">.</span><span class="na">value</span><span class="err">"</span><span class="nt">&gt;</span>
+        {{ category.viewValue }}
+      <span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;/mat-select&gt;</span>
+  <span class="nt">&lt;/mat-form-field&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;table</span> <span class="na">style=</span><span class="s">"width:100%"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;thead&gt;</span>
+    <span class="nt">&lt;th&gt;</span>ISBN<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th&gt;</span>Title<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th&gt;</span>Author<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th&gt;</span>Price<span class="nt">&lt;/th&gt;</span>
+  <span class="nt">&lt;/thead&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;ng-container</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let book of books"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ng-container</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"selectedValue == 'all'"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>{{book.bisbn}}<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>{{book.btitle}}<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>{{book.bauthor}}<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>{{book.bprice}}<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;/ng-container&gt;</span>
+      <span class="nt">&lt;ng-container</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"selectedValue == 'country'"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"book.btranslator == ''"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;td&gt;</span>{{book.bisbn}}<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>{{book.btitle}}<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>{{book.bauthor}}<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>{{book.bprice}}<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;/ng-container&gt;</span>
+      <span class="nt">&lt;ng-container</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"selectedValue == 'foreign'"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"book.btranslator != ''"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;td&gt;</span>{{book.bisbn}}<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>{{book.btitle}}<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>{{book.bauthor}}<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>{{book.bprice}}<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;/ng-container&gt;</span>
+    <span class="nt">&lt;/ng-container&gt;</span>
+
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+
+</code></pre></div></div>
+
+<p>효율적이지는 않지만 코드를 좀 이해하기 쉽도록 위처럼 작성했습니다.</p>
+
+<p>위의 코드 중 다음의 코드부터 한번 살펴보죠</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="nt">&lt;mat-select</span> <span class="na">placeholder=</span><span class="s">"도서종류"</span>  <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">selectedValue</span><span class="err">"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let category of bookCaterory"</span>
+                  <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">category</span><span class="err">.</span><span class="na">value</span><span class="err">"</span><span class="nt">&gt;</span>
+        {{ category.viewValue }}
+      <span class="nt">&lt;/mat-option&gt;</span>
+    <span class="nt">&lt;/mat-select&gt;</span>
+
+</code></pre></div></div>
+
+<p>일단 Angular Material의 MatSelectModule을 사용하기 때문에 <code class="highlighter-rouge">app.module.ts</code>에 다음과 같이 import작업부터 해야
+코드에러가 나지 않을 듯 보입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">MatSelectModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/select'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">mat-select</code>가 Select box에 대한 Component 입니다. 양방향 바인딩으로 <code class="highlighter-rouge">selectedValue</code>란 이름의 Component의 속성에
+바인딩 시켜놓은 상태입니다. <code class="highlighter-rouge">mat-option</code>은 Select box안의 각각의 option요소입니다. 여러개가 존재할 수 있기 때문에
+<code class="highlighter-rouge">ngFor</code> directive를 이용하여 반복처리 했습니다.</p>
+
+<p>Angular는 구조적 지시자(Structural Directive)라는걸 제공합니다. DOM 요소를 추가하거나 삭제 혹은 반복처리를 함으로 화면의
+구조를 변경할 때 사용합니다. 대표적으로는 <code class="highlighter-rouge">ngIf</code>와 <code class="highlighter-rouge">ngFor</code>가 있습니다. 이름에서 의미하다시피 <code class="highlighter-rouge">ngIf</code>는 boolean값을 입력받아
+true일 경우 ngIf 가 선언된 Element를 DOM에 추가합니다. 만약 false일 경우에는 ngIf 가 선언된 Element는 DOM에서 
+제거됩니다. ngFor 는 반복가능한 데이터를 입력받아 반복해서 DOM에 Element를 표현할 때 사용합니다.</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">Directive</code>에 대해서는 나중에 다른 포스트에서 다시 설명하겠습니다. 여기서는 구조적 지시자로 ngIf와 ngFor를 사용해서 DOM을
+제어하는 방식에 대해서만 알아두시면 됩니다.</p>
+</blockquote>
+
+<p>코드를 보고 유추하건대 <code class="highlighter-rouge">bookCaterory</code>는 배열형태의 데이터이고 배열의 각 원소는 객체이겠네요. 데이터 바인딩에서 학습했던 
+내용과 연계해서 생각해 보시면 됩니다.</p>
+
+<p>코드를 수행시키기 위해 먼저 <code class="highlighter-rouge">book.json</code> 파일을 하나 준비합니다. <code class="highlighter-rouge">book.json</code> 파일의 내용은 다음과 같이 작성하시면 됩니다.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">  
+   </span><span class="p">{</span><span class="w">  
+      </span><span class="err">bauthor</span><span class="p">:</span><span class="w"> </span><span class="s2">"카일 루든(Kyle Loudon)"</span><span class="p">,</span><span class="w">
+      </span><span class="err">bdate</span><span class="p">:</span><span class="s2">"2000년 04월"</span><span class="p">,</span><span class="w">
+      </span><span class="err">btranslator</span><span class="p">:</span><span class="s2">"허 욱"</span><span class="p">,</span><span class="w">
+      </span><span class="err">bpublisher</span><span class="p">:</span><span class="s2">"한빛미디어(주)"</span><span class="p">,</span><span class="w">
+      </span><span class="err">btitle</span><span class="p">:</span><span class="s2">"C로 구현한 알고리즘"</span><span class="p">,</span><span class="w">
+      </span><span class="err">bprice</span><span class="p">:</span><span class="mi">25000</span><span class="p">,</span><span class="w">
+      </span><span class="err">bisbn</span><span class="p">:</span><span class="s2">"89-7914-063-0"</span><span class="p">,</span><span class="w">
+      </span><span class="err">bimgurl</span><span class="p">:</span><span class="s2">"http://image.hanbit.co.kr/cover/_m_1063m.gif"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">  
+      </span><span class="err">bauthor</span><span class="p">:</span><span class="s2">"권기경, 박용우"</span><span class="p">,</span><span class="w">
+      </span><span class="err">bdate</span><span class="p">:</span><span class="s2">"2002년 09월"</span><span class="p">,</span><span class="w">
+      </span><span class="err">btranslator</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="err">bpublisher</span><span class="p">:</span><span class="s2">"한빛미디어(주)"</span><span class="p">,</span><span class="w">
+      </span><span class="err">btitle</span><span class="p">:</span><span class="s2">"IT EXPERT, 모바일 자바 프로그래밍"</span><span class="p">,</span><span class="w">
+      </span><span class="err">bprice</span><span class="p">:</span><span class="mi">23000</span><span class="p">,</span><span class="w">
+      </span><span class="err">bisbn</span><span class="p">:</span><span class="s2">"89-7914-206-4"</span><span class="p">,</span><span class="w">
+      </span><span class="err">bimgurl</span><span class="p">:</span><span class="s2">"http://image.hanbit.co.kr/cover/_m_1206m.gif"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="err">...</span><span class="w">
+   </span><span class="err">...</span><span class="w">
+   </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">   
+</span></code></pre></div></div>
+
+<p>작성한 데이터 파일을 <code class="highlighter-rouge">src/assets/data</code> 폴더 아래에 저장합니다. 이 JSON data를 불러오기 위해 <code class="highlighter-rouge">HttpModule</code>을 이용합니다.
+더 쉽게 파일로 import해서 쓸 수 있지만 여기서는 HttpModule로 처리했습니다.</p>
+
+<blockquote>
+  <p><strong>HttpModule은 현재 deprecated 되었습니다. 현재는 이를 개선한 <code class="highlighter-rouge">HttpClientModule</code>을 이용합니다.</strong></p>
+</blockquote>
+
+<p><code class="highlighter-rouge">app.module.ts</code> 파일안에 HttpModule에 대한 import 구문을 작성합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">HttpModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/http'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>아래는 <code class="highlighter-rouge">list-box.component.ts</code> 파일의 내용입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Http</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/http'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-list-box'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./list-box.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./list-box.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">ListBoxComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+
+  <span class="nx">selectedValue</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="nx">bookCaterory</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="s1">'all'</span><span class="p">,</span> <span class="na">viewValue</span><span class="p">:</span> <span class="s1">'국내외도서'</span><span class="p">},</span>
+    <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="s1">'country'</span><span class="p">,</span> <span class="na">viewValue</span><span class="p">:</span> <span class="s1">'국내도서'</span><span class="p">},</span>
+    <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="s1">'foreign'</span><span class="p">,</span> <span class="na">viewValue</span><span class="p">:</span> <span class="s1">'국외도서'</span><span class="p">}</span>
+  <span class="p">];</span>
+
+  <span class="nx">books</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">http</span><span class="p">:</span> <span class="nx">Http</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/assets/data/book.json'</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">books</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
+  <span class="p">}</span>
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>약간 이상한 코드가 들어있는데 그 이유는 책의 정보를 가져오기 위해 Http의 get() method를 호출하면서
+<code class="highlighter-rouge">Arrow Function</code>을 이용해 코드를 작성했기 때문입니다.</p>
+
+<p>위의 내용은 지금까지 우리가 학습했던 내용을 기반으로 이해해보셔야 할 듯 합니다. 기본적인 TypeScript와 데이터 바인딩에
+대한 내용을 알고 있으면 충분히 이해 가능하리라 생각됩니다.</p>
+
+<p>참고로 JSON data에서 만약 <code class="highlighter-rouge">btranslator</code> 부분의 값이 없으면 이 도서는 국내도서라는 의미입니다. 
+<code class="highlighter-rouge">btranslator</code>에 값이 있으면 번역자가 있다는 말이니까 국외되서가 되겠지요. 그 내용을 가지고 간단한 로직처리를 한 것입니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 문제점</strong></p>
+
+<p>도서정보에 대한 JSON을 작성해서 실행해보시면 아시겠지만 출력은 잘 됩니다. 하지만 몇가지 문제가 있습니다.</p>
+
+<ul>
+  <li>책이 100권이 있으면 밑으로 쭉 나열되게 됩니다. <code class="highlighter-rouge">Paging</code> 처리를 해야 하는데 이 프로그램을 짜는것 또한 일입니다.</li>
+  <li><code class="highlighter-rouge">Event</code> 처리하기가 쉽지 않습니다. 각 행을 클릭하면 해당 책의 세부정보를 detail-box Component를 이용하여 View에 출력해야 합니다.
+클릭이벤트를 처리하기가 쉽지 않네요.</li>
+</ul>
+
+<p>이 외에도 Table Header를 클릭해서 리스트를 <code class="highlighter-rouge">Sorting</code>하는 것과 같은 일반적인 테이블이 가지는 기능을 
+우리가 추가로 구현해야되는 문제가 있습니다. 제대로 사용할려면 부가적인 작업이 더 들어가야 합니다.</p>
+
+<p>이와 같은 문제를 Material의 Table Component를 이용하면 쉽게 해결할 수 있습니다. 다음 포스트에서는 도서 리스트를 출력하는
+부분을 Material Table Component를 이용하여 다시 작성해 보겠습니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Angular 강좌(6) - Data Binding</title>
+	  <link>https://moon9342.github.io/angular-lecture-databinding</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+				
+		
+	  <pubDate>2018-02-04T02:12:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-databinding</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Data Binding</strong></p>
+
+<p>Angular는 View와 Component에서 발생한 데이터의 변경 사항을 자동으로 일치시키는 기능을 제공하는데 
+이를 데이터 바인딩( <code class="highlighter-rouge">Data Binding</code> )이라고 합니다.</p>
+
+<p>Angular의 데이터 바인딩은 다음과 같이 크게 두가지 종류가 있습니다.</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">Two-Way Data Binding</code> : 일반적으로 양방향 바인딩이라고 합니다. Component와 View의 상태 정보를 자동으로 일치시켜 주는 
+기능입니다.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">One-Way Data Binding</code> : 일반적으로 단방향 바인딩이라고 합니다. Component에서 View쪽으로 혹은 View에서 Component쪽으로 
+한 방향으로 데이터를 바인딩 해주는 기능입니다.</p>
+  </li>
+</ul>
+
+<p>위와 같이 크게 두 가지 바인딩이 있지만 실제로 양방향 바인딩은 내부적으로 두개의 단방향 바인딩으로 구성됩니다. 기존 AngularJS
+는 다른 방식으로 양방향 바인딩을 제공했는데 성능상의 문제가 많아서 Angular에서는 이를 단방향 바인딩 2개를 이용해서 기존의
+양방향 바인딩처럼 이용할 수 있도록 제공해 주고 있습니다.</p>
+
+<p>단방향 바인딩은 다음과 같이 다시 세가지 방식으로 나누어 집니다 .</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Interpolation</code> : Component에서 선언한 속성을 View에서 사용하는 경우입니다. 다음의 형태를 이용합니다.</li>
+</ul>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">{{</span> <span class="nx">value</span> <span class="p">}}</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">Property binding</code> : View의 DOM이 소유한 HTML Element property를 <code class="highlighter-rouge">[]</code>를 이용하여 binding하는 경우입니다. 다음의 형태로
+이용합니다.</li>
+</ul>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nx">property</span><span class="p">]</span><span class="o">=</span><span class="s2">"value"</span> 
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">Event bidning</code> : View의 DOM에 대한 Event handler로 Component의 method를 사용하는 경우입니다. 다음의 형태로 이용합니다.</li>
+</ul>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="o">=</span><span class="s2">"function"</span>
+</code></pre></div></div>
+
+<p>위에서 간단하게 Data Binding의 종류와 형태를 살펴보았는데 이전 예제를 이용해서 각각을 코드로 살펴보겠습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Interpolation</strong></p>
+
+<p>예제를 통해 <code class="highlighter-rouge">interpolation</code>의 사용법을 알아보겠습니다. 우리가 작성하고 있는 예제에서 
+<code class="highlighter-rouge">search-box.component.html</code>을 다음과 같이 수정합니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-toolbar</span> <span class="na">class=</span><span class="s">"search-toolbar-style"</span><span class="nt">&gt;</span>Search Keyword : {{keyword}}<span class="nt">&lt;/mat-toolbar&gt;</span>
+  <span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="na">placeholder=</span><span class="s">"Search Keyword"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/mat-form-field&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">mat-raised-button</span> <span class="na">color=</span><span class="s">"warn"</span><span class="nt">&gt;</span>Search!<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre></div></div>
+
+<p>위의 코드에서  <code class="highlighter-rouge">{{ keyword }}</code>  부분을 찾을 수 있는데 이 표현이 바로 interpolation이라고
+부르는 단방향 바인딩 입니다. <code class="highlighter-rouge">keyword</code> 라는 이름의 Component 속성을 찾아 그 값을 View에 표현하라는 것이지요.</p>
+
+<p>따라서 우리의 Component에는 저 <code class="highlighter-rouge">keyword</code>라는 이름의 속성이 존재해야 합니다.</p>
+
+<p><code class="highlighter-rouge">search-box.component.ts</code> 파일을 열어 class안에 해당 속성을 추가합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-search-box'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./search-box.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./search-box.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">SearchBoxComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+
+  <span class="nx">keyword</span> <span class="o">=</span> <span class="s1">'Java'</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">SearchBoxComponent</code> class안의 keyword 속성에 있는 <code class="highlighter-rouge">Java</code>란 값이 View에 그대로 출력되게 됩니다. 실행시켜서 확인해
+보시면 될 듯 합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Event Binding</strong></p>
+
+<p><code class="highlighter-rouge">Event bidnging</code> 역시 단방향 바인딩의 한 종류로 DOM의 Event Handler로 Component의 method를 활용할 수 있는
+방법입니다.</p>
+
+<p>search-box Component의 View에서 <code class="highlighter-rouge">Search</code> 버튼을 클릭하면 입력된 키워드가 위쪽 키워드 표시영역에
+출력되도록 코드를 작성하면 다음과 같습니다.</p>
+
+<p>아래는 수정된 <code class="highlighter-rouge">search-box.component.html</code>입니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-toolbar</span> <span class="na">class=</span><span class="s">"search-toolbar-style"</span><span class="nt">&gt;</span>Search Keyword : {{keyword}}<span class="nt">&lt;/mat-toolbar&gt;</span>
+  <span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">#</span><span class="na">inputKeyword</span> <span class="na">placeholder=</span><span class="s">"Search Keyword"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/mat-form-field&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">mat-raised-button</span> <span class="na">color=</span><span class="s">"warn"</span>
+          <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">setKeyword</span><span class="err">(</span><span class="na">inputKeyword</span><span class="err">.</span><span class="na">value</span><span class="err">)"</span><span class="nt">&gt;</span>Search!<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre></div></div>
+
+<p>아래는 수정된 <code class="highlighter-rouge">search-box.component.ts</code> 입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-search-box'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./search-box.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./search-box.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">SearchBoxComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+
+  <span class="nx">keyword</span> <span class="o">=</span> <span class="s1">'Java'</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>
+
+  <span class="nx">setKeyword</span><span class="p">(</span><span class="nx">keyword</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">keyword</span> <span class="o">=</span> <span class="nx">keyword</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>위의 코드는 버튼을 클릭했을 때 키워드 입력상자에서 값을 가져와 Component의 method를 호출하여 Component 속성의
+값을 변화시킵니다. 이렇게 변경된 Component의 속성은 interpolation을 통해 다시 View에 출력되게 됩니다.</p>
+
+<p><img src="assets/built/images/event-binding-exam.png" alt="event-binding-exam" /></p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Two-Way Data Binding</strong></p>
+
+<p>이번에는 양방향 바인딩에 대해서 알아보겠습니다. 위에서 설명한 Search버튼은 입력된 키워드를 기반으로 실제 검색을 하기 위한 
+버튼이지 검색어를 위쪽 키워드 표시영역에 출력하기 위한 버튼은 아닙니다. 
+해서 키워드 입력상자( <code class="highlighter-rouge">input</code> ) 상자에 키워드를 입력할 때 사용자가 입력한 내용이 위쪽 키워드 표시영역에 
+출력되도록 처리해보겠습니다.</p>
+
+<p>양방향 바인딩을 사용하는 가장 쉬운 방법은 <code class="highlighter-rouge">FormsModule</code>이 제공하는 <code class="highlighter-rouge">NgModel</code> directive를 이용하는 것입니다. 
+따라서 먼저 FormsModule을 import하는 부분부터 처리해 주셔야 합니다. <code class="highlighter-rouge">app.module.ts</code> 파일에 FormsModule에 대한 import 처리를 
+합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 양방향 바인딩을 위한 FormsModule import</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">FormsModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/forms'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>다음과 같이 바인딩할 요소의 속성에 <code class="highlighter-rouge">[(ngModel)]</code> 과 함께 바인딩할 대상을 선언하시면 됩니다. 다음은 
+수정된 <code class="highlighter-rouge">search-box.component.html</code> 입니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-toolbar</span> <span class="na">class=</span><span class="s">"search-toolbar-style"</span><span class="nt">&gt;</span>Search Keyword : {{keyword}}<span class="nt">&lt;/mat-toolbar&gt;</span>
+  <span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">#</span><span class="na">inputKeyword</span> <span class="na">placeholder=</span><span class="s">"Search Keyword"</span>
+           <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">keyword</span><span class="err">"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/mat-form-field&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">mat-raised-button</span> <span class="na">color=</span><span class="s">"warn"</span>
+          <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">setKeyword</span><span class="err">(</span><span class="na">inputKeyword</span><span class="err">.</span><span class="na">value</span><span class="err">)"</span><span class="nt">&gt;</span>Search!<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre></div></div>
+
+<p>실행을 시켜보시면 키워드 입력상자에 글자를 입력할 때 상단의 키워드 표시영역에 같이 출력되는 것을 보실 수 있습니다. 이렇게 양방향
+바인딩이 설정되어 있을 때 사용자가 글자를 입력하면 <code class="highlighter-rouge">NgModel</code>로 바인딩한 값이 변경이 됩니다. 이 때 이벤트가 하나 발생하는데
+이 이벤트를 처리하기 위해 <code class="highlighter-rouge">ngModelChange</code>를 이용할 수 있습니다.</p>
+
+<p>위의 코드를 약간 수정해 다음과 같이 작성해보죠.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-toolbar</span> <span class="na">class=</span><span class="s">"search-toolbar-style"</span><span class="nt">&gt;</span>Search Keyword : {{keyword}}<span class="nt">&lt;/mat-toolbar&gt;</span>
+  <span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">#</span><span class="na">inputKeyword</span> <span class="na">placeholder=</span><span class="s">"Search Keyword"</span>
+           <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">keyword</span><span class="err">"</span> <span class="err">(</span><span class="na">ngModelChange</span><span class="err">)="</span><span class="na">inputChange</span><span class="err">()"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/mat-form-field&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">mat-raised-button</span> <span class="na">color=</span><span class="s">"warn"</span>
+          <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">setKeyword</span><span class="err">(</span><span class="na">inputKeyword</span><span class="err">.</span><span class="na">value</span><span class="err">)"</span><span class="nt">&gt;</span>Search!<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">(ngModelChange)</code>에 바인딩 된 <code class="highlighter-rouge">inputChange()</code>는 <code class="highlighter-rouge">search-box.component.ts</code> 안에 class의 method로 정의되어 있어야 합니다.
+데이터가 변경될 때 자동적으로 이벤트가 발생되고 바인딩된 method를 통해 특정 로직을 수행할 수 있습니다.</p>
+</blockquote>
+
+<p>영문일 경우는 문제없이 잘 수행되지만 한글일 경우는 약간의 문제가 있습니다. 바로바로 화면에 적용되지 않는 것이죠. 양방향 바인딩은
+기본적으로 문자 입력이 완료된 시점에 <code class="highlighter-rouge">compositionend</code>라는 browser 이벤트가 발생하고 이에 따라 바인딩을 처리합니다. 하지만
+영문과 다르게 한글은 조합형 문자이기 때문에 글자가 다 만들어 지기 전까지는 해당 이벤트가 발생하지 않고 따라서 화면에 출력되지
+않게 되는 것입니다.</p>
+
+<p>이 문제를 해결하기 위해서는 Angular에서 제공하는 <code class="highlighter-rouge">COMPOSITION_BUFFER_MODE</code> 설정을 변경하시면 됩니다. 설정하는 방법은 아래의
+코드를 참조하시면 됩니다.</p>
+
+<p>아래는 <code class="highlighter-rouge">app.module.ts</code> 파일 입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserAnimationsModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser/animations'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/table'</span><span class="p">;</span>
+
+<span class="c1">// 사용되는 Material Module import</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatFormFieldModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/form-field'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatInputModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatButtonModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/button'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatToolbarModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/toolbar'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatCardModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/card'</span><span class="p">;</span>
+
+<span class="c1">// 양방향 바인딩을 위한 FormsModule import</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">FormsModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/forms'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SearchBoxComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./search-box/search-box.component'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">DetailBoxComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./detail-box/detail-box.component'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ListBoxComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./list-box/list-box.component'</span><span class="p">;</span>
+
+<span class="c1">// COMPOSITION_BUFFER_MODE import</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">COMPOSITION_BUFFER_MODE</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/forms'</span><span class="p">;</span>
+
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span><span class="p">,</span>
+    <span class="nx">SearchBoxComponent</span><span class="p">,</span>
+    <span class="nx">ListBoxComponent</span><span class="p">,</span>
+    <span class="nx">DetailBoxComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span><span class="p">,</span>
+    <span class="nx">BrowserAnimationsModule</span><span class="p">,</span>
+    <span class="nx">MatTableModule</span><span class="p">,</span>
+    <span class="nx">MatFormFieldModule</span><span class="p">,</span>     <span class="c1">// Material Module import</span>
+    <span class="nx">MatInputModule</span><span class="p">,</span>
+    <span class="nx">MatButtonModule</span><span class="p">,</span>
+    <span class="nx">MatToolbarModule</span><span class="p">,</span>
+    <span class="nx">MatCardModule</span><span class="p">,</span>
+    <span class="nx">FormsModule</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="na">provide</span><span class="p">:</span> <span class="nx">COMPOSITION_BUFFER_MODE</span><span class="p">,</span>
+    <span class="na">useValue</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">}],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="assets/built/images/angular-hangul-input.png" alt="angular-hangul-input" /></p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Property Binding</strong></p>
+
+<p><code class="highlighter-rouge">Property binding</code>을 이용하면 DOM의 HTML Element의 property를 Component의 속성과 바인딩 할 수 있습니다. 이번에는
+detail-box Component를 이용해서 한번 알아보죠.</p>
+
+<p>일단 완성된 화면은 다음과 같습니다.</p>
+
+<p><img src="assets/built/images/detail-box-view.png" alt="detail-box-view" /></p>
+
+<p>제목, 저자, ISBN, 가격, 출판일, 이미지 정보등을 interpolation을 이용해 바인딩 시켰습니다.</p>
+
+<p><code class="highlighter-rouge">detail-box-component.css</code>에서 사용된 CSS는 다음과 같습니다.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.example-card</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.example-header-image</span> <span class="p">{</span>
+  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url('/assets/book-icon.jpg')</span><span class="p">;</span>
+  <span class="nl">background-size</span><span class="p">:</span> <span class="n">cover</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.book-image</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.detail-header-style</span> <span class="p">{</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="n">Georgia</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>아래는 <code class="highlighter-rouge">detail-box.component.html</code> 입니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;mat-card</span> <span class="na">class=</span><span class="s">"example-card"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-card-header</span> <span class="na">class=</span><span class="s">"detail-header-style"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">mat-card-avatar</span> <span class="na">class=</span><span class="s">"example-header-image"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;mat-card-title&gt;</span>제목 : {{book.btitle}}<span class="nt">&lt;/mat-card-title&gt;</span>
+    <span class="nt">&lt;mat-card-subtitle&gt;</span>저자 : {{book.bauthor}}<span class="nt">&lt;/mat-card-subtitle&gt;</span>
+  <span class="nt">&lt;/mat-card-header&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">mat-card-image</span> <span class="na">class=</span><span class="s">"book-image"</span> <span class="na">src=</span><span class="s">"{{book.bimgurl}}"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-card-content&gt;</span>
+    <span class="nt">&lt;p&gt;</span>
+      ISBN : {{book.bisbn}}, 도서 가격 : {{book.bprice }}, 출판일 : {{book.bdate}}
+    <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/mat-card-content&gt;</span>
+  <span class="nt">&lt;mat-card-actions&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">mat-button</span>
+            <span class="na">mat-raised-button</span> <span class="na">color=</span><span class="s">"primary"</span>
+            <span class="err">[</span><span class="na">disabled</span><span class="err">]="</span><span class="na">book</span><span class="err">.</span><span class="na">bprice</span> <span class="nt">&gt;</span> 20000"&gt;바로 구입<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/mat-card-actions&gt;</span>
+<span class="nt">&lt;/mat-card&gt;</span>
+
+</code></pre></div></div>
+
+<p>객체의 속성으로 바인딩 시켰습니다. 당연히 <code class="highlighter-rouge">detail-box.component.ts</code> 안에 class 속성으로 <code class="highlighter-rouge">book</code> 객체가 정의되어 있겠네요.
+주의해서 보셔야 할 부분은</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">mat-button</span>
+        <span class="na">mat-raised-button</span> <span class="na">color=</span><span class="s">"primary"</span>
+        <span class="err">[</span><span class="na">disabled</span><span class="err">]="</span><span class="na">book</span><span class="err">.</span><span class="na">bprice</span> <span class="nt">&gt;</span> 20000"&gt;바로 구입<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<p>부분입니다. <code class="highlighter-rouge">disabled</code> 라는 속성에 property binding을 이용해 조건을 걸었습니다. 
+현재 책 값이 20000원 이상이면 <strong>“바로 구입”</strong>버튼을
+비활성화 시키는 것이죠. 사용하는 법을 잘 기억해 두시면 될 듯 합니다.</p>
+
+<p>다음은 데이터가 들어있는 <code class="highlighter-rouge">detail-box.component.ts</code> 입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-detail-box'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./detail-box.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./detail-box.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">DetailBoxComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+
+  <span class="nx">book</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">btitle</span><span class="p">:</span> <span class="s1">'Head First Design Patterns: 스토리가 있는 패턴 학습법'</span><span class="p">,</span>
+    <span class="na">bauthor</span><span class="p">:</span> <span class="s1">'에릭 프리먼외 3명'</span><span class="p">,</span>
+    <span class="na">bprice</span><span class="p">:</span> <span class="mi">28000</span><span class="p">,</span>
+    <span class="na">bdate</span><span class="p">:</span> <span class="s1">'2005년 08월'</span><span class="p">,</span>
+    <span class="na">bisbn</span><span class="p">:</span> <span class="s1">'89-7914-340-0'</span><span class="p">,</span>
+    <span class="na">bimgurl</span><span class="p">:</span> <span class="s1">'http://image.hanbit.co.kr/cover/_m_1340m.gif'</span>
+  <span class="p">};</span>
+
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이번 포스트에서는 Angular의 데이터 바인딩에 대해서 살펴보았습니다. 다음 포스트는 
+지금까지 배운 내용과 Directive에 대한 내용을 섞어 약간 복잡하지만 책의 리스트를 출력하는 View를 살펴보도록 하겠습니다. 
+먼저 기본적인 HTML Table Element을 이용해 보고 그 다음에 Material Table Component을 이용해 
+리스트를 출력해보도록 하겠습니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Angular 강좌(5) - 실습(1)</title>
+	  <link>https://moon9342.github.io/angular-lecture-exercise-1</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+				
+		
+	  <pubDate>2018-02-01T16:42:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-exercise-1</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+</ul>
+
+<hr />
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 결과 화면</strong></p>
+
+<p>먼저 최종적으로 만들어진 화면을 한번 보고 View을 어떻게 구성할지 개념적으로 확인하면 될 듯 싶습니다. 
+아래의 그림이 최종 만들어진 도서검색 App이고 파란색으로 되어 있는 각각의 박스가 개별적인 View입니다.</p>
+
+<p><img src="assets/built/images/exercise-result.jpg" alt="exercise-result" /></p>
+
+<p>총 3개의 View로 구성되어 있습니다. 맨 위의 View는 검색어를 입력할 수 있는 View이고 제일 아래의 View는
+검색어에 해당하는 책에 대한 리스트를 표현하는 View입니다. 가운데 View는 리스트에서 특정 책을 선택하면
+그 책의 내용을 자세하게 출력해주는 View입니다.</p>
+
+<p>일단 화면을 만드는데 집중하고 실제 프로그램이 동작하는 로직에 관련된 부분은 
+나중에 <code class="highlighter-rouge">service</code>를 설명하면서 추가하도록 하겠습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> AppComponent 수정</strong></p>
+
+<p>이전에 만들어 놓은 bookSearch-angular project를 수정하여 도서검색 application화면을 만들고
+그에 따른 Component들을 생성, 등록까지 진행하도록 하겠습니다.</p>
+
+<p><code class="highlighter-rouge">src/app</code> 폴더안에 <code class="highlighter-rouge">app.component.ts</code> 파일을 열면 다음과 같은 내용을 보실 수 있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-root'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./app.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./app.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppComponent</span> <span class="p">{</span>
+  <span class="nx">title</span> <span class="o">=</span> <span class="s1">'app'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>여기서 <code class="highlighter-rouge">selector: 'app-root'</code> 부분을 보면 이 Component가 <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code>로 되어 있는 부분을 찾아 
+rendering 한다는 것을 알 수 있습니다.  또한 <code class="highlighter-rouge">templateUrl</code>에 의해 <code class="highlighter-rouge">app.component.html</code>을 이용해 rendering한다는 것도
+파악할 수 있겠네요.</p>
+
+<p><code class="highlighter-rouge">index.html</code>을 보시면 다음과 같이 <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code>로 되어있는 부분이 보이고 이 부분이 우리 Component에 의해서
+rendering되게 됩니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>BookSearchAngular<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;base</span> <span class="na">href=</span><span class="s">"/"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"icon"</span> <span class="na">type=</span><span class="s">"image/x-icon"</span> <span class="na">href=</span><span class="s">"favicon.ico"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"https://fonts.googleapis.com/icon?family=Material+Icons"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;app-root&gt;&lt;/app-root&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>결국 <code class="highlighter-rouge">index.html</code>안의 <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code> 부분은 <code class="highlighter-rouge">app.component.html</code>의 내용으로 rendering되는 것을 파악할 수 있습니다.</p>
+
+<p>이제 기존의 <code class="highlighter-rouge">app.component.html</code>의 내용을 수정해서 화면을 다시 구성합니다. View를 추가하기 위해 Component를 생성하는
+작업을 진행해야 합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component 추가</strong></p>
+
+<p>위에서 살펴봤듯이 화면을 3개의 영역으로 나눌려고 합니다.</p>
+
+<ul>
+  <li>첫번째 영역 : 검색 키워드를 입력하고 검색 버튼을 눌러 실행시키는 View 영역.</li>
+  <li>두번째 영역 : 검색된 책을 선택하면 책의 세부정보가 출력되는 View 영역.</li>
+  <li>세번째 영역 : 검색된 책들의 리스트를 출력하기 위한 View 영역.</li>
+</ul>
+
+<p>이렇게 3개의 View를 이용해서 화면을 구성할 것이고 3개의 Component를 추가하여 화면을 먼저 구성하려 합니다.</p>
+
+<p>Angular CLI를 이용하여 다음과 같이 실행해서 새로운 Component를 추가합니다.</p>
+
+<blockquote>
+  <p><strong>ng generate component search-box</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/angular-cli-create-component.png" alt="angular-cli-create-component" /></p>
+
+<p>Angular CLI의 <code class="highlighter-rouge">generate</code>를 이용하여 Component 생성 시 Component를 구성하는 관련 파일들을 자동으로 손쉽게 생성할 수 있습니다. 
+generate를 다 쓰지 않고 앞글자인 <code class="highlighter-rouge">g</code> 만 써도 됩니다. generate는 뒤에 어떤 요소를 생성할 것인지 그리고 요소명은
+무엇인지를 받아 특정 요소를 생성하게 됩니다. 즉, Component만 생성할 수 있는건 아닙니다.</p>
+
+<p>Angular CLI의 generate로 Component를 생성하면 해당 명령의 실행 위치가 어딘지 상관없이 기본적으로 <code class="highlighter-rouge">src/app</code> 하단에
+폴더가 만들어지고 그 안에 Component관련 파일이 들어가게 됩니다. 다음 그림과 같이 폴더와 파일이 생성되게 됩니다.</p>
+
+<p><img src="assets/built/images/angular-cli-create-component-ide.png" alt="angular-cli-create-component-ide" /></p>
+
+<p>생성된 <code class="highlighter-rouge">src/app/search-box</code> 폴더 안에 있는 <code class="highlighter-rouge">search-box.component.ts</code> 파일을 열어서 <code class="highlighter-rouge">selector</code>를 확인해보니 
+<code class="highlighter-rouge">app-search-box</code>로 지정되어 있습니다. 이 Component는 해당 <code class="highlighter-rouge">&lt;app-search-box&gt;&lt;/app-search-box&gt;</code>를 찾아 rendering을 
+하게 되겠네요.</p>
+
+<p>이와 유사하게 2개의 Component를 더 생성합니다. 다음과 같이 실행해서 새로운 Component를 추가합니다.</p>
+
+<blockquote>
+  <p><strong>ng generate component detail-box</strong></p>
+</blockquote>
+
+<blockquote>
+  <p><strong>ng generate component list-box</strong></p>
+</blockquote>
+
+<p>자 이제 생성된 각각의 Component에 대한 selector를 참조해 <code class="highlighter-rouge">src/app</code> 안의 <code class="highlighter-rouge">app.component.html</code>의 내용을 다음과 같이
+수정합니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bookSearch-outer"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;app-search-box&gt;&lt;/app-search-box&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;app-detail-box&gt;&lt;/app-detail-box&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;app-list-box&gt;&lt;/app-list-box&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>또한 <code class="highlighter-rouge">src/app</code> 안의 <code class="highlighter-rouge">app.component.css</code>의 내용을 다음과 같이 작성합니다. CSS에 대한 설명은 생략합니다.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.bookSearch-outer</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">70%</span><span class="p">;</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 각 Component의 View 작성</strong></p>
+
+<p>이제 각각의 Component의 <code class="highlighter-rouge">templateUrl</code>에 명시된 html을 Angular Material을 이용해 우리가
+사용할 화면을 만들어 냅니다.</p>
+
+<p>제일 먼저 상단의 Search 영역에 대한 HTML을 작성합니다.</p>
+
+<p>다음과 같이 <code class="highlighter-rouge">src/app/search-box</code> 폴더안의 <code class="highlighter-rouge">search-box.component.html</code>의 내용을 수정합니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-toolbar</span> <span class="na">class=</span><span class="s">"search-toolbar-style"</span><span class="nt">&gt;</span>Search Keyword : <span class="nt">&lt;/mat-toolbar&gt;</span>
+  <span class="nt">&lt;mat-form-field&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="na">placeholder=</span><span class="s">"Search Keyword"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/mat-form-field&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">mat-raised-button</span> <span class="na">color=</span><span class="s">"warn"</span><span class="nt">&gt;</span>Search!<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">search-box.component.css</code>의 내용은 다음과 같이 수정합니다.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.search-toolbar-style</span> <span class="p">{</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="n">Georgia</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="no">teal</span><span class="p">;</span>
+  <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Angular Material을 이용했기 때문에 해당 Element에 대한 Material Module을 <code class="highlighter-rouge">app.module.ts</code>안에
+import해 줍니다.</p>
+
+<p>다음은 <code class="highlighter-rouge">app.module.ts</code> 파일의 내용입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserAnimationsModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser/animations'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/table'</span><span class="p">;</span>
+
+<span class="c1">// 사용되는 Material Module import</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatFormFieldModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/form-field'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatInputModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatButtonModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/button'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatToolbarModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/toolbar'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SearchBoxComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./search-box/search-box.component'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">DetailBoxComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./detail-box/detail-box.component'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ListBoxComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./list-box/list-box.component'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span><span class="p">,</span>
+    <span class="nx">SearchBoxComponent</span><span class="p">,</span>
+    <span class="nx">ListBoxComponent</span><span class="p">,</span>
+    <span class="nx">DetailBoxComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span><span class="p">,</span>
+    <span class="nx">BrowserAnimationsModule</span><span class="p">,</span>
+    <span class="nx">MatTableModule</span><span class="p">,</span>
+    <span class="nx">MatFormFieldModule</span><span class="p">,</span>     <span class="c1">// Material Module import</span>
+    <span class="nx">MatInputModule</span><span class="p">,</span>
+    <span class="nx">MatButtonModule</span><span class="p">,</span>
+    <span class="nx">MatToolbarModule</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>일단 여기까지 작성하고 실행을 시켜보면 다음과 같은 화면을 볼 수 있습니다.</p>
+
+<p><img src="assets/built/images/search-box-view.png" alt="search-box-view" /></p>
+
+<p>화면이 잘 나오나요? 아직 데이터 바인딩과 이벤트에 대한 내용은 설명하지 않았기 때문에 키워드를 입력하거나 버튼을 눌러도 아무런 
+반응을 하지 않습니다.</p>
+
+<p>이와 비슷하게 가운데 detail-box의 View는 다음과 같이 작성하시면 됩니다. list-box는 데이터 바인딩에 대한 내용을
+배워야지 사용할 수 있으니 list-box의 View는 데이터 바인딩에 대해 설명하고 작성하겠습니다.</p>
+
+<p>아래는 detail-box Component에 대한 각각의 코드입니다.</p>
+
+<p><code class="highlighter-rouge">detail-box.component.css</code> 파일입니다. <code class="highlighter-rouge">src/assets</code> 폴더안에 <code class="highlighter-rouge">book-icon.jpg</code> 파일을 하나 넣어두셔야 합니다.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.example-card</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.example-header-image</span> <span class="p">{</span>
+  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url('/assets/book-icon.jpg')</span><span class="p">;</span>
+  <span class="nl">background-size</span><span class="p">:</span> <span class="n">cover</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.book-image</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.detail-header-style</span> <span class="p">{</span>
+  <span class="nl">font-family</span><span class="p">:</span> <span class="n">Georgia</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">detail-box.component.html</code> 파일입니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;mat-card</span> <span class="na">class=</span><span class="s">"example-card"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-card-header</span> <span class="na">class=</span><span class="s">"detail-header-style"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">mat-card-avatar</span> <span class="na">class=</span><span class="s">"example-header-image"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;mat-card-title&gt;</span>제목 : Angular 일주일 완성<span class="nt">&lt;/mat-card-title&gt;</span>
+    <span class="nt">&lt;mat-card-subtitle&gt;</span>저자 : 홍길동<span class="nt">&lt;/mat-card-subtitle&gt;</span>
+  <span class="nt">&lt;/mat-card-header&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">mat-card-image</span> <span class="na">class=</span><span class="s">"book-image"</span> <span class="na">src=</span><span class="s">""</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-card-content&gt;</span>
+    <span class="nt">&lt;p&gt;</span>
+      ISBN : 123-456, 도서 가격 : 5000, 출판일 : 2017년 12월
+    <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/mat-card-content&gt;</span>
+  <span class="nt">&lt;mat-card-actions&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">mat-button</span> <span class="na">mat-raised-button</span> <span class="na">color=</span><span class="s">"primary"</span><span class="nt">&gt;</span>바로 구입<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/mat-card-actions&gt;</span>
+<span class="nt">&lt;/mat-card&gt;</span>
+</code></pre></div></div>
+
+<p>Material Card Layout Component를 사용했기 때문에 해당 Module에 대한 처리를 <code class="highlighter-rouge">app.module.ts</code>에 해주어야 하겠죠?</p>
+
+<p>지금까지의 <code class="highlighter-rouge">app.module.ts</code> 파일 내용입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserAnimationsModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser/animations'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/table'</span><span class="p">;</span>
+
+<span class="c1">// 사용되는 Material Module import</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatFormFieldModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/form-field'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatInputModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatButtonModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/button'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatToolbarModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/toolbar'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatCardModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/card'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SearchBoxComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./search-box/search-box.component'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">DetailBoxComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./detail-box/detail-box.component'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ListBoxComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./list-box/list-box.component'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span><span class="p">,</span>
+    <span class="nx">SearchBoxComponent</span><span class="p">,</span>
+    <span class="nx">ListBoxComponent</span><span class="p">,</span>
+    <span class="nx">DetailBoxComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span><span class="p">,</span>
+    <span class="nx">BrowserAnimationsModule</span><span class="p">,</span>
+    <span class="nx">MatTableModule</span><span class="p">,</span>
+    <span class="nx">MatFormFieldModule</span><span class="p">,</span>     <span class="c1">// Material Module import</span>
+    <span class="nx">MatInputModule</span><span class="p">,</span>
+    <span class="nx">MatButtonModule</span><span class="p">,</span>
+    <span class="nx">MatToolbarModule</span><span class="p">,</span>
+    <span class="nx">MatCardModule</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 결과 화면</strong></p>
+
+<p>지금까지 작성한 내용을 실행시켜보면 다음과 같은 화면을 보실 수 있습니다.</p>
+
+<p><img src="assets/built/images/step-1-result.png" alt="step-1-result" /></p>
+
+<hr />
+
+<p>이번 포스트에서는 Component를 추가하고 Angular Material을 이용해 View를 작성해보았습니다. 다음 포스트에서는
+데이터 바인딩에 대한 내용을 알아보도록 하겠습니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Angular 강좌(4) - Angular Material</title>
+	  <link>https://moon9342.github.io/angular-lecture-material</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+				
+		
+	  <pubDate>2018-02-01T14:00:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-material</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular Material</strong></p>
+
+<p><code class="highlighter-rouge">Material Design</code>은 모바일과 데스크탑 그리고 그 외 다양한 디바이스들의 application을 개발할 때 
+하나의 일관된 디자인을 적용하고자 Google이 공개한 <code class="highlighter-rouge">Design guideline</code>입니다.</p>
+
+<blockquote>
+  <p>머티리얼 디자인(Material Design, 코드명: Quantum Paper)이란 플랫 디자인의 장점을 살리면서도 
+빛에 따른 종이의 그림자 효과를 이용하여 입체감을 살리는 디자인 방식을 말한다. 
+2014년 구글이 안드로이드 스마트폰에 적용하면서 널리 퍼지기 시작했다. 플랫 디자인과 마찬가지로 최소한의 요소만을 
+사용하여 대상의 본질을 표현하는 디자인 기법인 미니멀리즘(minimalism)을 추구한다.
+<br />( 자료출처 : https://ko.wikipedia.org )</p>
+</blockquote>
+
+<p>제가 Design에 대한 관심과 지식이 많지 않아서 Material Design에 대한 정의는 위키에서 가져왔습니다.</p>
+
+<p>여하간 이런 Material Design에 대한 concept을 Angular application에 적용하기 위해 만든 Component가 바로 
+<code class="highlighter-rouge">Angular Material</code>입니다.</p>
+
+<p>우리의 예제는 이 Angular Material로 작성할 것이기 때문에 Angular Material을 어떻게 설치,설정하고 사용하는지에 대해서 
+먼저 알아볼 필요가 있습니다.</p>
+
+<p>그럼 천천히 살펴보도록 하죠.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular Material &amp; Angular Material CDK 설치</strong></p>
+
+<p>제일 먼저 해야 할 일은 Angular Material과 Angular Material CDK를 설치하는 것입니다.</p>
+
+<p>우리가 만들어 놓은 bookSearch-angular project에서 command 창을 열고 다음 명령을 수행시켜 package를 설치합니다. 
+( 현재 경로는 <code class="highlighter-rouge">D:/bookSearch-angular</code> 입니다. )</p>
+
+<blockquote>
+  <p><strong>npm install --save @angular/material @angular/cdk</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/angular-material-install.png" alt="angular-material-install" /></p>
+
+<p>저 위에 <code class="highlighter-rouge">--save</code> option은 npm@5부터 기본 option으로 바뀌었습니다. 즉, <strong>--save는 생략</strong>하셔도 됩니다. 잘 아시겠지만 
+저 명령을 수행하면 <code class="highlighter-rouge">package.json</code>의 <code class="highlighter-rouge">dependencies</code>에 설치된 패키지와 버전 정보가 기록되게 됩니다.
+참고로 만약 개발 시에만 사용하는 package를 설치하실려면 <code class="highlighter-rouge">--save-dev</code> option을 주시면 됩니다. TypeScript와 같은것은
+사실 transpiler이기 때문에 개발시에만 필요하고 실제 배포까지 할 필요는 없으니 TypeScript같은 건 --save-dev로
+<code class="highlighter-rouge">devDependencies</code>에 포함시키는게 좋습니다. 그런데 우리는 그냥 전역으로 설치해서 쓰고 있죠 ^^;;</p>
+
+<p>여하간 약간의 시간이 지나면 package가 설치됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular Animation Module 설치</strong></p>
+
+<p>몇몇개의 Material Component는 Angular Animation Module에 의존성을 가지고 있습니다. 
+따라서 다음 명령을 수행시켜 Angular Animation Module을 설치해야 합니다.</p>
+
+<blockquote>
+  <p><strong>npm install --save @angular/animations</strong></p>
+</blockquote>
+
+<p>이 <code class="highlighter-rouge">@angular/animations</code> module은 내부적으로 <code class="highlighter-rouge">WebAnimation API</code>을 이용합니다. 그런데 모든 browser들이 
+이 API를 지원하는건 아닙니다. 만약 WebAnimation API를 지원하지 않는 browser를 이용할 경우는 
+<a href="https://github.com/web-animations/web-animations-js" target="_blank">여기</a>를
+클릭해서 나온 내용에 따라 따로 처리해 주셔야 합니다.</p>
+
+<p>이제 우리 project에서 <code class="highlighter-rouge">src/app</code> 폴더 안에 있는 Root Module인 <code class="highlighter-rouge">app.module.ts</code> 파일을 열어 다음과 같이 수정합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="c1">// BrowserAnimationsModule import 구문 추가</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserAnimationsModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser/animations'</span><span class="p">;</span>
+
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span><span class="p">,</span>
+    <span class="nx">BrowserAnimationsModule</span>  <span class="c1">// BrowserAnimationsModule 추가</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 사용할 Component import</strong></p>
+
+<p>설치가 다 되었으니 이제 사용할 Angular Material Module을 import해야 합니다.
+사실 이부분은 나중에 View에 대한 HTML을 작성할 때 해야 되는 작업입니다. 어떤 Component를 이용하여 View를 구성할지
+결정이 되어야 import할 수 있기 때문이지요.</p>
+
+<p>나중에 추가할 내용이지만 일단 하나만 먼저 연습삼아 추가해보도록 하겠습니다. 
+여기서 사용할 것은 <code class="highlighter-rouge">Table</code> Component입니다. 해당 Component를 사용하기 위해 import하는 작업이 필요합니다.
+추후에 구현에 필요한 Component들이 더 추가되어야 하는데 이런 Component들은 실습을 진행하면서 추가하도록 하겠습니다.</p>
+
+<p>우리 project에서 <code class="highlighter-rouge">src/app</code> 폴더 안에 있는 Root Module인 <code class="highlighter-rouge">app.module.ts</code> 파일을 열어 다음과 같이 수정합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="c1">// BrowserAnimationsModule import 구문 추가</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserAnimationsModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser/animations'</span><span class="p">;</span>
+
+<span class="c1">// MatTableModule import 구문 추가</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/table'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span><span class="p">,</span>
+    <span class="nx">BrowserAnimationsModule</span><span class="p">,</span>  <span class="c1">// BrowserAnimationsModule 추가</span>
+    <span class="nx">MatTableModule</span>            <span class="c1">// MatTableModule 추가</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 사용할 Theme 설정</strong></p>
+
+<p>application에 적용할 Theme를 설정해 보도록 하죠. 기본적으로 제공되는 
+built-in theme는 현재 4가지가 존재하는데 그 중 하나를 설정하시면 됩니다.</p>
+
+<p>우리는 Angular CLI를 이용하고 있기 때문에 <code class="highlighter-rouge">src</code> 폴더 안에 있는 <code class="highlighter-rouge">style.css</code> 파일을
+열어서 다음의 코드를 넣어주면 됩니다.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="s2">'~@angular/material/prebuilt-themes/indigo-pink.css'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>만약 다른 theme를 이용하고 싶으면 <a href="https://material.angular.io/guide/theming" target="_blank">여기</a>
+를 참조해 다른 이름의 css를 이용하시면 됩니다.</p>
+
+<p>그리고 Angular CLI를 이용하지 않고 application을 만드는 경우에는 <code class="highlighter-rouge">index.html</code>에 <code class="highlighter-rouge">&lt;link&gt;</code> Element를 이용하여
+CSS를 참조시켜야  합니다. 이 부분 역시 <a href="https://material.angular.io/guide/theming" target="_blank">여기</a>를
+클릭하시면 내용을 찾으실 수 있습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Gestures 지원을 위한 HammerJS 설치</strong></p>
+
+<p>사용자 Gestures를 지원하기 위해 몇몇개의 Material Component들은 HammerJS에 의존하고 있습니다. 그렇게 
+때문에 이 HammerJS 역시 설치하고 설정까지 잡아줘야 합니다.</p>
+
+<blockquote>
+  <p><strong>npm install --save hammerjs</strong></p>
+</blockquote>
+
+<p>설치가 끝나면 우리 application의 시작지점(entry point)인 <code class="highlighter-rouge">main.ts</code> 파일을 열어서 제일 상단에
+다음과 같은 코드를 추가해 줘야 합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// hammerjs import 추가</span>
+<span class="k">import</span> <span class="s1">'hammerjs'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">enableProdMode</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">platformBrowserDynamic</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser-dynamic'</span><span class="p">;</span>
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app/app.module'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">environment</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./environments/environment'</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">environment</span><span class="p">.</span><span class="nx">production</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">enableProdMode</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">platformBrowserDynamic</span><span class="p">().</span><span class="nx">bootstrapModule</span><span class="p">(</span><span class="nx">AppModule</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Material Icon 사용을 위한 설정</strong></p>
+
+<p>Material은 쉽게 사용할 수 있는 Icon을 제공해 줍니다. 
+마치 <a href="./css-fontawesome-list.html" target="_blank">Font-Awesome</a>처럼 
+사용할 수 있습니다. Material Icon을 사용하기 위해서는 <code class="highlighter-rouge">index.html</code>을 다음과 같이 수정합니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>BookSearchAngular<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;base</span> <span class="na">href=</span><span class="s">"/"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"icon"</span> <span class="na">type=</span><span class="s">"image/x-icon"</span> <span class="na">href=</span><span class="s">"favicon.ico"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Material Icon 설정 --&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"https://fonts.googleapis.com/icon?family=Material+Icons"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;app-root&gt;&lt;/app-root&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Material Icon의 사용방법에 대한 자세한 내용은 <a href="https://google.github.io/material-design-icons/" target="_blank">여기</a>
+를 확인해 보시면 됩니다.</p>
+
+<hr />
+
+<p><code class="highlighter-rouge">Angular Material</code>을 사용하기 위한 설정이 끝났습니다. 
+이제 <a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a>의 
+Components 메뉴를 클릭해 사용할 Component의 종류와 사용방법을 찾아 적절하게 작성만 해 주면 될 듯 싶습니다. 다음 포스트에서
+Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 하겠습니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Angular 강좌(3) - Component</title>
+	  <link>https://moon9342.github.io/angular-lecture-component</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+				
+		
+	  <pubDate>2018-01-31T17:10:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-component</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component 개요</strong></p>
+
+<p><code class="highlighter-rouge">Angular</code>는 front end web application framework입니다.</p>
+
+<p>우리는 Angular로 Web Browser상에서 동작하는 Client가 사용하는 응용 프로그램을 만들어 낼 수 있습니다. 
+이런 프로그램은 사용자가 직접 접근할 수 있는 <code class="highlighter-rouge">View</code>라는 것을 가지고 동작합니다.</p>
+
+<p>전체 웹 어플리케이션 화면이 하나의 View가 될 수도 있고 어플리케이션 화면의 기능이나 목적에 따라 
+세부 View들로 분할 되어 웹 어플리케이션의 화면을 구성할 수 도 있습니다.</p>
+
+<p>예를 들면 다음과 같이 View를 분할해서 화면을 구성할 수 있습니다.</p>
+
+<p><img src="assets/built/images/view-layout.png" alt="view layout" /></p>
+<div class="img-reference">( 이미지 출처 : https://msdn.microsoft.com )</div>
+
+<p>위의 그림에서 A는 로고영역, B는 사진에 대한 설명영역, C는 주 사진보기 영역, D는 컬렉션에 있는 다른 사진의 미리보기
+영역입니다.</p>
+
+<p>이렇듯 우리는 화면을 여러 View들로 분할해서 구성할 수 있다는 것이죠.</p>
+
+<p>분할된 View들은 결국 <strong>Angular에서 <code class="highlighter-rouge">Component</code>의 단위</strong>가 됩니다. 실제로 Component는 View를 rendering하는 주체가 되기 때문에
+어떤 정보로 View를 rendering할 것인가에 대한 정보를 가지고 있어야 합니다. 이 정보를 우리는 <code class="highlighter-rouge">Template</code>이라는 것으로 표현합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Template</strong></p>
+
+<p><code class="highlighter-rouge">Template</code>은 View를 rendering하기 위해 필요한 HTML Element와 Angular의 문법요소 그리고 클라이언트 이벤트 처리 코드를 
+담고 있습니다.</p>
+
+<blockquote>
+  <p>Application 실행 시 Angular는 Component와 Template의 정보를 이용하여 View를 그리게 됩니다.</p>
+</blockquote>
+
+<p><img src="assets/built/images/angular-template.png" alt="angular template" /></p>
+<div class="img-reference">( 이미지 출처 : https://angular.io/guide/architecture )</div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component - class</strong></p>
+
+<p>기존에 만들어 놓았던 bookSearch-angular app을 살펴보면서 코드상으로 Component를 이해해보죠. WebStorm에서 우리가
+작성한 프로젝트를 보면 <code class="highlighter-rouge">src</code> 폴더가 보입니다. 이 <code class="highlighter-rouge">src</code>폴더를 보면 <code class="highlighter-rouge">index.html</code> 파일이 존재하는데 이 파일이 우리 app의
+시작파일이라고 생각하시면 됩니다. 즉, http://localhost:4200 으로 접속하면 rendering되는 파일이 바로 이 <code class="highlighter-rouge">index.html</code>입니다.</p>
+
+<p>아래의 내용은 <code class="highlighter-rouge">index.html</code> 입니다.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>BookSearchAngular<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;base</span> <span class="na">href=</span><span class="s">"/"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"icon"</span> <span class="na">type=</span><span class="s">"image/x-icon"</span> <span class="na">href=</span><span class="s">"favicon.ico"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;app-root&gt;&lt;/app-root&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code>라는 태그 대신에 특정 내용이 화면에 보이는 구조이군요. 즉, <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code>이 하나의 
+View라는 의미입니다. 당연히 그에 대응되는 Component가 존재하겠네요.</p>
+
+<p><code class="highlighter-rouge">src/app</code> 폴더에 보면 <code class="highlighter-rouge">app.component.ts</code> 파일이 있습니다. Component를 정의한 파일이고 TypeScript로 작성되어 있기 때문에
+확장자는 <code class="highlighter-rouge">.ts</code>를 이용합니다. 파일을 열어보면 다음과 같은 내용이 들어있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-root'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./app.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./app.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppComponent</span> <span class="p">{</span>
+  <span class="nx">title</span> <span class="o">=</span> <span class="s1">'app'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>코드에서 맨 마지막에 나타나듯이 Component는 <code class="highlighter-rouge">class</code>입니다. 하지만 무조건 class를 선언한다고 해서
+해당 class가 Component가 되는것은 아닙니다. 이 class가 Component로 사용된다는 것을 Angular에게
+알려주어야 Angular가 Component로 동작을 시킬수 있을 겁니다. 그래서 특정 표현을 이용해 
+해당 class가 Component임을 Angular에게 알려주어야 합니다.</p>
+
+<p><code class="highlighter-rouge">@Component</code>라고 표현되는 부분이 바로 <code class="highlighter-rouge">Component Decorator</code>입니다. 무언가와 많이 비슷하죠? Java의
+Annotation 생각하시면 됩니다. class상단에 Component Decorator를 이용해 Angular가 해당 class를 Component로
+인지할 수 있도록 합니다.</p>
+
+<p><code class="highlighter-rouge">@Component</code>를 이용하려면 당연히 Component Decorator를 사용할 수 있는 상태여야 하고 이 Component Decorator는
+<code class="highlighter-rouge">@angular/core</code>라고 표현되는 Angluar Core package에서 제공합니다. 해서 아래와 같은 코드가 필요합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+</code></pre></div></div>
+<p>위의 코드는 Component Decorator를 사용하기 위해 import 한 것입니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component - Metadata</strong></p>
+
+<p>위에서 Component Decorator에 대해서 알아봤는데 이 Component Decorator를 이용해 설정 정보를 Angular Framework에게
+전달할 수 있습니다. 이를 <code class="highlighter-rouge">Metadata</code>라고 하며 다음과 같은 코드로 표현됩니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-root'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./app.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./app.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Component Decorator안에 표현될 수 있는 metadata는 사실 상당히 종류가 많지만 필수요소는 없습니다. 하지만 <code class="highlighter-rouge">selector</code>와 
+<code class="highlighter-rouge">template 정보</code>는 존재하지 않으면 화면에 표현이 되지 않기 때문에 거의 필수요소라 볼 수 있습니다.</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">selector</code> : template 코드안에서 해당 Component를 이용할 때 사용할 HTML Element명을 정의합니다. 위와 같은 경우 
+해당 Component는 <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code> HTML Element로 사용할 수 있습니다.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">template 정보</code> :  <code class="highlighter-rouge">template</code> 혹은 <code class="highlighter-rouge">templateUrl</code>을 이용할 수 있습니다. <code class="highlighter-rouge">template</code>은 View를 rendering할 때 필요한
+HTML을 inline형태로 직접 기술할 때 사용됩니다. <code class="highlighter-rouge">templateUrl</code>은 template code를 따로 HTML 파일로 분리해서 작성할 때 사용합니다.</p>
+  </li>
+</ul>
+
+<p>위의 예제에서는 사용할 css파일에 대한 <code class="highlighter-rouge">styleUrls</code>도 같이 지정해 놓았습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Module &amp; Bootstrapping</strong></p>
+
+<p><code class="highlighter-rouge">Bootstrapping</code>이란 browser에서 application이 최초로 실행될 때 진행되는 과정을 의미합니다. 우리가 작성한 Component는
+application이 bootstrapping될 때 Angular에 의해서 제어되게 됩니다.</p>
+
+<p>Angular에는 <code class="highlighter-rouge">Module</code> 개념이 있습니다. Module은 Application을 구성하는 단위로 관련된 요소를 하나로 묶어 놓은 것으로 생각하시면
+됩니다. Angular는 Module단위로 application 코드를 인식하기 때문에 모든 Angular application은 반드시 하나 이상의 Module을 
+가지게 되며 최상위 모듈을 우리는 <code class="highlighter-rouge">Root Module</code>이라고 부릅니다.</p>
+
+<blockquote>
+  <p><strong>이러한 Module안에 Component와 같은 것들을 선언해 놓아야 비로소 사용할 수 있게 됩니다.</strong></p>
+</blockquote>
+
+<p><code class="highlighter-rouge">Root Module</code>은 관례상 <code class="highlighter-rouge">AppModule</code>이라 명하고 class로 표현하게 됩니다. <code class="highlighter-rouge">src/app</code> 폴더안에 <code class="highlighter-rouge">app.module.ts</code> 파일이 존재하는데
+이 파일안에 Root Module이 정의되어 있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">AppComponent</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+    <span class="nx">BrowserModule</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Angular CLI로 생성한 우리 project의 <code class="highlighter-rouge">app.module.ts</code> 파일 내용입니다. 보시는 것처럼 <code class="highlighter-rouge">AppModule</code> class가 정의되어 있고
+상단에 <code class="highlighter-rouge">@NgModule</code> Decorator를 이용하여 우리의 class가 Module임을 명시했습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">AppComponent</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./app.component'</span><span class="p">;</span>
+</code></pre></div></div>
+<p>위의 코드는 아까 살펴본 Component인 <code class="highlighter-rouge">app.component.ts</code> 파일로부터 AppComponent class를 import하는 부분입니다. 
+이렇게 import한 class를 Module안에서 <code class="highlighter-rouge">declarations</code>를 이용해 선언해서 사용하게 됩니다.</p>
+
+<p><code class="highlighter-rouge">@NgModule</code> Decorator의 metadata 중 <code class="highlighter-rouge">bootstrap</code>은 application이 bootstrapping할 때 어떤 Component를 사용할 것인지를
+배열로 선언합니다. 즉, <code class="highlighter-rouge">bootstrap</code>은 browser가 최초로 index.html을 읽어들여 application을 시작할 때 사용할 
+Component를 명시하게 됩니다.</p>
+
+<p>이렇게 <code class="highlighter-rouge">@NgModule</code> Decorator의 metadata에 Component를 등록하는 이유는 Angular가 application 실행 시 <code class="highlighter-rouge">.ts</code>로 작성한 
+우리 코드를 <code class="highlighter-rouge">JavaScript</code> 코드로 compile할 때 필요하기 때문입니다.</p>
+
+<p>마지막으로 <code class="highlighter-rouge">src/main.ts</code> 파일을 열어보면 다음과 같은 코드를 볼 수 있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">platformBrowserDynamic</span><span class="p">().</span><span class="nx">bootstrapModule</span><span class="p">(</span><span class="nx">AppModule</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>Angular는 저 위의 코드로 <code class="highlighter-rouge">AppModule</code>을 읽어들이고 Module안에 등록된 여러 Component들을 <code class="highlighter-rouge">JavaScript</code> 코드로 compile하게
+되는 것 입니다.</p>
+
+<blockquote>
+  <p>지금까지 살펴본 것처럼 만약 Angular CLI를 이용하지 않으면 우리가 <code class="highlighter-rouge">.ts</code> 파일을 만들어서 등록하는 과정을 직접해야
+합니다. Angular CLI를 이용하면 기본 Skeleton 코드의 생성과 등록절차까지 자동으로 처리되게 됩니다.</p>
+</blockquote>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component Tree</strong></p>
+
+<p>위의 설명을 좀 정리해 보면 다음과 같습니다.</p>
+
+<p>Angular application안에는 여러 View들이 존재할 수 있습니다. 개념적으로 하나의 
+View안에 여러개의 View들이 child형태로 존재할 수 도 있겠지요. View는 Component와 대응된다고 했으니 결국 Component안에
+Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 우리는 <code class="highlighter-rouge">Component Tree</code>라고 합니다.</p>
+
+<p>그림으로 표현하자면 다음과 같이 표현될 수 있습니다.</p>
+
+<p><img src="assets/built/images/component-tree.png" alt="view layout" /></p>
+<div class="img-reference">( 이미지 출처 : https://angular.io/guide/architecture )</div>
+
+<p>좀 어렵게 표현하자면 application의 화면구성을 끝내면 그 내용을 토대로 View를 결정해서 Component단위로 Modeling 해야
+합니다.</p>
+
+<hr />
+
+<p>이번 포스트에서는 Component에 대해서 알아보았습니다. 여기까지의 내용을 가지고 간단한 실습을 진행하고 그 다음 내용으로
+넘어가야 될 듯 보입니다. 실습을 진행하기에 앞서 <code class="highlighter-rouge">Angular Material</code>에 대해 먼저 알아보고 Material을 이용하여 
+도서 검색 application에 맞게 화면을 분할 하고 Component를 생성하는 실습을 진행하도록 하겠습니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Angular 강좌(2) - 개발환경세팅</title>
+	  <link>https://moon9342.github.io/angular-lecture-development-environment</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+				
+		
+	  <pubDate>2018-01-31T14:11:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-development-environment</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular 개발환경 - Node.js, WebStorm, TypeScript</strong></p>
+
+<p>이번 포스트에서는 <code class="highlighter-rouge">Angualr</code>의 개발환경을 세팅하고 <code class="highlighter-rouge">Angular CLI</code>를 이용하여 기본적인 Hello World App을 
+생성, 실행하는 것까지 진행하도록 하겠습니다.</p>
+
+<p>제일 먼저 해야 할 일은 Node.js를 설치하는 것입니다. Angular CLI와 TypeScript가 node module로 존재하기 때문에
+<code class="highlighter-rouge">npm</code>을 이용하여 이 두가지를 설치해야 합니다.</p>
+
+<p>먼저 <a href="https://nodejs.org/" target="_blank">Node.js</a>사이트에 접속해 LTS 버전이나 최신버전 둘 중 하나를 선택해
+다운로드 합니다. (어떤것을 설치해도 상관없습니다.)
+<img src="assets/built/images/nodejs-download.jpg" alt="nodejs download" /></p>
+
+<p>저는 LTS 버전으로 다운로드 했습니다. 다운로드가 끝나면 기본 형태로 설치를 진행합니다. 설치가 끝나면
+<code class="highlighter-rouge">C:/Program Files/nodejs</code> 폴더가 만들어지게 됩니다.</p>
+
+<p>이제 command 창을 열어서 다음과 같이 명령어를 실행해봅니다.</p>
+
+<blockquote>
+  <p><strong>npm</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/nodejs-npm.png" alt="nodejs_npm" /></p>
+
+<p><code class="highlighter-rouge">npm</code>(Node Package Manager)이 정상적으로 동작하면 이제 npm을 이용해 typescript를 설치할 수 있습니다.
+설치는 local mode와 global mode로 설치가 가능합니다. 여기서는 편의상 global mode로 설치합니다.
+(일반적으로는 local mode를 선호합니다.)</p>
+
+<p>command 창에서 다음과 같이 명령어를 이용해 typescript를 <code class="highlighter-rouge">global</code>로 설치합니다.</p>
+
+<blockquote>
+  <p><strong>npm install -g typescript</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/nodejs-npm-typescript.png" alt="nodejs_npm_typescript" /></p>
+
+<p><code class="highlighter-rouge">typescript 2.6.2</code>가 설치되었습니다.</p>
+
+<blockquote>
+  <p>global mode로 설치하면 windows 시스템을 기준으로 <code class="highlighter-rouge">$USER_HOME/AppData/Roaming/npm/node_modules</code>에 
+설치됩니다.</p>
+</blockquote>
+
+<p>이제 사용할 <code class="highlighter-rouge">IDE</code>(Integrated Development Environment)를 설치합니다. 여기서는 <code class="highlighter-rouge">WebStorm</code>(유료)을 이용합니다.
+<code class="highlighter-rouge">Visual Studio Code</code>(무료)를 사용하셔도 됩니다. WebStorm은 유료이지만 30일 trial을 사용할 수 있고 Student license로
+1년간 무료로 사용할 수 도 있습니다. 개인적으로는 비용이 좀 들지만 WebStorm을 추천합니다.</p>
+
+<p><a href="https://www.jetbrains.com/" target="_blank">JetBrains</a>사이트로 접속한 후 
+<a href="https://www.jetbrains.com/webstorm" target="_blank">WebStorm</a>을 다운로드 받습니다.</p>
+
+<p>다운로드가 완료되면 기본형태로 설치합니다. 설치가 끝나면 프로젝트를 생성할 수 있는 화면이 나오게 되는데 
+일단 이 화면에서 대기합니다. 프로젝트는 Angular CLI를 이용해서 생성합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular 개발환경 - Angular CLI</strong></p>
+
+<p>일반적으로 <code class="highlighter-rouge">Framework</code>를 도입할 때 가장 힘든점 중 하나는 개발환경 구축입니다. 기본적인
+폴더구조를 숙지해서 만들어야 하고 기본적으로 사용되는 설정 파일들도 다수 존재합니다. 대부분 머가먼지 알기 힘들죠.
+코드를 작성한 후 Build 설정, Bundler 설정, 테스팅과 배포등 너무 많은 일을 해야하고 설정방법 또한 너무 많고 복잡합니다.</p>
+
+<p>Angular 역시 마찬가지입니다. Mike Brocchi( Angular CLI contributor )의 Twitter 설문을 예로 들어보죠.</p>
+
+<p><img src="assets/built/images/what-is-angular-barrier.png" alt="what is angular barrier" /></p>
+
+<p>Angular는 <code class="highlighter-rouge">Angular CLI</code>를 제공함으로 이런 복잡함을 해결하고 있습니다. Angular CLI를 이용할 경우와 그렇지 않는 경우를 
+간단히 그림으로 표현하면 다음과 같습니다.</p>
+
+<p><img src="assets/built/images/using-angular-cli.png" alt="with angular CLI" /></p>
+<div class="img-reference">( 이미지 출처 : https://www.quora.com/What-is-Angular-CLI )</div>
+
+<p>Angular Project를 쉽게 생성하고 프로젝트를 시작하기 위한 
+<code class="highlighter-rouge">scaffolding</code>을 포함해서 다양한 기능을 제공하는 것이 바로 Angular CLI입니다. 사실 쓰지 않을 이유가 없습니다.</p>
+
+<p>그럼 Angular CLI를 설치해보도록 하죠. command 창을 열어서 다음과 같이 실행합니다.</p>
+
+<blockquote>
+  <p><strong>npm install -g @angular/cli</strong></p>
+</blockquote>
+
+<p><code class="highlighter-rouge">npm</code>을 이용하여 Angular CLI를 global로 설치합니다. 설치하는데 시간이 좀 걸립니다. 설치가 끝나면 
+다음과 같이 입력해서 Angular CLI의 버전을 확인해 보세요.</p>
+
+<blockquote>
+  <p><strong>ng --version</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/angular-cli-version.png" alt="Angular CLI version" /></p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular 프로젝트 생성</strong></p>
+
+<p>Angular CLI의 설치가 끝났으니 이제 Angular CLI를 이용하여 프로젝트를 하나 생성합니다. 프로젝트명은 
+<code class="highlighter-rouge">bookSearch-angular</code>로 하겠습니니다. 프로젝트 폴더는 <code class="highlighter-rouge">D:/bookSearch-angular</code>로 생성할 것이기 때문에 
+저는 현재 command창의 working directory를 <code class="highlighter-rouge">D:/</code>로 잡아놓고 다음과 같이 입력합니다.</p>
+
+<blockquote>
+  <p><strong>ng new bookSearch-angular</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/angular-cli-new-project.png" alt="Angular CLI new project" /></p>
+
+<p>시간이 제법 오래 걸립니다. 필요한 모듈들을 <code class="highlighter-rouge">npm</code>을 이용해 다운로드 받기 때문입니다. 프로젝트 생성이 끝나면
+자동으로 생성된 설정 파일과 기본 Skeleton 코드가 프로젝트 폴더안에 위치하게 됩니다.</p>
+
+<blockquote>
+  <p>Angular CLI는 나름대로의 Coding Convention을 가지고 있습니다. 그 규칙에 대해서는 나중에 다른
+포스트에서 알아보겠습니다.</p>
+</blockquote>
+
+<p>이렇게 Angular CLI를 이용해서 프로젝트를 생성할 수 있는데 이 프로젝트 구조와 Coding Convention이 
+Angular의 표준형태라고 보시면 됩니다.</p>
+
+<p>설정파일에 대한 내용은 조금 나중에 다시 보기로 하고 일단 WebStorm으로 해당 프로젝트 폴더를 open합니다.
+아래의 그림처럼 WebStorm에서 프로젝트 폴더가 보이게 됩니다.</p>
+
+<p><img src="assets/built/images/webstorm-angular-project-init.png" alt="WebStorm Angular project" /></p>
+
+<p>기본적으로 <code class="highlighter-rouge">Git</code> Repository가 같이 생성됩니다. 꼭 그렇게 하실 필요는 없지만 가능한 <code class="highlighter-rouge">Git</code>과 <code class="highlighter-rouge">GitHub</code>를
+이용하여 Project의 버전관리를 하시는게 좋습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 개발환경 서버를 이용한 Angular 프로젝트 실행</strong></p>
+
+<p>command 창을 열어 프로젝트 root로 working directory를 이동시킨 후 다음의 명령을 실행하면 Webpack을 이용하여 
+우리 소스를 bundling하고 로컬 웹서버를 이용하여 우리 프로젝트를 서비스하게 됩니다.</p>
+
+<blockquote>
+  <p><strong>ng serve</strong></p>
+</blockquote>
+
+<p>명령 수행이 끝나면 <strong>webpack: Compiled successfully.</strong> 메시지가 출력됩니다. 이제 browser를 실행시켜 
+다음 URL로 접속해 정상적으로 출력되는지 확인하시면 됩니다.</p>
+
+<blockquote>
+  <p><strong>http://localhost:4200</strong></p>
+</blockquote>
+
+<p>참고로 아래와 같이 <code class="highlighter-rouge">--o</code> option을 이용해서 <code class="highlighter-rouge">ng serve</code>를 실행시키면 default browser를 실행시켜서 
+해당 URL에 접속해 결과를 쉽게 확인할 수 있습니다.</p>
+
+<blockquote>
+  <p><strong>ng serve --o</strong></p>
+</blockquote>
+
+<p><img src="assets/built/images/angular-project-run.png" alt="Angular project run" /></p>
+
+<hr />
+
+<p>이번 포스트에서는 Angular application을 개발하기 위한 개발환경을 구축했습니다. 
+우리 강좌에서는 <strong>Testing과 관련된 사항은 다루지 않을 예정입니다.</strong> Testing과 관련된 사항은
+추후에 다른 포스트에서 다루도록 하겠습니다.</p>
+
+<p>이제 기본으로 만들어진 Application을 조금씩 수정하면서 우리의 첫 Angular 프로그램을 완성해 나가면 될 듯 합니다.</p>
+
+<p>너무 복잡하게 진행되는걸 피하기 위해 따로 설명은 하지 않았지만 위에서 언급한대로 <code class="highlighter-rouge">Git</code>과 <code class="highlighter-rouge">GitHub</code>를 이용해서 
+코드를 관리하시는게 좋지 않을까 생각됩니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Angular 강좌(1) - Introduction</title>
+	  <link>https://moon9342.github.io/angular-lecture-introduction</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+				
+		
+	  <pubDate>2018-01-31T10:04:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-introduction</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular Version</strong></p>
+
+<p><code class="highlighter-rouge">Angualr</code>의 History와 개요부터 간단하게 살펴보겠습니다.</p>
+
+<p><code class="highlighter-rouge">Angular</code>는 JavaScript based open source front end web application framework 입니다. 길기도 하네요. 
+초기 버전인 <code class="highlighter-rouge">AngularJS</code>는 2010년 발표되었습니다. 지금은 <code class="highlighter-rouge">Angular 1</code>이라고 표현하기도 합니다. 
+버전 정책이 AngularJS 1.x로 올라가는 것이죠. 그렇게 발전해오다가
+2016년에 <code class="highlighter-rouge">Angular 2</code>가 정식으로 출시되었습니다. 그러면서 Angular 2라고 명시하지 않고 <code class="highlighter-rouge">Angular</code>라는 이름으로 호명하기로
+결정합니다. 지금 우리가 Angular라고 부르는 것은 모두 Angular 2 이후 버전입니다. 2017년 3월에 <code class="highlighter-rouge">Angular 4</code>가 release되었고 
+현재(2018년 1월)기준으로 <code class="highlighter-rouge">Angular 5</code> 까지 나온 상태입니다.</p>
+
+<blockquote>
+  <p>2017년 12월 3일부로 다음의 사항들이 <strong>정식</strong>으로 release되었습니다.</p>
+  <ul>
+    <li>Angular 5.1.0</li>
+    <li>Angular CLI 1.6.0</li>
+    <li>Angualr Material</li>
+    <li>Angular Material CDK(component dev kit)</li>
+  </ul>
+</blockquote>
+
+<p>정리를 하자면 <code class="highlighter-rouge">AngularJS</code>라고 표현되는 Angular 1은 버전정책이 AngularJS 1.0, AngularJS 1.1, AngularJS 1.2, … 이렇게 
+올라가고 <code class="highlighter-rouge">Angular</code>라고 표현되는 Angular 2는 버전정책이 Angular 2, Angular 3, Angular 4, … 이렇게 올라갑니다. 
+Angular 3는 Router issue때문에 release가 최소되었습니다. 그래서 Angular 2 다음 버전이 Angular 4가 됩니다. 
+2017년 11월에 release된 Angular 5는 Angular 2의 3번째 Major 배포판 이라는 말이지요.</p>
+
+<p>기존의 <code class="highlighter-rouge">AngularJS</code>와 지금의 <code class="highlighter-rouge">Angular</code>는 Architecture측면이나 구현측면에서 큰 차이가 있습니다. 그렇기 때문에 Angular 2가 아키텍쳐가
+발표되었을 때 많은 AngularJS 개발자들이 황당해 했던것도 사실입니다. 여하간 AngularJS는 역사속으로 사라지고 있습니다. 
+사실 Google에서도 AngularJS 시절에는 내부적으로 AngulraJS를 사용하지 않았습니다. 하지만 Angular로 넘어오면서 자사의 개발자체도
+Angular로 진행하고 있고 Angular를 단지 web framework에서만 사용하는 기술이 아닌 모든 platform에 대응할 수 있는 형태로 
+발전시킬려고 노력하고 있습니다.</p>
+
+<blockquote>
+  <p><strong>다음은 기존의 AngularJS와 지금의 Angular의 중요 차이점 중 몇가지 입니다.</strong></p>
+  <ul>
+    <li>AngularJS의 Controller와 $scope 기반 개발방식에서 Angular의 컴포넌트 기반 
+개발방식(<code class="highlighter-rouge">CBD</code>, Component Based Development)으로 개발방법 변경되었습니다.</li>
+    <li>Angular의 주력 개발 언어로 <code class="highlighter-rouge">TypeScript</code>가 도입되었습니다.</li>
+    <li>Angular는 개발환경 지원도구인 <code class="highlighter-rouge">Angular CLI</code>를 제공합니다.</li>
+  </ul>
+</blockquote>
+
+<p>이외에도 더 많지만 일단 저 위의 3가지만 기억하시면 될 듯 합니다. 저 위의 3가지로 인해 개발 생산성과 성능면에서 큰 향상을
+이루었습니다. 하지만 결정적(?)인 단점이 있습니다. Angular는 대부분의 browser를 지원하고 있는데 <strong><code class="highlighter-rouge">IE</code>의 경우 <code class="highlighter-rouge">9</code>버전 이상부터 
+지원</strong>합니다. 따라서 Cross Browsing의 issue를 가지고 있습니다.</p>
+
+<p>아참..로고도 바꾸었습니다. 테두리가 있는 방패모양의 로고에서 테두리를 빼고 <code class="highlighter-rouge">A</code>글자를 흰색으로 바꾸었습니다. ^^;;
+<img src="assets/built/images/angularjs-angular2-logo-change.jpg" alt="AngularJS to Angular" /></p>
+<div class="img-reference">( 이미지출처 : http://nodesimplified.com/angularjs-to-angular/ )</div>
+
+<p>이 <a href="https://github.com/angular/angular/blob/master/CHANGELOG.md" target="_blank">링크</a>를 
+클릭해 보시면 Angular의 버전 업데이트에 대한 <code class="highlighter-rouge">ChangeLog</code>를 확인할 수 있습니다. 
+일 무지 열심히 하네요. 따라가기 힘들정도입니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular 학습을 위한 pre-requisite</strong></p>
+
+<p>Angular는 <code class="highlighter-rouge">Steep Learning Curve</code>를 가집니다. 배우기가 힘들다는 거죠. 적어도 기본적인 <code class="highlighter-rouge">JavaScript</code> 개발에 대한 지식과
+<code class="highlighter-rouge">TypeScript</code>에 대한 지식, 그리고 객체지향개발(<code class="highlighter-rouge">OOP</code>)에 대한 지식을 필수로 요구합니다. 물론 Angular를 배우면서 같이 하면 
+되긴 하지만 힘든건 사실입니다.</p>
+
+<p>해서 Angular 강좌 역시 기본적으로 다음과 같은 선행지식을 필요로 합니다.</p>
+<ul>
+  <li><code class="highlighter-rouge">JavaScript</code></li>
+  <li><code class="highlighter-rouge">TypeScript</code></li>
+  <li><code class="highlighter-rouge">OOP</code>(Object Oriented Programming)</li>
+  <li>Front End 개발 도구 ( <code class="highlighter-rouge">npm</code>, <code class="highlighter-rouge">babel</code>, <code class="highlighter-rouge">webpack</code>, <code class="highlighter-rouge">gulp</code> 등등)</li>
+</ul>
+
+<p>참고로 이 <a href="./front-end-ecosystem.html" target="_blank">링크</a>에 가보시면 현재 Front End 개발환경에 대한 간단한 
+포스트를 보실 수 있습니다. 
+또한 이 <a href="./typescript-introduction.html" target="_blank">링크</a>에 가보시면 TypeScript에 대한 강좌 역시 보실 수 있습니다.</p>
+
+<p>말은 어렵다고 했지만 하다보면 또 그냥 저냥 하게 됩니다. 일단 기본적인 소개는 이정도로 하고 다음은 개발환경부터
+세팅해 보도록 하겠습니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
 
 </channel>
 </rss>
