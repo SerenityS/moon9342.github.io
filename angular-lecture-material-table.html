@@ -288,10 +288,12 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
 
     <span class="nt">&lt;ng-container</span> <span class="na">matColumnDef=</span><span class="s">"bprice"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> Price <span class="nt">&lt;/mat-header-cell&gt;</span>
-      <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bprice | translatorKrw }} <span class="nt">&lt;/mat-cell&gt;</span>
+      <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bprice}} <span class="nt">&lt;/mat-cell&gt;</span>
     <span class="nt">&lt;/ng-container&gt;</span>
 
-    <span class="nt">&lt;mat-header-row</span> <span class="na">class=</span><span class="s">"list-header-style"</span> <span class="err">*</span><span class="na">matHeaderRowDef=</span><span class="s">"displayedColumns"</span><span class="nt">&gt;&lt;/mat-header-row&gt;</span>
+    <span class="nt">&lt;mat-header-row</span> <span class="na">class=</span><span class="s">"list-header-style"</span> 
+                    <span class="err">*</span><span class="na">matHeaderRowDef=</span><span class="s">"displayedColumns"</span><span class="nt">&gt;</span>                  
+    <span class="nt">&lt;/mat-header-row&gt;</span>
     <span class="nt">&lt;mat-row</span> <span class="err">*</span><span class="na">matRowDef=</span><span class="s">"let row; columns: displayedColumns;"</span><span class="nt">&gt;&lt;/mat-row&gt;</span>
   <span class="nt">&lt;/mat-table&gt;</span>
 
@@ -322,6 +324,137 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
 
 <p>Property binding을 이용하여 Component에 있는 <code class="highlighter-rouge">dataSource</code>라는 속성과 연결시켰습니다. 이 <code class="highlighter-rouge">dataSource</code>라는 속성은
 도서정보에 대한 객체배열을 이용해서 만든 <code class="highlighter-rouge">MatTableDataSource</code> class의 객체입니다. <code class="highlighter-rouge">JSON</code> 데이터를 가져와서 만든객체입니다.</p>
+
+<p>마지막으로 <code class="highlighter-rouge">list-box.compoennt.ts</code>파일의 내용입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableDataSource</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Http</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/http'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatPaginator</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ViewChild</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-list-box'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./list-box.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./list-box.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">ListBoxComponent</span> <span class="p">{</span>
+
+  <span class="nx">displayedColumns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'bisbn'</span><span class="p">,</span> <span class="s1">'btitle'</span><span class="p">,</span> <span class="s1">'bauthor'</span><span class="p">,</span> <span class="s1">'bprice'</span><span class="p">];</span>
+  <span class="nl">books</span><span class="p">:</span> <span class="nx">Element</span><span class="p">[];</span>
+  <span class="nx">dataSource</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">http</span><span class="p">:</span> <span class="nx">Http</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/assets/data/book.json'</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">books</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MatTableDataSource</span><span class="o">&lt;</span><span class="nx">Element</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">books</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span><span class="p">.</span><span class="nx">paginator</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">paginator</span><span class="p">;</span>
+      <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="p">@</span><span class="nd">ViewChild</span><span class="p">(</span><span class="nx">MatPaginator</span><span class="p">)</span> <span class="na">paginator</span><span class="p">:</span> <span class="nx">MatPaginator</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kr">interface</span> <span class="nx">Element</span> <span class="p">{</span>
+  <span class="na">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bdate</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">btranslator</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bpublisher</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bprice</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">bisbn</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bimgurl</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Code Review</strong></p>
+
+<blockquote>
+  <p>원래 Code Review란 표현은 Code Inspection에서 기인한 용어로 <strong>코드를 실제로 실행하지 않고 사람이 검토하는 과정을 통해
+논리적인 잠재 오류를 찾아내고 이를 개선하는 작업</strong>을 지칭합니다.</p>
+</blockquote>
+
+<p>그런데 여기서는 그냥 위의 코드를 살펴보자는 의미로 사용했습니다. ^^;;</p>
+
+<p>코드를 좀 간단히 설명해보죠.</p>
+
+<p>먼저 Table을 생성하는 구문은 다음과 같습니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;mat-table</span> <span class="err">[</span><span class="na">dataSource</span><span class="err">]="</span><span class="na">dataArray</span><span class="err">"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/mat-table&gt;</span>
+</code></pre></div></div>
+
+<p>위의 코드에서 <code class="highlighter-rouge">dataArray</code>라고 되어있는 부분이 실제 Table에 rendering되는 데이터입니다. 배열형태로 되어 있고 배열안의
+각각의 객체를 <code class="highlighter-rouge">row</code>로 가져와서 화면에 출력하게 됩니다.</p>
+
+<p>다음은 Table의 컬럼을 표현하는 template입니다. 구문은 다음과 같습니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;ng-container</span> <span class="na">matColumnDef=</span><span class="s">"bisbn"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> ISBN <span class="nt">&lt;/mat-header-cell&gt;</span>
+    <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bisbn}} <span class="nt">&lt;/mat-cell&gt;</span>
+<span class="nt">&lt;/ng-container&gt;</span>
+
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">matColumnDef</code> 속성은 사용할 컬럼의 이름입니다. 이 부분은 <code class="highlighter-rouge">list-box.component.ts</code>파일안에 컬럼명에 대한 배열이
+정의되는데 이 부분과 매칭되어야 합니다. 다음은 <code class="highlighter-rouge">list-box.component.ts</code>안에 정의된 컬럼명에 대한 배열입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">displayedColumns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'bisbn'</span><span class="p">,</span> <span class="s1">'btitle'</span><span class="p">,</span> <span class="s1">'bauthor'</span><span class="p">,</span> <span class="s1">'bprice'</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>그리고 아래의 구문에 의해 ISBN 컬럼의 제목과 내용이 출력됩니다. <code class="highlighter-rouge">dataSource</code>에 연결된 모든 <code class="highlighter-rouge">row</code>를 가져와서 <code class="highlighter-rouge">element</code>라는 변수에
+반복적으로 할당 하면서 <code class="highlighter-rouge">element.bisbn</code>값을 테이블에 출력하라는 말입니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> ISBN <span class="nt">&lt;/mat-header-cell&gt;</span>
+<span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span>  <span class="nt">&lt;/mat-cell&gt;</span>
+</code></pre></div></div>
+
+<p>이와 같은 형태로 하나의 컬럼에 대한 데이터를 화면에 출력할 수 있습니다. 우리는 총 4개의 컬럼을 화면에 출력하고 있는 것이죠.</p>
+
+<p><code class="highlighter-rouge">list-box.compoennt.ts</code>에서는 사용할 데이터를 <code class="highlighter-rouge">Http</code>의 get() method로 가져온 후 이를 다음의 코드를 이용해서 
+객체화 시켰습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MatTableDataSource</span><span class="o">&lt;</span><span class="nx">Element</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">books</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong>dataSource와 연결시키기 위해 위에 있는 코드처럼 객체를 생성해서 연결하셔야 합니다.</strong></p>
+
+<p><code class="highlighter-rouge">Paginator</code>의 사용은 코드에 나온것처럼 사용하시면 됩니다. 내부적으로 처리되기 때문에 사용하는 방법만 아시면 충분합니다.</p>
+
+<p><code class="highlighter-rouge">TypeScript</code>를 사용하기 때문에 interface를 이용하여 data type을 명확히 지정했습니다. 이 부분역시 이전 HTML Table Element로
+작업했을 때와는 다르게 처리하셔야 합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 최종 결과 파일</strong></p>
+
+<p>아래는 지금까지 작성된 파일에 대한 소스코드입니다.</p>
+
+<noscript><pre>.bookSearch-outer {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+}
+</pre></noscript>
+<script src="https://gist.github.com/moon9342/7b6311f24f0fb2d50687d7191f62df7a.js"> </script>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 정리</strong></p>
+
+<p>이제 1차적인 작업은 모두 끝났습니다. 논리적인 설명보다는 실제 사용할 화면을 만들면서 필요한 
+개념들에 대해서 그때 그때 설명하는 방식을 취했습니다. 이제 Component간의 상태공유에 대한 문제만 해결되면
+우리의 프로그램은 얼추 완성할 수 있을 듯 보입니다.</p>
+
+<p>조금만 더 진행시켜 일단 프로그램을 완성한 후 세부적인 내용들에 대해서 다시 짚어가며 살펴보도록 하겠습니다.</p>
+
+<p>End.</p>
 
 <hr />
 
