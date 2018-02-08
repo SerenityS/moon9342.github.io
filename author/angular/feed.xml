@@ -46,6 +46,60 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Angular 강좌(9) - Service</title>
+	  <link>https://moon9342.github.io/angular-lecture-service</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+				
+		
+	  <pubDate>2018-02-07T15:45:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-service</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Service를 이용한 데이터 공유</strong></p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Angular 강좌(8) - Material Table</title>
 	  <link>https://moon9342.github.io/angular-lecture-material-table</link>
 		
@@ -76,6 +130,7 @@
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
 </ul>
 
 <hr />
@@ -354,6 +409,7 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
 </ul>
 
 <hr />
@@ -618,6 +674,7 @@ true일 경우 ngIf 가 선언된 Element를 DOM에 추가합니다. 만약 fals
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
 </ul>
 
 <hr />
@@ -1048,6 +1105,7 @@ detail-box Component를 이용해서 한번 알아보죠.</p>
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
 </ul>
 
 <hr />
@@ -1425,6 +1483,7 @@ import해 줍니다.</p>
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
 </ul>
 
 <hr />
@@ -1693,6 +1752,7 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
 </ul>
 
 <hr />
@@ -1963,6 +2023,7 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
 </ul>
 
 <hr />
@@ -2175,6 +2236,7 @@ Angular의 표준형태라고 보시면 됩니다.</p>
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
 </ul>
 
 <hr />
