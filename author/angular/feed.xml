@@ -46,7 +46,7 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
-	  <title>Angular 강좌(9) - Service</title>
+	  <title>Angular 강좌(9) - Service & RxJS</title>
 	  <link>https://moon9342.github.io/angular-lecture-service</link>
 		
 				
@@ -76,12 +76,238 @@
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
-    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
 </ul>
 
 <hr />
 
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> bookSearch 프로그램 완성</strong></p>
+
+<p>이번 포스트는 Component 간의 데이터 공유에 대해서 알아보고 그 내용을 기반으로 우리 Sample 프로그램을
+완성하도록 하겠습니다. 결과적으로 작성한 프로그램은 <a href="./angular-bookSearch/" target="_blank">여기</a>를 
+클릭하시면 실행시켜 보실 수 있습니다.</p>
+
+<p>실행시켜 보시면 이전에 비해 두가지 기능이 추가되었습니다.</p>
+
+<ul>
+  <li>키워드 입력 후 Search버튼을 클릭하면 해당 키워드에 대한 책만 list-box에 출력됩니다.</li>
+  <li>list-box에 출력된 책 중 하나를 선택하면 해당 책에 대한 세부내역을 detail-box에 출력합니다.</li>
+</ul>
+
+<p>이 두가지 기능을 <code class="highlighter-rouge">Service</code>와 <code class="highlighter-rouge">RxJS</code>를 이용하여 처리해 보겠습니다. Service의 사용과 RxJS를 처리하는 부분은 
+일단 코드상으로 어떤 기능을 하는지 알아두시고 개념적인 설명은 나중에 다른 포스트에서 진행하도록 하겠습니다.</p>
+
+<p>그럼 천천히 한번 살펴보기로 하죠.</p>
+
+<hr />
+
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Service를 이용한 데이터 공유</strong></p>
+
+<p>Component간 데이터를 공유하는 방법은 사실 여러가지가 있습니다. 여기서는 그 중 <code class="highlighter-rouge">Service</code>를 이용한 데이터 공유에 대해서
+알아보려 합니다. 사실 Service는 데이터를 공유하는 목적보다는 Component들이 수행하는 공통 로직을 제공하는데 그 목적이
+있습니다. 전통적인 MVC pattern에서의 그 Service 생각하시면 됩니다.</p>
+
+<p>공유 데이터를 Service에 위치시키고 여러 Component에서 해당 Service를 import해서 
+데이터를 공유하는 방식입니다.</p>
+
+<p>예를 들자면, Service에 list-box에서 선택한 책에 대한 정보를 저장해 놓고 그 정보를 detail-box에서 가져다가 사용하는
+방식입니다.</p>
+
+<p><img src="assets/built/images/bookSearch-service.jpg" alt="bookSearch-service" /></p>
+
+<p>그림으로 보자면 위와 같습니다. 이와 같이 Service에 공유 데이터를 위치시키고 각각의 Component에서 해당 데이터를 가져다가
+사용하는 방식은 상당히 쉬우나 아쉽게도 우리의 경우는 약간 다릅니다.</p>
+
+<blockquote>
+  <p>우리의 경우는 list-box에서 책을 선택하면 책의 정보가 Service에 저장되는 것 까지는 같으나 detail-box에서 수동으로 
+데이터를 가져가는것이 아니라 데이터가 변경된것을 인지해서 자동으로 데이터를 가져가 화면을 갱신해야 합니다. 이 부분에 RxJS가
+사용됩니다.</p>
+</blockquote>
+
+<p>먼저 Service를 하나 생성합니다. 나중에 다시 배우겠지만 해당 Service를 3개의 Component들이 모두 사용해야 하기 때문에 
+AppModule에 등록해서 사용할 것입니다. 만드는 위치는 <code class="highlighter-rouge">src/app</code> 폴더 하단에서 만들고 다음의 명령을 이용합니다.</p>
+
+<blockquote>
+  <p><strong>ng generate service selected-book</strong></p>
+</blockquote>
+
+<p><code class="highlighter-rouge">selected-book</code>이란 이름의 service를 하나 생성했습니다. <code class="highlighter-rouge">src/app</code> 폴더 하단에 <code class="highlighter-rouge">selected-book.service.ts</code> 파일이 생성됩니다. 
+해당 파일의 내용을 다음과 같이 수정합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Injectable</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">BehaviorSubject</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'rxjs/BehaviorSubject'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Injectable</span><span class="p">()</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">SeletedBookService</span> <span class="p">{</span>
+
+  <span class="c1">// 공유되는 데이터</span>
+  <span class="nx">selectedBook</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">bauthor</span><span class="p">:</span> <span class="s1">'에릭 프리먼외 3명'</span><span class="p">,</span>
+    <span class="na">bdate</span><span class="p">:</span> <span class="s1">'2005년 08월'</span><span class="p">,</span>
+    <span class="na">btranslator</span><span class="p">:</span> <span class="s1">'홍길동'</span><span class="p">,</span>
+    <span class="na">bpublisher</span><span class="p">:</span> <span class="s1">'한빛미디어(주)'</span><span class="p">,</span>
+    <span class="na">btitle</span><span class="p">:</span> <span class="s1">'Head First Design Patterns: 스토리가 있는 패턴 학습법'</span><span class="p">,</span>
+    <span class="na">bprice</span><span class="p">:</span> <span class="mi">28000</span><span class="p">,</span>
+    <span class="na">bisbn</span><span class="p">:</span> <span class="s1">'89-7914-340-0'</span><span class="p">,</span>
+    <span class="na">bimgurl</span><span class="p">:</span> <span class="s1">'http://image.hanbit.co.kr/cover/_m_1340m.gif'</span>
+  <span class="p">};</span>
+
+  <span class="c1">// RxJS를 이용하기 위한 객체 생성.</span>
+  <span class="c1">// 나중에 updateBookStatus.next()를 이용하여 </span>
+  <span class="c1">// 공유 데이터를 변경시킬 수 있고 이를 구독하고 있는 측에서</span>
+  <span class="c1">// 변경사실을 인지해 자동 갱신을 할 수 있습니다. </span>
+  <span class="nl">updateBookStatus</span><span class="p">:</span> <span class="nx">BehaviorSubject</span><span class="o">&lt;</span><span class="nx">Element</span><span class="o">&gt;</span> <span class="o">=</span> 
+        <span class="k">new</span> <span class="nx">BehaviorSubject</span><span class="o">&lt;</span><span class="nx">Element</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">selectedBook</span><span class="p">);</span>
+
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Element</span> <span class="p">{</span>
+  <span class="nl">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bdate</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">btranslator</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bpublisher</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bprice</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">bisbn</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bimgurl</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>위와 같이 Service를 생성하고 <code class="highlighter-rouge">app.module.ts</code>에 등록합니다. Service이기 때문에 providers에 지정해줘야 합니다. 다음은
+<code class="highlighter-rouge">app.module.ts</code> 파일의 일부입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 각종 import 구문들</span>
+
+<span class="c1">// selected-book service import</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SeletedBookService</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'./seleted-book.service'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">NgModule</span><span class="p">({</span>
+  <span class="na">declarations</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">...</span>
+  <span class="p">],</span>
+  <span class="na">imports</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">...</span>
+  <span class="p">],</span>
+  <span class="na">providers</span><span class="p">:</span> <span class="p">[{</span>
+    <span class="na">provide</span><span class="p">:</span> <span class="nx">COMPOSITION_BUFFER_MODE</span><span class="p">,</span>
+    <span class="na">useValue</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">},</span> <span class="nx">SeletedBookService</span><span class="p">],</span>
+  <span class="na">bootstrap</span><span class="p">:</span> <span class="p">[</span><span class="nx">AppComponent</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>다음은 list-box Component를 살펴볼 차례입니다. Material Table에서 row를 클릭했을 때 event를 처리하기 위해
+<code class="highlighter-rouge">list-box.component.html</code>을 다음과 같이 수정합니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nt">&lt;mat-header-row</span> <span class="na">class=</span><span class="s">"list-header-style"</span>
+                    <span class="err">*</span><span class="na">matHeaderRowDef=</span><span class="s">"displayedColumns"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/mat-header-row&gt;</span>
+    <span class="nt">&lt;mat-row</span> <span class="err">*</span><span class="na">matRowDef=</span><span class="s">"let row; columns: displayedColumns;"</span>
+             <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">rowSelect</span><span class="err">(</span><span class="na">row</span><span class="err">)"</span><span class="nt">&gt;&lt;/mat-row&gt;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">rowSelector()</code>라는 event handler를 사용했습니다. 해당 method는 <code class="highlighter-rouge">list-box.component.ts</code>에 정의되어 있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableDataSource</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Http</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/http'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatPaginator</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ViewChild</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+<span class="c1">// Service를 사용하기 위해 import</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SeletedBookService</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'../seleted-book.service'</span><span class="p">;</span>
+<span class="c1">// Material Table의 row select 이벤트 처리용</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SelectionModel</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/cdk/collections'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-list-box'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./list-box.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./list-box.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">ListBoxComponent</span> <span class="p">{</span>
+
+  <span class="nx">displayedColumns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'bisbn'</span><span class="p">,</span> <span class="s1">'btitle'</span><span class="p">,</span> <span class="s1">'bauthor'</span><span class="p">,</span> <span class="s1">'bprice'</span><span class="p">];</span>
+  <span class="nl">books</span><span class="p">:</span> <span class="nx">Element</span><span class="p">[];</span>
+  <span class="nx">dataSource</span><span class="p">;</span>
+  
+  <span class="c1">// event 모델 지정</span>
+  <span class="nx">selection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SelectionModel</span><span class="o">&lt;</span><span class="nx">Element</span><span class="o">&gt;</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="p">[]);</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">http</span><span class="p">:</span> <span class="nx">Http</span><span class="p">,</span> <span class="kr">private</span> <span class="nx">selectedBookService</span><span class="p">:</span> <span class="nx">SeletedBookService</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'assets/data/book.json'</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">books</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MatTableDataSource</span><span class="o">&lt;</span><span class="nx">Element</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">books</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span><span class="p">.</span><span class="nx">paginator</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">paginator</span><span class="p">;</span>
+      <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="p">@</span><span class="nd">ViewChild</span><span class="p">(</span><span class="nx">MatPaginator</span><span class="p">)</span> <span class="na">paginator</span><span class="p">:</span> <span class="nx">MatPaginator</span><span class="p">;</span>
+
+  <span class="c1">// 실제 이벤트 처리 ( 이벤트 모델에 데이터 세팅 및 Service의 공유 데이터 갱신 )</span>
+  <span class="nx">rowSelect</span><span class="p">(</span><span class="nx">row</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">selection</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="nx">row</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">selectedBookService</span><span class="p">.</span><span class="nx">updateBookStatus</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">selection</span><span class="p">.</span><span class="nx">selected</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="kr">interface</span> <span class="nx">Element</span> <span class="p">{</span>
+  <span class="na">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bdate</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">btranslator</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bpublisher</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bprice</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">bisbn</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bimgurl</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>코드에 있는 주석을 참조하시면 될 듯 합니다. Table에 있는 행을 클릭하면 공유데이터가 변경되고 이를 구독하고 있는 detail-box
+Component가 변경을 인지하여 자동으로 갱신하게 됩니다.</p>
+
+<p>다음은 <code class="highlighter-rouge">detail-box.component.ts</code> 파일 입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+<span class="c1">// Service import</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SeletedBookService</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'../seleted-book.service'</span><span class="p">;</span>
+
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-detail-box'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./detail-box.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./detail-box.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">DetailBoxComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+
+  <span class="nx">book</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">selectedBookService</span><span class="p">:</span> <span class="nx">SeletedBookService</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">selectedBookService</span><span class="p">.</span><span class="nx">updateBookStatus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">selectedBook</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">book</span> <span class="o">=</span> <span class="nx">selectedBook</span><span class="p">;</span>
+    <span class="p">});</span>
+
+  <span class="p">}</span>
+
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>실제 변경되는 코드가 몇 줄 되지 않으니 그 부분을 참고해서 서비스의 활용 및 RxJS를 어떻게 이용하는지 
+살펴보시면 됩니다.</p>
+
+<p>이제 keyword를 입력하고 버튼을 클릭하면 Table의 내용을 Filtering하는 작업을 해 보시면 됩니다. 위의 코드를
+잘 이해해 보시고 그 내용을 기반으로 데이터 검색 기능은 스스로 작성해 보세요!!</p>
+
+<p>여기까지가 Angular의 기본 구성을 알아보기 위한 Sample Project 작성입니다. 비록 자세한 설명이 생략되었고 아직 살펴보지
+못한 다른 구성요소들이 많지만 일단 Angular의 기본 구성요소들이 어떻게 상호작용하면서 동작하는지는 개략적으로
+이해하실수 있으리라 생각됩니다.</p>
+
+<p>End.</p>
 
 <hr />
 
@@ -130,7 +356,7 @@
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
-    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
 </ul>
 
 <hr />
@@ -251,7 +477,7 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
   <span class="nx">dataSource</span><span class="p">;</span>
 
   <span class="kd">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">http</span><span class="p">:</span> <span class="nx">Http</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/assets/data/book.json'</span><span class="p">)</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'assets/data/book.json'</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">books</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MatTableDataSource</span><span class="o">&lt;</span><span class="nx">Element</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">books</span><span class="p">);</span>
@@ -409,7 +635,7 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
-    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
 </ul>
 
 <hr />
@@ -674,7 +900,7 @@ true일 경우 ngIf 가 선언된 Element를 DOM에 추가합니다. 만약 fals
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
-    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
 </ul>
 
 <hr />
@@ -1105,7 +1331,7 @@ detail-box Component를 이용해서 한번 알아보죠.</p>
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
-    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
 </ul>
 
 <hr />
@@ -1483,7 +1709,7 @@ import해 줍니다.</p>
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
-    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
 </ul>
 
 <hr />
@@ -1752,7 +1978,7 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
-    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
 </ul>
 
 <hr />
@@ -2023,7 +2249,7 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
-    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
 </ul>
 
 <hr />
@@ -2236,7 +2462,7 @@ Angular의 표준형태라고 보시면 됩니다.</p>
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
-    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
 </ul>
 
 <hr />

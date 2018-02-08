@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-08T07:13:36+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Angular 강좌(9) - Service</title><link href="https://moon9342.github.io/angular-lecture-service" rel="alternate" type="text/html" title="Angular 강좌(9) - Service" /><published>2018-02-07T15:45:00+00:00</published><updated>2018-02-07T15:45:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-service</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-service">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-08T08:38:21+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Angular 강좌(9) - Service &amp;amp; RxJS</title><link href="https://moon9342.github.io/angular-lecture-service" rel="alternate" type="text/html" title="Angular 강좌(9) - Service &amp; RxJS" /><published>2018-02-07T15:45:00+00:00</published><updated>2018-02-07T15:45:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-service</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-service">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
@@ -8,12 +8,238 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
 
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; bookSearch 프로그램 완성&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;이번 포스트는 Component 간의 데이터 공유에 대해서 알아보고 그 내용을 기반으로 우리 Sample 프로그램을
+완성하도록 하겠습니다. 결과적으로 작성한 프로그램은 &lt;a href=&quot;./angular-bookSearch/&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 
+클릭하시면 실행시켜 보실 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;실행시켜 보시면 이전에 비해 두가지 기능이 추가되었습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;키워드 입력 후 Search버튼을 클릭하면 해당 키워드에 대한 책만 list-box에 출력됩니다.&lt;/li&gt;
+  &lt;li&gt;list-box에 출력된 책 중 하나를 선택하면 해당 책에 대한 세부내역을 detail-box에 출력합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이 두가지 기능을 &lt;code class=&quot;highlighter-rouge&quot;&gt;Service&lt;/code&gt;와 &lt;code class=&quot;highlighter-rouge&quot;&gt;RxJS&lt;/code&gt;를 이용하여 처리해 보겠습니다. Service의 사용과 RxJS를 처리하는 부분은 
+일단 코드상으로 어떤 기능을 하는지 알아두시고 개념적인 설명은 나중에 다른 포스트에서 진행하도록 하겠습니다.&lt;/p&gt;
+
+&lt;p&gt;그럼 천천히 한번 살펴보기로 하죠.&lt;/p&gt;
+
+&lt;hr /&gt;
+
 &lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Service를 이용한 데이터 공유&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Component간 데이터를 공유하는 방법은 사실 여러가지가 있습니다. 여기서는 그 중 &lt;code class=&quot;highlighter-rouge&quot;&gt;Service&lt;/code&gt;를 이용한 데이터 공유에 대해서
+알아보려 합니다. 사실 Service는 데이터를 공유하는 목적보다는 Component들이 수행하는 공통 로직을 제공하는데 그 목적이
+있습니다. 전통적인 MVC pattern에서의 그 Service 생각하시면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;공유 데이터를 Service에 위치시키고 여러 Component에서 해당 Service를 import해서 
+데이터를 공유하는 방식입니다.&lt;/p&gt;
+
+&lt;p&gt;예를 들자면, Service에 list-box에서 선택한 책에 대한 정보를 저장해 놓고 그 정보를 detail-box에서 가져다가 사용하는
+방식입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;assets/built/images/bookSearch-service.jpg&quot; alt=&quot;bookSearch-service&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그림으로 보자면 위와 같습니다. 이와 같이 Service에 공유 데이터를 위치시키고 각각의 Component에서 해당 데이터를 가져다가
+사용하는 방식은 상당히 쉬우나 아쉽게도 우리의 경우는 약간 다릅니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;우리의 경우는 list-box에서 책을 선택하면 책의 정보가 Service에 저장되는 것 까지는 같으나 detail-box에서 수동으로 
+데이터를 가져가는것이 아니라 데이터가 변경된것을 인지해서 자동으로 데이터를 가져가 화면을 갱신해야 합니다. 이 부분에 RxJS가
+사용됩니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;먼저 Service를 하나 생성합니다. 나중에 다시 배우겠지만 해당 Service를 3개의 Component들이 모두 사용해야 하기 때문에 
+AppModule에 등록해서 사용할 것입니다. 만드는 위치는 &lt;code class=&quot;highlighter-rouge&quot;&gt;src/app&lt;/code&gt; 폴더 하단에서 만들고 다음의 명령을 이용합니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;ng generate service selected-book&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;selected-book&lt;/code&gt;이란 이름의 service를 하나 생성했습니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;src/app&lt;/code&gt; 폴더 하단에 &lt;code class=&quot;highlighter-rouge&quot;&gt;selected-book.service.ts&lt;/code&gt; 파일이 생성됩니다. 
+해당 파일의 내용을 다음과 같이 수정합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Injectable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BehaviorSubject&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'rxjs/BehaviorSubject'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Injectable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SeletedBookService&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// 공유되는 데이터&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;selectedBook&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;bauthor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'에릭 프리먼외 3명'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;bdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'2005년 08월'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;btranslator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'홍길동'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;bpublisher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'한빛미디어(주)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;btitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Head First Design Patterns: 스토리가 있는 패턴 학습법'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;bprice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;bisbn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'89-7914-340-0'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;bimgurl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://image.hanbit.co.kr/cover/_m_1340m.gif'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// RxJS를 이용하기 위한 객체 생성.&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 나중에 updateBookStatus.next()를 이용하여 &lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 공유 데이터를 변경시킬 수 있고 이를 구독하고 있는 측에서&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 변경사실을 인지해 자동 갱신을 할 수 있습니다. &lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;updateBookStatus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BehaviorSubject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 
+        &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BehaviorSubject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectedBook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kr&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;bauthor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;bdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;btranslator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;bpublisher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;btitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;bprice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;bisbn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;bimgurl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위와 같이 Service를 생성하고 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.module.ts&lt;/code&gt;에 등록합니다. Service이기 때문에 providers에 지정해줘야 합니다. 다음은
+&lt;code class=&quot;highlighter-rouge&quot;&gt;app.module.ts&lt;/code&gt; 파일의 일부입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 각종 import 구문들&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// selected-book service import&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SeletedBookService&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./seleted-book.service'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;NgModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;declarations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;providers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;provide&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;COMPOSITION_BUFFER_MODE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;useValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SeletedBookService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;다음은 list-box Component를 살펴볼 차례입니다. Material Table에서 row를 클릭했을 때 event를 처리하기 위해
+&lt;code class=&quot;highlighter-rouge&quot;&gt;list-box.component.html&lt;/code&gt;을 다음과 같이 수정합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mat-header-row&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;list-header-style&quot;&lt;/span&gt;
+                    &lt;span class=&quot;err&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;matHeaderRowDef=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;displayedColumns&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/mat-header-row&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mat-row&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;matRowDef=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;let row; columns: displayedColumns;&quot;&lt;/span&gt;
+             &lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)=&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rowSelect&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/mat-row&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rowSelector()&lt;/code&gt;라는 event handler를 사용했습니다. 해당 method는 &lt;code class=&quot;highlighter-rouge&quot;&gt;list-box.component.ts&lt;/code&gt;에 정의되어 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatTableDataSource&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Http&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/http'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatPaginator&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/material'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ViewChild&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Service를 사용하기 위해 import&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SeletedBookService&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'../seleted-book.service'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Material Table의 row select 이벤트 처리용&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SelectionModel&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/cdk/collections'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'app-list-box'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;templateUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./list-box.component.html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;styleUrls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./list-box.component.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ListBoxComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;displayedColumns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'bisbn'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'btitle'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bauthor'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bprice'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;books&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;dataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;// event 모델 지정&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;selection&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SelectionModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]);&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;selectedBookService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SeletedBookService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'assets/data/book.json'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;books&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dataSource&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatTableDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;books&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;paginator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;paginator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;ViewChild&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;MatPaginator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;paginator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatPaginator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// 실제 이벤트 처리 ( 이벤트 모델에 데이터 세팅 및 Service의 공유 데이터 갱신 )&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;rowSelect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectedBookService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;updateBookStatus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;bauthor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;bdate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;btranslator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;bpublisher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;btitle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;bprice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;bisbn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;bimgurl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;코드에 있는 주석을 참조하시면 될 듯 합니다. Table에 있는 행을 클릭하면 공유데이터가 변경되고 이를 구독하고 있는 detail-box
+Component가 변경을 인지하여 자동으로 갱신하게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;다음은 &lt;code class=&quot;highlighter-rouge&quot;&gt;detail-box.component.ts&lt;/code&gt; 파일 입니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Service import&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SeletedBookService&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'../seleted-book.service'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'app-detail-box'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;templateUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./detail-box.component.html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;styleUrls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./detail-box.component.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DetailBoxComponent&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;selectedBookService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SeletedBookService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectedBookService&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;updateBookStatus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selectedBook&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;selectedBook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;ngOnInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;실제 변경되는 코드가 몇 줄 되지 않으니 그 부분을 참고해서 서비스의 활용 및 RxJS를 어떻게 이용하는지 
+살펴보시면 됩니다.&lt;/p&gt;
+
+&lt;p&gt;이제 keyword를 입력하고 버튼을 클릭하면 Table의 내용을 Filtering하는 작업을 해 보시면 됩니다. 위의 코드를
+잘 이해해 보시고 그 내용을 기반으로 데이터 검색 기능은 스스로 작성해 보세요!!&lt;/p&gt;
+
+&lt;p&gt;여기까지가 Angular의 기본 구성을 알아보기 위한 Sample Project 작성입니다. 비록 자세한 설명이 생략되었고 아직 살펴보지
+못한 다른 구성요소들이 많지만 일단 Angular의 기본 구성요소들이 어떻게 상호작용하면서 동작하는지는 개략적으로
+이해하실수 있으리라 생각됩니다.&lt;/p&gt;
+
+&lt;p&gt;End.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -25,7 +251,7 @@
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service</summary></entry><entry><title type="html">Angular 강좌(8) - Material Table</title><link href="https://moon9342.github.io/angular-lecture-material-table" rel="alternate" type="text/html" title="Angular 강좌(8) - Material Table" /><published>2018-02-06T21:21:00+00:00</published><updated>2018-02-06T21:21:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-material-table</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-material-table">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry><entry><title type="html">Angular 강좌(8) - Material Table</title><link href="https://moon9342.github.io/angular-lecture-material-table" rel="alternate" type="text/html" title="Angular 강좌(8) - Material Table" /><published>2018-02-06T21:21:00+00:00</published><updated>2018-02-06T21:21:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-material-table</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-material-table">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
@@ -35,7 +261,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -156,7 +382,7 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
   &lt;span class=&quot;nx&quot;&gt;dataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
   &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/assets/data/book.json'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'assets/data/book.json'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
       &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;books&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dataSource&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MatTableDataSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Element&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;books&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -277,7 +503,7 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service</summary></entry><entry><title type="html">Angular 강좌(7) - 실습(2)</title><link href="https://moon9342.github.io/angular-lecture-exercise-2" rel="alternate" type="text/html" title="Angular 강좌(7) - 실습(2)" /><published>2018-02-05T16:31:00+00:00</published><updated>2018-02-05T16:31:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-exercise-2</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-exercise-2">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry><entry><title type="html">Angular 강좌(7) - 실습(2)</title><link href="https://moon9342.github.io/angular-lecture-exercise-2" rel="alternate" type="text/html" title="Angular 강좌(7) - 실습(2)" /><published>2018-02-05T16:31:00+00:00</published><updated>2018-02-05T16:31:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-exercise-2</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-exercise-2">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
@@ -287,7 +513,7 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -515,7 +741,7 @@ true일 경우 ngIf 가 선언된 Element를 DOM에 추가합니다. 만약 fals
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service</summary></entry><entry><title type="html">MySQL 5.7.2 Windows용 ZIP Archive 설치</title><link href="https://moon9342.github.io/mysql-5.7-archive-setting" rel="alternate" type="text/html" title="MySQL 5.7.2 Windows용 ZIP Archive 설치" /><published>2018-02-05T11:11:00+00:00</published><updated>2018-02-05T11:11:00+00:00</updated><id>https://moon9342.github.io/mysql-5.7-archive-setting</id><content type="html" xml:base="https://moon9342.github.io/mysql-5.7-archive-setting">&lt;p&gt;&lt;strong class=&quot;post_introduction&quot;&gt;Introduction&lt;/strong&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry><entry><title type="html">MySQL 5.7.2 Windows용 ZIP Archive 설치</title><link href="https://moon9342.github.io/mysql-5.7-archive-setting" rel="alternate" type="text/html" title="MySQL 5.7.2 Windows용 ZIP Archive 설치" /><published>2018-02-05T11:11:00+00:00</published><updated>2018-02-05T11:11:00+00:00</updated><id>https://moon9342.github.io/mysql-5.7-archive-setting</id><content type="html" xml:base="https://moon9342.github.io/mysql-5.7-archive-setting">&lt;p&gt;&lt;strong class=&quot;post_introduction&quot;&gt;Introduction&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;MySQL을 install하지 않고 ZIP Archive를 다운받고 압축 풀어서 사용하는 사용하는 방식에 대한 설명입니다. 
 기존 5.6버전은 JSON에 대한 지원이 되지 않기 때문에 5.7버전을 대상으로 진행합니다.&lt;/p&gt;
@@ -672,7 +898,7 @@ true일 경우 ngIf 가 선언된 Element를 DOM에 추가합니다. 만약 fals
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -1066,7 +1292,7 @@ detail-box Component를 이용해서 한번 알아보죠.&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service</summary></entry><entry><title type="html">Jekyll 기반의 GitHub Page 생성(9)</title><link href="https://moon9342.github.io/jekyll-regenerate-speed-up" rel="alternate" type="text/html" title="Jekyll 기반의 GitHub Page 생성(9)" /><published>2018-02-02T15:14:00+00:00</published><updated>2018-02-02T15:14:00+00:00</updated><id>https://moon9342.github.io/jekyll-regenerate-speed-up</id><content type="html" xml:base="https://moon9342.github.io/jekyll-regenerate-speed-up">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry><entry><title type="html">Jekyll 기반의 GitHub Page 생성(9)</title><link href="https://moon9342.github.io/jekyll-regenerate-speed-up" rel="alternate" type="text/html" title="Jekyll 기반의 GitHub Page 생성(9)" /><published>2018-02-02T15:14:00+00:00</published><updated>2018-02-02T15:14:00+00:00</updated><id>https://moon9342.github.io/jekyll-regenerate-speed-up</id><content type="html" xml:base="https://moon9342.github.io/jekyll-regenerate-speed-up">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-start&quot;&gt;Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-struct&quot;&gt;Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
@@ -1604,7 +1830,7 @@ Local Repository로 가져온 commit들을 자신의 작업과 적절히 병합�
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -1945,7 +2171,7 @@ import해 줍니다.&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service</summary></entry><entry><title type="html">Angular 강좌(4) - Angular Material</title><link href="https://moon9342.github.io/angular-lecture-material" rel="alternate" type="text/html" title="Angular 강좌(4) - Angular Material" /><published>2018-02-01T14:00:00+00:00</published><updated>2018-02-01T14:00:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-material</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-material">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry><entry><title type="html">Angular 강좌(4) - Angular Material</title><link href="https://moon9342.github.io/angular-lecture-material" rel="alternate" type="text/html" title="Angular 강좌(4) - Angular Material" /><published>2018-02-01T14:00:00+00:00</published><updated>2018-02-01T14:00:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-material</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-material">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
@@ -1955,7 +2181,7 @@ import해 줍니다.&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -2187,7 +2413,7 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service</summary></entry><entry><title type="html">Angular 강좌(3) - Component</title><link href="https://moon9342.github.io/angular-lecture-component" rel="alternate" type="text/html" title="Angular 강좌(3) - Component" /><published>2018-01-31T17:10:00+00:00</published><updated>2018-01-31T17:10:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-component</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-component">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry><entry><title type="html">Angular 강좌(3) - Component</title><link href="https://moon9342.github.io/angular-lecture-component" rel="alternate" type="text/html" title="Angular 강좌(3) - Component" /><published>2018-01-31T17:10:00+00:00</published><updated>2018-01-31T17:10:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-component</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-component">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
@@ -2197,7 +2423,7 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -2431,4 +2657,4 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry></feed>

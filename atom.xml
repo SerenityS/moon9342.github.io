@@ -8,7 +8,7 @@
     
       
       <item>
-        <title>Angular 강좌(9) - Service</title>
+        <title>Angular 강좌(9) - Service &amp; RxJS</title>
         
           <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
@@ -20,7 +20,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -46,7 +46,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -72,7 +72,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -113,7 +113,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -180,7 +180,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -206,7 +206,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -232,7 +232,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -258,7 +258,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -284,7 +284,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
