@@ -28,6 +28,266 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Angular 강좌(10) - 중간 정리</title>
+	  <link>https://moon9342.github.io/angular-lecture-inspection-1</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+				
+		
+	  <pubDate>2018-02-07T22:05:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-inspection-1</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 중간 정리</strong></p>
+
+<p>지금까지 Angular의 구조와 기본개념을 살펴보기 위해서 간단한 예제프로그램을 작성했습니다.
+이제 기존에 하지 못했던 조금 더 자세한 사항에 대해 알아봐야 할 듯 합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Performance Issue</strong></p>
+
+<p>먼저 얘기할 부분은 Angular의 <code class="highlighter-rouge">Performance</code> 입니다.</p>
+
+<p>기존 AngularJS에 비해서 Angualr는 여러 관점에서 성능향상이 이루어졌습니다. 하나씩 간단하게 살펴보겠습니다.</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">Digest Loop</code>로 인한 성능 저하 문제가 개선되었습니다. 우리 예제에서 다뤄보았던 양방향 바인딩 기억하시나요?
+AngularJS에서는 이 양방향 바인딩을 처리하기 위해 <code class="highlighter-rouge">watcher</code>라는걸 사용합니다. 이 watcher라는 놈이 수행될 때
+마다 digest loop가 수행되어 양방향 바인딩을 처리하는 구조였습니다. 양방향 바인딩이 많아질수록 watcher가 증가하고
+결과적으로 digest loop의 수행도 같이 증가해서 결국 성능이 저하되는 문제가 발생했던 겁니다.
+지금의 Angualr는 전통적인 양방향 바인딩을 다른 방식으로 처리함으로써 이 문제를 해결했습니다.</p>
+
+    <p>현재 Agnular에서 양방향 바인딩은 내부적으로 <code class="highlighter-rouge">Property binding</code>과 <code class="highlighter-rouge">Event binding</code>으로 변환되어서 처리됩니다.
+만약 Angular의 <code class="highlighter-rouge">Change Detection</code>에 대해 자세히 알고 싶으시면
+<a href="https://blog.angularindepth.com/angulars-digest-is-reborn-in-the-newer-version-of-angular-718a961ebd3e" target="_blank">여기</a>를
+참고하세요.</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>Angular는 <code class="highlighter-rouge">AoT</code> Compile을 지원합니다. AoT(Ahead of Time) compile이란 사전 컴파일을 지칭합니다. 런타임에 컴파일을 
+하지 않고 미리 컴파일을 해 놓기 때문에 실행 속도를 더 높일 수 있는 것이죠. 안드로이드 개발을 해 보신 분이라면 <code class="highlighter-rouge">Dalvik</code>과
+<code class="highlighter-rouge">ART</code>를 알고 계실 겁니다. Dalvik은 <code class="highlighter-rouge">JIT</code> 컴파일러를 이용하고 ART는 <code class="highlighter-rouge">AoT</code> 컴파일러를 사용합니다. 둘을 비교해보자면 JIT(Just-In-Time)은
+실행시점에 소스코드를 컴파일하는 방식입니다. 설치는 빠르게 되겠지만 실행이 좀 느리겠지요. AoT는 설치시점에 소스코드를
+컴파일하는 방식입니다. 따라서 설치가 조금 느려지지만 실행시 빠르게 실행되는 장점을 가지고 있습니다.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>Angular뿐만 아니라 모든 Front-End Framework이 가지는 문제점 중 하나는 바로 <code class="highlighter-rouge">SPA</code>(Single Page Application) 구조에서 
+오는 rendering의 속도 문제입니다.
+우리는 기존에 <code class="highlighter-rouge">SSR</code>(Server Side Rendering)을 이용해 프로그램을 했었습니다. 예를 들면, JSP 이런것들 이지요. SSR의 장점은
+일단 클라이언트에게 빠르게 화면을 보여줄 수 있다는 겁니다. 하지만 라이브러리가 다 로딩된 후에야 Client와 interaction이 가능합니다.
+반면에 SPA 구조는 모든 라이브러리가 다 로딩되어야 Client가 화면을 볼 수 있습니다. 즉, Client가 초기에 화면을 보기까지 로딩시간이
+걸린다는 것입니다. <code class="highlighter-rouge">CSR</code>(Client Side Rendering) 이라고 불리는 이 방식은 화면이 뜨자마자 바로 interaction이 가능하다는 장점이 
+있습니다. 요즘에는 이 둘을 섞어서 최적화를 꾀하고 있습니다. 이와 관련된 사항으로 Angular는 <code class="highlighter-rouge">Lazy Loading</code>을 사용합니다.
+Lazy Loading(지연 로딩)은 SPA의 단점을 극복하기 위한 하나의 방법으로 사용하는 모든 라이브러리를 한꺼번에 다 불러들이지 않고
+필요한 시점에 필요한 라이브러리만 로딩하는 방식입니다. 이를 이용해 로딩 시간을 단축할 수 있기 때문입니다.</li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular CLI</strong></p>
+
+<p>그 다음 살펴볼 부분은 <code class="highlighter-rouge">Angular CLI</code>입니다. 우리 예제 프로그램을 작성하기 위해 사용했던 것 기억하시지요?</p>
+
+<p>Angular CLI(Command Line Interpreter)는 command 명령어를 이용해서 프로젝트의 생성 및 Scaffolding, build, 개발서버를 이용한
+실행과 테스팅까지 수행할 수 있는 개발지원 도구 입니다. 간단하지 않는 프로젝트의 구조 생성 및 설정 그리고 Coding Convention등을 
+자동으로 잡아주기 때문에 편하게 개발환경을 구축하고 표준적 방식으로 프로젝트를 진행할 수 있도록 도와주는 아주 고마운 도구이지요.</p>
+
+<p>다음은 일반적으로 많이 사용되는 Angular CLI의 명령어와 알아두어야 할 사항들 입니다.</p>
+
+<ul>
+  <li><strong>프로젝트의 생성</strong>
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng new &lt;project_name&gt;
+</code></pre></div>    </div>
+    <p>위와 같은 형태로 프로젝트를 생성하면 기본 폴더 구조와 파일이 생성됩니다. 이전에도 언급했지만 이렇게 생성된 프로젝트의 구조와
+<code class="highlighter-rouge">Coding Convention</code>이 Angular의 표준 스타일입니다. 또한 필요한 의존 Module이 같이 설치됩니다. 만약 의존
+Module을 설치하고 싶지 않을 경우 <code class="highlighter-rouge">--skip-install</code> option을 이용해 프로젝트를 생성하시면 됩니다.</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>내장 개발서버를 이용한 프로젝트 실행</strong>
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng serve
+</code></pre></div>    </div>
+    <p>위와 같은 명령을 이용하면 내장 개발 서버를 이용해 우리 프로젝트를 <code class="highlighter-rouge">deploy</code>할 수 있습니다. 기본적으로 사용하는 port는 <code class="highlighter-rouge">4200</code>
+입니다. 만약 다른 포트를 사용하고 싶을 때는 <code class="highlighter-rouge">--port</code> option을 이용해 포트번호를 변경할 수 있습니다. 그리고 <code class="highlighter-rouge">--o</code> option을
+이용하면 시스템에 설정되어 있는 default browser를 실행해 http://localhost:4200 으로 접속까지 해 줍니다.</p>
+
+    <p>이 내장 개발서버는 LiveReload 기능을 지원합니다. 쉽게말하자면 우리가 코드를 수정하면 그 내용을 컴파일하여 즉각 반영하고 
+browser를 refresh까지 시켜준다는 것이지요. 개발을 편하게 가져갈 수 있습니다.</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>프로젝트 구성요소 추가</strong>
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng generate &lt;구성요소&gt; &lt;구성요소명&gt;
+</code></pre></div>    </div>
+    <p>위와 같은 명령을 이용하면 프로젝트에 새로운 Angular 구성요소를 추가할 수 있습니다. 우리는 <code class="highlighter-rouge">component</code>, <code class="highlighter-rouge">service</code> 구성요소를 추가해
+봤지요. 그 외에 다음과 같은 Angular 구성요소들을 추가할 수 있습니다.</p>
+    <ul>
+      <li><code class="highlighter-rouge">directive</code></li>
+      <li><code class="highlighter-rouge">pipe</code></li>
+      <li><code class="highlighter-rouge">module</code></li>
+      <li><code class="highlighter-rouge">class</code></li>
+      <li><code class="highlighter-rouge">interface</code></li>
+      <li><code class="highlighter-rouge">enum</code></li>
+      <li><code class="highlighter-rouge">guard</code></li>
+    </ul>
+
+    <p>이런 구성요소가 어떤 역할을 하는지는 나중에 하나씩 살펴봐야 겠네요. 기존에 우리 프로젝트에서 
+추가했던 search-box Component를 가지고 간단하게 <code class="highlighter-rouge">Naming Rule</code>에 대해 정리를 한번 해 보겠습니다.</p>
+
+    <p>다음과 같은 명령을 실행하면 새로운 Component가 하나 만들어 집니다.</p>
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng generate component search-box
+</code></pre></div>    </div>
+
+    <p>생성되는 파일은 총 4개입니다. option을 설정하면 파일이 만들어지지 않을수도 있습니다. 즉, CSS, HTML, SPEC파일을
+생성하지 않을수도 있다는 말입니다. CSS와 HTML을 inline방식으로 사용할 수 있으니까요. SPEC은 테스트를 위한 파일입니다.</p>
+
+    <p>그런데 만들어지는 파일의 이름이 좀 특이합니다. 다음과 같은 형태로 만들어졌습니다.</p>
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>search-box-component.css     
+search-box-component.html    
+search-box-component.ts
+search-box-component.spec.ts
+</code></pre></div>    </div>
+
+    <p>파일명이 모두 <code class="highlighter-rouge">search-box.component.*</code> 형태로 만들어집니다. Angular는 Naming의 혼란을 방지하기 위해 
+케밥 표기법(<code class="highlighter-rouge">Kebab case</code>)을 이용해서 Angular 구성요소의 이름을 붙이게 됩니다. 사실 우리에게 익숙한
+표기법은 <code class="highlighter-rouge">Camel case</code>입니다. 각 단어의 첫글자를 소문자로 쓰고 붙어있는 단어들은 대문자로 시작하는 표기법입니다. Java의
+기본 표기법이죠. 참고로 <code class="highlighter-rouge">Pascal case</code>도 있습니다. Camel case와 유사한데 Pascal case는 첫 글자도 대문자로 시작합니다.
+Kebab-case는 하이픈(<code class="highlighter-rouge">-</code>)을 이용한 표기법입니다. Angular는 기본적으로 Kebab case를 Angular 구성요소 이름을 붙일 때 
+사용한다는걸 기억하시면 됩니다. 참고로 class의 이름은 Pascal case를 이용합니다.</p>
+
+    <p>이렇게 만들어진 <code class="highlighter-rouge">search-box-component.ts</code> 파일의 내용을 살펴보죠</p>
+
+    <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+  
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-search-box'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./search-box.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./search-box.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">SearchBoxComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+  
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+  
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>  
+<span class="p">}</span>
+</code></pre></div>    </div>
+
+    <p>위의 코드에서 <code class="highlighter-rouge">selector</code>가 어떤 역할을 하는지 아실겁니다. 이 selector에 명시된 이름의 tag를 다른 template에서
+이용하면 해당 tag 위치에 우리 Component에서 지정한 template이 표시되게 됩니다. 이 selector에 명시된 이름이
+결국 <code class="highlighter-rouge">&lt;app-search-box&gt;&lt;/app-search-box&gt;</code>형태로 어딘가에서 이용된다는 말이죠. 이 selector에 지정된 이름을
+붙일 때 접두어 <code class="highlighter-rouge">app</code>을 이용해 Kebab case로 표현합니다. 기존의 HTML tag와 혼동되는걸 피하기 위해서라고 생각하시면 됩니다.</p>
+
+    <p>참고로 이 접두어는 <code class="highlighter-rouge">.angular-cli.json</code> 설정파일에서 다른것으로 지정할 수 있습니다.</p>
+
+    <p>우리는 CSS와 HTML을 따로 파일을 만들어서 사용했지만 inline형태로 이용할 수 있습니다. 아래와 같이 말이죠.</p>
+
+    <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+  
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-search-box'</span><span class="p">,</span>
+  <span class="na">template</span><span class="p">:</span> <span class="s2">`&lt;h1&gt;Hello&lt;h1&gt;
+             &lt;p&gt;
+              this is a sample text
+             &lt;/p&gt;
+            `</span><span class="p">,</span>
+  <span class="na">style</span><span class="p">:</span> <span class="s2">`.myStyle {
+              color : red
+          }
+         `</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">SearchBoxComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
+  
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+  
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>  
+<span class="p">}</span>  
+</code></pre></div>    </div>
+
+    <p>여기서는 backquote ( ` ) 기호를 이용하는 <code class="highlighter-rouge">template string</code>을 사용했습니다. 다른 Angular 구성요소를 추가하는
+방법과 이용법은 이후 포스트에서 하나씩 실습을 통해 알아보도록 하겠습니다.</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>프로젝트 Build</strong>
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ng build
+</code></pre></div>    </div>
+
+    <p>위와 같은 명령을 이용하면 우리 프로젝트를 Angular CLI를 이용해 Build할 수 있습니다. 기존에는 <code class="highlighter-rouge">SystemJS</code>를 이용해서
+bundling을 했지만 현재는 <code class="highlighter-rouge">webpack</code>을 이용해 bundling합니다. option을 따로 주지 않고 build를 진행하면 
+개발환경 build를 수행하게 됩니다. 만약 production
+build를 수행하시려면 <code class="highlighter-rouge">--prod</code> option을 이용하시면 됩니다. 또한 deploy를 위한 base url을 설정할 때는 <code class="highlighter-rouge">--base-href</code> option을
+이용하시면 됩니다. Angular CLI Build에 관한 보다 자세한 option 사항은 
+<a href="https://github.com/angular/angular-cli/wiki/build" target="_blank">여기</a>를 참조하시면 됩니다.</p>
+  </li>
+</ul>
+
+<hr />
+
+<p>이번 포스트는 기존에 설명하기 좀 난감(?)했던 성능문제라던지 Angular CLI의 Naming Rule에 대해 보충설명을 진행했습니다. 
+만약 Angular CLI에 대해 더 자세하게 알고 싶으시면 <a href="https://cli.angular.io/" target="_blank">여기</a>를 살펴보시면 됩니다.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Angular 강좌(9) - Service & RxJS</title>
 	  <link>https://moon9342.github.io/angular-lecture-service</link>
 		
@@ -59,6 +319,7 @@
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
     <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
 </ul>
 
 <hr />
@@ -339,6 +600,7 @@ Component가 변경을 인지하여 자동으로 갱신하게 됩니다.</p>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
     <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
 </ul>
 
 <hr />
@@ -618,6 +880,7 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
     <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
 </ul>
 
 <hr />
@@ -883,6 +1146,7 @@ true일 경우 ngIf 가 선언된 Element를 DOM에 추가합니다. 만약 fals
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
     <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
 </ul>
 
 <hr />
@@ -1314,6 +1578,7 @@ detail-box Component를 이용해서 한번 알아보죠.</p>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
     <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
 </ul>
 
 <hr />
@@ -1692,6 +1957,7 @@ import해 줍니다.</p>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
     <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
 </ul>
 
 <hr />
@@ -1961,6 +2227,7 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
     <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
 </ul>
 
 <hr />
@@ -1977,23 +2244,33 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
 
 <p>예를 들면 다음과 같이 View를 분할해서 화면을 구성할 수 있습니다.</p>
 
-<p><img src="assets/built/images/view-layout.png" alt="view layout" /></p>
+<p><img src="assets/built/images/view-layout.png" alt="view-layout" /></p>
 <div class="img-reference">( 이미지 출처 : https://msdn.microsoft.com )</div>
 
 <p>위의 그림에서 A는 로고영역, B는 사진에 대한 설명영역, C는 주 사진보기 영역, D는 컬렉션에 있는 다른 사진의 미리보기
 영역입니다.</p>
 
-<p>이렇듯 우리는 화면을 여러 View들로 분할해서 구성할 수 있다는 것이죠.</p>
+<p>이렇듯 우리는 화면을 여러 View들로 분할해서 구성할 수 있다는 것이죠. 
+분할된 View들은 결국 <strong>Angular에서 <code class="highlighter-rouge">Component</code>의 단위</strong>가 됩니다.</p>
 
-<p>분할된 View들은 결국 <strong>Angular에서 <code class="highlighter-rouge">Component</code>의 단위</strong>가 됩니다. 실제로 Component는 View를 rendering하는 주체가 되기 때문에
-어떤 정보로 View를 rendering할 것인가에 대한 정보를 가지고 있어야 합니다. 이 정보를 우리는 <code class="highlighter-rouge">Template</code>이라는 것으로 표현합니다.</p>
+<p>위의 그림은 View들이 화면을 분할하고 있는 형태입니다. 이렇게 할 수도 있지만 아래의 그림처럼 하나의 View안에 
+여러 View들을 넣어 화면을 구성 할 수 있습니다. 파란색 View안에 2개의 빨간색 View가 들어가 있고 그 안에 다시 View들이
+구성되어 있는 형태입니다. <strong>부모와 자식의 관계가 성립된다는 말입니다.</strong></p>
+
+<p>View는 결국 Component의 단위가 된다고 했으니 View들의 관계에 의해서 <strong>Component들도 부모와 자식간의 관계</strong>가 생기게 됩니다.
+이를 <code class="highlighter-rouge">Component Tree</code>라고 하는데 Angular의 중요한 개념 중 하나입니다.</p>
+
+<p><img src="assets/built/images/view_layout.jpg" alt="view_layout" /></p>
+
+<p>Component는 View를 rendering하는 주체가 되기 때문에 어떤 정보로 View를 rendering할 것인가에 대한 정보를 가지고 
+있어야 합니다. 이 정보를 우리는 <code class="highlighter-rouge">Template</code>이라는 것으로 표현합니다.</p>
 
 <hr />
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Template</strong></p>
 
-<p><code class="highlighter-rouge">Template</code>은 View를 rendering하기 위해 필요한 HTML Element와 Angular의 문법요소 그리고 클라이언트 이벤트 처리 코드를 
-담고 있습니다.</p>
+<p><code class="highlighter-rouge">Template</code>은 View를 rendering하기 위해 필요한 <strong>HTML Element</strong>와 <strong>Angular의 문법요소</strong> 그리고 클라이언트 
+<strong>이벤트 처리 코드</strong>를 담고 있습니다.</p>
 
 <blockquote>
   <p>Application 실행 시 Angular는 Component와 Template의 정보를 이용하여 View를 그리게 됩니다.</p>
@@ -2006,9 +2283,10 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component - class</strong></p>
 
-<p>기존에 만들어 놓았던 bookSearch-angular app을 살펴보면서 코드상으로 Component를 이해해보죠. WebStorm에서 우리가
-작성한 프로젝트를 보면 <code class="highlighter-rouge">src</code> 폴더가 보입니다. 이 <code class="highlighter-rouge">src</code>폴더를 보면 <code class="highlighter-rouge">index.html</code> 파일이 존재하는데 이 파일이 우리 app의
-시작파일이라고 생각하시면 됩니다. 즉, http://localhost:4200 으로 접속하면 rendering되는 파일이 바로 이 <code class="highlighter-rouge">index.html</code>입니다.</p>
+<p>기존에 만들어 놓았던 bookSearch-angular 프로젝트를 살펴보면서 코드상으로 Component를 이해해보죠. WebStorm에서 우리가
+작성한 프로젝트를 보면 <code class="highlighter-rouge">src</code> 폴더가 보입니다. 이 <code class="highlighter-rouge">src</code>폴더를 보면 <code class="highlighter-rouge">index.html</code> 파일이 존재하는데 
+이 파일이 우리 Web application의 시작파일이라고 생각하시면 됩니다. 
+즉, http://localhost:4200 으로 접속하면 rendering되는 파일이 바로 이 <code class="highlighter-rouge">index.html</code>입니다.</p>
 
 <p>아래의 내용은 <code class="highlighter-rouge">index.html</code> 입니다.</p>
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
@@ -2045,17 +2323,17 @@ View라는 의미입니다. 당연히 그에 대응되는 Component가 존재하
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>코드에서 맨 마지막에 나타나듯이 Component는 <code class="highlighter-rouge">class</code>입니다. 하지만 무조건 class를 선언한다고 해서
-해당 class가 Component가 되는것은 아닙니다. 이 class가 Component로 사용된다는 것을 Angular에게
+<p>코드에서 맨 마지막에 나타나듯이 Component는 <code class="highlighter-rouge">class</code>입니다. 하지만 class를 선언한다고 해서
+해당 class가 무조건 Component가 되는것은 아닙니다. 이 class가 Component로 사용된다는 것을 Angular에게
 알려주어야 Angular가 Component로 동작을 시킬수 있을 겁니다. 그래서 특정 표현을 이용해 
 해당 class가 Component임을 Angular에게 알려주어야 합니다.</p>
 
-<p><code class="highlighter-rouge">@Component</code>라고 표현되는 부분이 바로 <code class="highlighter-rouge">Component Decorator</code>입니다. 무언가와 많이 비슷하죠? Java의
-Annotation 생각하시면 됩니다. class상단에 Component Decorator를 이용해 Angular가 해당 class를 Component로
+<p><code class="highlighter-rouge">@Component</code>라고 표현되는 부분이 바로 <code class="highlighter-rouge">Component Decorator</code>입니다. 무언가와 많이 비슷하죠? 의미상 Java의
+Annotation과 하는일이 유사하다고 보시면 됩니다. class상단에 Component Decorator를 이용해 Angular가 해당 class를 Component로
 인지할 수 있도록 합니다.</p>
 
 <p><code class="highlighter-rouge">@Component</code>를 이용하려면 당연히 Component Decorator를 사용할 수 있는 상태여야 하고 이 Component Decorator는
-<code class="highlighter-rouge">@angular/core</code>라고 표현되는 Angluar Core package에서 제공합니다. 해서 아래와 같은 코드가 필요합니다.</p>
+<code class="highlighter-rouge">@angular/core</code>라고 표현되는 Angluar Core Module Package에서 제공합니다. 해서 아래와 같은 코드가 필요합니다.</p>
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
 </code></pre></div></div>
@@ -2081,15 +2359,17 @@ Annotation 생각하시면 됩니다. class상단에 Component Decorator를 이�
 <ul>
   <li>
     <p><code class="highlighter-rouge">selector</code> : template 코드안에서 해당 Component를 이용할 때 사용할 HTML Element명을 정의합니다. 위와 같은 경우 
-해당 Component는 <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code> HTML Element로 사용할 수 있습니다.</p>
+해당 Component는 <strong>&lt;app-root&gt;&lt;/app-root&gt;</strong> HTML Element로 사용될 수 있습니다.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">template 정보</code> :  <code class="highlighter-rouge">template</code> 혹은 <code class="highlighter-rouge">templateUrl</code>을 이용할 수 있습니다. <code class="highlighter-rouge">template</code>은 View를 rendering할 때 필요한
-HTML을 inline형태로 직접 기술할 때 사용됩니다. <code class="highlighter-rouge">templateUrl</code>은 template code를 따로 HTML 파일로 분리해서 작성할 때 사용합니다.</p>
+    <p><code class="highlighter-rouge">template 정보</code> :  <strong>template</strong> 혹은 <strong>templateUrl</strong>을 이용할 수 있습니다. <strong>template</strong>은 View를 rendering할 때 필요한
+HTML을 inline형태로 직접 기술할 때 사용됩니다. <strong>templateUrl</strong>은 template code를 따로 HTML 파일로 분리해서 작성할 때 사용합니다.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">style 정보</code> : <strong>styles</strong> 혹은 <strong>styleUrls</strong>을 이용할 수 있습니다. <strong>template 정보</strong>에 명시된 HTML Element에 대한 style을
+정의한 CSS가 inline형태 혹은 파일 형태로 포함될 수 있습니다. 여러 CSS 정의와 파일을 이용할 수 있기 때문에 배열형태로 표현합니다.</p>
   </li>
 </ul>
-
-<p>위의 예제에서는 사용할 css파일에 대한 <code class="highlighter-rouge">styleUrls</code>도 같이 지정해 놓았습니다.</p>
 
 <hr />
 
@@ -2109,7 +2389,9 @@ application이 bootstrapping될 때 Angular에 의해서 제어되게 됩니다.
 <p><code class="highlighter-rouge">Root Module</code>은 관례상 <code class="highlighter-rouge">AppModule</code>이라 명하고 class로 표현하게 됩니다. <code class="highlighter-rouge">src/app</code> 폴더안에 <code class="highlighter-rouge">app.module.ts</code> 파일이 존재하는데
 이 파일안에 Root Module이 정의되어 있습니다.</p>
 
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// BrowserModule은 Web Application인 경우 Root Module에서 </span>
+<span class="c1">// 반드시 import 처리를 해야 합니다.</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
 
 
@@ -2129,6 +2411,12 @@ application이 bootstrapping될 때 Angular에 의해서 제어되게 됩니다.
 <span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
 </code></pre></div></div>
 
+<blockquote>
+  <p><code class="highlighter-rouge">BrowserModule</code>은 Web Browser를 위한 Module입니다. 지금 우리가 작성하는 프로젝트처럼 브라우저에서 동작하는
+Web Application인 경우 Root Module은 반드시 BrowserModule을 import하셔야 합니다. Root Module이 아닌 다른 Module인
+경우에는 <code class="highlighter-rouge">CommonModule</code>을 import해야 합니다.</p>
+</blockquote>
+
 <p>Angular CLI로 생성한 우리 project의 <code class="highlighter-rouge">app.module.ts</code> 파일 내용입니다. 보시는 것처럼 <code class="highlighter-rouge">AppModule</code> class가 정의되어 있고
 상단에 <code class="highlighter-rouge">@NgModule</code> Decorator를 이용하여 우리의 class가 Module임을 명시했습니다.</p>
 
@@ -2136,6 +2424,16 @@ application이 bootstrapping될 때 Angular에 의해서 제어되게 됩니다.
 </code></pre></div></div>
 <p>위의 코드는 아까 살펴본 Component인 <code class="highlighter-rouge">app.component.ts</code> 파일로부터 AppComponent class를 import하는 부분입니다. 
 이렇게 import한 class를 Module안에서 <code class="highlighter-rouge">declarations</code>를 이용해 선언해서 사용하게 됩니다.</p>
+
+<blockquote>
+  <p><strong>declarations</strong>안에는 Component와 아직 배우지 않은 Directive, Pipe에 대한 리스트가 선언됩니다. 이렇게 선언된
+요소만이 Module내에서 사용이 가능합니다.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>imports</strong>안에는 의존 관계에 있는 Angular Library Module과 아직 배우지 않은 하위 Module, Routing Module,
+Ionic과 같은 Third Party Module이 포함됩니다.</p>
+</blockquote>
 
 <p><code class="highlighter-rouge">@NgModule</code> Decorator의 metadata 중 <code class="highlighter-rouge">bootstrap</code>은 application이 bootstrapping할 때 어떤 Component를 사용할 것인지를
 배열로 선언합니다. 즉, <code class="highlighter-rouge">bootstrap</code>은 browser가 최초로 index.html을 읽어들여 application을 시작할 때 사용할 
@@ -2153,6 +2451,10 @@ Component를 명시하게 됩니다.</p>
 <p>Angular는 저 위의 코드로 <code class="highlighter-rouge">AppModule</code>을 읽어들이고 Module안에 등록된 여러 Component들을 <code class="highlighter-rouge">JavaScript</code> 코드로 compile하게
 되는 것 입니다.</p>
 
+<p>정리하자면 Root Module은 최상위 Module로 main.ts에 의해 bootstrap됩니다. 이 때 위에서 언급한 Component Tree의 
+최상위 Component인 Root Component가 Root Module에 의해서 bootstrap되는 것이지요. 따라서 <strong>모든 Angular 프로젝트는
+Root Module과 Root Component를 반드시 가지고 있어야 합니다.</strong></p>
+
 <blockquote>
   <p>지금까지 살펴본 것처럼 만약 Angular CLI를 이용하지 않으면 우리가 <code class="highlighter-rouge">.ts</code> 파일을 만들어서 등록하는 과정을 직접해야
 합니다. Angular CLI를 이용하면 기본 Skeleton 코드의 생성과 등록절차까지 자동으로 처리되게 됩니다.</p>
@@ -2162,7 +2464,7 @@ Component를 명시하게 됩니다.</p>
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component Tree</strong></p>
 
-<p>위의 설명을 좀 정리해 보면 다음과 같습니다.</p>
+<p>사실 위에서 언급한 내용인데 중요한 부분이니 다시한번 정리하고 넘어가겠습니다.</p>
 
 <p>Angular application안에는 여러 View들이 존재할 수 있습니다. 개념적으로 하나의 
 View안에 여러개의 View들이 child형태로 존재할 수 도 있겠지요. View는 Component와 대응된다고 했으니 결국 Component안에
@@ -2232,6 +2534,7 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
     <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
 </ul>
 
 <hr />
@@ -2286,21 +2589,24 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
 <a href="https://www.jetbrains.com/webstorm" target="_blank">WebStorm</a>을 다운로드 받습니다.</p>
 
 <p>다운로드가 완료되면 기본형태로 설치합니다. 설치가 끝나면 프로젝트를 생성할 수 있는 화면이 나오게 되는데 
-일단 이 화면에서 대기합니다. 프로젝트는 Angular CLI를 이용해서 생성합니다.</p>
+일단 이 화면에서 대기합니다.</p>
+
+<p>프로젝트는 <strong>Angular CLI</strong>를 이용해서 생성합니다.</p>
 
 <hr />
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular 개발환경 - Angular CLI</strong></p>
 
 <p>일반적으로 <code class="highlighter-rouge">Framework</code>를 도입할 때 가장 힘든점 중 하나는 개발환경 구축입니다. 기본적인
-폴더구조를 숙지해서 만들어야 하고 기본적으로 사용되는 설정 파일들도 다수 존재합니다. 대부분 머가먼지 알기 힘들죠.
-코드를 작성한 후 Build 설정, Bundler 설정, 테스팅과 배포등 너무 많은 일을 해야하고 설정방법 또한 너무 많고 복잡합니다.</p>
+폴더구조를 숙지해서 만들어야 하고 기본적으로 사용되는 설정 파일들도 다수 존재합니다. 처음에는 대부분 뭐가먼지 알기 힘들죠.
+코드를 작성한 후 Build 설정, Bundler 설정, 테스팅과 배포등 너무 많은 일을 해야하고 설정방법 또한 복잡합니다.</p>
 
-<p>Angular 역시 마찬가지입니다. Mike Brocchi( Angular CLI contributor )의 Twitter 설문을 예로 들어보죠.</p>
+<p><strong>Angular 역시 마찬가지입니다.</strong> Mike Brocchi( Angular CLI contributor )의 Twitter 설문을 예로 들어보죠. 설문에서
+나온것처럼 초기 환경 세팅과 복잡성을 가장 큰 문제 중 하나로 여기고 있는걸 볼 수 있습니다.</p>
 
 <p><img src="assets/built/images/what-is-angular-barrier.png" alt="what is angular barrier" /></p>
 
-<p>Angular는 <code class="highlighter-rouge">Angular CLI</code>를 제공함으로 이런 복잡함을 해결하고 있습니다. Angular CLI를 이용할 경우와 그렇지 않는 경우를 
+<p>다행스럽게 Angular는 <code class="highlighter-rouge">Angular CLI</code>를 제공함으로 이런 복잡함을 해결하고 있습니다. Angular CLI를 이용할 경우와 그렇지 않는 경우를 
 간단히 그림으로 표현하면 다음과 같습니다.</p>
 
 <p><img src="assets/built/images/using-angular-cli.png" alt="with angular CLI" /></p>
@@ -2330,7 +2636,7 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
 
 <p>Angular CLI의 설치가 끝났으니 이제 Angular CLI를 이용하여 프로젝트를 하나 생성합니다. 프로젝트명은 
 <code class="highlighter-rouge">bookSearch-angular</code>로 하겠습니니다. 프로젝트 폴더는 <code class="highlighter-rouge">D:/bookSearch-angular</code>로 생성할 것이기 때문에 
-저는 현재 command창의 working directory를 <code class="highlighter-rouge">D:/</code>로 잡아놓고 다음과 같이 입력합니다.</p>
+저는 현재 command 창의 working directory를 <code class="highlighter-rouge">D:/</code>로 잡아놓고 다음과 같이 입력합니다.</p>
 
 <blockquote>
   <p><strong>ng new bookSearch-angular</strong></p>
@@ -2347,9 +2653,9 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
 </blockquote>
 
 <p>이렇게 Angular CLI를 이용해서 프로젝트를 생성할 수 있는데 이 프로젝트 구조와 Coding Convention이 
-Angular의 표준형태라고 보시면 됩니다.</p>
+<strong>Angular의 표준형태</strong>라고 보시면 됩니다.</p>
 
-<p>설정파일에 대한 내용은 조금 나중에 다시 보기로 하고 일단 WebStorm으로 해당 프로젝트 폴더를 open합니다.
+<p>설정파일에 대한 내용은 나중에 다시 보기로 하고 일단 WebStorm으로 해당 프로젝트 폴더를 open합니다.
 아래의 그림처럼 WebStorm에서 프로젝트 폴더가 보이게 됩니다.</p>
 
 <p><img src="assets/built/images/webstorm-angular-project-init.png" alt="WebStorm Angular project" /></p>
@@ -2361,7 +2667,7 @@ Angular의 표준형태라고 보시면 됩니다.</p>
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 개발환경 서버를 이용한 Angular 프로젝트 실행</strong></p>
 
-<p>command 창을 열어 프로젝트 root로 working directory를 이동시킨 후 다음의 명령을 실행하면 Webpack을 이용하여 
+<p>command 창을 열어 프로젝트 root로 working directory를 이동시킨 후 다음의 명령을 실행하면 <code class="highlighter-rouge">Webpack</code>을 이용하여 
 우리 소스를 bundling하고 로컬 웹서버를 이용하여 우리 프로젝트를 서비스하게 됩니다.</p>
 
 <blockquote>
@@ -2445,6 +2751,7 @@ Angular의 표준형태라고 보시면 됩니다.</p>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
     <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
 </ul>
 
 <hr />
@@ -2456,7 +2763,7 @@ Angular의 표준형태라고 보시면 됩니다.</p>
 <p><code class="highlighter-rouge">Angular</code>는 JavaScript based open source front end web application framework 입니다. 길기도 하네요. 
 초기 버전인 <code class="highlighter-rouge">AngularJS</code>는 2010년 발표되었습니다. 지금은 <code class="highlighter-rouge">Angular 1</code>이라고 표현하기도 합니다. 
 버전 정책이 AngularJS 1.x로 올라가는 것이죠. 그렇게 발전해오다가
-2016년에 <code class="highlighter-rouge">Angular 2</code>가 정식으로 출시되었습니다. 그러면서 Angular 2라고 명시하지 않고 <code class="highlighter-rouge">Angular</code>라는 이름으로 호명하기로
+2016년 9월에 <code class="highlighter-rouge">Angular 2</code>가 정식으로 출시되었습니다. 그러면서 Angular 2라고 명시하지 않고 <code class="highlighter-rouge">Angular</code>라는 이름으로 호명하기로
 결정합니다. 지금 우리가 Angular라고 부르는 것은 모두 Angular 2 이후 버전입니다. 2017년 3월에 <code class="highlighter-rouge">Angular 4</code>가 release되었고 
 현재(2018년 1월)기준으로 <code class="highlighter-rouge">Angular 5</code> 까지 나온 상태입니다.</p>
 
@@ -2475,8 +2782,13 @@ Angular의 표준형태라고 보시면 됩니다.</p>
 Angular 3는 Router issue때문에 release가 최소되었습니다. 그래서 Angular 2 다음 버전이 Angular 4가 됩니다. 
 2017년 11월에 release된 Angular 5는 Angular 2의 3번째 Major 배포판 이라는 말이지요.</p>
 
-<p>기존의 <code class="highlighter-rouge">AngularJS</code>와 지금의 <code class="highlighter-rouge">Angular</code>는 Architecture측면이나 구현측면에서 큰 차이가 있습니다. 그렇기 때문에 Angular 2가 아키텍쳐가
-발표되었을 때 많은 AngularJS 개발자들이 황당해 했던것도 사실입니다. 여하간 AngularJS는 역사속으로 사라지고 있습니다. 
+<p>Angular는 유의적버전(<code class="highlighter-rouge">SemVer</code>)을 도입해서 버전 체계를 Major.Minor.Patch로 표현합니다. 즉, Angular 5.2.4 이렇게 표현하는 
+것이지요. 6개월을 기준으로 1회의 Major, 3회의 Minor 그리고 주단위로 패치가 실시되고 있습니다. Major Release는 <code class="highlighter-rouge">Breaking Change</code>
+가 포함될 수 있습니다. Breaking Change란 이전버전과 호환성이 없는 변화를 지칭합니다. 따라서 시간이 좀 지나면 지금의 Angular와
+또 많이 다른 모습의 Angular가 될 확률도 있습니다. 물론 Google에서는 가능한 그런 경우를 없앤다고 발표했지만 모를일이죠.</p>
+
+<p>기존의 <code class="highlighter-rouge">AngularJS</code>와 지금의 <code class="highlighter-rouge">Angular</code>는 Architecture측면이나 구현측면에서 큰 차이가 있습니다. 그렇기 때문에 Angular 2 
+architecture가 발표되었을 때 많은 AngularJS 개발자들이 황당해 했던것도 사실입니다. 여하간 AngularJS는 역사속으로 사라지고 있습니다. 
 사실 Google에서도 AngularJS 시절에는 내부적으로 AngulraJS를 사용하지 않았습니다. 하지만 Angular로 넘어오면서 자사의 개발자체도
 Angular로 진행하고 있고 Angular를 단지 web framework에서만 사용하는 기술이 아닌 모든 platform에 대응할 수 있는 형태로 
 발전시킬려고 노력하고 있습니다.</p>
@@ -2513,10 +2825,10 @@ Angular로 진행하고 있고 Angular를 단지 web framework에서만 사용�
 
 <p>해서 Angular 강좌 역시 기본적으로 다음과 같은 선행지식을 필요로 합니다.</p>
 <ul>
-  <li><code class="highlighter-rouge">JavaScript</code></li>
-  <li><code class="highlighter-rouge">TypeScript</code></li>
-  <li><code class="highlighter-rouge">OOP</code>(Object Oriented Programming)</li>
-  <li>Front End 개발 도구 ( <code class="highlighter-rouge">npm</code>, <code class="highlighter-rouge">babel</code>, <code class="highlighter-rouge">webpack</code>, <code class="highlighter-rouge">gulp</code> 등등)</li>
+  <li><strong>JavaScript</strong></li>
+  <li><strong>TypeScript</strong></li>
+  <li><strong>OOP</strong>(Object Oriented Programming)</li>
+  <li><strong>Front End 개발 도구</strong> ( npm, babel, webpack, gulp 등등)</li>
 </ul>
 
 <p>참고로 이 <a href="./front-end-ecosystem.html" target="_blank">링크</a>에 가보시면 현재 Front End 개발환경에 대한 간단한 
@@ -2538,373 +2850,6 @@ Angular로 진행하고 있고 Angular를 단지 web framework에서만 사용�
     <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
     <li>Angular 첫걸음 - 한빛미디어</li>
     <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
-</ul>
-
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>TypeScript 강좌(7) - Class</title>
-	  <link>https://moon9342.github.io/typescript-class</link>
-		
-				
-		
-				
-		
-				
-						<author>TypeScript</author>
-				
-		
-				
-		
-				
-		
-				
-		
-	  <pubDate>2018-01-30T18:04:00+00:00</pubDate>
-	  <guid>https://moon9342.github.io/typescript-class</guid>
-	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">TypeScript 강좌는 여러 절로 구성되어 있습니다.</span></p>
-<ul class="table-of-contents-list">
-    <li><a href="./typescript-introduction">TypeScript 강좌(1) - Introduction</a></li>
-    <li><a href="./typescript-datatype-1">TypeScript 강좌(2) - Data Type(Part 1)</a></li>
-    <li><a href="./typescript-datatype-2">TypeScript 강좌(3) - Data Type(Part 2)</a></li>
-    <li><a href="./typescript-variable">TypeScript 강좌(4) - 변수 선언</a></li>
-    <li><a href="./typescript-destructuring">TypeScript 강좌(5) - Destructuring</a></li>
-    <li><a href="./typescript-interface">TypeScript 강좌(6) - Interface</a></li>
-    <li><a href="./typescript-class">TypeScript 강좌(7) - Class</a></li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> TypeScript Class</strong></p>
-
-<p>기존의 <code class="highlighter-rouge">JavaScript</code>는 재사용 가능한 component를 만들기 위해 함수와 prototype에 기반한 상속을 이용했습니다. 하지만
-기존 객체지향에 익숙해 있는 개발자들에게는 상당히 생소한 개념이었죠. 그래서 ECMAScript 2015( <code class="highlighter-rouge">ES6</code> )에서는 
-개발자들이 좀 더 쉽게 JavaScript Application을 구현할 수 있도록 전통적인 class 기반의 객체지향 개념을 도입했습니다.</p>
-
-<p><code class="highlighter-rouge">TypeScript</code> 역시 이 class기반의 객체지향 기법을 이용해 Application을 개발할 수 있습니다.</p>
-
-<p>일단 ECMAScript 2015( <code class="highlighter-rouge">ES6</code> )의 class는 다음과 같이 정의하고 사용할 수 있습니다.</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
-
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">,</span><span class="nx">bauthor</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span> <span class="o">=</span> <span class="nx">bauthor</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="nx">printInfo</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`제목: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">}</span><span class="s2">, 저자: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">,</span><span class="s1">'괴테'</span><span class="p">);</span>
-<span class="nx">book</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span>
-</code></pre></div></div>
-
-<p>위의 코드는 data type의 정보를 포함하고 있지 않기 때문에 <code class="highlighter-rouge">TypeScript</code>로 변형하면 오류가 발생합니다.
-적절히 타입 정보를 포함해 코드를 수정하면 다음과 같습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
-
-    <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="nl">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="nx">bauthor</span><span class="p">:</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span> <span class="o">=</span> <span class="nx">bauthor</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="nx">printInfo</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`제목: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">}</span><span class="s2">, 저자: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="na">book</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">,</span><span class="s1">'괴테'</span><span class="p">);</span>
-<span class="nx">book</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span>
-</code></pre></div></div>
-
-<p>위의 코드는 <code class="highlighter-rouge">Java</code>에서 우리가 익히 보아왔던 class의 형태입니다. 생성자를 표현하는 부분이 좀 생소하지만 쉽게
-이해할 수 있을 듯 합니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Inheritance</strong></p>
-
-<p>일반적인 객체지향언어의 <code class="highlighter-rouge">Inheritance</code> 개념 역시 TypeScript에도 사용할 수 있습니다. 다음의 코드를 보죠.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
-
-    <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-    <span class="nl">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-
-    <span class="c1">// 상위 클래스의 생성자</span>
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="nx">bauthor</span><span class="p">:</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span> <span class="o">=</span> <span class="nx">bauthor</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="c1">// 상위 클래스의 method</span>
-    <span class="c1">// 입력 인자가 있으면 사용하고 없으면 default 사용</span>
-    <span class="nx">printInfo</span><span class="p">(</span><span class="nx">input</span><span class="p">:</span><span class="nx">string</span> <span class="o">=</span> <span class="s1">'Initial'</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`제목: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">}</span><span class="s2">, 저자: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// class의 상속</span>
-<span class="kd">class</span> <span class="nx">EBook</span> <span class="kd">extends</span> <span class="nx">Book</span> <span class="p">{</span>
-
-    <span class="na">btype</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-
-    <span class="kd">constructor</span><span class="p">(</span><span class="na">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="na">bauthor</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="na">btype</span><span class="p">:</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// 상위 class 생성자 호출</span>
-        <span class="k">super</span><span class="p">(</span><span class="nx">btitle</span><span class="p">,</span> <span class="nx">bauthor</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">btype</span> <span class="o">=</span> <span class="nx">btype</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="c1">// method overriding</span>
-    <span class="nx">printInfo</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="c1">// 상위 class의 method 호출</span>
-        <span class="k">super</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`제목: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">}</span><span class="s2">, 
-                     저자: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span><span class="p">}</span><span class="s2">,
-                     타입: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btype</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// IS-A relationship에 의한 상위 class type 사용</span>
-<span class="kd">let</span> <span class="na">book</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EBook</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">,</span><span class="s1">'괴테'</span><span class="p">,</span>
-    <span class="s1">'PDF'</span><span class="p">);</span>
-
-<span class="c1">// dynamic binding에 의한 overriding method 호출.</span>
-<span class="nx">book</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span>
-</code></pre></div></div>
-
-<p>기존 class를 확장하여 새로운 class를 정의하는 방법입니다. <code class="highlighter-rouge">IS-A Relationship</code> 역시 성립합니다. 그로 인한
-상위 타입으로 객체를 사용할 수 있습니다. 또한 위의 예에서 처럼 <code class="highlighter-rouge">method overriding</code>의 개념 역시 존재하고 
-<code class="highlighter-rouge">dynamic binding</code> 개념 역시 존재합니다. 물론 <code class="highlighter-rouge">TypeScript</code>에서는 공식적으로 저 용어를 사용하지는 않습니다.
-다만 우리가 <code class="highlighter-rouge">Java</code>언어에서 알고 있던 객체지향 개념이 그대로 TypeScript에도 일부 적용된다고 보시면 됩니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Access Modifier</strong></p>
-
-<p><code class="highlighter-rouge">TypeScript</code>는 3가지 종류의 접근제어 연산자를 제공합니다. 우리에게 익숙한 <code class="highlighter-rouge">public</code>, <code class="highlighter-rouge">protected</code>, <code class="highlighter-rouge">private</code> 
-키워드로 제공되며 <strong>default값은 <code class="highlighter-rouge">public</code></strong>입니다. 즉, Access Modifier를 명시하지 않으면 모두 <code class="highlighter-rouge">public</code>으로 간주됩니다.</p>
-
-<ul>
-  <li><code class="highlighter-rouge">public</code> : 접근제한이 없습니다. class외부에서 자유롭게 접근이 가능합니다.</li>
-  <li><code class="highlighter-rouge">protected</code> : class 외부에서 접근할 수 없습니다. 단, 상속받은 하위 class에서는 접근이 가능합니다.</li>
-  <li><code class="highlighter-rouge">privatre</code> : class 외부에서 접근할 수 없습니다. 상속받은 하위 class에서도 접근이 불가능합니다.</li>
-</ul>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
-
-    <span class="kr">protected</span> <span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-
-    <span class="kr">public</span> <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="kr">private</span> <span class="nx">_bauthor</span><span class="p">:</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kr">public</span> <span class="nx">printInfo</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`제목: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">}</span><span class="s2">, 저자: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">_bauthor</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="c1">// private property인 _bauthor의 getter</span>
-    <span class="kd">get</span> <span class="nx">bauthor</span><span class="p">():</span> <span class="nx">string</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_bauthor</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="c1">// private property인 _bauthor의 setter</span>
-    <span class="kd">set</span> <span class="nx">bauthor</span><span class="p">(</span><span class="na">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_bauthor</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nx">EBook</span> <span class="kd">extends</span> <span class="nx">Book</span> <span class="p">{</span>
-
-    <span class="kr">private</span> <span class="na">btype</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-
-    <span class="kr">public</span> <span class="kd">constructor</span><span class="p">(</span><span class="na">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="na">bauthor</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="na">btype</span><span class="p">:</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">super</span><span class="p">(</span><span class="nx">btitle</span><span class="p">,</span> <span class="nx">bauthor</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">btype</span> <span class="o">=</span> <span class="nx">btype</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kr">public</span> <span class="nx">printInfo</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`제목: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">}</span><span class="s2">, 
-                     저자: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">bauthor</span><span class="p">}</span><span class="s2">,
-                     타입: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">btype</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="na">book</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EBook</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">,</span><span class="s1">'괴테'</span><span class="p">,</span>
-    <span class="s1">'PDF'</span><span class="p">);</span>
-
-<span class="nx">book</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span>
-</code></pre></div></div>
-
-<p>위의 예제에서는 다음의 코드를 주의해서 보아야 합니다. 
-생성자의 인자로 <code class="highlighter-rouge">private _bauthor:string</code>라고 선언된 부분이 보입니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="kr">protected</span> <span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-
-    <span class="kr">public</span> <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">,</span> <span class="kr">private</span> <span class="nx">_bauthor</span><span class="p">:</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
-    <span class="p">}</span>
-</code></pre></div></div>
-
-<p>생성자에 인자를 명시할 때 access modifier를 같이 명시하면 위의 예처럼 명시적으로
-해당 property가 선언되어 사용할 수 있게 됩니다.</p>
-
-<p>일반적으로 <code class="highlighter-rouge">private property</code>의 이름은 앞에 <code class="highlighter-rouge">_</code>를 관용적으로 써주게 됩니다. 이렇게 사용하는 이유는
-관용적 coding convention 때문에 그렇습니다. ECMAScript에서는 개발자들이 private의 의미로 사용되는
-property에 일반적으로 <code class="highlighter-rouge">_</code>를 붙여서 사용했었습니다.</p>
-
-<p>또 다른 이유는 <code class="highlighter-rouge">setter</code>와 <code class="highlighter-rouge">getter</code>의 이름때문에 그렇습니다. 다음의 코드에서 보듯이 <code class="highlighter-rouge">TypeScript</code>에서 
-getter와 setter의 표현은 우리가 알고 있는 다른 언어의 getter, setter와 다릅니다. 그리고 이렇게
-선언된 getter와 setter가 어떻게 사용되는지도 유의해서 보시기 바랍니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">// private property인 _bauthor의 getter</span>
-    <span class="kd">get</span> <span class="nx">bauthor</span><span class="p">():</span> <span class="nx">string</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_bauthor</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="c1">// private property인 _bauthor의 setter</span>
-    <span class="kd">set</span> <span class="nx">bauthor</span><span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_bauthor</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
-    <span class="p">}</span>
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Readonly Property</strong></p>
-
-<p>class의 property를 <code class="highlighter-rouge">readonly</code>로 지정할 수 있습니다. readonly로 지정되면 property가 선언될 때 혹은 생성자안에서
-반드시 초기화를 진행해야 합니다. 다음의 예제를 참고하시면 됩니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
-
-    <span class="kr">public</span> <span class="nx">readonly</span> <span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
-    <span class="p">}</span>
-
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">book</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">);</span>
-
-<span class="nx">book</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="s1">'파우스트'</span><span class="p">;</span>   <span class="c1">// 코드 에러</span>
-</code></pre></div></div>
-
-<p>다음의 예제처럼 생성자의 parameter를 readonly로 선언하면 따로 class의 property로 선언할 필요가 없습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
-
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">readonly</span> <span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
-    <span class="p">}</span>
-
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">book</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">);</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">book</span><span class="p">.</span><span class="nx">btitle</span><span class="p">);</span>
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Static Property</strong></p>
-
-<p><code class="highlighter-rouge">static</code> 키워드 역시 사용할 수 있습니다. ECMAScript 2015에서는 static을 method에만 적용할 수 있었지만
-TypeScript는 property에도 적용할 수 있습니다. static property는 class의 이름으로 직접 access를 할 수 있습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
-
-    <span class="kr">public</span> <span class="nx">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">;</span>
-    <span class="kr">static</span> <span class="nx">count</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
-
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
-        <span class="nx">Book</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
-    <span class="p">}</span>
-
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">book1</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">book2</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="s1">'파우스트'</span><span class="p">);</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Book</span><span class="p">.</span><span class="nx">count</span><span class="p">);</span>
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Abstract Class</strong></p>
-
-<p><code class="highlighter-rouge">abstract class</code>는 하나이상의 <code class="highlighter-rouge">abstract method</code>를 가지고 있는 class를 의미합니다. method의 선언만을 가지고 있기
-때문에 직접적인 객체생성을 할 수 없고 상속을 이용해 하위 클래스에서 abstract method를 overriding해서 사용하게 됩니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">abstract</span> <span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
-
-    <span class="kr">public</span> <span class="nx">btitle</span><span class="p">:</span><span class="nx">string</span><span class="p">;</span>
-
-    <span class="kd">constructor</span><span class="p">(</span><span class="nx">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">btitle</span> <span class="o">=</span> <span class="nx">btitle</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kr">abstract</span> <span class="nx">printInfo</span><span class="p">():</span> <span class="k">void</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nx">EBook</span> <span class="kd">extends</span> <span class="nx">Book</span> <span class="p">{</span>
-
-    <span class="nx">printInfo</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">btitle</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="na">book</span><span class="p">:</span><span class="nx">Book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EBook</span><span class="p">(</span><span class="s1">'젊은 베르테르의 슬픔'</span><span class="p">);</span>
-<span class="nx">book</span><span class="p">.</span><span class="nx">printInfo</span><span class="p">();</span>
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> interface의 의미로 class사용</strong></p>
-
-<p>이 부분은 기존의 다른 언어와 다릅니다. <strong>class를 확장해서 interface를 정의</strong>할 수 있습니다. 다음의 코드를 참조하세요</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Book</span> <span class="p">{</span>
-
-    <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-
-<span class="p">}</span>
-
-<span class="kr">interface</span> <span class="nx">EBook</span> <span class="kd">extends</span> <span class="nx">Book</span> <span class="p">{</span>
-
-    <span class="nl">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">book</span><span class="p">:</span><span class="nx">EBook</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">btitle</span><span class="p">:</span> <span class="s1">'파우스트'</span><span class="p">,</span>
-    <span class="na">bauthor</span><span class="p">:</span> <span class="s1">'괴테'</span>
-<span class="p">};</span>
-</code></pre></div></div>
-
-<hr />
-
-<p>이번 포스트에서는 <code class="highlighter-rouge">TypeScript</code>의 class에 대해서 살펴보았습니다. 객체지향 언어의 class와 상당히 유사하면서도
-약간의 차이점이 있었습니다. 차이점 위주로 기억하시면 될 듯 합니다.</p>
-
-<p>End.</p>
-
-<hr />
-
-<p><span class="lecture-reference">이 포스트의 내용은 아래의 사이트를 참조했습니다. 조금 더 자세한 사항을 알고 싶으시면
-    해당 사이트를 방문하세요!!</span></p>
-<ul class="lecture-reference">
-    <li><a href="http://www.typescriptlang.org" target="_blank">TypeScript Official HomePage</a></li>
 </ul>
 
 

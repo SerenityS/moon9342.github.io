@@ -55,7 +55,7 @@
     <meta property="og:site_name" content="IT Blog" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Angular 강좌(2) - 개발환경세팅" />
-    <meta property="og:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Angular 개발환경 -" />
+    <meta property="og:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Angular 강좌(10) -" />
     <meta property="og:url" content="https://moon9342.github.io/angular-lecture-development-environment" />
     <meta property="og:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -65,7 +65,7 @@
     <meta property="article:tag" content="Front End" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Angular 강좌(2) - 개발환경세팅" />
-    <meta name="twitter:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Angular 개발환경 -" />
+    <meta name="twitter:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Angular 강좌(10) -" />
     <meta name="twitter:url" content="https://moon9342.github.io/" />
     <meta name="twitter:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -97,7 +97,7 @@
         "@type": "WebPage",
         "@id": "https://moon9342.github.io/angular-lecture-development-environment"
     },
-    "description": "Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Angular 개발환경 -"
+    "description": "Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Angular 강좌(10) -"
 }
     </script>
 
@@ -226,6 +226,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
     <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
 </ul>
 
 <hr />
@@ -280,21 +281,24 @@ into the {body} of the default.hbs template -->
 <a href="https://www.jetbrains.com/webstorm" target="_blank">WebStorm</a>을 다운로드 받습니다.</p>
 
 <p>다운로드가 완료되면 기본형태로 설치합니다. 설치가 끝나면 프로젝트를 생성할 수 있는 화면이 나오게 되는데 
-일단 이 화면에서 대기합니다. 프로젝트는 Angular CLI를 이용해서 생성합니다.</p>
+일단 이 화면에서 대기합니다.</p>
+
+<p>프로젝트는 <strong>Angular CLI</strong>를 이용해서 생성합니다.</p>
 
 <hr />
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Angular 개발환경 - Angular CLI</strong></p>
 
 <p>일반적으로 <code class="highlighter-rouge">Framework</code>를 도입할 때 가장 힘든점 중 하나는 개발환경 구축입니다. 기본적인
-폴더구조를 숙지해서 만들어야 하고 기본적으로 사용되는 설정 파일들도 다수 존재합니다. 대부분 머가먼지 알기 힘들죠.
-코드를 작성한 후 Build 설정, Bundler 설정, 테스팅과 배포등 너무 많은 일을 해야하고 설정방법 또한 너무 많고 복잡합니다.</p>
+폴더구조를 숙지해서 만들어야 하고 기본적으로 사용되는 설정 파일들도 다수 존재합니다. 처음에는 대부분 뭐가먼지 알기 힘들죠.
+코드를 작성한 후 Build 설정, Bundler 설정, 테스팅과 배포등 너무 많은 일을 해야하고 설정방법 또한 복잡합니다.</p>
 
-<p>Angular 역시 마찬가지입니다. Mike Brocchi( Angular CLI contributor )의 Twitter 설문을 예로 들어보죠.</p>
+<p><strong>Angular 역시 마찬가지입니다.</strong> Mike Brocchi( Angular CLI contributor )의 Twitter 설문을 예로 들어보죠. 설문에서
+나온것처럼 초기 환경 세팅과 복잡성을 가장 큰 문제 중 하나로 여기고 있는걸 볼 수 있습니다.</p>
 
 <p><img src="assets/built/images/what-is-angular-barrier.png" alt="what is angular barrier" /></p>
 
-<p>Angular는 <code class="highlighter-rouge">Angular CLI</code>를 제공함으로 이런 복잡함을 해결하고 있습니다. Angular CLI를 이용할 경우와 그렇지 않는 경우를 
+<p>다행스럽게 Angular는 <code class="highlighter-rouge">Angular CLI</code>를 제공함으로 이런 복잡함을 해결하고 있습니다. Angular CLI를 이용할 경우와 그렇지 않는 경우를 
 간단히 그림으로 표현하면 다음과 같습니다.</p>
 
 <p><img src="assets/built/images/using-angular-cli.png" alt="with angular CLI" /></p>
@@ -324,7 +328,7 @@ into the {body} of the default.hbs template -->
 
 <p>Angular CLI의 설치가 끝났으니 이제 Angular CLI를 이용하여 프로젝트를 하나 생성합니다. 프로젝트명은 
 <code class="highlighter-rouge">bookSearch-angular</code>로 하겠습니니다. 프로젝트 폴더는 <code class="highlighter-rouge">D:/bookSearch-angular</code>로 생성할 것이기 때문에 
-저는 현재 command창의 working directory를 <code class="highlighter-rouge">D:/</code>로 잡아놓고 다음과 같이 입력합니다.</p>
+저는 현재 command 창의 working directory를 <code class="highlighter-rouge">D:/</code>로 잡아놓고 다음과 같이 입력합니다.</p>
 
 <blockquote>
   <p><strong>ng new bookSearch-angular</strong></p>
@@ -341,9 +345,9 @@ into the {body} of the default.hbs template -->
 </blockquote>
 
 <p>이렇게 Angular CLI를 이용해서 프로젝트를 생성할 수 있는데 이 프로젝트 구조와 Coding Convention이 
-Angular의 표준형태라고 보시면 됩니다.</p>
+<strong>Angular의 표준형태</strong>라고 보시면 됩니다.</p>
 
-<p>설정파일에 대한 내용은 조금 나중에 다시 보기로 하고 일단 WebStorm으로 해당 프로젝트 폴더를 open합니다.
+<p>설정파일에 대한 내용은 나중에 다시 보기로 하고 일단 WebStorm으로 해당 프로젝트 폴더를 open합니다.
 아래의 그림처럼 WebStorm에서 프로젝트 폴더가 보이게 됩니다.</p>
 
 <p><img src="assets/built/images/webstorm-angular-project-init.png" alt="WebStorm Angular project" /></p>
@@ -355,7 +359,7 @@ Angular의 표준형태라고 보시면 됩니다.</p>
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 개발환경 서버를 이용한 Angular 프로젝트 실행</strong></p>
 
-<p>command 창을 열어 프로젝트 root로 working directory를 이동시킨 후 다음의 명령을 실행하면 Webpack을 이용하여 
+<p>command 창을 열어 프로젝트 root로 working directory를 이동시킨 후 다음의 명령을 실행하면 <code class="highlighter-rouge">Webpack</code>을 이용하여 
 우리 소스를 bundling하고 로컬 웹서버를 이용하여 우리 프로젝트를 서비스하게 됩니다.</p>
 
 <blockquote>
@@ -500,6 +504,15 @@ Angular의 표준형태라고 보시면 됩니다.</p>
                                     
                                         
                                         
+                                            <li><a href="/angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
                                             <li><a href="/angular-lecture-service">Angular 강좌(9) - Service & RxJS</a></li>
                                         
                                     
@@ -517,8 +530,6 @@ Angular의 표준형태라고 보시면 됩니다.</p>
                                   
                                     
                                         
-                                        
-                                            <li><a href="/angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
                                         
                                     
                                   
@@ -684,7 +695,7 @@ Angular의 표준형태라고 보시면 됩니다.</p>
                         <footer class="read-next-card-footer">
                             <a href="/tag/front-end/">
                                 
-                                    See all 19 posts  →
+                                    See all 20 posts  →
                                 
                             </a>
                         </footer>

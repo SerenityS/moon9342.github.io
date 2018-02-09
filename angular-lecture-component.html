@@ -55,7 +55,7 @@
     <meta property="og:site_name" content="IT Blog" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Angular 강좌(3) - Component" />
-    <meta property="og:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Component 개요 Angular는" />
+    <meta property="og:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Angular 강좌(10) -" />
     <meta property="og:url" content="https://moon9342.github.io/angular-lecture-component" />
     <meta property="og:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -65,7 +65,7 @@
     <meta property="article:tag" content="Front End" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Angular 강좌(3) - Component" />
-    <meta name="twitter:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Component 개요 Angular는" />
+    <meta name="twitter:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Angular 강좌(10) -" />
     <meta name="twitter:url" content="https://moon9342.github.io/" />
     <meta name="twitter:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -97,7 +97,7 @@
         "@type": "WebPage",
         "@id": "https://moon9342.github.io/angular-lecture-component"
     },
-    "description": "Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Component 개요 Angular는"
+    "description": "Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Angular 강좌(10) -"
 }
     </script>
 
@@ -226,6 +226,7 @@ into the {body} of the default.hbs template -->
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
     <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
 </ul>
 
 <hr />
@@ -242,23 +243,33 @@ into the {body} of the default.hbs template -->
 
 <p>예를 들면 다음과 같이 View를 분할해서 화면을 구성할 수 있습니다.</p>
 
-<p><img src="assets/built/images/view-layout.png" alt="view layout" /></p>
+<p><img src="assets/built/images/view-layout.png" alt="view-layout" /></p>
 <div class="img-reference">( 이미지 출처 : https://msdn.microsoft.com )</div>
 
 <p>위의 그림에서 A는 로고영역, B는 사진에 대한 설명영역, C는 주 사진보기 영역, D는 컬렉션에 있는 다른 사진의 미리보기
 영역입니다.</p>
 
-<p>이렇듯 우리는 화면을 여러 View들로 분할해서 구성할 수 있다는 것이죠.</p>
+<p>이렇듯 우리는 화면을 여러 View들로 분할해서 구성할 수 있다는 것이죠. 
+분할된 View들은 결국 <strong>Angular에서 <code class="highlighter-rouge">Component</code>의 단위</strong>가 됩니다.</p>
 
-<p>분할된 View들은 결국 <strong>Angular에서 <code class="highlighter-rouge">Component</code>의 단위</strong>가 됩니다. 실제로 Component는 View를 rendering하는 주체가 되기 때문에
-어떤 정보로 View를 rendering할 것인가에 대한 정보를 가지고 있어야 합니다. 이 정보를 우리는 <code class="highlighter-rouge">Template</code>이라는 것으로 표현합니다.</p>
+<p>위의 그림은 View들이 화면을 분할하고 있는 형태입니다. 이렇게 할 수도 있지만 아래의 그림처럼 하나의 View안에 
+여러 View들을 넣어 화면을 구성 할 수 있습니다. 파란색 View안에 2개의 빨간색 View가 들어가 있고 그 안에 다시 View들이
+구성되어 있는 형태입니다. <strong>부모와 자식의 관계가 성립된다는 말입니다.</strong></p>
+
+<p>View는 결국 Component의 단위가 된다고 했으니 View들의 관계에 의해서 <strong>Component들도 부모와 자식간의 관계</strong>가 생기게 됩니다.
+이를 <code class="highlighter-rouge">Component Tree</code>라고 하는데 Angular의 중요한 개념 중 하나입니다.</p>
+
+<p><img src="assets/built/images/view_layout.jpg" alt="view_layout" /></p>
+
+<p>Component는 View를 rendering하는 주체가 되기 때문에 어떤 정보로 View를 rendering할 것인가에 대한 정보를 가지고 
+있어야 합니다. 이 정보를 우리는 <code class="highlighter-rouge">Template</code>이라는 것으로 표현합니다.</p>
 
 <hr />
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Template</strong></p>
 
-<p><code class="highlighter-rouge">Template</code>은 View를 rendering하기 위해 필요한 HTML Element와 Angular의 문법요소 그리고 클라이언트 이벤트 처리 코드를 
-담고 있습니다.</p>
+<p><code class="highlighter-rouge">Template</code>은 View를 rendering하기 위해 필요한 <strong>HTML Element</strong>와 <strong>Angular의 문법요소</strong> 그리고 클라이언트 
+<strong>이벤트 처리 코드</strong>를 담고 있습니다.</p>
 
 <blockquote>
   <p>Application 실행 시 Angular는 Component와 Template의 정보를 이용하여 View를 그리게 됩니다.</p>
@@ -271,9 +282,10 @@ into the {body} of the default.hbs template -->
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component - class</strong></p>
 
-<p>기존에 만들어 놓았던 bookSearch-angular app을 살펴보면서 코드상으로 Component를 이해해보죠. WebStorm에서 우리가
-작성한 프로젝트를 보면 <code class="highlighter-rouge">src</code> 폴더가 보입니다. 이 <code class="highlighter-rouge">src</code>폴더를 보면 <code class="highlighter-rouge">index.html</code> 파일이 존재하는데 이 파일이 우리 app의
-시작파일이라고 생각하시면 됩니다. 즉, http://localhost:4200 으로 접속하면 rendering되는 파일이 바로 이 <code class="highlighter-rouge">index.html</code>입니다.</p>
+<p>기존에 만들어 놓았던 bookSearch-angular 프로젝트를 살펴보면서 코드상으로 Component를 이해해보죠. WebStorm에서 우리가
+작성한 프로젝트를 보면 <code class="highlighter-rouge">src</code> 폴더가 보입니다. 이 <code class="highlighter-rouge">src</code>폴더를 보면 <code class="highlighter-rouge">index.html</code> 파일이 존재하는데 
+이 파일이 우리 Web application의 시작파일이라고 생각하시면 됩니다. 
+즉, http://localhost:4200 으로 접속하면 rendering되는 파일이 바로 이 <code class="highlighter-rouge">index.html</code>입니다.</p>
 
 <p>아래의 내용은 <code class="highlighter-rouge">index.html</code> 입니다.</p>
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
@@ -310,17 +322,17 @@ View라는 의미입니다. 당연히 그에 대응되는 Component가 존재하
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>코드에서 맨 마지막에 나타나듯이 Component는 <code class="highlighter-rouge">class</code>입니다. 하지만 무조건 class를 선언한다고 해서
-해당 class가 Component가 되는것은 아닙니다. 이 class가 Component로 사용된다는 것을 Angular에게
+<p>코드에서 맨 마지막에 나타나듯이 Component는 <code class="highlighter-rouge">class</code>입니다. 하지만 class를 선언한다고 해서
+해당 class가 무조건 Component가 되는것은 아닙니다. 이 class가 Component로 사용된다는 것을 Angular에게
 알려주어야 Angular가 Component로 동작을 시킬수 있을 겁니다. 그래서 특정 표현을 이용해 
 해당 class가 Component임을 Angular에게 알려주어야 합니다.</p>
 
-<p><code class="highlighter-rouge">@Component</code>라고 표현되는 부분이 바로 <code class="highlighter-rouge">Component Decorator</code>입니다. 무언가와 많이 비슷하죠? Java의
-Annotation 생각하시면 됩니다. class상단에 Component Decorator를 이용해 Angular가 해당 class를 Component로
+<p><code class="highlighter-rouge">@Component</code>라고 표현되는 부분이 바로 <code class="highlighter-rouge">Component Decorator</code>입니다. 무언가와 많이 비슷하죠? 의미상 Java의
+Annotation과 하는일이 유사하다고 보시면 됩니다. class상단에 Component Decorator를 이용해 Angular가 해당 class를 Component로
 인지할 수 있도록 합니다.</p>
 
 <p><code class="highlighter-rouge">@Component</code>를 이용하려면 당연히 Component Decorator를 사용할 수 있는 상태여야 하고 이 Component Decorator는
-<code class="highlighter-rouge">@angular/core</code>라고 표현되는 Angluar Core package에서 제공합니다. 해서 아래와 같은 코드가 필요합니다.</p>
+<code class="highlighter-rouge">@angular/core</code>라고 표현되는 Angluar Core Module Package에서 제공합니다. 해서 아래와 같은 코드가 필요합니다.</p>
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
 </code></pre></div></div>
@@ -346,15 +358,17 @@ Annotation 생각하시면 됩니다. class상단에 Component Decorator를 이�
 <ul>
   <li>
     <p><code class="highlighter-rouge">selector</code> : template 코드안에서 해당 Component를 이용할 때 사용할 HTML Element명을 정의합니다. 위와 같은 경우 
-해당 Component는 <code class="highlighter-rouge">&lt;app-root&gt;&lt;/app-root&gt;</code> HTML Element로 사용할 수 있습니다.</p>
+해당 Component는 <strong>&lt;app-root&gt;&lt;/app-root&gt;</strong> HTML Element로 사용될 수 있습니다.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">template 정보</code> :  <code class="highlighter-rouge">template</code> 혹은 <code class="highlighter-rouge">templateUrl</code>을 이용할 수 있습니다. <code class="highlighter-rouge">template</code>은 View를 rendering할 때 필요한
-HTML을 inline형태로 직접 기술할 때 사용됩니다. <code class="highlighter-rouge">templateUrl</code>은 template code를 따로 HTML 파일로 분리해서 작성할 때 사용합니다.</p>
+    <p><code class="highlighter-rouge">template 정보</code> :  <strong>template</strong> 혹은 <strong>templateUrl</strong>을 이용할 수 있습니다. <strong>template</strong>은 View를 rendering할 때 필요한
+HTML을 inline형태로 직접 기술할 때 사용됩니다. <strong>templateUrl</strong>은 template code를 따로 HTML 파일로 분리해서 작성할 때 사용합니다.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">style 정보</code> : <strong>styles</strong> 혹은 <strong>styleUrls</strong>을 이용할 수 있습니다. <strong>template 정보</strong>에 명시된 HTML Element에 대한 style을
+정의한 CSS가 inline형태 혹은 파일 형태로 포함될 수 있습니다. 여러 CSS 정의와 파일을 이용할 수 있기 때문에 배열형태로 표현합니다.</p>
   </li>
 </ul>
-
-<p>위의 예제에서는 사용할 css파일에 대한 <code class="highlighter-rouge">styleUrls</code>도 같이 지정해 놓았습니다.</p>
 
 <hr />
 
@@ -374,7 +388,9 @@ application이 bootstrapping될 때 Angular에 의해서 제어되게 됩니다.
 <p><code class="highlighter-rouge">Root Module</code>은 관례상 <code class="highlighter-rouge">AppModule</code>이라 명하고 class로 표현하게 됩니다. <code class="highlighter-rouge">src/app</code> 폴더안에 <code class="highlighter-rouge">app.module.ts</code> 파일이 존재하는데
 이 파일안에 Root Module이 정의되어 있습니다.</p>
 
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// BrowserModule은 Web Application인 경우 Root Module에서 </span>
+<span class="c1">// 반드시 import 처리를 해야 합니다.</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/platform-browser'</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">NgModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
 
 
@@ -394,6 +410,12 @@ application이 bootstrapping될 때 Angular에 의해서 제어되게 됩니다.
 <span class="k">export</span> <span class="kd">class</span> <span class="nx">AppModule</span> <span class="p">{</span> <span class="p">}</span>
 </code></pre></div></div>
 
+<blockquote>
+  <p><code class="highlighter-rouge">BrowserModule</code>은 Web Browser를 위한 Module입니다. 지금 우리가 작성하는 프로젝트처럼 브라우저에서 동작하는
+Web Application인 경우 Root Module은 반드시 BrowserModule을 import하셔야 합니다. Root Module이 아닌 다른 Module인
+경우에는 <code class="highlighter-rouge">CommonModule</code>을 import해야 합니다.</p>
+</blockquote>
+
 <p>Angular CLI로 생성한 우리 project의 <code class="highlighter-rouge">app.module.ts</code> 파일 내용입니다. 보시는 것처럼 <code class="highlighter-rouge">AppModule</code> class가 정의되어 있고
 상단에 <code class="highlighter-rouge">@NgModule</code> Decorator를 이용하여 우리의 class가 Module임을 명시했습니다.</p>
 
@@ -401,6 +423,16 @@ application이 bootstrapping될 때 Angular에 의해서 제어되게 됩니다.
 </code></pre></div></div>
 <p>위의 코드는 아까 살펴본 Component인 <code class="highlighter-rouge">app.component.ts</code> 파일로부터 AppComponent class를 import하는 부분입니다. 
 이렇게 import한 class를 Module안에서 <code class="highlighter-rouge">declarations</code>를 이용해 선언해서 사용하게 됩니다.</p>
+
+<blockquote>
+  <p><strong>declarations</strong>안에는 Component와 아직 배우지 않은 Directive, Pipe에 대한 리스트가 선언됩니다. 이렇게 선언된
+요소만이 Module내에서 사용이 가능합니다.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>imports</strong>안에는 의존 관계에 있는 Angular Library Module과 아직 배우지 않은 하위 Module, Routing Module,
+Ionic과 같은 Third Party Module이 포함됩니다.</p>
+</blockquote>
 
 <p><code class="highlighter-rouge">@NgModule</code> Decorator의 metadata 중 <code class="highlighter-rouge">bootstrap</code>은 application이 bootstrapping할 때 어떤 Component를 사용할 것인지를
 배열로 선언합니다. 즉, <code class="highlighter-rouge">bootstrap</code>은 browser가 최초로 index.html을 읽어들여 application을 시작할 때 사용할 
@@ -418,6 +450,10 @@ Component를 명시하게 됩니다.</p>
 <p>Angular는 저 위의 코드로 <code class="highlighter-rouge">AppModule</code>을 읽어들이고 Module안에 등록된 여러 Component들을 <code class="highlighter-rouge">JavaScript</code> 코드로 compile하게
 되는 것 입니다.</p>
 
+<p>정리하자면 Root Module은 최상위 Module로 main.ts에 의해 bootstrap됩니다. 이 때 위에서 언급한 Component Tree의 
+최상위 Component인 Root Component가 Root Module에 의해서 bootstrap되는 것이지요. 따라서 <strong>모든 Angular 프로젝트는
+Root Module과 Root Component를 반드시 가지고 있어야 합니다.</strong></p>
+
 <blockquote>
   <p>지금까지 살펴본 것처럼 만약 Angular CLI를 이용하지 않으면 우리가 <code class="highlighter-rouge">.ts</code> 파일을 만들어서 등록하는 과정을 직접해야
 합니다. Angular CLI를 이용하면 기본 Skeleton 코드의 생성과 등록절차까지 자동으로 처리되게 됩니다.</p>
@@ -427,7 +463,7 @@ Component를 명시하게 됩니다.</p>
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component Tree</strong></p>
 
-<p>위의 설명을 좀 정리해 보면 다음과 같습니다.</p>
+<p>사실 위에서 언급한 내용인데 중요한 부분이니 다시한번 정리하고 넘어가겠습니다.</p>
 
 <p>Angular application안에는 여러 View들이 존재할 수 있습니다. 개념적으로 하나의 
 View안에 여러개의 View들이 child형태로 존재할 수 도 있겠지요. View는 Component와 대응된다고 했으니 결국 Component안에
@@ -558,6 +594,15 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
                                     
                                         
                                         
+                                            <li><a href="/angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
                                             <li><a href="/angular-lecture-service">Angular 강좌(9) - Service & RxJS</a></li>
                                         
                                     
@@ -575,8 +620,6 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
                                   
                                     
                                         
-                                        
-                                            <li><a href="/angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
                                         
                                     
                                   
@@ -742,7 +785,7 @@ Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 
                         <footer class="read-next-card-footer">
                             <a href="/tag/front-end/">
                                 
-                                    See all 19 posts  →
+                                    See all 20 posts  →
                                 
                             </a>
                         </footer>

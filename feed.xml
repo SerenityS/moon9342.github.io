@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-08T08:38:21+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Angular 강좌(9) - Service &amp;amp; RxJS</title><link href="https://moon9342.github.io/angular-lecture-service" rel="alternate" type="text/html" title="Angular 강좌(9) - Service &amp; RxJS" /><published>2018-02-07T15:45:00+00:00</published><updated>2018-02-07T15:45:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-service</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-service">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://moon9342.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://moon9342.github.io/" rel="alternate" type="text/html" /><updated>2018-02-09T12:54:35+00:00</updated><id>https://moon9342.github.io/</id><title type="html">IT Blog</title><subtitle>Development &amp; Technical Training</subtitle><entry><title type="html">Angular 강좌(10) - 중간 정리</title><link href="https://moon9342.github.io/angular-lecture-inspection-1" rel="alternate" type="text/html" title="Angular 강좌(10) - 중간 정리" /><published>2018-02-07T22:05:00+00:00</published><updated>2018-02-07T22:05:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-inspection-1</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-inspection-1">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
@@ -9,6 +9,240 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; 중간 정리&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;지금까지 Angular의 구조와 기본개념을 살펴보기 위해서 간단한 예제프로그램을 작성했습니다.
+이제 기존에 하지 못했던 조금 더 자세한 사항에 대해 알아봐야 할 듯 합니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Performance Issue&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;먼저 얘기할 부분은 Angular의 &lt;code class=&quot;highlighter-rouge&quot;&gt;Performance&lt;/code&gt; 입니다.&lt;/p&gt;
+
+&lt;p&gt;기존 AngularJS에 비해서 Angualr는 여러 관점에서 성능향상이 이루어졌습니다. 하나씩 간단하게 살펴보겠습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Digest Loop&lt;/code&gt;로 인한 성능 저하 문제가 개선되었습니다. 우리 예제에서 다뤄보았던 양방향 바인딩 기억하시나요?
+AngularJS에서는 이 양방향 바인딩을 처리하기 위해 &lt;code class=&quot;highlighter-rouge&quot;&gt;watcher&lt;/code&gt;라는걸 사용합니다. 이 watcher라는 놈이 수행될 때
+마다 digest loop가 수행되어 양방향 바인딩을 처리하는 구조였습니다. 양방향 바인딩이 많아질수록 watcher가 증가하고
+결과적으로 digest loop의 수행도 같이 증가해서 결국 성능이 저하되는 문제가 발생했던 겁니다.
+지금의 Angualr는 전통적인 양방향 바인딩을 다른 방식으로 처리함으로써 이 문제를 해결했습니다.&lt;/p&gt;
+
+    &lt;p&gt;현재 Agnular에서 양방향 바인딩은 내부적으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;Property binding&lt;/code&gt;과 &lt;code class=&quot;highlighter-rouge&quot;&gt;Event binding&lt;/code&gt;으로 변환되어서 처리됩니다.
+만약 Angular의 &lt;code class=&quot;highlighter-rouge&quot;&gt;Change Detection&lt;/code&gt;에 대해 자세히 알고 싶으시면
+&lt;a href=&quot;https://blog.angularindepth.com/angulars-digest-is-reborn-in-the-newer-version-of-angular-718a961ebd3e&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를
+참고하세요.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Angular는 &lt;code class=&quot;highlighter-rouge&quot;&gt;AoT&lt;/code&gt; Compile을 지원합니다. AoT(Ahead of Time) compile이란 사전 컴파일을 지칭합니다. 런타임에 컴파일을 
+하지 않고 미리 컴파일을 해 놓기 때문에 실행 속도를 더 높일 수 있는 것이죠. 안드로이드 개발을 해 보신 분이라면 &lt;code class=&quot;highlighter-rouge&quot;&gt;Dalvik&lt;/code&gt;과
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ART&lt;/code&gt;를 알고 계실 겁니다. Dalvik은 &lt;code class=&quot;highlighter-rouge&quot;&gt;JIT&lt;/code&gt; 컴파일러를 이용하고 ART는 &lt;code class=&quot;highlighter-rouge&quot;&gt;AoT&lt;/code&gt; 컴파일러를 사용합니다. 둘을 비교해보자면 JIT(Just-In-Time)은
+실행시점에 소스코드를 컴파일하는 방식입니다. 설치는 빠르게 되겠지만 실행이 좀 느리겠지요. AoT는 설치시점에 소스코드를
+컴파일하는 방식입니다. 따라서 설치가 조금 느려지지만 실행시 빠르게 실행되는 장점을 가지고 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Angular뿐만 아니라 모든 Front-End Framework이 가지는 문제점 중 하나는 바로 &lt;code class=&quot;highlighter-rouge&quot;&gt;SPA&lt;/code&gt;(Single Page Application) 구조에서 
+오는 rendering의 속도 문제입니다.
+우리는 기존에 &lt;code class=&quot;highlighter-rouge&quot;&gt;SSR&lt;/code&gt;(Server Side Rendering)을 이용해 프로그램을 했었습니다. 예를 들면, JSP 이런것들 이지요. SSR의 장점은
+일단 클라이언트에게 빠르게 화면을 보여줄 수 있다는 겁니다. 하지만 라이브러리가 다 로딩된 후에야 Client와 interaction이 가능합니다.
+반면에 SPA 구조는 모든 라이브러리가 다 로딩되어야 Client가 화면을 볼 수 있습니다. 즉, Client가 초기에 화면을 보기까지 로딩시간이
+걸린다는 것입니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;CSR&lt;/code&gt;(Client Side Rendering) 이라고 불리는 이 방식은 화면이 뜨자마자 바로 interaction이 가능하다는 장점이 
+있습니다. 요즘에는 이 둘을 섞어서 최적화를 꾀하고 있습니다. 이와 관련된 사항으로 Angular는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Lazy Loading&lt;/code&gt;을 사용합니다.
+Lazy Loading(지연 로딩)은 SPA의 단점을 극복하기 위한 하나의 방법으로 사용하는 모든 라이브러리를 한꺼번에 다 불러들이지 않고
+필요한 시점에 필요한 라이브러리만 로딩하는 방식입니다. 이를 이용해 로딩 시간을 단축할 수 있기 때문입니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Angular CLI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;그 다음 살펴볼 부분은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Angular CLI&lt;/code&gt;입니다. 우리 예제 프로그램을 작성하기 위해 사용했던 것 기억하시지요?&lt;/p&gt;
+
+&lt;p&gt;Angular CLI(Command Line Interpreter)는 command 명령어를 이용해서 프로젝트의 생성 및 Scaffolding, build, 개발서버를 이용한
+실행과 테스팅까지 수행할 수 있는 개발지원 도구 입니다. 간단하지 않는 프로젝트의 구조 생성 및 설정 그리고 Coding Convention등을 
+자동으로 잡아주기 때문에 편하게 개발환경을 구축하고 표준적 방식으로 프로젝트를 진행할 수 있도록 도와주는 아주 고마운 도구이지요.&lt;/p&gt;
+
+&lt;p&gt;다음은 일반적으로 많이 사용되는 Angular CLI의 명령어와 알아두어야 할 사항들 입니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;프로젝트의 생성&lt;/strong&gt;
+    &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ng new &amp;lt;project_name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;위와 같은 형태로 프로젝트를 생성하면 기본 폴더 구조와 파일이 생성됩니다. 이전에도 언급했지만 이렇게 생성된 프로젝트의 구조와
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Coding Convention&lt;/code&gt;이 Angular의 표준 스타일입니다. 또한 필요한 의존 Module이 같이 설치됩니다. 만약 의존
+Module을 설치하고 싶지 않을 경우 &lt;code class=&quot;highlighter-rouge&quot;&gt;--skip-install&lt;/code&gt; option을 이용해 프로젝트를 생성하시면 됩니다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;내장 개발서버를 이용한 프로젝트 실행&lt;/strong&gt;
+    &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ng serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;위와 같은 명령을 이용하면 내장 개발 서버를 이용해 우리 프로젝트를 &lt;code class=&quot;highlighter-rouge&quot;&gt;deploy&lt;/code&gt;할 수 있습니다. 기본적으로 사용하는 port는 &lt;code class=&quot;highlighter-rouge&quot;&gt;4200&lt;/code&gt;
+입니다. 만약 다른 포트를 사용하고 싶을 때는 &lt;code class=&quot;highlighter-rouge&quot;&gt;--port&lt;/code&gt; option을 이용해 포트번호를 변경할 수 있습니다. 그리고 &lt;code class=&quot;highlighter-rouge&quot;&gt;--o&lt;/code&gt; option을
+이용하면 시스템에 설정되어 있는 default browser를 실행해 http://localhost:4200 으로 접속까지 해 줍니다.&lt;/p&gt;
+
+    &lt;p&gt;이 내장 개발서버는 LiveReload 기능을 지원합니다. 쉽게말하자면 우리가 코드를 수정하면 그 내용을 컴파일하여 즉각 반영하고 
+browser를 refresh까지 시켜준다는 것이지요. 개발을 편하게 가져갈 수 있습니다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;프로젝트 구성요소 추가&lt;/strong&gt;
+    &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ng generate &amp;lt;구성요소&amp;gt; &amp;lt;구성요소명&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;위와 같은 명령을 이용하면 프로젝트에 새로운 Angular 구성요소를 추가할 수 있습니다. 우리는 &lt;code class=&quot;highlighter-rouge&quot;&gt;component&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;service&lt;/code&gt; 구성요소를 추가해
+봤지요. 그 외에 다음과 같은 Angular 구성요소들을 추가할 수 있습니다.&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;directive&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pipe&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;module&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;interface&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;enum&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;guard&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;이런 구성요소가 어떤 역할을 하는지는 나중에 하나씩 살펴봐야 겠네요. 기존에 우리 프로젝트에서 
+추가했던 search-box Component를 가지고 간단하게 &lt;code class=&quot;highlighter-rouge&quot;&gt;Naming Rule&lt;/code&gt;에 대해 정리를 한번 해 보겠습니다.&lt;/p&gt;
+
+    &lt;p&gt;다음과 같은 명령을 실행하면 새로운 Component가 하나 만들어 집니다.&lt;/p&gt;
+    &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ng generate component search-box
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;생성되는 파일은 총 4개입니다. option을 설정하면 파일이 만들어지지 않을수도 있습니다. 즉, CSS, HTML, SPEC파일을
+생성하지 않을수도 있다는 말입니다. CSS와 HTML을 inline방식으로 사용할 수 있으니까요. SPEC은 테스트를 위한 파일입니다.&lt;/p&gt;
+
+    &lt;p&gt;그런데 만들어지는 파일의 이름이 좀 특이합니다. 다음과 같은 형태로 만들어졌습니다.&lt;/p&gt;
+    &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;search-box-component.css     
+search-box-component.html    
+search-box-component.ts
+search-box-component.spec.ts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;파일명이 모두 &lt;code class=&quot;highlighter-rouge&quot;&gt;search-box.component.*&lt;/code&gt; 형태로 만들어집니다. Angular는 Naming의 혼란을 방지하기 위해 
+케밥 표기법(&lt;code class=&quot;highlighter-rouge&quot;&gt;Kebab case&lt;/code&gt;)을 이용해서 Angular 구성요소의 이름을 붙이게 됩니다. 사실 우리에게 익숙한
+표기법은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Camel case&lt;/code&gt;입니다. 각 단어의 첫글자를 소문자로 쓰고 붙어있는 단어들은 대문자로 시작하는 표기법입니다. Java의
+기본 표기법이죠. 참고로 &lt;code class=&quot;highlighter-rouge&quot;&gt;Pascal case&lt;/code&gt;도 있습니다. Camel case와 유사한데 Pascal case는 첫 글자도 대문자로 시작합니다.
+Kebab-case는 하이픈(&lt;code class=&quot;highlighter-rouge&quot;&gt;-&lt;/code&gt;)을 이용한 표기법입니다. Angular는 기본적으로 Kebab case를 Angular 구성요소 이름을 붙일 때 
+사용한다는걸 기억하시면 됩니다. 참고로 class의 이름은 Pascal case를 이용합니다.&lt;/p&gt;
+
+    &lt;p&gt;이렇게 만들어진 &lt;code class=&quot;highlighter-rouge&quot;&gt;search-box-component.ts&lt;/code&gt; 파일의 내용을 살펴보죠&lt;/p&gt;
+
+    &lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'app-search-box'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;templateUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./search-box.component.html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;styleUrls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./search-box.component.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SearchBoxComponent&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  
+  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  
+  &lt;span class=&quot;nx&quot;&gt;ngOnInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;위의 코드에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;selector&lt;/code&gt;가 어떤 역할을 하는지 아실겁니다. 이 selector에 명시된 이름의 tag를 다른 template에서
+이용하면 해당 tag 위치에 우리 Component에서 지정한 template이 표시되게 됩니다. 이 selector에 명시된 이름이
+결국 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;app-search-box&amp;gt;&amp;lt;/app-search-box&amp;gt;&lt;/code&gt;형태로 어딘가에서 이용된다는 말이죠. 이 selector에 지정된 이름을
+붙일 때 접두어 &lt;code class=&quot;highlighter-rouge&quot;&gt;app&lt;/code&gt;을 이용해 Kebab case로 표현합니다. 기존의 HTML tag와 혼동되는걸 피하기 위해서라고 생각하시면 됩니다.&lt;/p&gt;
+
+    &lt;p&gt;참고로 이 접두어는 &lt;code class=&quot;highlighter-rouge&quot;&gt;.angular-cli.json&lt;/code&gt; 설정파일에서 다른것으로 지정할 수 있습니다.&lt;/p&gt;
+
+    &lt;p&gt;우리는 CSS와 HTML을 따로 파일을 만들어서 사용했지만 inline형태로 이용할 수 있습니다. 아래와 같이 말이죠.&lt;/p&gt;
+
+    &lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'app-search-box'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`&amp;lt;h1&amp;gt;Hello&amp;lt;h1&amp;gt;
+             &amp;lt;p&amp;gt;
+              this is a sample text
+             &amp;lt;/p&amp;gt;
+            `&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`.myStyle {
+              color : red
+          }
+         `&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SearchBoxComponent&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;OnInit&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  
+  &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  
+  &lt;span class=&quot;nx&quot;&gt;ngOnInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;여기서는 backquote ( ` ) 기호를 이용하는 &lt;code class=&quot;highlighter-rouge&quot;&gt;template string&lt;/code&gt;을 사용했습니다. 다른 Angular 구성요소를 추가하는
+방법과 이용법은 이후 포스트에서 하나씩 실습을 통해 알아보도록 하겠습니다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;프로젝트 Build&lt;/strong&gt;
+    &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ng build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;위와 같은 명령을 이용하면 우리 프로젝트를 Angular CLI를 이용해 Build할 수 있습니다. 기존에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;SystemJS&lt;/code&gt;를 이용해서
+bundling을 했지만 현재는 &lt;code class=&quot;highlighter-rouge&quot;&gt;webpack&lt;/code&gt;을 이용해 bundling합니다. option을 따로 주지 않고 build를 진행하면 
+개발환경 build를 수행하게 됩니다. 만약 production
+build를 수행하시려면 &lt;code class=&quot;highlighter-rouge&quot;&gt;--prod&lt;/code&gt; option을 이용하시면 됩니다. 또한 deploy를 위한 base url을 설정할 때는 &lt;code class=&quot;highlighter-rouge&quot;&gt;--base-href&lt;/code&gt; option을
+이용하시면 됩니다. Angular CLI Build에 관한 보다 자세한 option 사항은 
+&lt;a href=&quot;https://github.com/angular/angular-cli/wiki/build&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 참조하시면 됩니다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;이번 포스트는 기존에 설명하기 좀 난감(?)했던 성능문제라던지 Angular CLI의 Naming Rule에 대해 보충설명을 진행했습니다. 
+만약 Angular CLI에 대해 더 자세하게 알고 싶으시면 &lt;a href=&quot;https://cli.angular.io/&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;를 살펴보시면 됩니다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;span class=&quot;lecture-reference&quot;&gt;Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!&lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;lecture-reference&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;https://angular.io/&quot; target=&quot;_blank&quot;&gt;Angular Official HomePage&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://material.angular.io/&quot; target=&quot;_blank&quot;&gt;Angular Material Official HomePage&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
+    &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS Angular 강좌(10) - 중간 정리</summary></entry><entry><title type="html">Angular 강좌(9) - Service &amp;amp; RxJS</title><link href="https://moon9342.github.io/angular-lecture-service" rel="alternate" type="text/html" title="Angular 강좌(9) - Service &amp; RxJS" /><published>2018-02-07T15:45:00+00:00</published><updated>2018-02-07T15:45:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-service</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-service">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -251,7 +485,7 @@ Component가 변경을 인지하여 자동으로 갱신하게 됩니다.&lt;/p&g
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry><entry><title type="html">Angular 강좌(8) - Material Table</title><link href="https://moon9342.github.io/angular-lecture-material-table" rel="alternate" type="text/html" title="Angular 강좌(8) - Material Table" /><published>2018-02-06T21:21:00+00:00</published><updated>2018-02-06T21:21:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-material-table</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-material-table">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS Angular 강좌(10) - 중간 정리</summary></entry><entry><title type="html">Angular 강좌(8) - Material Table</title><link href="https://moon9342.github.io/angular-lecture-material-table" rel="alternate" type="text/html" title="Angular 강좌(8) - Material Table" /><published>2018-02-06T21:21:00+00:00</published><updated>2018-02-06T21:21:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-material-table</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-material-table">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
@@ -262,6 +496,7 @@ Component가 변경을 인지하여 자동으로 갱신하게 됩니다.&lt;/p&g
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -503,7 +738,7 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry><entry><title type="html">Angular 강좌(7) - 실습(2)</title><link href="https://moon9342.github.io/angular-lecture-exercise-2" rel="alternate" type="text/html" title="Angular 강좌(7) - 실습(2)" /><published>2018-02-05T16:31:00+00:00</published><updated>2018-02-05T16:31:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-exercise-2</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-exercise-2">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS Angular 강좌(10) - 중간 정리</summary></entry><entry><title type="html">Angular 강좌(7) - 실습(2)</title><link href="https://moon9342.github.io/angular-lecture-exercise-2" rel="alternate" type="text/html" title="Angular 강좌(7) - 실습(2)" /><published>2018-02-05T16:31:00+00:00</published><updated>2018-02-05T16:31:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-exercise-2</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-exercise-2">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
@@ -514,6 +749,7 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -741,7 +977,7 @@ true일 경우 ngIf 가 선언된 Element를 DOM에 추가합니다. 만약 fals
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry><entry><title type="html">MySQL 5.7.2 Windows용 ZIP Archive 설치</title><link href="https://moon9342.github.io/mysql-5.7-archive-setting" rel="alternate" type="text/html" title="MySQL 5.7.2 Windows용 ZIP Archive 설치" /><published>2018-02-05T11:11:00+00:00</published><updated>2018-02-05T11:11:00+00:00</updated><id>https://moon9342.github.io/mysql-5.7-archive-setting</id><content type="html" xml:base="https://moon9342.github.io/mysql-5.7-archive-setting">&lt;p&gt;&lt;strong class=&quot;post_introduction&quot;&gt;Introduction&lt;/strong&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS Angular 강좌(10) - 중간 정리</summary></entry><entry><title type="html">MySQL 5.7.2 Windows용 ZIP Archive 설치</title><link href="https://moon9342.github.io/mysql-5.7-archive-setting" rel="alternate" type="text/html" title="MySQL 5.7.2 Windows용 ZIP Archive 설치" /><published>2018-02-05T11:11:00+00:00</published><updated>2018-02-05T11:11:00+00:00</updated><id>https://moon9342.github.io/mysql-5.7-archive-setting</id><content type="html" xml:base="https://moon9342.github.io/mysql-5.7-archive-setting">&lt;p&gt;&lt;strong class=&quot;post_introduction&quot;&gt;Introduction&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;MySQL을 install하지 않고 ZIP Archive를 다운받고 압축 풀어서 사용하는 사용하는 방식에 대한 설명입니다. 
 기존 5.6버전은 JSON에 대한 지원이 되지 않기 때문에 5.7버전을 대상으로 진행합니다.&lt;/p&gt;
@@ -899,6 +1135,7 @@ true일 경우 ngIf 가 선언된 Element를 DOM에 추가합니다. 만약 fals
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -1292,7 +1529,7 @@ detail-box Component를 이용해서 한번 알아보죠.&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry><entry><title type="html">Jekyll 기반의 GitHub Page 생성(9)</title><link href="https://moon9342.github.io/jekyll-regenerate-speed-up" rel="alternate" type="text/html" title="Jekyll 기반의 GitHub Page 생성(9)" /><published>2018-02-02T15:14:00+00:00</published><updated>2018-02-02T15:14:00+00:00</updated><id>https://moon9342.github.io/jekyll-regenerate-speed-up</id><content type="html" xml:base="https://moon9342.github.io/jekyll-regenerate-speed-up">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS Angular 강좌(10) - 중간 정리</summary></entry><entry><title type="html">Jekyll 기반의 GitHub Page 생성(9)</title><link href="https://moon9342.github.io/jekyll-regenerate-speed-up" rel="alternate" type="text/html" title="Jekyll 기반의 GitHub Page 생성(9)" /><published>2018-02-02T15:14:00+00:00</published><updated>2018-02-02T15:14:00+00:00</updated><id>https://moon9342.github.io/jekyll-regenerate-speed-up</id><content type="html" xml:base="https://moon9342.github.io/jekyll-regenerate-speed-up">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.&lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-start&quot;&gt;Jekyll 기반의 GitHub Page 생성(1) - 환경설정&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./jekyll-struct&quot;&gt;Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing&lt;/a&gt;&lt;/li&gt;
@@ -1831,6 +2068,7 @@ Local Repository로 가져온 commit들을 자신의 작업과 적절히 병합�
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -2171,7 +2409,7 @@ import해 줍니다.&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry><entry><title type="html">Angular 강좌(4) - Angular Material</title><link href="https://moon9342.github.io/angular-lecture-material" rel="alternate" type="text/html" title="Angular 강좌(4) - Angular Material" /><published>2018-02-01T14:00:00+00:00</published><updated>2018-02-01T14:00:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-material</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-material">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS Angular 강좌(10) - 중간 정리</summary></entry><entry><title type="html">Angular 강좌(4) - Angular Material</title><link href="https://moon9342.github.io/angular-lecture-material" rel="alternate" type="text/html" title="Angular 강좌(4) - Angular Material" /><published>2018-02-01T14:00:00+00:00</published><updated>2018-02-01T14:00:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-material</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-material">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
@@ -2182,6 +2420,7 @@ import해 줍니다.&lt;/p&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -2413,248 +2652,4 @@ Angular Material을 이용해 화면구성과 Component 설정을 해 보도록 
     &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
     &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry><entry><title type="html">Angular 강좌(3) - Component</title><link href="https://moon9342.github.io/angular-lecture-component" rel="alternate" type="text/html" title="Angular 강좌(3) - Component" /><published>2018-01-31T17:10:00+00:00</published><updated>2018-01-31T17:10:00+00:00</updated><id>https://moon9342.github.io/angular-lecture-component</id><content type="html" xml:base="https://moon9342.github.io/angular-lecture-component">&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;table-of-contents-list&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Component 개요&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Angular&lt;/code&gt;는 front end web application framework입니다.&lt;/p&gt;
-
-&lt;p&gt;우리는 Angular로 Web Browser상에서 동작하는 Client가 사용하는 응용 프로그램을 만들어 낼 수 있습니다. 
-이런 프로그램은 사용자가 직접 접근할 수 있는 &lt;code class=&quot;highlighter-rouge&quot;&gt;View&lt;/code&gt;라는 것을 가지고 동작합니다.&lt;/p&gt;
-
-&lt;p&gt;전체 웹 어플리케이션 화면이 하나의 View가 될 수도 있고 어플리케이션 화면의 기능이나 목적에 따라 
-세부 View들로 분할 되어 웹 어플리케이션의 화면을 구성할 수 도 있습니다.&lt;/p&gt;
-
-&lt;p&gt;예를 들면 다음과 같이 View를 분할해서 화면을 구성할 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/view-layout.png&quot; alt=&quot;view layout&quot; /&gt;&lt;/p&gt;
-&lt;div class=&quot;img-reference&quot;&gt;( 이미지 출처 : https://msdn.microsoft.com )&lt;/div&gt;
-
-&lt;p&gt;위의 그림에서 A는 로고영역, B는 사진에 대한 설명영역, C는 주 사진보기 영역, D는 컬렉션에 있는 다른 사진의 미리보기
-영역입니다.&lt;/p&gt;
-
-&lt;p&gt;이렇듯 우리는 화면을 여러 View들로 분할해서 구성할 수 있다는 것이죠.&lt;/p&gt;
-
-&lt;p&gt;분할된 View들은 결국 &lt;strong&gt;Angular에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Component&lt;/code&gt;의 단위&lt;/strong&gt;가 됩니다. 실제로 Component는 View를 rendering하는 주체가 되기 때문에
-어떤 정보로 View를 rendering할 것인가에 대한 정보를 가지고 있어야 합니다. 이 정보를 우리는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Template&lt;/code&gt;이라는 것으로 표현합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Template&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Template&lt;/code&gt;은 View를 rendering하기 위해 필요한 HTML Element와 Angular의 문법요소 그리고 클라이언트 이벤트 처리 코드를 
-담고 있습니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Application 실행 시 Angular는 Component와 Template의 정보를 이용하여 View를 그리게 됩니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/angular-template.png&quot; alt=&quot;angular template&quot; /&gt;&lt;/p&gt;
-&lt;div class=&quot;img-reference&quot;&gt;( 이미지 출처 : https://angular.io/guide/architecture )&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Component - class&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;기존에 만들어 놓았던 bookSearch-angular app을 살펴보면서 코드상으로 Component를 이해해보죠. WebStorm에서 우리가
-작성한 프로젝트를 보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;src&lt;/code&gt; 폴더가 보입니다. 이 &lt;code class=&quot;highlighter-rouge&quot;&gt;src&lt;/code&gt;폴더를 보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt; 파일이 존재하는데 이 파일이 우리 app의
-시작파일이라고 생각하시면 됩니다. 즉, http://localhost:4200 으로 접속하면 rendering되는 파일이 바로 이 &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt;입니다.&lt;/p&gt;
-
-&lt;p&gt;아래의 내용은 &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt; 입니다.&lt;/p&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;BookSearchAngular&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;base&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width=device-width, initial-scale=1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;icon&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image/x-icon&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;favicon.ico&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;app-root&amp;gt;&amp;lt;/app-root&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;app-root&amp;gt;&amp;lt;/app-root&amp;gt;&lt;/code&gt;라는 태그 대신에 특정 내용이 화면에 보이는 구조이군요. 즉, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;app-root&amp;gt;&amp;lt;/app-root&amp;gt;&lt;/code&gt;이 하나의 
-View라는 의미입니다. 당연히 그에 대응되는 Component가 존재하겠네요.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;src/app&lt;/code&gt; 폴더에 보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.component.ts&lt;/code&gt; 파일이 있습니다. Component를 정의한 파일이고 TypeScript로 작성되어 있기 때문에
-확장자는 &lt;code class=&quot;highlighter-rouge&quot;&gt;.ts&lt;/code&gt;를 이용합니다. 파일을 열어보면 다음과 같은 내용이 들어있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'app-root'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;templateUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./app.component.html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;styleUrls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./app.component.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'app'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;코드에서 맨 마지막에 나타나듯이 Component는 &lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt;입니다. 하지만 무조건 class를 선언한다고 해서
-해당 class가 Component가 되는것은 아닙니다. 이 class가 Component로 사용된다는 것을 Angular에게
-알려주어야 Angular가 Component로 동작을 시킬수 있을 겁니다. 그래서 특정 표현을 이용해 
-해당 class가 Component임을 Angular에게 알려주어야 합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@Component&lt;/code&gt;라고 표현되는 부분이 바로 &lt;code class=&quot;highlighter-rouge&quot;&gt;Component Decorator&lt;/code&gt;입니다. 무언가와 많이 비슷하죠? Java의
-Annotation 생각하시면 됩니다. class상단에 Component Decorator를 이용해 Angular가 해당 class를 Component로
-인지할 수 있도록 합니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@Component&lt;/code&gt;를 이용하려면 당연히 Component Decorator를 사용할 수 있는 상태여야 하고 이 Component Decorator는
-&lt;code class=&quot;highlighter-rouge&quot;&gt;@angular/core&lt;/code&gt;라고 표현되는 Angluar Core package에서 제공합니다. 해서 아래와 같은 코드가 필요합니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Component&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;위의 코드는 Component Decorator를 사용하기 위해 import 한 것입니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Component - Metadata&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;위에서 Component Decorator에 대해서 알아봤는데 이 Component Decorator를 이용해 설정 정보를 Angular Framework에게
-전달할 수 있습니다. 이를 &lt;code class=&quot;highlighter-rouge&quot;&gt;Metadata&lt;/code&gt;라고 하며 다음과 같은 코드로 표현됩니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;Component&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'app-root'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;templateUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./app.component.html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;styleUrls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'./app.component.css'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Component Decorator안에 표현될 수 있는 metadata는 사실 상당히 종류가 많지만 필수요소는 없습니다. 하지만 &lt;code class=&quot;highlighter-rouge&quot;&gt;selector&lt;/code&gt;와 
-&lt;code class=&quot;highlighter-rouge&quot;&gt;template 정보&lt;/code&gt;는 존재하지 않으면 화면에 표현이 되지 않기 때문에 거의 필수요소라 볼 수 있습니다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;selector&lt;/code&gt; : template 코드안에서 해당 Component를 이용할 때 사용할 HTML Element명을 정의합니다. 위와 같은 경우 
-해당 Component는 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;app-root&amp;gt;&amp;lt;/app-root&amp;gt;&lt;/code&gt; HTML Element로 사용할 수 있습니다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;template 정보&lt;/code&gt; :  &lt;code class=&quot;highlighter-rouge&quot;&gt;template&lt;/code&gt; 혹은 &lt;code class=&quot;highlighter-rouge&quot;&gt;templateUrl&lt;/code&gt;을 이용할 수 있습니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;template&lt;/code&gt;은 View를 rendering할 때 필요한
-HTML을 inline형태로 직접 기술할 때 사용됩니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;templateUrl&lt;/code&gt;은 template code를 따로 HTML 파일로 분리해서 작성할 때 사용합니다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;위의 예제에서는 사용할 css파일에 대한 &lt;code class=&quot;highlighter-rouge&quot;&gt;styleUrls&lt;/code&gt;도 같이 지정해 놓았습니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Module &amp;amp; Bootstrapping&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Bootstrapping&lt;/code&gt;이란 browser에서 application이 최초로 실행될 때 진행되는 과정을 의미합니다. 우리가 작성한 Component는
-application이 bootstrapping될 때 Angular에 의해서 제어되게 됩니다.&lt;/p&gt;
-
-&lt;p&gt;Angular에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Module&lt;/code&gt; 개념이 있습니다. Module은 Application을 구성하는 단위로 관련된 요소를 하나로 묶어 놓은 것으로 생각하시면
-됩니다. Angular는 Module단위로 application 코드를 인식하기 때문에 모든 Angular application은 반드시 하나 이상의 Module을 
-가지게 되며 최상위 모듈을 우리는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Root Module&lt;/code&gt;이라고 부릅니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;이러한 Module안에 Component와 같은 것들을 선언해 놓아야 비로소 사용할 수 있게 됩니다.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Root Module&lt;/code&gt;은 관례상 &lt;code class=&quot;highlighter-rouge&quot;&gt;AppModule&lt;/code&gt;이라 명하고 class로 표현하게 됩니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;src/app&lt;/code&gt; 폴더안에 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.module.ts&lt;/code&gt; 파일이 존재하는데
-이 파일안에 Root Module이 정의되어 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;BrowserModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/platform-browser'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NgModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'@angular/core'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./app.component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-
-&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;NgModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;declarations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;imports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;BrowserModule&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;providers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Angular CLI로 생성한 우리 project의 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.module.ts&lt;/code&gt; 파일 내용입니다. 보시는 것처럼 &lt;code class=&quot;highlighter-rouge&quot;&gt;AppModule&lt;/code&gt; class가 정의되어 있고
-상단에 &lt;code class=&quot;highlighter-rouge&quot;&gt;@NgModule&lt;/code&gt; Decorator를 이용하여 우리의 class가 Module임을 명시했습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AppComponent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./app.component'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;위의 코드는 아까 살펴본 Component인 &lt;code class=&quot;highlighter-rouge&quot;&gt;app.component.ts&lt;/code&gt; 파일로부터 AppComponent class를 import하는 부분입니다. 
-이렇게 import한 class를 Module안에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;declarations&lt;/code&gt;를 이용해 선언해서 사용하게 됩니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@NgModule&lt;/code&gt; Decorator의 metadata 중 &lt;code class=&quot;highlighter-rouge&quot;&gt;bootstrap&lt;/code&gt;은 application이 bootstrapping할 때 어떤 Component를 사용할 것인지를
-배열로 선언합니다. 즉, &lt;code class=&quot;highlighter-rouge&quot;&gt;bootstrap&lt;/code&gt;은 browser가 최초로 index.html을 읽어들여 application을 시작할 때 사용할 
-Component를 명시하게 됩니다.&lt;/p&gt;
-
-&lt;p&gt;이렇게 &lt;code class=&quot;highlighter-rouge&quot;&gt;@NgModule&lt;/code&gt; Decorator의 metadata에 Component를 등록하는 이유는 Angular가 application 실행 시 &lt;code class=&quot;highlighter-rouge&quot;&gt;.ts&lt;/code&gt;로 작성한 
-우리 코드를 &lt;code class=&quot;highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt; 코드로 compile할 때 필요하기 때문입니다.&lt;/p&gt;
-
-&lt;p&gt;마지막으로 &lt;code class=&quot;highlighter-rouge&quot;&gt;src/main.ts&lt;/code&gt; 파일을 열어보면 다음과 같은 코드를 볼 수 있습니다.&lt;/p&gt;
-
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;platformBrowserDynamic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bootstrapModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;AppModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Angular는 저 위의 코드로 &lt;code class=&quot;highlighter-rouge&quot;&gt;AppModule&lt;/code&gt;을 읽어들이고 Module안에 등록된 여러 Component들을 &lt;code class=&quot;highlighter-rouge&quot;&gt;JavaScript&lt;/code&gt; 코드로 compile하게
-되는 것 입니다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;지금까지 살펴본 것처럼 만약 Angular CLI를 이용하지 않으면 우리가 &lt;code class=&quot;highlighter-rouge&quot;&gt;.ts&lt;/code&gt; 파일을 만들어서 등록하는 과정을 직접해야
-합니다. Angular CLI를 이용하면 기본 Skeleton 코드의 생성과 등록절차까지 자동으로 처리되게 됩니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;i class=&quot;fa fa-bolt&quot; style=&quot;color:#01077c&quot;&gt;&lt;/i&gt; Component Tree&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;위의 설명을 좀 정리해 보면 다음과 같습니다.&lt;/p&gt;
-
-&lt;p&gt;Angular application안에는 여러 View들이 존재할 수 있습니다. 개념적으로 하나의 
-View안에 여러개의 View들이 child형태로 존재할 수 도 있겠지요. View는 Component와 대응된다고 했으니 결국 Component안에
-Component가 child형태로 구성될 수 있다는 의미겠네요.  이것을 우리는 &lt;code class=&quot;highlighter-rouge&quot;&gt;Component Tree&lt;/code&gt;라고 합니다.&lt;/p&gt;
-
-&lt;p&gt;그림으로 표현하자면 다음과 같이 표현될 수 있습니다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;assets/built/images/component-tree.png&quot; alt=&quot;view layout&quot; /&gt;&lt;/p&gt;
-&lt;div class=&quot;img-reference&quot;&gt;( 이미지 출처 : https://angular.io/guide/architecture )&lt;/div&gt;
-
-&lt;p&gt;좀 어렵게 표현하자면 application의 화면구성을 끝내면 그 내용을 토대로 View를 결정해서 Component단위로 Modeling 해야
-합니다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;이번 포스트에서는 Component에 대해서 알아보았습니다. 여기까지의 내용을 가지고 간단한 실습을 진행하고 그 다음 내용으로
-넘어가야 될 듯 보입니다. 실습을 진행하기에 앞서 &lt;code class=&quot;highlighter-rouge&quot;&gt;Angular Material&lt;/code&gt;에 대해 먼저 알아보고 Material을 이용하여 
-도서 검색 application에 맞게 화면을 분할 하고 Component를 생성하는 실습을 진행하도록 하겠습니다.&lt;/p&gt;
-
-&lt;p&gt;End.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;span class=&quot;lecture-reference&quot;&gt;Angular 강좌는 아래의 책과 사이트를 참조했습니다.
-    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!&lt;/span&gt;&lt;/p&gt;
-&lt;ul class=&quot;lecture-reference&quot;&gt;
-    &lt;li&gt;&lt;a href=&quot;https://angular.io/&quot; target=&quot;_blank&quot;&gt;Angular Official HomePage&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;https://material.angular.io/&quot; target=&quot;_blank&quot;&gt;Angular Material Official HomePage&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2&quot; target=&quot;_blank&quot;&gt;Build a Mobile App with Angular 2 and Ionic 2&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;Angular 첫걸음 - 한빛미디어&lt;/li&gt;
-    &lt;li&gt;제대로 배우는 Angular 4 - 비제이퍼블릭&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Angular</name></author><category term="front end" /><summary type="html">Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp;amp; RxJS Angular 강좌(10) - 중간 정리</summary></entry></feed>

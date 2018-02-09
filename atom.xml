@@ -8,6 +8,33 @@
     
       
       <item>
+        <title>Angular 강좌(10) - 중간 정리</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Wed, 07 Feb 2018 22:05:00 +0000</pubDate>
+        <link>
+        https://moon9342.github.io/angular-lecture-inspection-1</link>
+        <guid isPermaLink="true">https://moon9342.github.io/angular-lecture-inspection-1</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Angular 강좌(9) - Service &amp; RxJS</title>
         
           <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
@@ -21,6 +48,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -47,6 +75,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -73,6 +102,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -114,6 +144,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -181,6 +212,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -207,6 +239,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -233,6 +266,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -259,6 +293,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -285,6 +320,7 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
