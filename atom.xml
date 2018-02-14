@@ -8,7 +8,7 @@
     
       
       <item>
-        <title>Angular 강좌(10) - 중간 정리</title>
+        <title>Angular 강좌(17) - 중간 정리</title>
         
           <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
@@ -20,13 +20,20 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
         
-        <pubDate>Wed, 07 Feb 2018 22:05:00 +0000</pubDate>
+        <pubDate>Wed, 14 Feb 2018 03:02:00 +0000</pubDate>
         <link>
         https://moon9342.github.io/angular-lecture-inspection-1</link>
         <guid isPermaLink="true">https://moon9342.github.io/angular-lecture-inspection-1</guid>
@@ -35,7 +42,7 @@
     
       
       <item>
-        <title>Angular 강좌(9) - Service &amp; RxJS</title>
+        <title>Angular 강좌(16) - Material Table Event</title>
         
           <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
 &lt;ul class=&quot;table-of-contents-list&quot;&gt;
@@ -47,16 +54,261 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Tue, 13 Feb 2018 17:29:00 +0000</pubDate>
+        <link>
+        https://moon9342.github.io/angular-lecture-table-event</link>
+        <guid isPermaLink="true">https://moon9342.github.io/angular-lecture-table-event</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Angular 강좌(15) - Service RxJS</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Tue, 13 Feb 2018 15:06:00 +0000</pubDate>
+        <link>
+        https://moon9342.github.io/angular-lecture-data-share-service-rxjs</link>
+        <guid isPermaLink="true">https://moon9342.github.io/angular-lecture-data-share-service-rxjs</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Angular 강좌(14) - Service Mediator Pattern</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Mon, 12 Feb 2018 16:00:00 +0000</pubDate>
+        <link>
+        https://moon9342.github.io/angular-lecture-data-share-service-mediator-pattern</link>
+        <guid isPermaLink="true">https://moon9342.github.io/angular-lecture-data-share-service-mediator-pattern</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Angular 강좌(13) - Service</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Mon, 12 Feb 2018 10:40:00 +0000</pubDate>
+        <link>
+        https://moon9342.github.io/angular-lecture-data-share-service</link>
+        <guid isPermaLink="true">https://moon9342.github.io/angular-lecture-data-share-service</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Angular 강좌(12) - 데이터공유(Content Projection)</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Mon, 12 Feb 2018 02:13:00 +0000</pubDate>
+        <link>
+        https://moon9342.github.io/angular-lecture-data-share-4</link>
+        <guid isPermaLink="true">https://moon9342.github.io/angular-lecture-data-share-4</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Angular 강좌(11) - 데이터공유(@ViewChild)</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Sun, 11 Feb 2018 22:43:00 +0000</pubDate>
+        <link>
+        https://moon9342.github.io/angular-lecture-data-share-3</link>
+        <guid isPermaLink="true">https://moon9342.github.io/angular-lecture-data-share-3</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Angular 강좌(10) - 데이터공유(@Output)</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        
+        <pubDate>Sun, 11 Feb 2018 16:35:00 +0000</pubDate>
+        <link>
+        https://moon9342.github.io/angular-lecture-data-share-2</link>
+        <guid isPermaLink="true">https://moon9342.github.io/angular-lecture-data-share-2</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Angular 강좌(9) - 데이터공유(@Input)</title>
+        
+          <description>&lt;p&gt;&lt;span class=&quot;table-of-contents-list&quot;&gt;Angular 강좌는 여러 절로 구성되어 있습니다. &lt;/span&gt;&lt;/p&gt;
+&lt;ul class=&quot;table-of-contents-list&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-introduction&quot;&gt;Angular 강좌(1) - Introduction&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-development-environment&quot;&gt;Angular 강좌(2) - 개발환경세팅&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-component&quot;&gt;Angular 강좌(3) - Component&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material&quot;&gt;Angular 강좌(4) - Angular Material&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-1&quot;&gt;Angular 강좌(5) - 실습(1)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
         
         <pubDate>Wed, 07 Feb 2018 15:45:00 +0000</pubDate>
         <link>
-        https://moon9342.github.io/angular-lecture-service</link>
-        <guid isPermaLink="true">https://moon9342.github.io/angular-lecture-service</guid>
+        https://moon9342.github.io/angular-lecture-data-share-1</link>
+        <guid isPermaLink="true">https://moon9342.github.io/angular-lecture-data-share-1</guid>
       </item>
       
     
@@ -74,8 +326,15 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -101,8 +360,15 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -143,8 +409,15 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -211,8 +484,15 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -238,8 +518,15 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -265,8 +552,15 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -292,8 +586,15 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>
@@ -319,8 +620,15 @@
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-databinding&quot;&gt;Angular 강좌(6) - Data Binding&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-exercise-2&quot;&gt;Angular 강좌(7) - 실습(2)&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;./angular-lecture-material-table&quot;&gt;Angular 강좌(8) - Material Table&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-service&quot;&gt;Angular 강좌(9) - Service &amp;amp; RxJS&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(10) - 중간 정리&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-1&quot;&gt;Angular 강좌(9) - 데이터공유(@Input)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-2&quot;&gt;Angular 강좌(10) - 데이터공유(@Output)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-3&quot;&gt;Angular 강좌(11) - 데이터공유(@ViewChild)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-4&quot;&gt;Angular 강좌(12) - 데이터공유(Content Projection)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service&quot;&gt;Angular 강좌(13) - Service&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-mediator-pattern&quot;&gt;Angular 강좌(14) - Service Mediator Pattern&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-data-share-service-rxjs&quot;&gt;Angular 강좌(15) - Service RxJS&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-table-event&quot;&gt;Angular 강좌(16) - Material Table Event&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;./angular-lecture-inspection-1&quot;&gt;Angular 강좌(17) - 중간 정리&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </description>

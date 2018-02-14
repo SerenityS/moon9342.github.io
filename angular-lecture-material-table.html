@@ -55,7 +55,7 @@
     <meta property="og:site_name" content="IT Blog" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Angular 강좌(8) - Material Table" />
-    <meta property="og:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Angular 강좌(10) -" />
+    <meta property="og:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - 데이터공유(@Input) Angular 강좌(10) - 데이터공유(@Output) Angular" />
     <meta property="og:url" content="https://moon9342.github.io/angular-lecture-material-table" />
     <meta property="og:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
@@ -65,7 +65,7 @@
     <meta property="article:tag" content="Front End" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Angular 강좌(8) - Material Table" />
-    <meta name="twitter:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Angular 강좌(10) -" />
+    <meta name="twitter:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - 데이터공유(@Input) Angular 강좌(10) - 데이터공유(@Output) Angular" />
     <meta name="twitter:url" content="https://moon9342.github.io/" />
     <meta name="twitter:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta name="twitter:label1" content="Written by" />
@@ -97,7 +97,7 @@
         "@type": "WebPage",
         "@id": "https://moon9342.github.io/angular-lecture-material-table"
     },
-    "description": "Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - Service &amp; RxJS Angular 강좌(10) -"
+    "description": "Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - 데이터공유(@Input) Angular 강좌(10) - 데이터공유(@Output) Angular"
 }
     </script>
 
@@ -225,15 +225,22 @@ into the {body} of the default.hbs template -->
     <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
     <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
     <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
-    <li><a href="./angular-lecture-service">Angular 강좌(9) - Service &amp; RxJS</a></li>
-    <li><a href="./angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
+    <li><a href="./angular-lecture-data-share-1">Angular 강좌(9) - 데이터공유(@Input)</a></li>
+    <li><a href="./angular-lecture-data-share-2">Angular 강좌(10) - 데이터공유(@Output)</a></li>
+    <li><a href="./angular-lecture-data-share-3">Angular 강좌(11) - 데이터공유(@ViewChild)</a></li>
+    <li><a href="./angular-lecture-data-share-4">Angular 강좌(12) - 데이터공유(Content Projection)</a></li>
+    <li><a href="./angular-lecture-data-share-service">Angular 강좌(13) - Service</a></li>
+    <li><a href="./angular-lecture-data-share-service-mediator-pattern">Angular 강좌(14) - Service Mediator Pattern</a></li>
+    <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
+    <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
 </ul>
 
 <hr />
 
 <p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Material Table Component</strong></p>
 
-<p>드디어 화면 만드는 마지막 과정까지 왔습니다. 이번 포스트에서는 이전에 만들었던 list-box
+<p>이번 포스트에서는 이전에 만들었던 list-box
 Component가 표현하는 부분을 Material Table을 이용해서 작성해 보겠습니다. 기본적인 테이블 구성과 함께 <code class="highlighter-rouge">Pagination</code>
 까지 추가해서 간단하게 <code class="highlighter-rouge">Paging</code>까지 구현해보겠습니다.</p>
 
@@ -300,7 +307,7 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
   <span class="nt">&lt;/mat-table&gt;</span>
 
   <span class="nt">&lt;mat-paginator</span> <span class="err">#</span><span class="na">paginator</span>
-                 <span class="err">[</span><span class="na">pageSize</span><span class="err">]="</span><span class="na">10</span><span class="err">"</span>
+                 <span class="err">[</span><span class="na">pageSize</span><span class="err">]="</span><span class="na">5</span><span class="err">"</span>
                  <span class="err">[</span><span class="na">pageSizeOptions</span><span class="err">]="[</span><span class="na">5</span><span class="err">,</span> <span class="na">10</span><span class="err">,</span> <span class="na">20</span><span class="err">]"</span>
                  <span class="na">showFirstLastButtons</span><span class="nt">&gt;</span>
   <span class="nt">&lt;/mat-paginator&gt;</span>
@@ -308,8 +315,7 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
 
 </code></pre></div></div>
 
-<p>Table Component를 이용하기 때문에 <code class="highlighter-rouge">app.module.ts</code>에 관련된 Module을 import해 주어야 합니다. 우리의 강의를 
-처음부터 진행했다면 아마 다음의 코드가 이미 import되어 있을 겁니다.</p>
+<p>Table Component를 이용하기 때문에 <code class="highlighter-rouge">book-search.module.ts</code>에 관련된 Module을 import해 주어야 합니다.</p>
 
 <div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/table'</span><span class="p">;</span>
 </code></pre></div></div>
@@ -329,11 +335,22 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
 
 <p>마지막으로 <code class="highlighter-rouge">list-box.compoennt.ts</code>파일의 내용입니다.</p>
 
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableDataSource</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">Http</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/http'</span><span class="p">;</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">HttpClient</span> <span class="p">}</span> <span class="k">from</span> <span class="s2">"@angular/common/http"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableDataSource</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material'</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">MatPaginator</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material'</span><span class="p">;</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">ViewChild</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">IBook</span> <span class="p">{</span>
+  <span class="nl">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bdate</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">btranslator</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bpublisher</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bprice</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
+  <span class="nl">bisbn</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bimgurl</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
 
 <span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
   <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-list-box'</span><span class="p">,</span>
@@ -343,31 +360,19 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
 <span class="k">export</span> <span class="kd">class</span> <span class="nx">ListBoxComponent</span> <span class="p">{</span>
 
   <span class="nx">displayedColumns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'bisbn'</span><span class="p">,</span> <span class="s1">'btitle'</span><span class="p">,</span> <span class="s1">'bauthor'</span><span class="p">,</span> <span class="s1">'bprice'</span><span class="p">];</span>
-  <span class="nl">books</span><span class="p">:</span> <span class="nx">Element</span><span class="p">[];</span>
   <span class="nx">dataSource</span><span class="p">;</span>
+  <span class="nl">books</span><span class="p">:</span> <span class="nx">IBook</span><span class="p">[];</span>
 
-  <span class="kd">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">http</span><span class="p">:</span> <span class="nx">Http</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'assets/data/book.json'</span><span class="p">)</span>
+  <span class="p">@</span><span class="nd">ViewChild</span><span class="p">(</span><span class="nx">MatPaginator</span><span class="p">)</span> <span class="nx">paginator</span><span class="p">:</span> <span class="nx">MatPaginator</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">http</span><span class="p">:</span> <span class="nx">HttpClient</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="kd">get</span><span class="o">&lt;</span><span class="nx">IBook</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">'assets/data/book.json'</span><span class="p">)</span>
       <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">books</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MatTableDataSource</span><span class="o">&lt;</span><span class="nx">Element</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">books</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">books</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MatTableDataSource</span><span class="o">&lt;</span><span class="nx">IBook</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">books</span><span class="p">);</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span><span class="p">.</span><span class="nx">paginator</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">paginator</span><span class="p">;</span>
       <span class="p">});</span>
   <span class="p">}</span>
-
-  <span class="p">@</span><span class="nd">ViewChild</span><span class="p">(</span><span class="nx">MatPaginator</span><span class="p">)</span> <span class="na">paginator</span><span class="p">:</span> <span class="nx">MatPaginator</span><span class="p">;</span>
-
-<span class="p">}</span>
-
-<span class="k">export</span> <span class="kr">interface</span> <span class="nx">Element</span> <span class="p">{</span>
-  <span class="na">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-  <span class="nl">bdate</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-  <span class="nl">btranslator</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-  <span class="nl">bpublisher</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-  <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-  <span class="nl">bprice</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
-  <span class="nl">bisbn</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-  <span class="nl">bimgurl</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -413,16 +418,18 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
 <p>그리고 아래의 구문에 의해 ISBN 컬럼의 제목과 내용이 출력됩니다. <code class="highlighter-rouge">dataSource</code>에 연결된 모든 <code class="highlighter-rouge">row</code>를 가져와서 <code class="highlighter-rouge">element</code>라는 변수에
 반복적으로 할당 하면서 <code class="highlighter-rouge">element.bisbn</code>값을 테이블에 출력하라는 말입니다.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> ISBN <span class="nt">&lt;/mat-header-cell&gt;</span>
-<span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span>  <span class="nt">&lt;/mat-cell&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> ISBN <span class="nt">&lt;/mat-header-cell&gt;</span>
+<span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bisbn}} <span class="nt">&lt;/mat-cell&gt;</span>
+
 </code></pre></div></div>
 
 <p>이와 같은 형태로 하나의 컬럼에 대한 데이터를 화면에 출력할 수 있습니다. 우리는 총 4개의 컬럼을 화면에 출력하고 있는 것이죠.</p>
 
-<p><code class="highlighter-rouge">list-box.compoennt.ts</code>에서는 사용할 데이터를 <code class="highlighter-rouge">Http</code>의 get() method로 가져온 후 이를 다음의 코드를 이용해서 
+<p><code class="highlighter-rouge">list-box.compoennt.ts</code>에서는 사용할 데이터를 <code class="highlighter-rouge">HttpClient</code>의 get() method로 가져온 후 이를 다음의 코드를 이용해서 
 객체화 시켰습니다.</p>
 
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MatTableDataSource</span><span class="o">&lt;</span><span class="nx">Element</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">books</span><span class="p">);</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MatTableDataSource</span><span class="o">&lt;</span><span class="nx">IBook</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">books</span><span class="p">);</span>
 </code></pre></div></div>
 
 <p><strong>dataSource와 연결시키기 위해 위에 있는 코드처럼 객체를 생성해서 연결하셔야 합니다.</strong></p>
@@ -431,20 +438,6 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
 
 <p><code class="highlighter-rouge">TypeScript</code>를 사용하기 때문에 interface를 이용하여 data type을 명확히 지정했습니다. 이 부분역시 이전 HTML Table Element로
 작업했을 때와는 다르게 처리하셔야 합니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 최종 결과 파일</strong></p>
-
-<p>아래는 지금까지 작성된 파일에 대한 소스코드입니다.</p>
-
-<noscript><pre>.bookSearch-outer {
-  width: 70%;
-  text-align: center;
-  margin: 0 auto;
-}
-</pre></noscript>
-<script src="https://gist.github.com/moon9342/7b6311f24f0fb2d50687d7191f62df7a.js"> </script>
 
 <hr />
 
@@ -567,7 +560,7 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
                                     
                                         
                                         
-                                            <li><a href="/angular-lecture-inspection-1">Angular 강좌(10) - 중간 정리</a></li>
+                                            <li><a href="/angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
                                         
                                     
                                   
@@ -576,7 +569,58 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
                                     
                                         
                                         
-                                            <li><a href="/angular-lecture-service">Angular 강좌(9) - Service & RxJS</a></li>
+                                            <li><a href="/angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
                                         
                                     
                                   
@@ -588,8 +632,6 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
                                   
                                     
                                         
-                                        
-                                            <li><a href="/angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
                                         
                                     
                                   
@@ -758,7 +800,7 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
                         <footer class="read-next-card-footer">
                             <a href="/tag/front-end/">
                                 
-                                    See all 20 posts  →
+                                    See all 27 posts  →
                                 
                             </a>
                         </footer>
@@ -771,12 +813,12 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
                 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/angular-lecture-service">
+            <a class="post-card-image-link" href="/angular-lecture-data-share-1">
                 <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/angular-lecture-service">
+            <a class="post-card-content-link" href="/angular-lecture-data-share-1">
                 <header class="post-card-header">
                     
                         
@@ -786,10 +828,10 @@ Component가 표현하는 부분을 Material Table을 이용해서 작성해 보
                         
                     
 
-                    <h2 class="post-card-title">Angular 강좌(9) - Service & RxJS</h2>
+                    <h2 class="post-card-title">Angular 강좌(9) - 데이터공유(@Input)</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>{% include angular-lecture-table-of-contents.html %} --- **{% include subtitle-fontawesome.html %} bookSearch 프로그램 완성** 이번 포스트는 Component 간의 데이터 공유에 대해서 알아보고 그 내용을 기반으로 우리 Sample 프로그램을 완성하도록 하겠습니다. 결과적으로 작성한 프로그램은 [여기](./angular-bookSearch/){: target="_blank"</p>
+                    <p>{% include angular-lecture-table-of-contents.html %} --- **{% include subtitle-fontawesome.html %} Component Data Sharing** 이번 포스트는 **Component 간의 데이터 공유**에 대해서 알아보고 그 내용을 기반으로 우리 mySearchProject의 도서검색 부분을 완성해 나가도록 하겠습니다. 최종적으로 완성된 프로그램은</p>
                 </section>
             </a>
             <footer class="post-card-meta">
