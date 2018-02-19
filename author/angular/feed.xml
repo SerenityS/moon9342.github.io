@@ -46,6 +46,335 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Angular 강좌(20) - Component LifeCycle</title>
+	  <link>https://moon9342.github.io/angular-lecture-lifecycle</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+				
+		
+	  <pubDate>2018-02-18T15:55:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-lifecycle</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-data-share-1">Angular 강좌(9) - 데이터공유(@Input)</a></li>
+    <li><a href="./angular-lecture-data-share-2">Angular 강좌(10) - 데이터공유(@Output)</a></li>
+    <li><a href="./angular-lecture-data-share-3">Angular 강좌(11) - 데이터공유(@ViewChild)</a></li>
+    <li><a href="./angular-lecture-data-share-4">Angular 강좌(12) - 데이터공유(Content Projection)</a></li>
+    <li><a href="./angular-lecture-data-share-service">Angular 강좌(13) - Service</a></li>
+    <li><a href="./angular-lecture-data-share-service-mediator-pattern">Angular 강좌(14) - Service Mediator Pattern</a></li>
+    <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
+    <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
+    <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
+    <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
+    <li><a href="./angular-lecture-lifecycle">Angular 강좌(20) - Component Lifecycle</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component Lifecycle</strong></p>
+
+<p>이번 포스트에서는 Angular의 <code class="highlighter-rouge">Lifecycle</code>에 대해서 알아보겠습니다. 다른 Framework과 마찬가지로 Angular 역시
+여러 단계의 lifecycle을 관리합니다. Component와 Directive가 이 lifecycle의 영향을 받게 되며 각 lifecycle마다 제공되는
+hook method를 이용하여 특정 작업을 처리할 수 있습니다.</p>
+
+<p>이런 hook method는 interface형태로 우리에게 제공됩니다. Component 혹은 Directive class가 이 interface를 구현하고
+그 안의 특정 method를 overriding하는 식으로 hook method를 이용할 수 있습니다.</p>
+
+<p>Component를 대상으로 객체가 생성되고 소멸되기까지 호출되는 hook method를 순서대로 나열하면 다음과 같습니다. Directive는
+View를 가지고 있지 않기 때문에 ngAfter로 시작되는 hook method는 호출되지 않습니다.</p>
+
+<ul>
+  <li>constructor</li>
+  <li>ngOnChanges</li>
+  <li>ngOnInit</li>
+  <li>ngDoCheck</li>
+  <li>ngAfterContentInit</li>
+  <li>ngAfterContentChecked</li>
+  <li>ngAfterViewInit</li>
+  <li>ngAfterViewChecked</li>
+  <li>ngOnDestroy</li>
+</ul>
+
+<p>간단하게 Project를 하나 생성해서 각 lifecycle단계에서 해당 hook method가 호출되는지 확인하는 식으로 진행하시면 됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> constructor</strong></p>
+
+<p>Component 혹은 Directive가 생성될 때 호출됩니다. 사실 constructor는 Angular의 lifecycle의 단계에 포함될 내용은 아닙니다.</p>
+
+<p>TypeScript에서는 일반적으로 constructor에서 초기화를 진행합니다. 하지만 Angular에서 사용하는 속성의 초기화는 <code class="highlighter-rouge">ngOnInit</code>에서 
+하는것이 좋습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> ngOnChanges</strong></p>
+
+<p><code class="highlighter-rouge">@Input</code>을 이용해 부모 Component가 자식 Component에게 데이터를 전달할 수 있습니다. <code class="highlighter-rouge">ngOnChanges</code>는 부모 Component에서 
+자식 Component로 데이터가 binding 될 때 혹은 변경되었을 때 호출됩니다. 따라서 <code class="highlighter-rouge">@Input</code>을 사용하지 않으면 호출되지 않습니다.</p>
+
+<p>정확하게는 부모 Component로부터 자식 Component에게 전달하는 primitive 값이 변경되거나 혹은 참조하는 객체의 reference가 
+변경되어야 호출됩니다. 즉, 참조하는 객체의 property가 변경되는 경우에는 ngOnChanges가 호출되지 않는다는 것 기억하셔야 합니다.</p>
+
+<p><code class="highlighter-rouge">@Input</code>을 이용한 값의 binding은 생성자가 호출된 후에 일어납니다. 즉, 생성자에서 @Input을 이용해 binding한 값을 출력하면
+<code class="highlighter-rouge">undefined</code>가 출력되게 됩니다. 간단한 이벤트 처리를 통해 @Input으로 전달되는 값을 변경해보면 값이 변경될 때마다
+ngOnChanges hook method가 호출되는걸 확인할 수 있습니다.</p>
+
+<p>ngOnChanges hook method의 인자로 <code class="highlighter-rouge">SimpleChanges</code> 객체를 하나 받을 수 있습니다. 해당 객체를 이용하면 변경되기 이전값과
+이후값등을 알 수 있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">Component</span><span class="p">,</span> <span class="nx">Input</span><span class="p">,</span> <span class="nx">OnChanges</span><span class="p">,</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">SimpleChanges</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-child'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./child.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./child.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">ChildComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">OnChanges</span> <span class="p">{</span>
+
+  <span class="p">@</span><span class="nd">Input</span><span class="p">()</span> <span class="nx">myInput</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Constructor 호출!! =&gt; myInput : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myInput</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngOnChanges</span><span class="p">(</span><span class="nx">simpleChanges</span><span class="p">:</span> <span class="nx">SimpleChanges</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngOnChanges 호출!! =&gt; myInput : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myInput</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">simpleChanges</span><span class="p">.</span><span class="nx">myInput</span><span class="p">.</span><span class="nx">previousValue</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">simpleChanges</span><span class="p">.</span><span class="nx">myInput</span><span class="p">.</span><span class="nx">currentValue</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> ngOnInit</strong></p>
+
+<p><code class="highlighter-rouge">ngOnInit</code>는 ngOnChanges가 호출된 이후에 모든 속성에 대한 초기화가 완료된 시점에 딱 한번만 호출됩니다. 즉, class가 가지고 있는
+속성과 @Input을 통해 값을 내려받은 속성이 모두 초기화가 된 이후에 호출됩니다. 결국 Component의 속성 참조는 ngOnInit
+hook method이후에 참조하는 것이 좋습니다.</p>
+
+<p>결국 생성자는 Service의 Injection같은 사항을 처리하고 속성에 대한 초기화는 ngOnInit에서 처리하시는게 좋다는 말입니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">Component</span><span class="p">,</span> <span class="nx">Input</span><span class="p">,</span> <span class="nx">OnChanges</span><span class="p">,</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">SimpleChanges</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-child'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./child.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./child.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">ChildComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">OnChanges</span> <span class="p">{</span>
+
+  <span class="p">@</span><span class="nd">Input</span><span class="p">()</span> <span class="nx">myInput</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nx">myString</span> <span class="o">=</span> <span class="s1">'Hello'</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Constructor 호출!! =&gt; myInput : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myInput</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Constructor 호출!! =&gt; myString : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myString</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngOnChanges</span><span class="p">(</span><span class="nx">simpleChanges</span><span class="p">:</span> <span class="nx">SimpleChanges</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngOnChanges 호출!! =&gt; myInput : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myInput</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">simpleChanges</span><span class="p">.</span><span class="nx">myInput</span><span class="p">.</span><span class="nx">previousValue</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">simpleChanges</span><span class="p">.</span><span class="nx">myInput</span><span class="p">.</span><span class="nx">currentValue</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngOnInit 호출!! =&gt; myInput : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myInput</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngOnInit 호출!! =&gt; myString : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myString</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> ngDoCheck</strong></p>
+
+<p>ngOnInit hook method가 호출된 이후에 호출됩니다. Component에서 발생하는 모든 상태변화에 반응하여 호출되어지는 hook method로
+Angular의 Changes Detection이 상태변화를 감지하면 자동으로 호출되게 됩니다. 한가지 주의하셔야 할 점은 ngOnChanges와는 
+다르게 primitive값의 변경, reference 객체의 변경, reference객체의 속성변경에 대한 모든 변경에 대해 해당 hook mehtod가
+호출된다는 점입니다. 심지에 이전값과 같은 값이 assign되었음에도 호출됩니다. 따라서 <code class="highlighter-rouge">ngDoCheck</code>을 많이 사용하게 되면
+그만큼 성능이 저하될 수 있습니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">Component</span><span class="p">,</span> <span class="nx">DoCheck</span><span class="p">,</span> <span class="nx">Input</span><span class="p">,</span> 
+        <span class="nx">OnChanges</span><span class="p">,</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">SimpleChanges</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">IBook</span> <span class="p">{</span>
+  <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-child'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./child.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./child.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">ChildComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">OnChanges</span><span class="p">,</span> <span class="nx">DoCheck</span> <span class="p">{</span>
+
+  <span class="p">@</span><span class="nd">Input</span><span class="p">()</span> <span class="nx">myInput</span><span class="p">:</span> <span class="nx">IBook</span><span class="p">;</span>
+  <span class="nx">myString</span> <span class="o">=</span> <span class="s1">'Hello'</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Constructor 호출!! =&gt; myInput : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myInput</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Constructor 호출!! =&gt; myString : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myString</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngOnChanges</span><span class="p">(</span><span class="nx">simpleChanges</span><span class="p">:</span> <span class="nx">SimpleChanges</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngOnChanges 호출!! =&gt; myInput : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myInput</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">simpleChanges</span><span class="p">.</span><span class="nx">myInput</span><span class="p">.</span><span class="nx">previousValue</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">simpleChanges</span><span class="p">.</span><span class="nx">myInput</span><span class="p">.</span><span class="nx">currentValue</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngOnInit 호출!! =&gt; myInput : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myInput</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngOnInit 호출!! =&gt; myString : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myString</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngDoCheck</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngDoCheck 호출!! =&gt; myInput : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myInput</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngDoCheck 호출!! =&gt; myString : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myString</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> ngAfterContentInit, ngAfterContentChecked</strong></p>
+
+<p>최초의 ngDoCheck hook method가 호출된 후에 한번만 호출되며 앞서 배운 ngContent directive를 이용해 부모 Component의 template
+일부를 자식 Component에서 projection한 후 호출됩니다. 여기서 Content의 의미는 ngContent directive처럼 외부에서
+Component View안으로 내용을 가져온 것을 지칭합니다. 이 hook method 이후에 Change Detection이 실행된 후 
+바로 따라서 ngAfterContentChecked hook method가 호출됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> ngAfterViewInit, ngAfterViewChecked</strong></p>
+
+<p>Component에 속한 모든 View와 ViewChild가 시작되고 나서 호출됩니다. 쉽게 생각하면 HTML이 모두 화면에 출력된 후 호출된다고 생각
+하시면 됩니다. ngAfterViewChecked는 Component의 View에 대한 Change Detection이 실행되고 난 후 호출됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> ngOnDestroy</strong></p>
+
+<p>Component가 소멸하기 직전에 호출됩니다. 일반적으로 사용된 자원에 대한 해제 코드가 들어옵니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span>
+  <span class="nx">AfterContentChecked</span><span class="p">,</span> <span class="nx">AfterContentInit</span><span class="p">,</span> <span class="nx">AfterViewChecked</span><span class="p">,</span> <span class="nx">AfterViewInit</span><span class="p">,</span> 
+  <span class="nx">Component</span><span class="p">,</span> <span class="nx">DoCheck</span><span class="p">,</span> <span class="nx">Input</span><span class="p">,</span> <span class="nx">OnChanges</span><span class="p">,</span> <span class="nx">OnDestroy</span><span class="p">,</span> <span class="nx">OnInit</span><span class="p">,</span>
+  <span class="nx">SimpleChanges</span>
+<span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="kr">interface</span> <span class="nx">IBook</span> <span class="p">{</span>
+  <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nl">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-child'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./child.component.html'</span><span class="p">,</span>
+  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./child.component.css'</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">ChildComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">OnChanges</span><span class="p">,</span> <span class="nx">DoCheck</span><span class="p">,</span> <span class="nx">AfterContentInit</span><span class="p">,</span>
+  <span class="nx">AfterContentChecked</span><span class="p">,</span> <span class="nx">AfterViewInit</span><span class="p">,</span> <span class="nx">AfterViewChecked</span><span class="p">,</span> <span class="nx">OnDestroy</span> <span class="p">{</span>
+
+  <span class="p">@</span><span class="nd">Input</span><span class="p">()</span> <span class="nx">myInput</span><span class="p">:</span> <span class="nx">IBook</span><span class="p">;</span>
+  <span class="nx">myString</span> <span class="o">=</span> <span class="s1">'Hello'</span><span class="p">;</span>
+
+  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Constructor 호출!! =&gt; myInput : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myInput</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Constructor 호출!! =&gt; myString : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myString</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngOnChanges</span><span class="p">(</span><span class="nx">simpleChanges</span><span class="p">:</span> <span class="nx">SimpleChanges</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngOnChanges 호출!! =&gt; myInput : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myInput</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">simpleChanges</span><span class="p">.</span><span class="nx">myInput</span><span class="p">.</span><span class="nx">previousValue</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">simpleChanges</span><span class="p">.</span><span class="nx">myInput</span><span class="p">.</span><span class="nx">currentValue</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngOnInit 호출!! =&gt; myInput : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myInput</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngOnInit 호출!! =&gt; myString : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myString</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngDoCheck</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngDoCheck 호출!! =&gt; myInput : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myInput</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngDoCheck 호출!! =&gt; myString : </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">myString</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngAfterContentInit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngAfterContentInit 호출!!`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngAfterContentChecked</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngAfterContentChecked 호출!!`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngAfterViewInit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngAfterViewInit 호출!!`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngAfterViewChecked</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngAfterViewChecked 호출!!`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">ngOnDestroy</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ngOnDestroy 호출!!`</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>이번 포스트는 Angular가 제어하는 Component와 Directive의 lifecycle에 대해서 살펴봤습니다. 어떤 시점에 어떤 hook
+method가 호출되는지 이해하고 Change Detection이 어느 시점에 호출되는지를 이해하시면 조금 더 Angular를 이해하는데 도움이
+될 듯 합니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Angular 강좌(19) - Pipe</title>
 	  <link>https://moon9342.github.io/angular-lecture-pipe</link>
 		
@@ -87,6 +416,7 @@
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
     <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
     <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
+    <li><a href="./angular-lecture-lifecycle">Angular 강좌(20) - Component Lifecycle</a></li>
 </ul>
 
 <hr />
@@ -252,6 +582,7 @@
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
     <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
     <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
+    <li><a href="./angular-lecture-lifecycle">Angular 강좌(20) - Component Lifecycle</a></li>
 </ul>
 
 <hr />
@@ -494,6 +825,7 @@ rendering 할 때 글자색을 darkred로 설정하라는 것입니다.</p>
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
     <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
     <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
+    <li><a href="./angular-lecture-lifecycle">Angular 강좌(20) - Component Lifecycle</a></li>
 </ul>
 
 <hr />
@@ -765,6 +1097,7 @@ build를 수행하시려면 <code class="highlighter-rouge">--prod</code> option
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
     <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
     <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
+    <li><a href="./angular-lecture-lifecycle">Angular 강좌(20) - Component Lifecycle</a></li>
 </ul>
 
 <hr />
@@ -1081,6 +1414,7 @@ View에 출력하는 부분을 작성해 보겠습니다. 이 작업 역시 <cod
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
     <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
     <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
+    <li><a href="./angular-lecture-lifecycle">Angular 강좌(20) - Component Lifecycle</a></li>
 </ul>
 
 <hr />
@@ -1196,6 +1530,7 @@ method등 사용하기 쉬운 몇가지 method를 제공해서 보다 쉽게 RxJ
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
     <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
     <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
+    <li><a href="./angular-lecture-lifecycle">Angular 강좌(20) - Component Lifecycle</a></li>
 </ul>
 
 <hr />
@@ -1544,6 +1879,7 @@ Service에 의해서 데이터가 공유되는 건 확인했지만 새로 검색
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
     <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
     <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
+    <li><a href="./angular-lecture-lifecycle">Angular 강좌(20) - Component Lifecycle</a></li>
 </ul>
 
 <hr />
@@ -2070,6 +2406,7 @@ useClass는 실제 객체를 생성하기 위해 사용되는 class명이구요.
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
     <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
     <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
+    <li><a href="./angular-lecture-lifecycle">Angular 강좌(20) - Component Lifecycle</a></li>
 </ul>
 
 <hr />
@@ -2226,6 +2563,7 @@ useClass는 실제 객체를 생성하기 위해 사용되는 class명이구요.
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
     <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
     <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
+    <li><a href="./angular-lecture-lifecycle">Angular 강좌(20) - Component Lifecycle</a></li>
 </ul>
 
 <hr />
@@ -2476,252 +2814,6 @@ DOM에 직접 접근할 수 있습니다. 이전에 나왔던 Template Reference
 <p>이번 포스트에서는 @ViewChild와 @ViewChildren을 이용해 자식 Component의 객체를 직접 제어하거나 rendering된 View의 DOM에
 직접 접근해서 제어하는 방법에 대해서 살펴보았습니다. 다음 포스트는 Angular에서 <code class="highlighter-rouge">Content Projection</code>이라고 불리는 부분에 대해서
 살펴보도록 하겠습니다.</p>
-
-<p>End.</p>
-
-<hr />
-
-<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
-    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
-<ul class="lecture-reference">
-    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
-    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
-    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
-    <li>Angular 첫걸음 - 한빛미디어</li>
-    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Angular 강좌(10) - 데이터공유(@Output)</title>
-	  <link>https://moon9342.github.io/angular-lecture-data-share-2</link>
-		
-				
-		
-				
-		
-				
-		
-				
-		
-				
-						<author>Angular</author>
-				
-		
-				
-		
-	  <pubDate>2018-02-11T16:35:00+00:00</pubDate>
-	  <guid>https://moon9342.github.io/angular-lecture-data-share-2</guid>
-	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
-<ul class="table-of-contents-list">
-    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
-    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
-    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
-    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
-    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
-    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
-    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
-    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
-    <li><a href="./angular-lecture-data-share-1">Angular 강좌(9) - 데이터공유(@Input)</a></li>
-    <li><a href="./angular-lecture-data-share-2">Angular 강좌(10) - 데이터공유(@Output)</a></li>
-    <li><a href="./angular-lecture-data-share-3">Angular 강좌(11) - 데이터공유(@ViewChild)</a></li>
-    <li><a href="./angular-lecture-data-share-4">Angular 강좌(12) - 데이터공유(Content Projection)</a></li>
-    <li><a href="./angular-lecture-data-share-service">Angular 강좌(13) - Service</a></li>
-    <li><a href="./angular-lecture-data-share-service-mediator-pattern">Angular 강좌(14) - Service Mediator Pattern</a></li>
-    <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
-    <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
-    <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
-    <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
-    <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> @Output Decorator</strong></p>
-
-<p>이번 포스트는 자식 Component에서 부모 Component로 데이터를 전달하기 위한 <code class="highlighter-rouge">@Output</code> decorator에 대해서 알아보겠습니다.</p>
-
-<p>자식 Component에서 부모 Component로 데이터를 전달하기 위해서는 <code class="highlighter-rouge">EventEmitter</code>를 이용한 이벤트 처리를 하셔야 합니다. 
-즉, 자식 Component에서 발생한 event를 부모 Component가 <code class="highlighter-rouge">event bidning</code>을 이용해 데이터를 받는 방식입니다.</p>
-
-<p>코드레벨에서 알아보죠. 이전에 @Input decorator를 설명하면서 사용했던 예제를 좀 수정해서 사용하겠습니다.</p>
-
-<p>아래는 <code class="highlighter-rouge">search-box.component.ts</code> 내용입니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span><span class="p">,</span>
-         <span class="nx">Input</span><span class="p">,</span> <span class="nx">Output</span><span class="p">,</span> <span class="nx">EventEmitter</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
-
-<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
-  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-search-box'</span><span class="p">,</span>
-  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./search-box.component.html'</span><span class="p">,</span>
-  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./search-box.component.css'</span><span class="p">]</span>
-<span class="p">})</span>
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">SearchBoxComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
-
-  <span class="nl">_bookCategory</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-  <span class="c1">//@Input() bookCategory:string;</span>
-  <span class="c1">//@Input('bookCategory') mySelected:string;</span>
-
-  <span class="p">@</span><span class="nd">Input</span><span class="p">()</span>
-  <span class="kd">set</span> <span class="nx">bookCategory</span><span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span> <span class="nx">value</span> <span class="o">!=</span> <span class="kc">null</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// 추가적인 작업이 들어올 수 있습니다.</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">_bookCategory</span> <span class="o">=</span> <span class="s1">'category: '</span> <span class="o">+</span><span class="nx">value</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">_bookCategory</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
-    <span class="p">}</span>
-
-  <span class="p">}</span>
-
-  <span class="p">@</span><span class="nd">Output</span><span class="p">()</span> <span class="nx">searchEvent</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EventEmitter</span><span class="p">();</span>
-
-  <span class="nx">keyword</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-
-  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
-
-  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
-  <span class="p">}</span>
-
-  <span class="nx">setKeyword</span><span class="p">(</span><span class="na">keyword</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">keyword</span> <span class="o">=</span> <span class="nx">keyword</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">searchEvent</span><span class="p">.</span><span class="nx">emit</span><span class="p">({</span>
-      <span class="na">keyword</span> <span class="p">:</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">keyword</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
-      <span class="na">category</span><span class="p">:</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">_bookCategory</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">'category: '</span><span class="p">,</span><span class="s1">''</span><span class="p">)}</span><span class="s2">`</span>
-    <span class="p">});</span>
-  <span class="p">}</span>
-
-  <span class="nx">inputChange</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
-
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>부모 Component에게 이벤트를 전달하기 위해 다음의 코드로 EventEmitter 객체를 생성하고 @Output decorator를 이용했습니다.
-부모 Component는 <code class="highlighter-rouge">searchEvent</code> 이름으로 event binding 해야합니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Output</span><span class="p">()</span> <span class="nx">searchEvent</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EventEmitter</span><span class="p">();</span>
-</code></pre></div></div>
-
-<p>자식 Component에서 Search! 버튼을 눌렀을 때 <code class="highlighter-rouge">setKeyword()</code> method가 호출되는데 이 안에서 searchEvent에 대한 이벤트를
-발생시킵니다. 그러면서 부모 Component에게 전달할 데이터를 인자로 넣어줍니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">searchEvent</span><span class="p">.</span><span class="nx">emit</span><span class="p">({</span>
-    <span class="na">keyword</span> <span class="p">:</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">keyword</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
-    <span class="na">category</span><span class="p">:</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">_bookCategory</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">'category: '</span><span class="p">,</span><span class="s1">''</span><span class="p">)}</span><span class="s2">`</span>
-<span class="p">});</span>
-</code></pre></div></div>
-
-<p>이제 부모 Component에서 어떻게 event binding을 이용해서 데이터를 받는지만 살펴보면 됩니다.</p>
-
-<p>아래는 <code class="highlighter-rouge">book-search-main.component.html</code> 입니다.</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bookSearch-outer"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"mr-3"</span> <span class="na">src=</span><span class="s">"assets/images/search-icon.png"</span> <span class="na">alt=</span><span class="s">""</span> <span class="na">width=</span><span class="s">"48"</span> <span class="na">height=</span><span class="s">"48"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"lh-100"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mb-0 text-white lh-100"</span><span class="nt">&gt;</span>Search Result : {{searchTitle}}<span class="nt">&lt;/h5&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-container"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;mat-form-field&gt;</span>
-      <span class="nt">&lt;mat-select</span> <span class="na">placeholder=</span><span class="s">"도서종류"</span>
-                  <span class="err">#</span><span class="na">bookCategorySelect</span>
-                  <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">selectedValue</span><span class="err">"</span>
-                  <span class="err">(</span><span class="na">ngModelChange</span><span class="err">)="</span><span class="na">changeValue</span><span class="err">(</span><span class="na">bookCategorySelect</span><span class="err">.</span><span class="na">value</span><span class="err">)"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let category of bookCaterory"</span>
-                    <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">category</span><span class="err">.</span><span class="na">value</span><span class="err">"</span><span class="nt">&gt;</span>
-          {{ category.viewValue }}
-        <span class="nt">&lt;/mat-option&gt;</span>
-      <span class="nt">&lt;/mat-select&gt;</span>
-    <span class="nt">&lt;/mat-form-field&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-
-  <span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;app-search-box</span> <span class="err">[</span><span class="na">bookCategory</span><span class="err">]="</span><span class="na">displayCategoryName</span><span class="err">"</span>
-                    <span class="err">(</span><span class="na">searchEvent</span><span class="err">)="</span><span class="na">changeTitleBar</span><span class="err">($</span><span class="na">event</span><span class="err">)"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/app-search-box&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;app-detail-box&gt;&lt;/app-detail-box&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;app-list-box&gt;&lt;/app-list-box&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-
-</code></pre></div></div>
-
-<p>주의해서 보셔야 할 부분은</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;app-search-box</span> <span class="err">[</span><span class="na">bookCategory</span><span class="err">]="</span><span class="na">displayCategoryName</span><span class="err">"</span>
-                <span class="err">(</span><span class="na">searchEvent</span><span class="err">)="</span><span class="na">changeTitleBar</span><span class="err">($</span><span class="na">event</span><span class="err">)"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/app-search-box&gt;</span>
-</code></pre></div></div>
-
-<p>입니다. event binding을 이용해서 <code class="highlighter-rouge">searchEvent</code> 이벤트가 발생하면 <code class="highlighter-rouge">changeTitleBar()</code> method를 호출하고 인자를 받아서
-처리하고 있네요. 인자 받는 방식도 유의해서 보셔야 합니다.</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mb-0 text-white lh-100"</span><span class="nt">&gt;</span>Search Result : {{searchTitle}}<span class="nt">&lt;/h5&gt;</span>
-
-</code></pre></div></div>
-
-<p>interpolation을 이용해 searchTitle 속성의 값을 View에 출력하고 있네요. 아마 <code class="highlighter-rouge">changeTitleBar()</code> method안에서 내용이
-결정될 듯 합니다.</p>
-
-<p>마지막으로 <code class="highlighter-rouge">book-search-main.component.ts</code> 파일입니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
-
-<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
-  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-book-search-main'</span><span class="p">,</span>
-  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./book-search-main.component.html'</span><span class="p">,</span>
-  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./book-search-main.component.css'</span><span class="p">,</span>
-  <span class="s1">'./offcanvas.css'</span><span class="p">]</span>
-<span class="p">})</span>
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">BookSearchMainComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
-
-  <span class="nx">selectedValue</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="nx">displayCategoryName</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="nx">bookCaterory</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="s1">'all'</span><span class="p">,</span> <span class="na">viewValue</span><span class="p">:</span> <span class="s1">'국내외도서'</span><span class="p">},</span>
-    <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="s1">'country'</span><span class="p">,</span> <span class="na">viewValue</span><span class="p">:</span> <span class="s1">'국내도서'</span><span class="p">},</span>
-    <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="s1">'foreign'</span><span class="p">,</span> <span class="na">viewValue</span><span class="p">:</span> <span class="s1">'국외도서'</span><span class="p">}</span>
-  <span class="p">];</span>
-
-  <span class="nx">searchTitle</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-
-  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
-
-  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
-  <span class="p">}</span>
-
-  <span class="nx">changeValue</span><span class="p">(</span><span class="nx">category</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
-      <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">element</span> <span class="k">of</span> <span class="k">this</span><span class="p">.</span><span class="nx">bookCaterory</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">value</span> <span class="o">==</span> <span class="nx">category</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">this</span><span class="p">.</span><span class="nx">displayCategoryName</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">viewValue</span><span class="p">;</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-  <span class="p">}</span>
-
-  <span class="nx">changeTitleBar</span><span class="p">(</span><span class="nx">searchInfo</span><span class="p">)</span> <span class="p">:</span> <span class="k">void</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">searchTitle</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">searchInfo</span><span class="p">.</span><span class="nx">keyword</span><span class="p">}</span><span class="s2"> ( </span><span class="p">${</span><span class="nx">searchInfo</span><span class="p">.</span><span class="nx">category</span><span class="p">}</span><span class="s2"> )`</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>기본적인 개념은 이미 설명했으니 코드레벨에서 한번 천천히 살펴보시면 충분히 이해할 수 있을 듯 보입니다.</p>
-
-<p>여기까지 작업한 내용을 실행해 정상적으로 동작하는지 확인하시면 될 듯 합니다.</p>
-
-<p>자식 Component에서 부모 Component로 Event를 이용해서 데이터를 어떻게 전달하는지에 대해서 간단하게 살펴보았습니다.</p>
-
-<p>다음 포스트는 부모 Component에서 자식 요소에 접근할 때 또 다른 방법으로 어떤 방법이 있는지 알아보도록 하겠습니다.</p>
 
 <p>End.</p>
 

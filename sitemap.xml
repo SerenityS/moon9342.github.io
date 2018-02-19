@@ -4,6 +4,22 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://moon9342.github.io/angular-lecture-lifecycle</loc>
+        
+        <lastmod>2018-02-18T15:55:00+00:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://moon9342.github.io/angular-lecture-pipe</loc>
         
         <lastmod>2018-02-16T17:51:00+00:00</lastmod>
