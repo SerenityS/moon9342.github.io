@@ -4,6 +4,38 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://moon9342.github.io/angular-lecture-pipe</loc>
+        
+        <lastmod>2018-02-16T17:51:00+00:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>https://moon9342.github.io/angular-lecture-directive</loc>
+        
+        <lastmod>2018-02-14T14:38:00+00:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://moon9342.github.io/angular-lecture-inspection-1</loc>
         
         <lastmod>2018-02-14T03:02:00+00:00</lastmod>

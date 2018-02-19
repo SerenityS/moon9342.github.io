@@ -11,7 +11,7 @@
 
 
 
-    <title>Front-End 발전 역사와 개발 생태계</title>
+    <title>Angular 강좌(18) - Directive</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -48,26 +48,26 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="Development & Technical Training" />
     <link rel="shortcut icon" href="https://moon9342.github.io/assets/built/images/favicon.jpg" type="image/png" />
-    <link rel="canonical" href="https://moon9342.github.io/front-end-ecosystem" />
+    <link rel="canonical" href="https://moon9342.github.io/angular-lecture-directive" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="IT Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Front-End 발전 역사와 개발 생태계" />
-    <meta property="og:description" content="Introduction 이번 포스트는 과거 JavaScript 탄생부터 시작해서 어떻게 발전해왔는지에 대한 내용과 현재 Front End 개발에 있어서 무엇을 알아야 하는 지에 대한 전반적인 기술 상황에 대해서 알아보겠습니다. JavaScript 탄생 JavaScript라는 언어의 역사는 저의 다른 포스트에서도 볼 수 있지만 여기서도 간단하게 언급하고 넘어가겠습니다. JavaScript언어의 역사는 1995년 Netscape사의 Brendan Eich(브랜든 아이크)에 의해 개발된" />
-    <meta property="og:url" content="https://moon9342.github.io/front-end-ecosystem" />
-    <meta property="og:image" content="https://moon9342.github.io/assets/built/images/ecosystem-logo.jpg" />
+    <meta property="og:title" content="Angular 강좌(18) - Directive" />
+    <meta property="og:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - 데이터공유(@Input) Angular 강좌(10) - 데이터공유(@Output) Angular" />
+    <meta property="og:url" content="https://moon9342.github.io/angular-lecture-directive" />
+    <meta property="og:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta property="article:author" content="https://www.facebook.com/" />
-    <meta property="article:published_time" content="2018-01-29T13:31:00+00:00" />
-    <meta property="article:modified_time" content="2018-01-29T13:31:00+00:00" />
+    <meta property="article:published_time" content="2018-02-14T14:38:00+00:00" />
+    <meta property="article:modified_time" content="2018-02-14T14:38:00+00:00" />
     <meta property="article:tag" content="Front End" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Front-End 발전 역사와 개발 생태계" />
-    <meta name="twitter:description" content="Introduction 이번 포스트는 과거 JavaScript 탄생부터 시작해서 어떻게 발전해왔는지에 대한 내용과 현재 Front End 개발에 있어서 무엇을 알아야 하는 지에 대한 전반적인 기술 상황에 대해서 알아보겠습니다. JavaScript 탄생 JavaScript라는 언어의 역사는 저의 다른 포스트에서도 볼 수 있지만 여기서도 간단하게 언급하고 넘어가겠습니다. JavaScript언어의 역사는 1995년 Netscape사의 Brendan Eich(브랜든 아이크)에 의해 개발된" />
+    <meta name="twitter:title" content="Angular 강좌(18) - Directive" />
+    <meta name="twitter:description" content="Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - 데이터공유(@Input) Angular 강좌(10) - 데이터공유(@Output) Angular" />
     <meta name="twitter:url" content="https://moon9342.github.io/" />
-    <meta name="twitter:image" content="https://moon9342.github.io/assets/built/images/ecosystem-logo.jpg" />
+    <meta name="twitter:image" content="https://moon9342.github.io/assets/built/images/angular-logo.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="IT Blog" />
     <meta name="twitter:label2" content="Filed under" />
@@ -86,18 +86,18 @@
         "name": "IT Blog",
         "logo": "https://moon9342.github.io/"
     },
-    "url": "https://moon9342.github.io/front-end-ecosystem",
+    "url": "https://moon9342.github.io/angular-lecture-directive",
     "image": {
         "@type": "ImageObject",
-        "url": "https://moon9342.github.io/assets/built/images/ecosystem-logo.jpg",
+        "url": "https://moon9342.github.io/assets/built/images/angular-logo.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://moon9342.github.io/front-end-ecosystem"
+        "@id": "https://moon9342.github.io/angular-lecture-directive"
     },
-    "description": "Introduction 이번 포스트는 과거 JavaScript 탄생부터 시작해서 어떻게 발전해왔는지에 대한 내용과 현재 Front End 개발에 있어서 무엇을 알아야 하는 지에 대한 전반적인 기술 상황에 대해서 알아보겠습니다. JavaScript 탄생 JavaScript라는 언어의 역사는 저의 다른 포스트에서도 볼 수 있지만 여기서도 간단하게 언급하고 넘어가겠습니다. JavaScript언어의 역사는 1995년 Netscape사의 Brendan Eich(브랜든 아이크)에 의해 개발된"
+    "description": "Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular 강좌(7) - 실습(2) Angular 강좌(8) - Material Table Angular 강좌(9) - 데이터공유(@Input) Angular 강좌(10) - 데이터공유(@Output) Angular"
 }
     </script>
 
@@ -134,7 +134,7 @@
     </script>
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="Front-End 발전 역사와 개발 생태계" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Angular 강좌(18) - Directive" href="/feed.xml" />
 
 
 </head>
@@ -192,7 +192,7 @@ into the {body} of the default.hbs template -->
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime="29 January 2018">29 January 2018</time>
+                    <time class="post-full-meta-date" datetime="14 February 2018">14 February 2018</time>
                     
                         <span class="date-divider">/</span>
                         
@@ -202,207 +202,236 @@ into the {body} of the default.hbs template -->
                         
                     
                 </section>
-                <h1 class="post-full-title">Front-End 발전 역사와 개발 생태계</h1>
+                <h1 class="post-full-title">Angular 강좌(18) - Directive</h1>
             </header>
 
             
 <!--
             post에 cover image를 표시하지 않게 설정
-            <figure class="post-full-image" style="background-image: url(/assets/built/images/ecosystem-logo.jpg)">
+            <figure class="post-full-image" style="background-image: url(/assets/built/images/angular-logo.png)">
             </figure>
 -->
             
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <p><strong class="post_introduction">Introduction</strong></p>
-
-<p>이번 포스트는 과거 JavaScript 탄생부터 시작해서 어떻게 발전해왔는지에 대한 내용과 <br />
-현재 Front End 개발에 있어서 무엇을 알아야 하는 지에 대한 전반적인 기술 상황에 대해서 알아보겠습니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> JavaScript 탄생</strong></p>
-
-<p>JavaScript라는 언어의 역사는 저의 <a href="./javascript-history.html" target="_blank">다른 포스트</a>에서도 볼 수 있지만 
-여기서도 간단하게 언급하고 넘어가겠습니다.</p>
-
-<p><code class="highlighter-rouge">JavaScript</code>언어의 역사는 1995년 Netscape사의 Brendan Eich(브랜든 아이크)에 의해 개발된 <code class="highlighter-rouge">Mocha</code>라는 언어부터 시작됩니다.
-이 Mocha라는 언어는 <strong>“Prototype의 개념과 Functional Language(함수형 언어)의 특성을 가지고 Web에 동적으로 활용할 수 있는 
-언어를 만들어보자”</strong> 라는 취지로 2주일 이라는 굉장히 짧은 기간안에 만들어졌습니다.</p>
-
-<p>추후에 <strong>Mocha -&gt; LiveScript -&gt; JavaScript</strong>로 개명되었고 ECMA에 <code class="highlighter-rouge">ECMA-262</code> 기술규격으로 <code class="highlighter-rouge">ECMAScript</code>라는 이름으로 표준화를
-진행하게 됩니다. 이에 대응해 1996년 MicroSoft 측에서는 <code class="highlighter-rouge">JScript</code>라는 걸 만들어내서 자사의 IE 3안에 포함시켜 제공하기 시작했습니다.</p>
-
-<p>이런 JavaScript는 여러가지 문제점을 내포하고 있었는데 가장 큰 문제를 꼽자면</p>
-
-<ul>
-  <li>구현의 어려움</li>
-  <li>언어의 모호성</li>
-  <li>Cross Browsing의 한계</li>
+                    <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-data-share-1">Angular 강좌(9) - 데이터공유(@Input)</a></li>
+    <li><a href="./angular-lecture-data-share-2">Angular 강좌(10) - 데이터공유(@Output)</a></li>
+    <li><a href="./angular-lecture-data-share-3">Angular 강좌(11) - 데이터공유(@ViewChild)</a></li>
+    <li><a href="./angular-lecture-data-share-4">Angular 강좌(12) - 데이터공유(Content Projection)</a></li>
+    <li><a href="./angular-lecture-data-share-service">Angular 강좌(13) - Service</a></li>
+    <li><a href="./angular-lecture-data-share-service-mediator-pattern">Angular 강좌(14) - Service Mediator Pattern</a></li>
+    <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
+    <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
+    <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
+    <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
 </ul>
 
-<p>정도를 들 수 있습니다. 즉, 사용자 입력값을 검사하는 용도, 사용자의 이벤트를 감지해서 처리하는 용도로는 사용할 수 있지만 
-언어 자체가 가지고 있는 근본적인 문제때문에 사용이 힘들었습니다.</p>
-
 <hr />
 
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 구세주의 등장 - jQuery</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Directive</strong></p>
 
-<p>이 때 구세주가 등장합니다. 우리가 잘 알고 있는 <code class="highlighter-rouge">jQuery</code> library입니다.</p>
+<p>이번 포스트에서는 Angular의 <code class="highlighter-rouge">Directive</code>에 대해서 알아보겠습니다. 지금까지 예제를 작성하면서 여러 directive를 사용해 왔는데요.
+그에 대해서 조금 더 정리를 해 보려 합니다.</p>
 
-<p>jQuery는 open source javascript library로 순수 javascript가 가지고 있었던 DOM처리의 어려움과 Cross Browsing에 대한 issue를
-해결하면서 <strong>JavaScript의 대표적 library</strong>로 사용되게 되었습니다. jQuery로 인해 JavaScript가 조금은 쓸만한 언어로 여기지면서
-사용되기 시작했습니다.</p>
+<p>Directive는 <strong>DOM의 모양이나 동작을 지시하기 위한 명령</strong>이라고 생각하시면 됩니다. 크게 HTML Element형태로 사용되거나 
+Element의 attribute의 형태로 사용되게 됩니다. 예를 들면 우리가 사용했던 <code class="highlighter-rouge">ngIf</code> 같은 attribute를 떠올리시면 됩니다.
+Routing에서 사용했던 <code class="highlighter-rouge">&lt;router-outlet&gt;&lt;/router-outlet&gt;</code> Element 역시 directive입니다.</p>
 
-<p>그러면서 그냥 그냥 아주 소소하게 client web browser안에서 JavaScript 코드와 jQuery 코드가 이용되었던 거지요. 특별히 중요하지도 않은
-단위코드 위주로 사용이 되는 그런 수준이었습니다. 그러면서 우리 기억에도 “알면 좋고 몰라도 상관없는 언어”로 인식되었습니다.</p>
+<p>이렇게 directive는 DOM을 제어하기 위한 용도로 사용되는데 DOM을 제어하기 위해서 우리는 지금까지 Component를 이용했었습니다. 
+Component로 제어하면 되지 굳이 directive로 DOM을 제어할 필요가 있느냐 하는 의문이 들 수 있습니다. 하지만 Component는
+원칙적으로 자신이 rendering하는 View에 대해서만 관심이 있습니다. 여러 View들이 공통적으로 사용하는 Element나 Element의
+attribute같은 것들을 따로 directive로 지정해 사용하면 <code class="highlighter-rouge">SRP</code>관점에서 봤을 때도 타당하고 Component의 복잡도를 낮출 수 있으며
+유지보수와 같은 관리적인 측면에서도 더 나은 형태로 구현이 가능합니다.</p>
 
-<p>그렇게시간은 흘러갑니다.!!</p>
+<p>Component 역시 큰 의미에서 directive입니다. Component는 directive이면서 View를 가지고 있고 자식 Component 또한 가질 수
+있습니다. 하지만 directive는 View를 가지고 있지 않고 자식 directive 또한 가질 수 없습니다.</p>
 
-<p>1997년 <code class="highlighter-rouge">ECMAScript</code>의 초판이 나오게 됩니다. <code class="highlighter-rouge">ES1</code>이라고 합니다. 그 후 1999년에 <code class="highlighter-rouge">ES3</code>가 나오게 됩니다. 여기까지 하고 한동안
-ECMAScript 표준은 쿨쿨 잠을 자게 됩니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 다시 JavaScript에 날개를 달아보자 - HTML5</strong></p>
-
-<p>1999년 12월 <code class="highlighter-rouge">W3C</code>(World Wide Web Consortium)에서 하나의 발표를 합니다. 아시다시피 W3C는 <code class="highlighter-rouge">HTML</code>과 <code class="highlighter-rouge">CSS</code>의 표준을 
-관장하는 기구입니다. 이때까지 우리가 사용하는 HTML의 버전은 4.01버전이었습니다. W3C는 이 버전을 마지막으로 더 이상 
-HTML의 버전업은 없을 것이라고 공표하게 됩니다. 그때까지 잘 사용해왔던 HTML을 왜 버전업하지 하지 않겠다고 했을까요?</p>
-
-<p>여러가지 이유가 있지만 프로그래밍 언어의 측면에서 바라보면 HTML이란 언어는 다음과 같은 한계점이 있습니다.</p>
+<p>Directive는 크게 다음과 같은 4가지 종류로 구분 할 수 있습니다.</p>
 
 <ul>
-  <li><strong>정형성 : HTML언어는 정형성이 없기때문에 유지보수에 적합하지 않다.</strong></li>
-  <li><strong>확장성 : 정해진 Tag만 이용하기 때문에 언어자체에 대한 기능적 확장이 어렵다.</strong></li>
+  <li>
+    <p><strong>Component Directive</strong></p>
+
+    <p>우리가 알고 있는 Component입니다. <code class="highlighter-rouge">selector</code>에서 우리가 directive를 지정해 사용하게 됩니다.</p>
+
+    <p><br /></p>
+  </li>
+  <li>
+    <p><strong>Attribute Directive</strong></p>
+
+    <p>HTML Element의 Attribute로 사용됩니다. built-in 형태로는 <code class="highlighter-rouge">ngClass</code> 같은 것들이 있습니다.</p>
+
+    <p><br /></p>
+  </li>
+  <li>
+    <p><strong>Structural Directive</strong></p>
+
+    <p>DOM의 구성을 제어하기 위한 directive로 <code class="highlighter-rouge">ngIf</code> , <code class="highlighter-rouge">ngFor</code>, <code class="highlighter-rouge">ngSwitch</code> 등이 있습니다.</p>
+
+    <p><br /></p>
+  </li>
+  <li>
+    <p><strong>Custom Directive</strong></p>
+
+    <p>built-in 형태로 만들어진 directive가 아닌 직접 만들어서 사용하는 directive를 지칭합니다.</p>
+
+    <p><br /></p>
+  </li>
 </ul>
 
-<p>W3C는 저 두가지 이유를 들어 HTML언어를 이대로 끌고 가기 보다는 좀 더 다른 수단을 강구해야 겠다고 판단합니다. W3C의 선택은
-바로 <code class="highlighter-rouge">XML</code>의 도입이었습니다. 즉, HTML이 가지는 두가지 문제점을 해결할 수 있는 XML을 도입해서 새로운 Web언어의 표준을
-끌고 나갈 생각이었습니다. 그 결과 2000년 들어오면서 HTML과 XML이 결합된 새로운 표준인 <code class="highlighter-rouge">XHTML 1.0</code>이 발표되게 됩니다.</p>
-
-<p>W3C의 이런 의도와는 다르게 몇몇개의 회사들이 모여서 조금 다른 접근을 모색합니다. XML을 도입하지 말고 순수하게 HTML을 기능을
-버전업시킬 수 있는 방법을 찾기 시작한 것이죠. 그래서 <code class="highlighter-rouge">WHATWG</code>(Web Hypertext Application Technology Working Group)이라는 
-Working Group이 만들어지고 이 안에서 기존의 HTML을 발전시킬 방법을 연구하게 됩니다. 
-( 사실 여기서 할 말이 많기 한데 자꾸 산으로 가는 느낌이라 적당히 짜르겠습니다. ) 
-이 WG에서 나온것이 바로 현재의 표준인 <code class="highlighter-rouge">HTML5</code>입니다. HTML을 이용해서 Web Application을 만들자는 취지입니다. 
-이 HTML5안에 Client Web Application을 작성할 수 있는 API가 포함되어 있는데 이게 <code class="highlighter-rouge">JavaScript</code>로
-되어 있습니다. 결국 HTML5가 issue화 되면서 JavaScript의 위상도 조금씩 더 올라가게 됩니다.</p>
-
-<p>그래서인지 쿨쿨 잠을자던 ECMAScript 개정판(<code class="highlighter-rouge">ES5</code>)이 2009년에 등장합니다. 참고로 4판(<code class="highlighter-rouge">ES4</code>)은 버려졌습니다. 이제 슬슬
-JavaScript에 대한 발전이 시작됩니다.</p>
+<p>이 중 Component에 대해서는 많이 사용해 봤으니 Structural Directive와 Custom Directive에 대해서
+알아보도록 하겠습니다.</p>
 
 <hr />
 
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> JavaScript의 획기적 전환점 - Node.js</strong></p>
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Structural Directive</strong></p>
 
-<p>2013년 <code class="highlighter-rouge">Node.js</code>가 출시됩니다. 아무리 HTML5라고 해도 이때까지의 JavaScript는 Browser안에서 동작하는 언어였습니다.
-우리가 알고 있는 <code class="highlighter-rouge">Java</code>, <code class="highlighter-rouge">C#</code>과 같은 언어가 될 수 없는 태생적 한계가 있는거죠. 이런 browser에 갇힌 JavaScript를
-browser 외부로 탈출하게끔 만들어준 일등공신이 바로 Node.js입니다. 결국 JavaScript로 다른 언어처럼 OS위에서 동작하는
-일반 application을 작성할 수 있는 길이 열린것이고 그에 따라 언어의 위상이 완전히 변했습니다.</p>
+<p>우리 예제에서도 사용했던 <code class="highlighter-rouge">ngIf</code>, <code class="highlighter-rouge">ngFor</code>등을 지칭합니다. 단, 이것들은 built-in된 형태입니다. 이런 구조적 directive를
+우리가 직접 만들어서 사용할 수도 있습니다. ngIf와 ngFor를 사용하실 때 몇가지 알아두셔야 하는 사항이 있습니다.</p>
 
-<p>그에 발맞춰 ECMAScript도 빠르게 변화하기 시작했습니다. 2015년에 ECMAScript 2015(<code class="highlighter-rouge">ES6</code>)가 등장하면서 JavaScript 언어자체에
-아주 큰 변화들이 많이 생겼습니다. 현재 ECMAScript 2016(<code class="highlighter-rouge">ES7</code>)까지 나온 상태입니다. 조금 지나면 <code class="highlighter-rouge">ES8</code>이 표준화되어서 나오겠네요.
-거의 1년마다 새로운 배포판이 나올정도로 빠르게 변화하면서 언어적 측면에서 가지고 있던 많은 문제점들을 극복하려고 노력하고 있습니다.</p>
+<p>일반적으로 다음과 같이 코드처리 합니다.</p>
 
-<p>현재(2018년 1월) 대부분의 browser들은 <code class="highlighter-rouge">ES6</code>를 지원하고 있습니다. 
-<a href="https://kangax.github.io/compat-table/es6/" target="_blank">여기</a>에 접속해 보시면 특정 browser에 대해 
-각 ECMAScript의 버전 호환성을 보실 수 있습니다.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="o">*</span><span class="nx">ngIf</span><span class="o">=</span><span class="s2">"hero"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"name"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p><code class="highlighter-rouge">hero</code>가 null과 undefined가 아니면 <code class="highlighter-rouge">&lt;div&gt;</code>를 DOM에 추가하고 interpolation을 이용해 값을 출력하는 코드입니다.</p>
+
+<p>이 코드는 사실 다음과 같이 변형되어서 실행됩니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">ng</span><span class="o">-</span><span class="nx">template</span> <span class="p">[</span><span class="nx">ngIf</span><span class="p">]</span><span class="o">=</span><span class="s2">"hero"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"name"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/ng-template</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p><code class="highlighter-rouge">ng-template</code>을 이용해서 조건을 통해 <code class="highlighter-rouge">&lt;div&gt;</code>의 처리를 결정합니다.</p>
+
+<p>비교해서 보셔야 할 것으로 <code class="highlighter-rouge">ng-container</code>가 있습니다. 위의 코드는 다음의 코드로 표현이 가능합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">ng</span><span class="o">-</span><span class="nx">container</span> <span class="o">*</span><span class="nx">ngIf</span><span class="o">=</span><span class="s2">"hero"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"name"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/ng-container</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>Angular는 동일한 Element에 두개 이상의 <code class="highlighter-rouge">*ngIf</code>, <code class="highlighter-rouge">*ngFor</code>, <code class="highlighter-rouge">*ngSwitch</code>를 사용할 수 없습니다. for문을 돌리면서 if문을
+이용해 비교하고 싶은 경우에는 문제가 됩니다. 이 같은 경우를 해결하기 위해 <code class="highlighter-rouge">ng-container</code>를 제공하는 것이라 보시면 됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Custom Directive</strong></p>
+
+<p>기존에 만들었던 mySearchProject에 간단하게 Custom Directive를 추가하고 어떻게 이용하는지 살펴보도록 하겠습니다.</p>
+
+<p>command 창을 열고 다음의 명령을 실행해서 directive를 하나 생성합니다. 현재 command 창의 working directory는
+<code class="highlighter-rouge">src/app</code> 입니다.</p>
 
 <blockquote>
-  <p><strong>이제 IE는 고만쓰도록 해요. 제발….</strong></p>
+  <p><strong>ng generate directive textColor</strong></p>
 </blockquote>
 
-<p>아직 완벽하게 Cross Browsing이 안되는데 어떻게 하느냐에 대한 문제는 <code class="highlighter-rouge">Babel</code>, <code class="highlighter-rouge">TypeScript</code>와 같은 
-transpiler를 이용해서 해결할 수 있습니다. 
-Babel, TypeScript는 ES6(ES7) 문법으로 쓰여있는 JavaScript code를 ES5 형태의 JavaScript로 변환시켜주기 때문에 
-IE에서 ES6지원이 안됨에도 불구하고 ES5로 변환해서 사용할 수 있습니다.</p>
+<p>두개의 파일이 생성됩니다. Angular CLI의 이름규칙에 의해 <code class="highlighter-rouge">text-color.directive.ts</code> 라는 이름의 파일이 생성됩니다.</p>
 
-<hr />
+<p>그 내용을 다음과 같이 수정합니다.</p>
 
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 변화의 속도가 너무 빠름</strong></p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">Directive</span><span class="p">,</span> <span class="nx">ElementRef</span><span class="p">,</span> <span class="nx">Renderer2</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
 
-<p>그런데 문제는 기술의 발전 속도가 너무 빠르다는데 있습니다. 또한 알아야 할게 한두 가지가 아니구요. 
-과거 Back End에서 사용했던 프로그래밍 기술과 여러가지 개발 툴의 개념들이 다 Front End로 넘어왔기 때문입니다.
-너무 많은기술들이 빠르게 생기고 빠르게 사라지고 있습니다.</p>
+<span class="p">@</span><span class="nd">Directive</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'[myColor]'</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">TextColorDirective</span> <span class="p">{</span>
 
-<p>사실 2-3년전에 자주 사용했던 JavaScript Library와 Framework들 중 많은 것들이 이미 다른 것으로 대체되었습니다. 
-그렇다고 손 놓고 있을 순 없으니 현재 상태에서 우리가 Front End 개발을 하기 위해 필수적으로 알아야 하는 것 몇가지만
-살펴보도록 하겠습니다.</p>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">elementref</span><span class="p">:</span> <span class="nx">ElementRef</span><span class="p">,</span> <span class="nx">renderer</span><span class="p">:</span> <span class="nx">Renderer2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">renderer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="nx">elementref</span><span class="p">.</span><span class="nx">nativeElement</span><span class="p">,</span><span class="s1">'color'</span><span class="p">,</span><span class="s1">'darkred'</span><span class="p">);</span>
+  <span class="p">}</span>
 
-<hr />
+<span class="p">}</span>
+</code></pre></div></div>
 
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 이것정도는 알고 가자</strong></p>
+<p>위의 directive 내용은 HTML Element의 속성으로 <code class="highlighter-rouge">myColor</code> 가 사용되었을 경우 해당 Element를 DOM에
+rendering 할 때 글자색을 darkred로 설정하라는 것입니다.</p>
 
-<ul>
-  <li><strong>Package Manager</strong> : <code class="highlighter-rouge">NPM</code>, Yarn</li>
-</ul>
+<p>이렇게 directive를 생성하면 사용하기 위해서 Root Module에 등록해야 합니다. Angular CLI를 이용했기 때문에
+이미 등록이 되어 있습니다. 이제 실제 해당 directive가 정상적으로 동작하는지 확인해보면 될 듯 합니다.</p>
 
-<p><img src="assets/built/images/npm-vs-yarn.png" alt="npm vs yarn" /></p>
+<p><code class="highlighter-rouge">pages/home</code> 폴더에 있는 <code class="highlighter-rouge">home.component.html</code>을 수정해서 해당 directive를 사용해 보죠.</p>
 
-<p>외부 라이브러리를 사용할 경우 해당 라이브러리를 설치, 삭제, 의존성 관리등을 해야 하는데 이를 위한 도구가 
-몇몇 존재합니다. 그중 하나만 하자면 당연 <code class="highlighter-rouge">npm</code>입니다. Node Package Manager의 약자이고 Node.js를 살짝 맛보시면
-npm이 어떻게 동작하는지 아실 수 있습니다. 굳이 Node.js에 대해서 학습할 필요는 없습니다. 당연히 알면 좋지만요.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>HOME<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;hr&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">myColor</span><span class="nt">&gt;</span>이 Web Application은 Angular 강좌를 위한 Test App입니다.
+<span class="nt">&lt;p&gt;</span>이 강좌는 다음의 내용을 포함합니다. <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Angular의 기본 구조<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Angular CLI<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Component<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Template - Template Reference Variable<span class="nt">&lt;/li&gt;</span>
+...
+...
+...  
+</code></pre></div></div>
 
-<ul>
-  <li><strong>Transpiler</strong> : Babel, <code class="highlighter-rouge">TypeScript</code></li>
-</ul>
+<p>위와 같이 <code class="highlighter-rouge">myColor</code>라는 directive를 사용할 수 있습니다. 해당 <code class="highlighter-rouge">P</code> Element의 text 글자는 darkred로 출력되겠네요.</p>
 
-<p><img src="assets/built/images/typescript-vs-babel.jpg" alt="babel vs typescript" /></p>
-<div class="img-reference">( 이미지 출처 : http://news.softpedia.com/news )</div>
+<p>가장 직관적인 예를 들기 위해 text color를 변경하는걸로 처리를 했는데 그 외 DOM을 제어하는 다른 기능들도 할 수 있습니다.</p>
 
-<p>Cross Browsing을 위한 Transpiler입니다. 비교 대상은 아닙니다. 둘 다 알아둘 필요는 있지만 
-저는 <code class="highlighter-rouge">TypeScript</code>는 반드시 해야 한다고 생각합니다. 앞으로 TypeScript는 더 발전할 듯 보이거든요. 
-하지만 배우기 쉽지 않습니다. 언어적 측면을 파고 들면 내용이 꽤나 많습니다.
-다행히 TypeScript는 ECMAScript의 superset이니 ECMAScript 공부한다고 생각하시면 속 편합니다.</p>
+<p>이번에는 이벤트 처리를 한번 해 보죠. 위의 예에서 해당 <code class="highlighter-rouge">P</code> Element를 클릭했을 때 <code class="highlighter-rouge">alert()</code> 이 수행되게 할려면 다음과 같이
+처리하시면 됩니다.</p>
 
-<p>또한 제 개인적인 생각과는 반대로 TypeScript언어의 단점도 분명히 존재합니다. 엄격한 type checking덕분에
-JavaScript가 가지는 프로그래밍의 유연함이 많이 떨어진다는 것이죠.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">Directive</span><span class="p">,</span> <span class="nx">ElementRef</span><span class="p">,</span> <span class="nx">HostListener</span><span class="p">,</span> <span class="nx">Renderer2</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
 
-<ul>
-  <li><strong>자동화 도구</strong> : Grunt, <code class="highlighter-rouge">Gulp</code></li>
-</ul>
+<span class="p">@</span><span class="nd">Directive</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'[myColor]'</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">TextColorDirective</span> <span class="p">{</span>
 
-<p><img src="assets/built/images/grunt-vs-gulp.jpg" alt="Grunt vs Gulp" /></p>
+  <span class="p">@</span><span class="nd">HostListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'$event'</span><span class="p">])</span> <span class="nx">elementClick</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// e안에는 event객체가 들어온다.</span>
+    <span class="c1">// this는 directive 객체를 지칭.</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">srcElement</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">)</span>
+  <span class="p">}</span>
 
-<p>빌드, 테스트, 배포등을 위한 자동화 도구입니다. 과거에는 Grunt를 많이 사용했지만 현재는 Gulp인듯 합니다. 
-시간 좀 지나면 Gulp도 Grunt와 마찬가지로 역사속으로 사라지게 되겠지만 지금은 Gulp가 대세입니다.</p>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">elementref</span><span class="p">:</span> <span class="nx">ElementRef</span><span class="p">,</span> <span class="nx">renderer</span><span class="p">:</span> <span class="nx">Renderer2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">renderer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="nx">elementref</span><span class="p">.</span><span class="nx">nativeElement</span><span class="p">,</span><span class="s1">'color'</span><span class="p">,</span><span class="s1">'darkred'</span><span class="p">);</span>
+  <span class="p">}</span>
 
-<ul>
-  <li><strong>module bundler</strong> : <code class="highlighter-rouge">webpack</code>, rollup</li>
-</ul>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<p><img src="assets/built/images/webpack-vs-rollup.png" alt="webpack vs rollup" /></p>
+<p>이벤트를 처리하기 위해 <code class="highlighter-rouge">@HostListener</code> decorator를 이용했습니다. 여기서 <code class="highlighter-rouge">host</code>라는 표현이 나오는데 지금 우리 예제에서
+<code class="highlighter-rouge">myColor</code> 속성을 적용한 HTML Element를 host라고 지칭합니다.</p>
 
-<p>코드 재사용을 위한 모듈화 도구들과 bundler 역시 여러가지 있는데 요즘 많이 사용하는 건 <code class="highlighter-rouge">webpack</code>입니다.
-ES6 들어오면서 언어적 차원에서 Module을 지원하기 시작했고 이런 Module들을 하나로 모아 Packaing하는 작업이
-필요하게 되었습니다. 이를 위한 도구 역시 발전을 하고 있구요. 과거에는 Common.js, Require.js를 이용하여
-처리했다면 최근에는 webpack, rollup을 이용하여 처리합니다.</p>
+<p>이벤트 객체를 얻기 위해 처리하는 부분을 조심해서 보시면 됩니다.</p>
 
-<ul>
-  <li>Framework &amp; Library : <code class="highlighter-rouge">Angular</code>, <code class="highlighter-rouge">React</code>, <code class="highlighter-rouge">Vue.js</code></li>
-</ul>
+<p>추가적으로 @Input decorator를 이용해서 directive가 값을 전달 받을 수 있습니다. 원래 @Input은 부모 Component가 자식 Component
+에게 데이터를 전달해 주기 위해 사용했었는데 directive에게도 값을 전달 할 수 있습니다. 사용하는 Component때 했던 것과 동일합니다.</p>
 
-<p>우리의 목적은 사실 저 위의 3가지를 배우는 것입니다. 각기 나름대로의 장점과 특징들을 가지고 있습니다. 개인적으로는 
-블로그내에 저 세가지의 강좌를 개설하는게 2018년 상반기의 블로그 목표입니다. 대세는 Angular이지만 React의 성장세
-역시 가히 폭발적입니다. 아직까지(2018년 1월기준) Vue.js는 Angular와 React 만큼의 성장세는 보이지 않고 있지만 이 역시 어떻게 될지는
-모를일이죠</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 정리</strong></p>
-
-<p>위에서 <strong>“이것정도는 알고가자”</strong>라고 했지만 그 내용을 전부 다 알고 있으면 상당한 경험과 실력을 가진
-Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code class="highlighter-rouge">Git</code>같은 것은 기본적으로 숙지해야 할 것이구요. 할게 너무 많네요
-천천히 하나씩 해보도록 하죠 머…</p>
-
-<p>그리고 <strong>“이것정도는 알고가자”</strong>에서 제가 강조한 것들은 제가 현재 사용하는 것들입니다.
-그것들이 더 좋다는 보장은 어디에도 없습니다. 자기 손에 익숙한게 최고입니다. ^^</p>
+<p>이번 포스트는 Directive에 대해서 정리해보았습니다. 더 많은 기능이 있지만 기본적으로 이런 용도로 사용된다는 정도만 알고 계시면
+될 듯 합니다.</p>
 
 <p>End.</p>
 
 <hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
 
                 </div>
             </section>
@@ -417,26 +446,26 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
                     
                 
                     
+                
+                    
+                
+                    
+                
+                    
                         <section class="author-card">
                             
-                                <img class="author-profile-image" src="/assets/built/images/javascript-author-logo.png" alt="javascript" />
+                                <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="angular" />
                             
                             <section class="author-card-content">
-                                <h4 class="author-card-name"><a href="/author/javascript">JavaScript</a></h4>
+                                <h4 class="author-card-name"><a href="/author/angular">Angular</a></h4>
                                 
-                                    <p>JavaScript 관련 Posts</p>
+                                    <p>Angular Framework 관련 Posts</p>
                                 
                             </section>
                         </section>
                         <div class="post-full-footer-right">
-                            <a class="author-card-button" href="/author/javascript">Read More</a>
+                            <a class="author-card-button" href="/author/angular">Read More</a>
                         </div>
-                    
-                
-                    
-                
-                    
-                
                     
                 
                     
@@ -452,8 +481,8 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
                     <div id="disqus_thread"></div>
                     <script>
                         var disqus_config = function () {
-                            this.page.url = 'https://moon9342.github.io/front-end-ecosystem';
-                            this.page.identifier = '/front-end-ecosystem';
+                            this.page.url = 'https://moon9342.github.io/angular-lecture-directive';
+                            this.page.identifier = '/angular-lecture-directive';
                         };
                         (function() {
                             var d = document, s = d.createElement('script');
@@ -507,11 +536,6 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
                                 
                                   
                                     
-                                        
-                                        
-                                            <li><a href="/angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
-                                        
-                                    
                                   
                                 
                                   
@@ -527,12 +551,7 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
                                     
                                         
                                         
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
+                                            <li><a href="/angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
                                         
                                     
                                   
@@ -594,14 +613,10 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
                                   
                                 
                                   
-                                
-                                  
                                     
                                         
                                         
                                     
-                                  
-                                
                                   
                                 
                                   
@@ -614,17 +629,7 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -649,6 +654,30 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
                                     
                                   
                                 
@@ -767,12 +796,12 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
                 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/typescript-class">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/typescript-logo.png)"></div>
+            <a class="post-card-image-link" href="/angular-lecture-pipe">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/typescript-class">
+            <a class="post-card-content-link" href="/angular-lecture-pipe">
                 <header class="post-card-header">
                     
                         
@@ -782,10 +811,10 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
                         
                     
 
-                    <h2 class="post-card-title">TypeScript 강좌(7) - Class</h2>
+                    <h2 class="post-card-title">Angular 강좌(19) - Pipe</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>{% include typescript-lecture-table-of-contents.html %} --- **{% include subtitle-fontawesome.html %} TypeScript Class** 기존의 `JavaScript`는 재사용 가능한 component를 만들기 위해 함수와 prototype에 기반한 상속을 이용했습니다. 하지만 기존 객체지향에 익숙해 있는 개발자들에게는 상당히 생소한 개념이었죠. 그래서</p>
+                    <p>{% include angular-lecture-table-of-contents.html %} --- **{% include subtitle-fontawesome.html %} Pipe** 이번 포스트에서는 Angular의 `Pipe`에 대해서 알아보겠습니다. Pipe는 HTML template내에서 출력하고자 하는 데이터를 원하는 형식으로 변환하여 출력하는 기능입니다. 원본 데이터에는 변형을 가하지 않은 상태로</p>
                 </section>
             </a>
             <footer class="post-card-meta">
@@ -795,16 +824,16 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
                     
                 
                     
+                
+                    
+                
+                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/typescript-author-logo.png" alt="TypeScript" />
+                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
                         
                         <span class="post-card-author">
-                            <a href="/author/typescript/">TypeScript</a>
+                            <a href="/author/angular/">Angular</a>
                         </span>
-                    
-                
-                    
-                
                     
                 
                     
@@ -820,44 +849,44 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
                 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/jekyll-travis-ci-public">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/jekyll-logo.png)"></div>
+            <a class="post-card-image-link" href="/angular-lecture-inspection-1">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/jekyll-travis-ci-public">
+            <a class="post-card-content-link" href="/angular-lecture-inspection-1">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Miscellaneous article</span>
+                                <span class="post-card-tags">Front end</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Jekyll 기반의 GitHub Page 생성(8)</h2>
+                    <h2 class="post-card-title">Angular 강좌(17) - 중간 정리</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트</p>
+                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular</p>
                 </section>
             </a>
             <footer class="post-card-meta">
                 
                     
+                
+                    
+                
+                    
+                
+                    
+                
+                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/jekyll-author-logo.png" alt="jekyll" />
+                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
                         
                         <span class="post-card-author">
-                            <a href="/author/jekyll/">jekyll</a>
+                            <a href="/author/angular/">Angular</a>
                         </span>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
                     
                 
                     
@@ -881,7 +910,7 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Front-End 발전 역사와 개발 생태계</div>
+    <div class="floating-header-title">Angular 강좌(18) - Directive</div>
 
 
 
@@ -890,12 +919,12 @@ Front End 개발자일 것입니다. 또 위에 포함을 안했지만  <code cl
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Front-End+%EB%B0%9C%EC%A0%84+%EC%97%AD%EC%82%AC%EC%99%80+%EA%B0%9C%EB%B0%9C+%EC%83%9D%ED%83%9C%EA%B3%84&amp;url=https://moon9342.github.io/front-end-ecosystem"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Angular+%EA%B0%95%EC%A2%8C%2818%29+-+Directive&amp;url=https://moon9342.github.io/angular-lecture-directive"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://moon9342.github.io/front-end-ecosystem"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://moon9342.github.io/angular-lecture-directive"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

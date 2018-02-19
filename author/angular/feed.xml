@@ -46,6 +46,413 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Angular 강좌(19) - Pipe</title>
+	  <link>https://moon9342.github.io/angular-lecture-pipe</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+				
+		
+	  <pubDate>2018-02-16T17:51:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-pipe</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-data-share-1">Angular 강좌(9) - 데이터공유(@Input)</a></li>
+    <li><a href="./angular-lecture-data-share-2">Angular 강좌(10) - 데이터공유(@Output)</a></li>
+    <li><a href="./angular-lecture-data-share-3">Angular 강좌(11) - 데이터공유(@ViewChild)</a></li>
+    <li><a href="./angular-lecture-data-share-4">Angular 강좌(12) - 데이터공유(Content Projection)</a></li>
+    <li><a href="./angular-lecture-data-share-service">Angular 강좌(13) - Service</a></li>
+    <li><a href="./angular-lecture-data-share-service-mediator-pattern">Angular 강좌(14) - Service Mediator Pattern</a></li>
+    <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
+    <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
+    <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
+    <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Pipe</strong></p>
+
+<p>이번 포스트에서는 Angular의 <code class="highlighter-rouge">Pipe</code>에 대해서 알아보겠습니다. Pipe는 HTML template내에서 출력하고자 하는 데이터를 원하는
+형식으로 변환하여 출력하는 기능입니다. 원본 데이터에는 변형을 가하지 않은 상태로 출력 형태만 변경해 주기 때문에
+원치않은 <code class="highlighter-rouge">Side Effect</code>를 없앨 수 있습니다.</p>
+
+<p>가장 흔하게 사용하는 예부터 시작하여 사용자 정의 pipe를 생성하는 것 까지 살펴보겠습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Built-in Pipe</strong></p>
+
+<p>Angular는 몇가지 종류의 built-in pipe를 지원합니다. 자세한 사항은 
+<a href="https://angular.io/api?type=pipe" target="_blank">여기</a>를 클릭해 보시면 볼 수 있습니다. 이 중 몇가지만 예를 들어
+보기로 하죠.</p>
+
+<p>다음은 대문자로 출력내용을 바꾸는 pipe의 사용법입니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;h5</span> <span class="err">#</span><span class="na">resultStatus</span> 
+    <span class="na">class=</span><span class="s">"mb-0 text-white lh-100"</span><span class="nt">&gt;</span>
+    Search Result : {{searchTitle | uppercase }}
+<span class="nt">&lt;/h5&gt;</span>
+
+</code></pre></div></div>
+
+<p>searchTitle의 값이 그대로 interpolation을 이용해 출력되는 형태에서 <code class="highlighter-rouge">uppercase</code>라는 내장 pipe를 이용해 출력되는 영문문자열을
+대문자로 변경해 출력하는 것입니다.</p>
+
+<p>이와 유사하게 다음과 같이 날짜에 대한 pipe도 존재합니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;div&gt;</span>{{ today }}<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div&gt;</span>{{ today | date }}<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div&gt;</span>{{ today | date: 'y년 MM월 dd일' }}<span class="nt">&lt;/div&gt;</span>
+
+</code></pre></div></div>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">today</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>원래 출력되는 형식과 pipe로 변형되서 출력되는 형식을 잘 보시면 될 듯 합니다. 또한 pipe사용은 체이닝을 지원합니다.
+여러 pipe를 이어서 원하는 형식으로 변환시켜 출력 가능하다는 말이죠.</p>
+
+<p>이번에는 우리예제 중 Material Table의 출력 중 가격부분을 통화단위로 바꾸어서 출력하는걸 해보도록 하죠.</p>
+
+<p>다음은 <code class="highlighter-rouge">list-box.component.html</code>의 일부입니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;ng-container</span> <span class="na">matColumnDef=</span><span class="s">"bprice"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> Price <span class="nt">&lt;/mat-header-cell&gt;</span>
+  <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bprice | currency: 'KRW'}} <span class="nt">&lt;/mat-cell&gt;</span>
+<span class="nt">&lt;/ng-container&gt;</span>
+
+</code></pre></div></div>
+
+<p>위의 예에서 볼 수 있듯이 책의 가격을 통화단위(원화)로 변경해서 출력할 수 있습니다. 이렇게 built-in pipe를 이용해서
+처리할 수 있고 built-in pipe로 처리할 수 없는 것들은 custom pipe를 이용해 처리할 수 있습니다.</p>
+
+<p>사용자 정의 pipe를 이용해 비슷한 처리를 해 보겠습니다.</p>
+
+<p>command 창을 열고 다음의 명령을 실행해 pipe를 생성합니다.</p>
+
+<blockquote>
+  <p><strong>ng generate pipe bookPrice</strong></p>
+</blockquote>
+
+<p><code class="highlighter-rouge">book-price.pipe.ts</code> 파일이 생성되게 됩니다. 기본적인 code가 생성되고 내용은 다음과 같이 수정합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Pipe</span><span class="p">,</span> <span class="nx">PipeTransform</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Pipe</span><span class="p">({</span>
+  <span class="na">name</span><span class="p">:</span> <span class="s1">'bookPrice'</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">BookPricePipe</span> <span class="kr">implements</span> <span class="nx">PipeTransform</span> <span class="p">{</span>
+
+  <span class="nx">transform</span><span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">any</span><span class="p">,</span> <span class="nx">args</span><span class="p">?:</span> <span class="nx">any</span><span class="p">):</span> <span class="nx">any</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">value</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\B(?=(\d{3})</span><span class="sr">+</span><span class="se">(?!\d))</span><span class="sr">/g</span><span class="p">,</span> <span class="s1">','</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'원'</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">bookPrice</code>란 이름의 pipe를 사용하면 <code class="highlighter-rouge">transform()</code> method가 호출되서 변환작업을 진행하게 됩니다. 적절하게
+해당 method의 내용을 우리가 원하는 내용으로 변경해주면 되겠네요. 위의 코드는 입력받은 숫자를 3자리마다 <code class="highlighter-rouge">,</code>를
+찍고 맨 마지막에 ‘원’을 붙여서 문자열을 리턴하는 코드입니다.</p>
+
+<p>우리가 만든 pipe를 Module에 등록하고 <code class="highlighter-rouge">list-box.component.html</code> 에서 다음과 같이 사용하시면 됩니다.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;ng-container</span> <span class="na">matColumnDef=</span><span class="s">"bprice"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> Price <span class="nt">&lt;/mat-header-cell&gt;</span>
+  <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bprice | bookPrice}} <span class="nt">&lt;/mat-cell&gt;</span>
+<span class="nt">&lt;/ng-container&gt;</span>
+
+</code></pre></div></div>
+
+<p>이번 포스트에서는 Angular에서 Pipe라고 불리는 요소가 어떠한 역할을 하는지에 대해서 알아보았습니다. Pipe는
+어렵지 않은 내용이기 때문에 built-in pipe를 사용하는 방법과 custom pipe를 작성하는 방법만 몇가지 알아두시면
+됩니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>Angular 강좌(18) - Directive</title>
+	  <link>https://moon9342.github.io/angular-lecture-directive</link>
+		
+				
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>Angular</author>
+				
+		
+				
+		
+	  <pubDate>2018-02-14T14:38:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/angular-lecture-directive</guid>
+	  <description><![CDATA[
+	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
+<ul class="table-of-contents-list">
+    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
+    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
+    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
+    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
+    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
+    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
+    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
+    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
+    <li><a href="./angular-lecture-data-share-1">Angular 강좌(9) - 데이터공유(@Input)</a></li>
+    <li><a href="./angular-lecture-data-share-2">Angular 강좌(10) - 데이터공유(@Output)</a></li>
+    <li><a href="./angular-lecture-data-share-3">Angular 강좌(11) - 데이터공유(@ViewChild)</a></li>
+    <li><a href="./angular-lecture-data-share-4">Angular 강좌(12) - 데이터공유(Content Projection)</a></li>
+    <li><a href="./angular-lecture-data-share-service">Angular 강좌(13) - Service</a></li>
+    <li><a href="./angular-lecture-data-share-service-mediator-pattern">Angular 강좌(14) - Service Mediator Pattern</a></li>
+    <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
+    <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
+    <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
+    <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
+    <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
+</ul>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Directive</strong></p>
+
+<p>이번 포스트에서는 Angular의 <code class="highlighter-rouge">Directive</code>에 대해서 알아보겠습니다. 지금까지 예제를 작성하면서 여러 directive를 사용해 왔는데요.
+그에 대해서 조금 더 정리를 해 보려 합니다.</p>
+
+<p>Directive는 <strong>DOM의 모양이나 동작을 지시하기 위한 명령</strong>이라고 생각하시면 됩니다. 크게 HTML Element형태로 사용되거나 
+Element의 attribute의 형태로 사용되게 됩니다. 예를 들면 우리가 사용했던 <code class="highlighter-rouge">ngIf</code> 같은 attribute를 떠올리시면 됩니다.
+Routing에서 사용했던 <code class="highlighter-rouge">&lt;router-outlet&gt;&lt;/router-outlet&gt;</code> Element 역시 directive입니다.</p>
+
+<p>이렇게 directive는 DOM을 제어하기 위한 용도로 사용되는데 DOM을 제어하기 위해서 우리는 지금까지 Component를 이용했었습니다. 
+Component로 제어하면 되지 굳이 directive로 DOM을 제어할 필요가 있느냐 하는 의문이 들 수 있습니다. 하지만 Component는
+원칙적으로 자신이 rendering하는 View에 대해서만 관심이 있습니다. 여러 View들이 공통적으로 사용하는 Element나 Element의
+attribute같은 것들을 따로 directive로 지정해 사용하면 <code class="highlighter-rouge">SRP</code>관점에서 봤을 때도 타당하고 Component의 복잡도를 낮출 수 있으며
+유지보수와 같은 관리적인 측면에서도 더 나은 형태로 구현이 가능합니다.</p>
+
+<p>Component 역시 큰 의미에서 directive입니다. Component는 directive이면서 View를 가지고 있고 자식 Component 또한 가질 수
+있습니다. 하지만 directive는 View를 가지고 있지 않고 자식 directive 또한 가질 수 없습니다.</p>
+
+<p>Directive는 크게 다음과 같은 4가지 종류로 구분 할 수 있습니다.</p>
+
+<ul>
+  <li>
+    <p><strong>Component Directive</strong></p>
+
+    <p>우리가 알고 있는 Component입니다. <code class="highlighter-rouge">selector</code>에서 우리가 directive를 지정해 사용하게 됩니다.</p>
+
+    <p><br /></p>
+  </li>
+  <li>
+    <p><strong>Attribute Directive</strong></p>
+
+    <p>HTML Element의 Attribute로 사용됩니다. built-in 형태로는 <code class="highlighter-rouge">ngClass</code> 같은 것들이 있습니다.</p>
+
+    <p><br /></p>
+  </li>
+  <li>
+    <p><strong>Structural Directive</strong></p>
+
+    <p>DOM의 구성을 제어하기 위한 directive로 <code class="highlighter-rouge">ngIf</code> , <code class="highlighter-rouge">ngFor</code>, <code class="highlighter-rouge">ngSwitch</code> 등이 있습니다.</p>
+
+    <p><br /></p>
+  </li>
+  <li>
+    <p><strong>Custom Directive</strong></p>
+
+    <p>built-in 형태로 만들어진 directive가 아닌 직접 만들어서 사용하는 directive를 지칭합니다.</p>
+
+    <p><br /></p>
+  </li>
+</ul>
+
+<p>이 중 Component에 대해서는 많이 사용해 봤으니 Structural Directive와 Custom Directive에 대해서
+알아보도록 하겠습니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Structural Directive</strong></p>
+
+<p>우리 예제에서도 사용했던 <code class="highlighter-rouge">ngIf</code>, <code class="highlighter-rouge">ngFor</code>등을 지칭합니다. 단, 이것들은 built-in된 형태입니다. 이런 구조적 directive를
+우리가 직접 만들어서 사용할 수도 있습니다. ngIf와 ngFor를 사용하실 때 몇가지 알아두셔야 하는 사항이 있습니다.</p>
+
+<p>일반적으로 다음과 같이 코드처리 합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="o">*</span><span class="nx">ngIf</span><span class="o">=</span><span class="s2">"hero"</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"name"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p><code class="highlighter-rouge">hero</code>가 null과 undefined가 아니면 <code class="highlighter-rouge">&lt;div&gt;</code>를 DOM에 추가하고 interpolation을 이용해 값을 출력하는 코드입니다.</p>
+
+<p>이 코드는 사실 다음과 같이 변형되어서 실행됩니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">ng</span><span class="o">-</span><span class="nx">template</span> <span class="p">[</span><span class="nx">ngIf</span><span class="p">]</span><span class="o">=</span><span class="s2">"hero"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"name"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/ng-template</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p><code class="highlighter-rouge">ng-template</code>을 이용해서 조건을 통해 <code class="highlighter-rouge">&lt;div&gt;</code>의 처리를 결정합니다.</p>
+
+<p>비교해서 보셔야 할 것으로 <code class="highlighter-rouge">ng-container</code>가 있습니다. 위의 코드는 다음의 코드로 표현이 가능합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">ng</span><span class="o">-</span><span class="nx">container</span> <span class="o">*</span><span class="nx">ngIf</span><span class="o">=</span><span class="s2">"hero"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"name"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/ng-container</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>Angular는 동일한 Element에 두개 이상의 <code class="highlighter-rouge">*ngIf</code>, <code class="highlighter-rouge">*ngFor</code>, <code class="highlighter-rouge">*ngSwitch</code>를 사용할 수 없습니다. for문을 돌리면서 if문을
+이용해 비교하고 싶은 경우에는 문제가 됩니다. 이 같은 경우를 해결하기 위해 <code class="highlighter-rouge">ng-container</code>를 제공하는 것이라 보시면 됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Custom Directive</strong></p>
+
+<p>기존에 만들었던 mySearchProject에 간단하게 Custom Directive를 추가하고 어떻게 이용하는지 살펴보도록 하겠습니다.</p>
+
+<p>command 창을 열고 다음의 명령을 실행해서 directive를 하나 생성합니다. 현재 command 창의 working directory는
+<code class="highlighter-rouge">src/app</code> 입니다.</p>
+
+<blockquote>
+  <p><strong>ng generate directive textColor</strong></p>
+</blockquote>
+
+<p>두개의 파일이 생성됩니다. Angular CLI의 이름규칙에 의해 <code class="highlighter-rouge">text-color.directive.ts</code> 라는 이름의 파일이 생성됩니다.</p>
+
+<p>그 내용을 다음과 같이 수정합니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">Directive</span><span class="p">,</span> <span class="nx">ElementRef</span><span class="p">,</span> <span class="nx">Renderer2</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Directive</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'[myColor]'</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">TextColorDirective</span> <span class="p">{</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">elementref</span><span class="p">:</span> <span class="nx">ElementRef</span><span class="p">,</span> <span class="nx">renderer</span><span class="p">:</span> <span class="nx">Renderer2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">renderer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="nx">elementref</span><span class="p">.</span><span class="nx">nativeElement</span><span class="p">,</span><span class="s1">'color'</span><span class="p">,</span><span class="s1">'darkred'</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>위의 directive 내용은 HTML Element의 속성으로 <code class="highlighter-rouge">myColor</code> 가 사용되었을 경우 해당 Element를 DOM에
+rendering 할 때 글자색을 darkred로 설정하라는 것입니다.</p>
+
+<p>이렇게 directive를 생성하면 사용하기 위해서 Root Module에 등록해야 합니다. Angular CLI를 이용했기 때문에
+이미 등록이 되어 있습니다. 이제 실제 해당 directive가 정상적으로 동작하는지 확인해보면 될 듯 합니다.</p>
+
+<p><code class="highlighter-rouge">pages/home</code> 폴더에 있는 <code class="highlighter-rouge">home.component.html</code>을 수정해서 해당 directive를 사용해 보죠.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;</span>HOME<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;hr&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">myColor</span><span class="nt">&gt;</span>이 Web Application은 Angular 강좌를 위한 Test App입니다.
+<span class="nt">&lt;p&gt;</span>이 강좌는 다음의 내용을 포함합니다. <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Angular의 기본 구조<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Angular CLI<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Component<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Template - Template Reference Variable<span class="nt">&lt;/li&gt;</span>
+...
+...
+...  
+</code></pre></div></div>
+
+<p>위와 같이 <code class="highlighter-rouge">myColor</code>라는 directive를 사용할 수 있습니다. 해당 <code class="highlighter-rouge">P</code> Element의 text 글자는 darkred로 출력되겠네요.</p>
+
+<p>가장 직관적인 예를 들기 위해 text color를 변경하는걸로 처리를 했는데 그 외 DOM을 제어하는 다른 기능들도 할 수 있습니다.</p>
+
+<p>이번에는 이벤트 처리를 한번 해 보죠. 위의 예에서 해당 <code class="highlighter-rouge">P</code> Element를 클릭했을 때 <code class="highlighter-rouge">alert()</code> 이 수행되게 할려면 다음과 같이
+처리하시면 됩니다.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="nx">Directive</span><span class="p">,</span> <span class="nx">ElementRef</span><span class="p">,</span> <span class="nx">HostListener</span><span class="p">,</span> <span class="nx">Renderer2</span><span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
+
+<span class="p">@</span><span class="nd">Directive</span><span class="p">({</span>
+  <span class="na">selector</span><span class="p">:</span> <span class="s1">'[myColor]'</span>
+<span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nx">TextColorDirective</span> <span class="p">{</span>
+
+  <span class="p">@</span><span class="nd">HostListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'$event'</span><span class="p">])</span> <span class="nx">elementClick</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// e안에는 event객체가 들어온다.</span>
+    <span class="c1">// this는 directive 객체를 지칭.</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">srcElement</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">elementref</span><span class="p">:</span> <span class="nx">ElementRef</span><span class="p">,</span> <span class="nx">renderer</span><span class="p">:</span> <span class="nx">Renderer2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">renderer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="nx">elementref</span><span class="p">.</span><span class="nx">nativeElement</span><span class="p">,</span><span class="s1">'color'</span><span class="p">,</span><span class="s1">'darkred'</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이벤트를 처리하기 위해 <code class="highlighter-rouge">@HostListener</code> decorator를 이용했습니다. 여기서 <code class="highlighter-rouge">host</code>라는 표현이 나오는데 지금 우리 예제에서
+<code class="highlighter-rouge">myColor</code> 속성을 적용한 HTML Element를 host라고 지칭합니다.</p>
+
+<p>이벤트 객체를 얻기 위해 처리하는 부분을 조심해서 보시면 됩니다.</p>
+
+<p>추가적으로 @Input decorator를 이용해서 directive가 값을 전달 받을 수 있습니다. 원래 @Input은 부모 Component가 자식 Component
+에게 데이터를 전달해 주기 위해 사용했었는데 directive에게도 값을 전달 할 수 있습니다. 사용하는 Component때 했던 것과 동일합니다.</p>
+
+<p>이번 포스트는 Directive에 대해서 정리해보았습니다. 더 많은 기능이 있지만 기본적으로 이런 용도로 사용된다는 정도만 알고 계시면
+될 듯 합니다.</p>
+
+<p>End.</p>
+
+<hr />
+
+<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
+    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
+<ul class="lecture-reference">
+    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
+    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
+    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
+    <li>Angular 첫걸음 - 한빛미디어</li>
+    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
+</ul>
+
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Angular 강좌(17) - 중간 정리</title>
 	  <link>https://moon9342.github.io/angular-lecture-inspection-1</link>
 		
@@ -85,6 +492,8 @@
     <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
     <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
+    <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
+    <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
 </ul>
 
 <hr />
@@ -296,6 +705,8 @@ build를 수행하시려면 <code class="highlighter-rouge">--prod</code> option
 <p>이번 포스트는 기존에 설명하기 좀 난감(?)했던 성능문제라던지 Angular CLI의 Naming Rule에 대해 보충설명을 진행했습니다. 
 만약 Angular CLI에 대해 더 자세하게 알고 싶으시면 <a href="https://cli.angular.io/" target="_blank">여기</a>를 살펴보시면 됩니다.</p>
 
+<p>End.</p>
+
 <hr />
 
 <p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
@@ -352,6 +763,8 @@ build를 수행하시려면 <code class="highlighter-rouge">--prod</code> option
     <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
     <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
+    <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
+    <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
 </ul>
 
 <hr />
@@ -666,6 +1079,8 @@ View에 출력하는 부분을 작성해 보겠습니다. 이 작업 역시 <cod
     <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
     <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
+    <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
+    <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
 </ul>
 
 <hr />
@@ -779,6 +1194,8 @@ method등 사용하기 쉬운 몇가지 method를 제공해서 보다 쉽게 RxJ
     <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
     <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
+    <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
+    <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
 </ul>
 
 <hr />
@@ -1125,6 +1542,8 @@ Service에 의해서 데이터가 공유되는 건 확인했지만 새로 검색
     <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
     <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
+    <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
+    <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
 </ul>
 
 <hr />
@@ -1649,6 +2068,8 @@ useClass는 실제 객체를 생성하기 위해 사용되는 class명이구요.
     <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
     <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
+    <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
+    <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
 </ul>
 
 <hr />
@@ -1803,6 +2224,8 @@ useClass는 실제 객체를 생성하기 위해 사용되는 class명이구요.
     <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
     <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
+    <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
+    <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
 </ul>
 
 <hr />
@@ -2111,6 +2534,8 @@ DOM에 직접 접근할 수 있습니다. 이전에 나왔던 Template Reference
     <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
     <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
     <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
+    <li><a href="./angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
+    <li><a href="./angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
 </ul>
 
 <hr />
@@ -2311,639 +2736,6 @@ DOM에 직접 접근할 수 있습니다. 이전에 나왔던 Template Reference
     <li>Angular 첫걸음 - 한빛미디어</li>
     <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
 </ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Angular 강좌(9) - 데이터공유(@Input)</title>
-	  <link>https://moon9342.github.io/angular-lecture-data-share-1</link>
-		
-				
-		
-				
-		
-				
-		
-				
-		
-				
-						<author>Angular</author>
-				
-		
-				
-		
-	  <pubDate>2018-02-07T15:45:00+00:00</pubDate>
-	  <guid>https://moon9342.github.io/angular-lecture-data-share-1</guid>
-	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
-<ul class="table-of-contents-list">
-    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
-    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
-    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
-    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
-    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
-    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
-    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
-    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
-    <li><a href="./angular-lecture-data-share-1">Angular 강좌(9) - 데이터공유(@Input)</a></li>
-    <li><a href="./angular-lecture-data-share-2">Angular 강좌(10) - 데이터공유(@Output)</a></li>
-    <li><a href="./angular-lecture-data-share-3">Angular 강좌(11) - 데이터공유(@ViewChild)</a></li>
-    <li><a href="./angular-lecture-data-share-4">Angular 강좌(12) - 데이터공유(Content Projection)</a></li>
-    <li><a href="./angular-lecture-data-share-service">Angular 강좌(13) - Service</a></li>
-    <li><a href="./angular-lecture-data-share-service-mediator-pattern">Angular 강좌(14) - Service Mediator Pattern</a></li>
-    <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
-    <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
-    <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Component Data Sharing</strong></p>
-
-<p>이번 포스트는 <strong>Component 간의 데이터 공유</strong>에 대해서 알아보고 그 내용을 기반으로 우리 mySearchProject의 도서검색 부분을
-완성해 나가도록 하겠습니다.</p>
-
-<p>최종적으로 완성된 프로그램은 <a href="./AngularLecture/Final/" target="_blank">여기</a>를 
-클릭하시면 실행시켜 보실 수 있습니다.</p>
-
-<p>실행시켜 보시면 이전에 비해 세가지 기능이 추가되었습니다.</p>
-
-<ul>
-  <li>도서 검색 시 도서 종류(국내도서, 국외도서, 국내외도서)에 대한 Filtering이 가능합니다.</li>
-  <li>키워드 입력 후 Search버튼을 클릭하면 해당 키워드에 대한 책만 list-box에 출력됩니다.</li>
-  <li>list-box에 출력된 책 중 하나를 선택하면 해당 책에 대한 세부내역을 detail-box에 출력합니다.</li>
-</ul>
-
-<p>이 기능들을 구현하려면 Component간의 데이터 공유 방법을 아셔야 합니다. Component간 데이터를 공유하는
-방법은 여러가지가 있는데 하나씩 살펴보면서 우리 코드에 적용해 보겠습니다.</p>
-
-<p>그럼 천천히 한번 살펴보기로 하죠.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> @Input Decorator</strong></p>
-
-<p>이전에 View의 포함관계를 설명하면서 <code class="highlighter-rouge">Component Tree</code>에 대한 언급을 한 적이 있습니다. Component간의 부모-자식 관계가
-성립되면 서로간의 데이터 연결통로가 생성됩니다. 이를 통해 부모 Component와 자식 Component간의 데이터 공유가 
-이루어질 수 있습니다.</p>
-
-<p>먼저 부모 Component에서 자식 Component로 데이터를 전달하는 방법에 대해서 알아보죠.</p>
-
-<p>만약 부모 Component가 사용자 입력양식을 가지고 있다면 Client에 의해서 사용자 입력양식의 상태값이 변경될 수 있고 
-그 상태값를 자식 Component와 공유할 필요가 있습니다. 우리 예제로 설명하자면
-상위 Component인 <code class="highlighter-rouge">book-search-main</code> Component에서 Client가 설정한 도서 종류가 하위 Component인 
-<code class="highlighter-rouge">search-box</code> Component에 전해져야 제대로 된 검색을 수행할 수 있다는 말입니다.</p>
-
-<p>이런 경우 부모 Component는 <code class="highlighter-rouge">property binding</code>을 이용해 자식 Component에게 데이터를 전달해 줄 수 있습니다. 이렇게 전달된
-데이터는 <code class="highlighter-rouge">@Input</code> decorator에 의해서 자식 Component에서 사용될 수 있습니다.</p>
-
-<p>우리 예제를 수정해서 Client가 Select Box에서 선택한 도서 종류 정보가 하위 Component인 <code class="highlighter-rouge">search-box</code> Component와 공유되는지
-확인해 보겠습니다.</p>
-
-<p><code class="highlighter-rouge">book-search-main.component.html</code> 파일의 내용을 다음과 같이 수정합니다.</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bookSearch-outer"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"mr-3"</span> <span class="na">src=</span><span class="s">"assets/images/search-icon.png"</span> <span class="na">alt=</span><span class="s">""</span> <span class="na">width=</span><span class="s">"48"</span> <span class="na">height=</span><span class="s">"48"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"lh-100"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"mb-0 text-white lh-100"</span><span class="nt">&gt;</span>Search Result<span class="nt">&lt;/h5&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-container"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;mat-form-field&gt;</span>
-      <span class="nt">&lt;mat-select</span> <span class="na">placeholder=</span><span class="s">"도서종류"</span>
-                  <span class="err">#</span><span class="na">bookCategorySelect</span>
-                  <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">selectedValue</span><span class="err">"</span>
-                  <span class="err">(</span><span class="na">ngModelChange</span><span class="err">)="</span><span class="na">changeValue</span><span class="err">(</span><span class="na">bookCategorySelect</span><span class="err">.</span><span class="na">value</span><span class="err">)"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let category of bookCaterory"</span>
-                    <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">category</span><span class="err">.</span><span class="na">value</span><span class="err">"</span><span class="nt">&gt;</span>
-          {{ category.viewValue }}
-        <span class="nt">&lt;/mat-option&gt;</span>
-      <span class="nt">&lt;/mat-select&gt;</span>
-    <span class="nt">&lt;/mat-form-field&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-
-  <span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;app-search-box</span> <span class="err">[</span><span class="na">bookCategory</span><span class="err">]="</span><span class="na">displayCategoryName</span><span class="err">"</span><span class="nt">&gt;&lt;/app-search-box&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;app-detail-box&gt;&lt;/app-detail-box&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;app-list-box&gt;&lt;/app-list-box&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-
-</code></pre></div></div>
-
-<p>위의 코드에서 다음의 코드를 주의해서 보시면 됩니다.</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">&lt;mat-select</span> <span class="na">placeholder=</span><span class="s">"도서종류"</span>
-            <span class="err">#</span><span class="na">bookCategorySelect</span>
-            <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">selectedValue</span><span class="err">"</span>
-            <span class="err">(</span><span class="na">ngModelChange</span><span class="err">)="</span><span class="na">changeValue</span><span class="err">(</span><span class="na">bookCategorySelect</span><span class="err">.</span><span class="na">value</span><span class="err">)"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;mat-option</span> <span class="err">*</span><span class="na">ngFor=</span><span class="s">"let category of bookCaterory"</span>
-                <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">category</span><span class="err">.</span><span class="na">value</span><span class="err">"</span><span class="nt">&gt;</span>
-                {{ category.viewValue }}
-    <span class="nt">&lt;/mat-option&gt;</span>
-<span class="nt">&lt;/mat-select&gt;</span>
-
-</code></pre></div></div>
-
-<p>이전에 배웠던 Tempalte Reference Variable과 양방향 바인딩을 이용해 Client가 도서 종류를 변경하면 
-<code class="highlighter-rouge">changeValue()</code> method가 호출됩니다.</p>
-
-<p>이 method는 <code class="highlighter-rouge">book-search-main.component.ts</code>안에 정의되어 있어야 하겠죠.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
-
-<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
-  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-book-search-main'</span><span class="p">,</span>
-  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./book-search-main.component.html'</span><span class="p">,</span>
-  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./book-search-main.component.css'</span><span class="p">,</span>
-  <span class="s1">'./offcanvas.css'</span><span class="p">]</span>
-<span class="p">})</span>
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">BookSearchMainComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
-
-  <span class="nx">selectedValue</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="nx">displayCategoryName</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="nx">bookCaterory</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="s1">'all'</span><span class="p">,</span> <span class="na">viewValue</span><span class="p">:</span> <span class="s1">'국내외도서'</span><span class="p">},</span>
-    <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="s1">'country'</span><span class="p">,</span> <span class="na">viewValue</span><span class="p">:</span> <span class="s1">'국내도서'</span><span class="p">},</span>
-    <span class="p">{</span><span class="na">value</span><span class="p">:</span> <span class="s1">'foreign'</span><span class="p">,</span> <span class="na">viewValue</span><span class="p">:</span> <span class="s1">'국외도서'</span><span class="p">}</span>
-  <span class="p">];</span>
-
-  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
-
-  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
-  <span class="p">}</span>
-
-  <span class="nx">changeValue</span><span class="p">(</span><span class="nx">category</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
-      <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">element</span> <span class="k">of</span> <span class="k">this</span><span class="p">.</span><span class="nx">bookCaterory</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">value</span> <span class="o">==</span> <span class="nx">category</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">this</span><span class="p">.</span><span class="nx">displayCategoryName</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">viewValue</span><span class="p">;</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>method의 하는일을 보니 Client가 선택한 도서 종류를 가지고 <code class="highlighter-rouge">displayCategoryName</code>이라는 속성의 값을 변경하고 있습니다.</p>
-
-<p>이 <code class="highlighter-rouge">displayCategoryName</code> 속성이 바로 자식 Component인 search-box Component에게 전달되는 데이터입니다.</p>
-
-<p>다시 위쪽의 <code class="highlighter-rouge">book-search-main.component.html</code>의 내용을 보면 아래와 같은 코드가 있습니다.</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
-    <span class="nt">&lt;app-search-box</span> <span class="err">[</span><span class="na">bookCategory</span><span class="err">]="</span><span class="na">displayCategoryName</span><span class="err">"</span><span class="nt">&gt;&lt;/app-search-box&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div></div>
-
-<p>search-box Component에 property binding을 이용해 <code class="highlighter-rouge">bookCategory</code>라는 이름으로 <code class="highlighter-rouge">displayCategoryName</code> 속성을 바인딩해 
-놓은걸 확인하실 수 있습니다.</p>
-
-<p>이제 <code class="highlighter-rouge">search-box.component.ts</code>의 내용을 보죠</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">Input</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
-
-<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
-  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-search-box'</span><span class="p">,</span>
-  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./search-box.component.html'</span><span class="p">,</span>
-  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./search-box.component.css'</span><span class="p">]</span>
-<span class="p">})</span>
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">SearchBoxComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
-
-  <span class="p">@</span><span class="nd">Input</span><span class="p">()</span> <span class="nx">bookCategory</span><span class="p">:</span><span class="nx">string</span><span class="p">;</span>
-
-  <span class="nx">keyword</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-
-  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
-
-  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
-  <span class="p">}</span>
-
-  <span class="nx">setKeyword</span><span class="p">(</span><span class="nx">keyword</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">keyword</span> <span class="o">=</span> <span class="nx">keyword</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="nx">inputChange</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
-
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">@Input</code> decorator를 볼 수 있습니다. <code class="highlighter-rouge">@Input</code> decorator를 이용하기 위해서 import를 해 줘야 하는것도 잊지 마시구요.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Input</span><span class="p">()</span> <span class="nx">bookCategory</span><span class="p">:</span><span class="nx">string</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>위의 코드처럼 <code class="highlighter-rouge">bookCategory</code>라는 이름으로 부모 Component가 property binding으로 전달해준 데이터를 받을 수 있습니다.</p>
-
-<p>이 속성을 View에 interpolation을 이용해서 출력하면 될 듯 합니다.</p>
-
-<p>다음은 View에 rendering되는 <code class="highlighter-rouge">search-box.component.html</code> 입니다.</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-container"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;mat-toolbar</span> <span class="na">class=</span><span class="s">"search-toolbar-style"</span><span class="nt">&gt;</span>
-    Search Keyword : {{keyword}}
-    <span class="nt">&lt;ng-container</span> <span class="err">*</span><span class="na">ngIf=</span><span class="s">"bookCategory != null"</span><span class="nt">&gt;</span>
-      ( {{bookCategory}} )
-    <span class="nt">&lt;/ng-container&gt;</span>
-  <span class="nt">&lt;/mat-toolbar&gt;</span>
-  <span class="nt">&lt;mat-form-field&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">matInput</span> <span class="err">#</span><span class="na">inputKeyword</span> <span class="na">placeholder=</span><span class="s">"Search Keyword"</span>
-           <span class="err">[(</span><span class="na">ngModel</span><span class="err">)]="</span><span class="na">keyword</span><span class="err">"</span> <span class="err">(</span><span class="na">ngModelChange</span><span class="err">)="</span><span class="na">inputChange</span><span class="err">()"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/mat-form-field&gt;</span>
-  <span class="nt">&lt;button</span> <span class="na">mat-raised-button</span> <span class="na">color=</span><span class="s">"warn"</span>
-          <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">setKeyword</span><span class="err">(</span><span class="na">inputKeyword</span><span class="err">.</span><span class="na">value</span><span class="err">)"</span><span class="nt">&gt;</span>Search!<span class="nt">&lt;/button&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-
-</code></pre></div></div>
-
-<p>Toolbar부분에 <code class="highlighter-rouge">{{keyword}}</code>와 함께 
-<code class="highlighter-rouge">{{bookCategory}}</code>를 이용해서 속성과 binding시킨 걸 확인할 수 있습니다. 만약 
-bookCategory값이 null이면 출력되지 않게끔 built-in directive를 이용해 처리했습니다.</p>
-
-<p>위의 코드에서 보듯이 자식 Component인 <code class="highlighter-rouge">select-box</code> Component는 자신에게 데이터를 주는 부모 Component가 
-어떤 Component인지는 알 필요가 없습니다. 단지 전달된 데이터를 사용할 수 있도록 해주는 property의 이름과 
-data type만이 필요할 뿐이죠. Component간의 Loosely Coupling을 유지하면서 데이터를 공유할 수 있습니다.</p>
-
-<p>기본적인 <code class="highlighter-rouge">@Input</code> decorator를 사용하는 방법에 대해 설명했는데 몇개의 응용이 있습니다.</p>
-
-<p>우리는 부모 Component의 <code class="highlighter-rouge">book-search-main.component.html</code>에서 property binding을 이용해 <code class="highlighter-rouge">bookCategory</code>라는
-이름의 property를 사용했습니다. 이를 사용하기 위해서 자식 Component인 <code class="highlighter-rouge">search-box</code> Component에서 역시
-같은 이름으로 사용했구요. 만약 다른이름으로 사용하실려면 아래와 같이 처리하시면 됩니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Input</span><span class="p">(</span><span class="s1">'bookCategory'</span><span class="p">)</span> <span class="nx">mySelected</span><span class="p">:</span><span class="nx">string</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>bookCategory라는 이름의 property 대신 <code class="highlighter-rouge">mySelected</code> property를 사용할 수 있습니다. interpolation 역시 mySelected으로 
-사용해야겠죠.</p>
-
-<p>지금까지의 예는 모두 부모 Component가 전달해 준 데이터를 그대로 가져다 사용하는 방식입니다. 
-만약 부모 Component가 전달해 준 데이터를 가공해서 자식 Component에서 사용하려면 어떻게 해야 할까요?</p>
-
-<p><code class="highlighter-rouge">setter</code>를 이용하면 이 작업을 할 수 있습니다. 우리의 코드가 이렇게 바뀌겠네요.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span><span class="p">,</span> <span class="nx">Input</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
-
-<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
-  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-search-box'</span><span class="p">,</span>
-  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./search-box.component.html'</span><span class="p">,</span>
-  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./search-box.component.css'</span><span class="p">]</span>
-<span class="p">})</span>
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">SearchBoxComponent</span> <span class="kr">implements</span> <span class="nx">OnInit</span> <span class="p">{</span>
-
-  <span class="c1">//@Input() bookCategory:string;</span>
-  <span class="c1">//@Input('bookCategory') mySelected:string;</span>
-  <span class="nl">_bookCategory</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>  
-
-  <span class="p">@</span><span class="nd">Input</span><span class="p">()</span>
-  <span class="kd">set</span> <span class="nx">bookCategory</span><span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span> <span class="nx">value</span> <span class="o">!=</span> <span class="kc">null</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// 추가적인 작업이 들어올 수 있습니다.</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">_bookCategory</span> <span class="o">=</span> <span class="s1">'category: '</span> <span class="o">+</span><span class="nx">value</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">_bookCategory</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
-    <span class="p">}</span>
-
-  <span class="p">}</span>
-
-  <span class="nx">keyword</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-
-  <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
-
-  <span class="nx">ngOnInit</span><span class="p">()</span> <span class="p">{</span>
-  <span class="p">}</span>
-
-  <span class="nx">setKeyword</span><span class="p">(</span><span class="na">keyword</span><span class="p">:</span> <span class="nx">string</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">keyword</span> <span class="o">=</span> <span class="nx">keyword</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="nx">inputChange</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
-
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>사용되는 setter의 이름과 부모 Component가 property binding하는 property의 이름이 같아야 합니다. 
-interpolation은 <code class="highlighter-rouge">_bookCategory</code>으로 변경되어야 하겠네요.</p>
-
-<p>한가지 추가적으로 기억하셔야 할 점은 이렇게 부모 Component가 자식 Component에게 데이터를 전달해 줄 때 이 방식이
-<code class="highlighter-rouge">call-by-value</code>방식이 아닌 <code class="highlighter-rouge">call-by-reference</code>방식이라는 것입니다. 즉, 우리의 예제에서 부모 Component와 자식 Component가
-둘 다 <code class="highlighter-rouge">bookCategory</code>를 reference하고 있는 형태입니다. 이렇게 연결된 상태에서 부모 Component가 해당 property의 값을
-변경시키면 그 값을 자식 Component가 공유하고 있으므로 변경된 값을 그 즉시 사용할 수 있는 것이죠.</p>
-
-<p>이렇게 생각하면 자식 Component가 공유되고 있는 property의 값을 변경하면 그 변경 내용이 부모 Component에게 영향을
-미쳐야 합니다. 하지만 실제로 코드 작업을 해 보면 그렇지 않다는 것을 확인하실 수 있습니다. 왜 이런 현상이 발생할까요?
-만약 자식 Component에서 변경된 값이 부모 Component에게 영향을 주게끔 처리하면 나중에 이 공유데이터의 변화를 예측하기 
-힘들어지게 됩니다. 데이터의 변경을 tracking하기 힘들어진다는 것이죠. 지금은 간단한 경우이니 별 문제가 안되지만 프로그램이
-커지게 되면 이런 데이터의 공유 문제가 프로그램의 구현과 디버깅을 힘들게 하는 원인이 됩니다.</p>
-
-<p>Angular는 <code class="highlighter-rouge">Stateful Component</code>와 <code class="highlighter-rouge">Stateless Component</code>의 개념이 있습니다. Stateful Component는 다른말로 Smart Component
-라고도 하는데 이 Component는 데이터의 정보를 변경하거나 저장할 수 있습니다. 하지만 Dumb Component라고 불리는 
-Stateless Component는 단지 상태 정보를 참조만 해서 이용할 수 있습니다. 우리의 예제에서 상위 Component인 <code class="highlighter-rouge">book-search-main</code>
-Component는 Stateful Component입니다. 반면 자식 Component인 <code class="highlighter-rouge">search-box</code> Component는 Stateless Component이구요. 그렇기
-때문에 자식 Component에서 공유된 변수에 대한 변경을 해 주어도 상위 Component에 영향을 미치지 않게 되는 것입니다.
-조금 어려운 개념인데 이 Stateful과 Stateless에 대해 조금 더 알고싶으시면 
-<a href="https://toddmotto.com/stateful-stateless-components" target="_blank">여기</a>를 참조하시면 됩니다.</p>
-
-<p>쉽게 말하자면 <code class="highlighter-rouge">@Input</code> decorator를 이용하면 부모 Component에서 자식 Component에게 데이터를 전달할 수 있지만 
-그 반대는 허용되지 않는군요. 이 문제를 해결하기 위해 <code class="highlighter-rouge">@Output</code> decorator를 사용할 수 있습니다. 
-즉, 자식 Component에서 변경된 사항을 부모 Component에게 전달하는 방법이 따로 있다는 것이죠. 다음 포스트에서는 
-@Output decorator에 대해서 알아보도록 하겠습니다.</p>
-
-<p>End.</p>
-
-<hr />
-
-<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
-    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
-<ul class="lecture-reference">
-    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
-    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
-    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
-    <li>Angular 첫걸음 - 한빛미디어</li>
-    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
-</ul>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Angular 강좌(8) - Material Table</title>
-	  <link>https://moon9342.github.io/angular-lecture-material-table</link>
-		
-				
-		
-				
-		
-				
-		
-				
-		
-				
-						<author>Angular</author>
-				
-		
-				
-		
-	  <pubDate>2018-02-06T21:21:00+00:00</pubDate>
-	  <guid>https://moon9342.github.io/angular-lecture-material-table</guid>
-	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Angular 강좌는 여러 절로 구성되어 있습니다. </span></p>
-<ul class="table-of-contents-list">
-    <li><a href="./angular-lecture-introduction">Angular 강좌(1) - Introduction</a></li>
-    <li><a href="./angular-lecture-development-environment">Angular 강좌(2) - 개발환경세팅</a></li>
-    <li><a href="./angular-lecture-component">Angular 강좌(3) - Component</a></li>
-    <li><a href="./angular-lecture-material">Angular 강좌(4) - Angular Material</a></li>
-    <li><a href="./angular-lecture-exercise-1">Angular 강좌(5) - 실습(1)</a></li>
-    <li><a href="./angular-lecture-databinding">Angular 강좌(6) - Data Binding</a></li>
-    <li><a href="./angular-lecture-exercise-2">Angular 강좌(7) - 실습(2)</a></li>
-    <li><a href="./angular-lecture-material-table">Angular 강좌(8) - Material Table</a></li>
-    <li><a href="./angular-lecture-data-share-1">Angular 강좌(9) - 데이터공유(@Input)</a></li>
-    <li><a href="./angular-lecture-data-share-2">Angular 강좌(10) - 데이터공유(@Output)</a></li>
-    <li><a href="./angular-lecture-data-share-3">Angular 강좌(11) - 데이터공유(@ViewChild)</a></li>
-    <li><a href="./angular-lecture-data-share-4">Angular 강좌(12) - 데이터공유(Content Projection)</a></li>
-    <li><a href="./angular-lecture-data-share-service">Angular 강좌(13) - Service</a></li>
-    <li><a href="./angular-lecture-data-share-service-mediator-pattern">Angular 강좌(14) - Service Mediator Pattern</a></li>
-    <li><a href="./angular-lecture-data-share-service-rxjs">Angular 강좌(15) - Service RxJS</a></li>
-    <li><a href="./angular-lecture-table-event">Angular 강좌(16) - Material Table Event</a></li>
-    <li><a href="./angular-lecture-inspection-1">Angular 강좌(17) - 중간 정리</a></li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Material Table Component</strong></p>
-
-<p>이번 포스트에서는 이전에 만들었던 list-box
-Component가 표현하는 부분을 Material Table을 이용해서 작성해 보겠습니다. 기본적인 테이블 구성과 함께 <code class="highlighter-rouge">Pagination</code>
-까지 추가해서 간단하게 <code class="highlighter-rouge">Paging</code>까지 구현해보겠습니다.</p>
-
-<p>사실 설명할 부분이 많지는 않습니다. <code class="highlighter-rouge">DataSource</code>만 Table에 잘 연결하면 알아서 보여주기 때문이죠. 그게 또 Component 기반
-개발의 장점이기도 하구요.</p>
-
-<p>먼저 CSS부터 수정하도록 하겠습니다. 다음은 <code class="highlighter-rouge">list-box.component.css</code> 파일입니다.</p>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.example-container</span> <span class="p">{</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
-  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">column</span><span class="p">;</span>
-  <span class="nl">min-width</span><span class="p">:</span> <span class="m">300px</span><span class="p">;</span>
-  <span class="nl">margin-top</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.mat-table</span> <span class="p">{</span>
-  <span class="nl">overflow</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
-  <span class="nl">max-height</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.mat-header-cell.mat-sort-header-sorted</span> <span class="p">{</span>
-  <span class="nl">color</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.list-table-style</span> <span class="p">{</span>
-  <span class="nl">font-family</span><span class="p">:</span> <span class="n">Georgia</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.list-header-style</span> <span class="p">{</span>
-  <span class="nl">background-color</span><span class="p">:</span> <span class="no">beige</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>그 다음은 <code class="highlighter-rouge">list-box.component.html</code> 파일입니다.</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-container mat-elevation-z8"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;mat-table</span> <span class="na">class=</span><span class="s">"list-table-style"</span> <span class="err">#</span><span class="na">table</span> <span class="err">[</span><span class="na">dataSource</span><span class="err">]="</span><span class="na">dataSource</span><span class="err">"</span><span class="nt">&gt;</span>
-
-    <span class="nt">&lt;ng-container</span> <span class="na">matColumnDef=</span><span class="s">"bisbn"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> ISBN <span class="nt">&lt;/mat-header-cell&gt;</span>
-      <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bisbn}} <span class="nt">&lt;/mat-cell&gt;</span>
-    <span class="nt">&lt;/ng-container&gt;</span>
-
-    <span class="nt">&lt;ng-container</span> <span class="na">matColumnDef=</span><span class="s">"btitle"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> Title <span class="nt">&lt;/mat-header-cell&gt;</span>
-      <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.btitle}} <span class="nt">&lt;/mat-cell&gt;</span>
-    <span class="nt">&lt;/ng-container&gt;</span>
-
-    <span class="nt">&lt;ng-container</span> <span class="na">matColumnDef=</span><span class="s">"bauthor"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> Author <span class="nt">&lt;/mat-header-cell&gt;</span>
-      <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bauthor}} <span class="nt">&lt;/mat-cell&gt;</span>
-    <span class="nt">&lt;/ng-container&gt;</span>
-
-    <span class="nt">&lt;ng-container</span> <span class="na">matColumnDef=</span><span class="s">"bprice"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> Price <span class="nt">&lt;/mat-header-cell&gt;</span>
-      <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bprice}} <span class="nt">&lt;/mat-cell&gt;</span>
-    <span class="nt">&lt;/ng-container&gt;</span>
-
-    <span class="nt">&lt;mat-header-row</span> <span class="na">class=</span><span class="s">"list-header-style"</span> 
-                    <span class="err">*</span><span class="na">matHeaderRowDef=</span><span class="s">"displayedColumns"</span><span class="nt">&gt;</span>                  
-    <span class="nt">&lt;/mat-header-row&gt;</span>
-    <span class="nt">&lt;mat-row</span> <span class="err">*</span><span class="na">matRowDef=</span><span class="s">"let row; columns: displayedColumns;"</span><span class="nt">&gt;&lt;/mat-row&gt;</span>
-  <span class="nt">&lt;/mat-table&gt;</span>
-
-  <span class="nt">&lt;mat-paginator</span> <span class="err">#</span><span class="na">paginator</span>
-                 <span class="err">[</span><span class="na">pageSize</span><span class="err">]="</span><span class="na">5</span><span class="err">"</span>
-                 <span class="err">[</span><span class="na">pageSizeOptions</span><span class="err">]="[</span><span class="na">5</span><span class="err">,</span> <span class="na">10</span><span class="err">,</span> <span class="na">20</span><span class="err">]"</span>
-                 <span class="na">showFirstLastButtons</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/mat-paginator&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-
-</code></pre></div></div>
-
-<p>Table Component를 이용하기 때문에 <code class="highlighter-rouge">book-search.module.ts</code>에 관련된 Module을 import해 주어야 합니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/table'</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>그리고 <code class="highlighter-rouge">Paging</code>처리를 해야 하기 때문에 <code class="highlighter-rouge">MatPaginatorModule</code> 역시 import합니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">MatPaginatorModule</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material/paginator'</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>위의 HTML에서 가장 중요한 부분은 당연히 DataSource를 바인딩 하는 부분입니다.</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;mat-table</span> <span class="na">class=</span><span class="s">"list-table-style"</span> <span class="err">#</span><span class="na">table</span> <span class="err">[</span><span class="na">dataSource</span><span class="err">]="</span><span class="na">dataSource</span><span class="err">"</span><span class="nt">&gt;</span>
-</code></pre></div></div>
-
-<p>Property binding을 이용하여 Component에 있는 <code class="highlighter-rouge">dataSource</code>라는 속성과 연결시켰습니다. 이 <code class="highlighter-rouge">dataSource</code>라는 속성은
-도서정보에 대한 객체배열을 이용해서 만든 <code class="highlighter-rouge">MatTableDataSource</code> class의 객체입니다. <code class="highlighter-rouge">JSON</code> 데이터를 가져와서 만든객체입니다.</p>
-
-<p>마지막으로 <code class="highlighter-rouge">list-box.compoennt.ts</code>파일의 내용입니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">OnInit</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">HttpClient</span> <span class="p">}</span> <span class="k">from</span> <span class="s2">"@angular/common/http"</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">MatTableDataSource</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">MatPaginator</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/material'</span><span class="p">;</span>
-<span class="k">import</span> <span class="p">{</span> <span class="nx">ViewChild</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'@angular/core'</span><span class="p">;</span>
-
-<span class="kr">interface</span> <span class="nx">IBook</span> <span class="p">{</span>
-  <span class="nl">bauthor</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-  <span class="nl">bdate</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-  <span class="nl">btranslator</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-  <span class="nl">bpublisher</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-  <span class="nl">btitle</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-  <span class="nl">bprice</span><span class="p">:</span> <span class="nx">number</span><span class="p">;</span>
-  <span class="nl">bisbn</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-  <span class="nl">bimgurl</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="p">@</span><span class="nd">Component</span><span class="p">({</span>
-  <span class="na">selector</span><span class="p">:</span> <span class="s1">'app-list-box'</span><span class="p">,</span>
-  <span class="na">templateUrl</span><span class="p">:</span> <span class="s1">'./list-box.component.html'</span><span class="p">,</span>
-  <span class="na">styleUrls</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./list-box.component.css'</span><span class="p">]</span>
-<span class="p">})</span>
-<span class="k">export</span> <span class="kd">class</span> <span class="nx">ListBoxComponent</span> <span class="p">{</span>
-
-  <span class="nx">displayedColumns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'bisbn'</span><span class="p">,</span> <span class="s1">'btitle'</span><span class="p">,</span> <span class="s1">'bauthor'</span><span class="p">,</span> <span class="s1">'bprice'</span><span class="p">];</span>
-  <span class="nx">dataSource</span><span class="p">;</span>
-  <span class="nl">books</span><span class="p">:</span> <span class="nx">IBook</span><span class="p">[];</span>
-
-  <span class="p">@</span><span class="nd">ViewChild</span><span class="p">(</span><span class="nx">MatPaginator</span><span class="p">)</span> <span class="nx">paginator</span><span class="p">:</span> <span class="nx">MatPaginator</span><span class="p">;</span>
-
-  <span class="kd">constructor</span><span class="p">(</span><span class="kr">private</span> <span class="nx">http</span><span class="p">:</span> <span class="nx">HttpClient</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="kd">get</span><span class="o">&lt;</span><span class="nx">IBook</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">'assets/data/book.json'</span><span class="p">)</span>
-      <span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">books</span> <span class="o">=</span> <span class="nx">res</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MatTableDataSource</span><span class="o">&lt;</span><span class="nx">IBook</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">books</span><span class="p">);</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span><span class="p">.</span><span class="nx">paginator</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">paginator</span><span class="p">;</span>
-      <span class="p">});</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Code Review</strong></p>
-
-<blockquote>
-  <p>원래 Code Review란 표현은 Code Inspection에서 기인한 용어로 <strong>코드를 실제로 실행하지 않고 사람이 검토하는 과정을 통해
-논리적인 잠재 오류를 찾아내고 이를 개선하는 작업</strong>을 지칭합니다.</p>
-</blockquote>
-
-<p>그런데 여기서는 그냥 위의 코드를 살펴보자는 의미로 사용했습니다. ^^;;</p>
-
-<p>코드를 좀 간단히 설명해보죠.</p>
-
-<p>먼저 Table을 생성하는 구문은 다음과 같습니다.</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;mat-table</span> <span class="err">[</span><span class="na">dataSource</span><span class="err">]="</span><span class="na">dataArray</span><span class="err">"</span><span class="nt">&gt;</span>
-  ...
-<span class="nt">&lt;/mat-table&gt;</span>
-</code></pre></div></div>
-
-<p>위의 코드에서 <code class="highlighter-rouge">dataArray</code>라고 되어있는 부분이 실제 Table에 rendering되는 데이터입니다. 배열형태로 되어 있고 배열안의
-각각의 객체를 <code class="highlighter-rouge">row</code>로 가져와서 화면에 출력하게 됩니다.</p>
-
-<p>다음은 Table의 컬럼을 표현하는 template입니다. 구문은 다음과 같습니다.</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">&lt;ng-container</span> <span class="na">matColumnDef=</span><span class="s">"bisbn"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> ISBN <span class="nt">&lt;/mat-header-cell&gt;</span>
-    <span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bisbn}} <span class="nt">&lt;/mat-cell&gt;</span>
-<span class="nt">&lt;/ng-container&gt;</span>
-
-</code></pre></div></div>
-
-<p><code class="highlighter-rouge">matColumnDef</code> 속성은 사용할 컬럼의 이름입니다. 이 부분은 <code class="highlighter-rouge">list-box.component.ts</code>파일안에 컬럼명에 대한 배열이
-정의되는데 이 부분과 매칭되어야 합니다. 다음은 <code class="highlighter-rouge">list-box.component.ts</code>안에 정의된 컬럼명에 대한 배열입니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">displayedColumns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'bisbn'</span><span class="p">,</span> <span class="s1">'btitle'</span><span class="p">,</span> <span class="s1">'bauthor'</span><span class="p">,</span> <span class="s1">'bprice'</span><span class="p">];</span>
-</code></pre></div></div>
-
-<p>그리고 아래의 구문에 의해 ISBN 컬럼의 제목과 내용이 출력됩니다. <code class="highlighter-rouge">dataSource</code>에 연결된 모든 <code class="highlighter-rouge">row</code>를 가져와서 <code class="highlighter-rouge">element</code>라는 변수에
-반복적으로 할당 하면서 <code class="highlighter-rouge">element.bisbn</code>값을 테이블에 출력하라는 말입니다.</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">&lt;mat-header-cell</span> <span class="err">*</span><span class="na">matHeaderCellDef</span><span class="nt">&gt;</span> ISBN <span class="nt">&lt;/mat-header-cell&gt;</span>
-<span class="nt">&lt;mat-cell</span> <span class="err">*</span><span class="na">matCellDef=</span><span class="s">"let element"</span><span class="nt">&gt;</span> {{element.bisbn}} <span class="nt">&lt;/mat-cell&gt;</span>
-
-</code></pre></div></div>
-
-<p>이와 같은 형태로 하나의 컬럼에 대한 데이터를 화면에 출력할 수 있습니다. 우리는 총 4개의 컬럼을 화면에 출력하고 있는 것이죠.</p>
-
-<p><code class="highlighter-rouge">list-box.compoennt.ts</code>에서는 사용할 데이터를 <code class="highlighter-rouge">HttpClient</code>의 get() method로 가져온 후 이를 다음의 코드를 이용해서 
-객체화 시켰습니다.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">dataSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MatTableDataSource</span><span class="o">&lt;</span><span class="nx">IBook</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">books</span><span class="p">);</span>
-</code></pre></div></div>
-
-<p><strong>dataSource와 연결시키기 위해 위에 있는 코드처럼 객체를 생성해서 연결하셔야 합니다.</strong></p>
-
-<p><code class="highlighter-rouge">Paginator</code>의 사용은 코드에 나온것처럼 사용하시면 됩니다. 내부적으로 처리되기 때문에 사용하는 방법만 아시면 충분합니다.</p>
-
-<p><code class="highlighter-rouge">TypeScript</code>를 사용하기 때문에 interface를 이용하여 data type을 명확히 지정했습니다. 이 부분역시 이전 HTML Table Element로
-작업했을 때와는 다르게 처리하셔야 합니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 정리</strong></p>
-
-<p>이제 1차적인 작업은 모두 끝났습니다. 논리적인 설명보다는 실제 사용할 화면을 만들면서 필요한 
-개념들에 대해서 그때 그때 설명하는 방식을 취했습니다. 이제 Component간의 상태공유에 대한 문제만 해결되면
-우리의 프로그램은 얼추 완성할 수 있을 듯 보입니다.</p>
-
-<p>조금만 더 진행시켜 일단 프로그램을 완성한 후 세부적인 내용들에 대해서 다시 짚어가며 살펴보도록 하겠습니다.</p>
-
-<p>End.</p>
-
-<hr />
-
-<p><span class="lecture-reference">Angular 강좌는 아래의 책과 사이트를 참조했습니다.
-    조금 더 자세한 사항을 알고 싶으시면 해당 사이트를 방문하세요!!</span></p>
-<ul class="lecture-reference">
-    <li><a href="https://angular.io/" target="_blank">Angular Official HomePage</a></li>
-    <li><a href="https://material.angular.io/" target="_blank">Angular Material Official HomePage</a></li>
-    <li><a href="https://scotch.io/tutorials/build-a-mobile-app-with-angular-2-and-ionic-2" target="_blank">Build a Mobile App with Angular 2 and Ionic 2</a></li>
-    <li>Angular 첫걸음 - 한빛미디어</li>
-    <li>제대로 배우는 Angular 4 - 비제이퍼블릭</li>
-</ul>
-
 
 	  ]]></description>
 	</item>
