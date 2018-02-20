@@ -15,12 +15,14 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+
     <!-- jQuery + Fitvids, which makes all video embeds responsive -->
     <script
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous">
     </script>
+
 
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
@@ -45,6 +47,12 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
     <style>.hljs { background: none; }</style>
 
+    <!--Dl Menu-->
+    <script src="/assets/js/modernizr.custom.js"></script>
+    <script src="/assets/js/jquery.dlmenu.js"></script>
+    <script src="/assets/js/menu_main.js"></script>
+
+
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="Development & Technical Training" />
     <link rel="shortcut icon" href="https://moon9342.github.io/assets/built/images/favicon.jpg" type="image/png" />
@@ -62,7 +70,7 @@
     <meta property="article:author" content="https://www.facebook.com/" />
     <meta property="article:published_time" content="2018-02-05T11:11:00+00:00" />
     <meta property="article:modified_time" content="2018-02-05T11:11:00+00:00" />
-    <meta property="article:tag" content="Back End" />
+    <meta property="article:tag" content="Database" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="MySQL 5.7.2 Windows용 ZIP Archive 설치" />
     <meta name="twitter:description" content="Introduction MySQL을 install하지 않고 ZIP Archive를 다운받고 압축 풀어서 사용하는 사용하는 방식에 대한 설명입니다. 기존 5.6버전은 JSON에 대한 지원이 되지 않기 때문에 5.7버전을 대상으로 진행합니다. MySQL 5.7.2 ZIP Archive Download MySQL을 다운로드 받기 위해 링크를 눌러 이동합니다. 아래의 그림처럼 다운로드 링크가 보이게 되는데 이 중 Windows (x86, 64-bit), ZIP Archive으로" />
@@ -71,7 +79,7 @@
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="IT Blog" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Back End" />
+    <meta name="twitter:data2" content="Database" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -157,14 +165,58 @@ into the {body} of the default.hbs template -->
             
         
         
-            <ul class="nav" role="menu">
+            
+<ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
     <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+<!--
     <li class="nav-back-end" role="menuitem"><a href="/tag/back-end/">Back End</a></li>
     <li class="nav-front-end" role="menuitem"><a href="/tag/front-end/">Front End</a></li>
     <li class="nav-miscellaneous-article" role="menuitem"><a href="/tag/miscellaneous-article/">Miscellaneous Article</a></li>
+-->
     <li class="nav-archive" role="menuitem"><a href="/archive.html">Archive</a></li>
 </ul>
+
+
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+    <button class="dl-trigger">Open Menu</button>
+    <ul class="dl-menu">
+        <li><a href="https://moon9342.github.io/">Home</a></li>
+        <li>
+            <a href="#">About</a>
+            <ul class="dl-submenu">
+                <li style="text-align: center">
+                    <img src="https://moon9342.github.io/assets/built/images/photo.jpg" alt="SungHoon Moon photo" class="author-photo">
+                </li>
+                <li>
+                    <h4>SungHoon Moon</h4>
+                    <p>Director of ATGLab. <br>Ph.D. in Computer Science</p>
+                </li>
+                <li><a href="https://moon9342.github.io/about/"><i class="fa fa-external-link"></i><span class="btn btn-inverse"> Learn More</span></a></li>
+                <li>
+                <a href="mailto:moon9342@gmail.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+            </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul><!-- /.dl-submenu -->
+        </li>
+        <li>
+            <a href="#">Posts</a>
+            <ul class="dl-submenu">
+                <li><a href="https://moon9342.github.io/archive">All Posts</a></li>
+                <li><a href="https://moon9342.github.io/author_archive">All Tags</a></li>
+            </ul>
+        </li>
+        
+    </ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
 
         
     </div>
@@ -197,7 +249,7 @@ into the {body} of the default.hbs template -->
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/back-end/'>BACK END</a>
+                               <a href='/tag/database/'>DATABASE</a>
                             
                         
                     
@@ -456,7 +508,7 @@ into the {body} of the default.hbs template -->
                     
                         
                             
-                                <span class="post-card-tags">Front end</span>
+                                <span class="post-card-tags">Angular</span>
                             
                         
                     
@@ -509,7 +561,7 @@ into the {body} of the default.hbs template -->
                     
                         
                             
-                                <span class="post-card-tags">Front end</span>
+                                <span class="post-card-tags">Angular</span>
                             
                         
                     

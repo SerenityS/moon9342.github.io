@@ -15,12 +15,14 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+
     <!-- jQuery + Fitvids, which makes all video embeds responsive -->
     <script
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous">
     </script>
+
 
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
@@ -45,6 +47,12 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
     <style>.hljs { background: none; }</style>
 
+    <!--Dl Menu-->
+    <script src="/assets/js/modernizr.custom.js"></script>
+    <script src="/assets/js/jquery.dlmenu.js"></script>
+    <script src="/assets/js/menu_main.js"></script>
+
+
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="Development & Technical Training" />
     <link rel="shortcut icon" href="https://moon9342.github.io/assets/built/images/favicon.jpg" type="image/png" />
@@ -62,7 +70,7 @@
     <meta property="article:author" content="https://www.facebook.com/" />
     <meta property="article:published_time" content="2018-01-14T15:00:00+00:00" />
     <meta property="article:modified_time" content="2018-01-14T15:00:00+00:00" />
-    <meta property="article:tag" content="Front End" />
+    <meta property="article:tag" content="Javascript" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="JavaScript History" />
     <meta name="twitter:description" content="Introduction 아마도 JavaScript, ECMAScript, TypeScript라는 용어를 많이 들어봤을 텐데 정확하게 어떤 차이가 있는지 이번 포스트에서 간단하게 정리를 해 보겠습니다. JavaScript 과거부터 Web 작업을 해 오신 분들은 아시겠지만 JavaScript의 과거 인식은 “알면 좋고 몰라도 상관없는 딱 그 수준의 언어” 였습니다. 하지만 개발 방법론이 진화하면서 JavaScript기반의 Library나 Framework의 필요성이 증대되고 그에 따라" />
@@ -71,7 +79,7 @@
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="IT Blog" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Front End" />
+    <meta name="twitter:data2" content="Javascript" />
     <meta name="twitter:site" content="@" />
     <meta name="twitter:creator" content="@" />
     <meta property="og:image:width" content="1400" />
@@ -157,14 +165,58 @@ into the {body} of the default.hbs template -->
             
         
         
-            <ul class="nav" role="menu">
+            
+<ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
     <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+<!--
     <li class="nav-back-end" role="menuitem"><a href="/tag/back-end/">Back End</a></li>
     <li class="nav-front-end" role="menuitem"><a href="/tag/front-end/">Front End</a></li>
     <li class="nav-miscellaneous-article" role="menuitem"><a href="/tag/miscellaneous-article/">Miscellaneous Article</a></li>
+-->
     <li class="nav-archive" role="menuitem"><a href="/archive.html">Archive</a></li>
 </ul>
+
+
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+    <button class="dl-trigger">Open Menu</button>
+    <ul class="dl-menu">
+        <li><a href="https://moon9342.github.io/">Home</a></li>
+        <li>
+            <a href="#">About</a>
+            <ul class="dl-submenu">
+                <li style="text-align: center">
+                    <img src="https://moon9342.github.io/assets/built/images/photo.jpg" alt="SungHoon Moon photo" class="author-photo">
+                </li>
+                <li>
+                    <h4>SungHoon Moon</h4>
+                    <p>Director of ATGLab. <br>Ph.D. in Computer Science</p>
+                </li>
+                <li><a href="https://moon9342.github.io/about/"><i class="fa fa-external-link"></i><span class="btn btn-inverse"> Learn More</span></a></li>
+                <li>
+                <a href="mailto:moon9342@gmail.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+            </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul><!-- /.dl-submenu -->
+        </li>
+        <li>
+            <a href="#">Posts</a>
+            <ul class="dl-submenu">
+                <li><a href="https://moon9342.github.io/archive">All Posts</a></li>
+                <li><a href="https://moon9342.github.io/author_archive">All Tags</a></li>
+            </ul>
+        </li>
+        
+    </ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
 
         
     </div>
@@ -197,7 +249,7 @@ into the {body} of the default.hbs template -->
                         <span class="date-divider">/</span>
                         
                             
-                               <a href='/tag/front-end/'>FRONT END</a>
+                               <a href='/tag/javascript/'>JAVASCRIPT</a>
                             
                         
                     
@@ -407,7 +459,7 @@ Angular 2를 몽땅 TypeScript로 전환했습니다. Google에서 말하기로�
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; IT Blog &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/front-end/">Front end</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/javascript/">Javascript</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -417,116 +469,11 @@ Angular 2를 몽땅 TypeScript로 전환했습니다. Google에서 말하기로�
                                 
                                 
                                   
-                                    
-                                        
-                                        
-                                            <li><a href="/angular-lecture-lifecycle">Angular 강좌(20) - Component LifeCycle</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/angular-lecture-pipe">Angular 강좌(19) - Pipe</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/angular-lecture-directive">Angular 강좌(18) - Directive</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
                                   
                                 
                                   
@@ -534,52 +481,23 @@ Angular 2를 몽땅 TypeScript로 전환했습니다. Google에서 말하기로�
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
-                                  
                                 
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
                                   
                                 
                                   
@@ -602,40 +520,34 @@ Angular 2를 몽땅 TypeScript로 전환했습니다. Google에서 말하기로�
                                     
                                         
                                         
+                                            <li><a href="/front-end-ecosystem">Front-End 발전 역사와 개발 생태계</a></li>
+                                        
                                     
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
                                   
                                 
                                   
                                     
                                         
                                         
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
+                                            <li><a href="/javascript-babel">Babel을 사용해보자</a></li>
                                         
                                     
                                   
@@ -644,14 +556,19 @@ Angular 2를 몽땅 TypeScript로 전환했습니다. Google에서 말하기로�
                                     
                                         
                                         
+                                            <li><a href="/javascript-use-strict">JavaScript의 strict mode란 무엇인가?</a></li>
+                                        
                                     
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
                                   
                                 
                                   
@@ -679,9 +596,9 @@ Angular 2를 몽땅 TypeScript로 전환했습니다. Google에서 말하기로�
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/front-end/">
+                            <a href="/tag/javascript/">
                                 
-                                    See all 30 posts  →
+                                    See all 3 posts  →
                                 
                             </a>
                         </footer>
@@ -704,7 +621,7 @@ Angular 2를 몽땅 TypeScript로 전환했습니다. Google에서 말하기로�
                     
                         
                             
-                                <span class="post-card-tags">Miscellaneous article</span>
+                                <span class="post-card-tags">Jekyll</span>
                             
                         
                     

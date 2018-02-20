@@ -28,1143 +28,6 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
-	  <title>Jekyll 기반의 GitHub Page 생성(9)</title>
-	  <link>https://moon9342.github.io/jekyll-regenerate-speed-up</link>
-		
-				
-						<author>jekyll</author>
-				
-		
-				
-		
-				
-		
-				
-		
-				
-		
-				
-		
-	  <pubDate>2018-02-02T15:14:00+00:00</pubDate>
-	  <guid>https://moon9342.github.io/jekyll-regenerate-speed-up</guid>
-	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
-<ul class="table-of-contents-list">
-    <li><a href="./jekyll-start">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Site Regeneration 속도 올리기</strong></p>
-
-<p>블로그에 포스트개수가 많아지고 기능이 추가될수록 Jekyll의 <code class="highlighter-rouge">site generation 속도</code>가 현저하게 떨어지게 됩니다. 어쩔 수 없는
-일이긴 합니다. 포스트가 1,000개 정도 되면 컴퓨터 사양에 따라 많이 다르겠지만 약 1분 가량의 시간이 걸리게 된답니다.
-처음에야 포스트가 얼마 없다보니 금방 site가 생성되지만 말이죠.</p>
-
-<p>일반적으로 우리가 새로운 포스트를 쓸 때 로컬에서 <code class="highlighter-rouge">watch</code> mode를 이용해서 파일이 변경되면 다시 site를 regeneration하도록 설정하고
-사용합니다. 그래야 변경된 내용을 빠르게 확인할 수 있기 때문이지요.</p>
-
-<p>하지만 우리가 포스트의 내용을 변경해서 저장할 때 마다 가지고 있는 모든 폴더에 있는 파일을 검색하고 generation하는 건 비효율적입니다. 
-site regeneration 시간이 너무 오래걸려서 내가 수정한 혹은 작성한 내용을 확인하기 위해 많이 기다려야 하는 것이지요. 
-추후에 블로그에 글 내용이 많아지신다면 무슨 말인지 충분히 공감하실 겁니다.</p>
-
-<p>이 문제를 해결하기 위해 간단한 설정하나를 추가해 보도록 하겠습니다.
-지금까지 우리는 site를 생성하고 로컬 웹서버를 이용해 실행시키기 위해 다음과 같이 명령을 실행시켰습니다.</p>
-
-<blockquote>
-  <p><strong>bundle exec jekyll serve</strong></p>
-</blockquote>
-
-<p>이제 저 명령 뒤에 option을 하나 주시면 됩니다. <code class="highlighter-rouge">--limit_posts</code> 라는 option은데 뒤쪽에 숫자 인자가 들어옵니다. 
-예를 들어 다음과 같이 실행시키면</p>
-
-<blockquote>
-  <p><strong>bundle exec jekyll serve --limit_posts 1</strong></p>
-</blockquote>
-
-<p>시간상으로 마지막으로 등록된 포스트 1개만 가지고 site를 regeneration시키게 됩니다. 물론 기존의 내용은 컴파일 되지 않기때문에
-사이트에 나타나지는 않겠지만 현재 작업하고 있는 포스트에 대한 내용은 빠르게 확인이 가능합니다. 이렇게 작업하고 최종적으로는
-site 전체를 다시 build해 주시면 될 듯 합니다.</p>
-
-<p>End.</p>
-
-<hr />
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Git과 GitHub의 간단 사용법</title>
-	  <link>https://moon9342.github.io/git-github</link>
-		
-				
-		
-				
-		
-				
-		
-				
-						<author>fragmentary-knowledge</author>
-				
-		
-				
-		
-				
-		
-	  <pubDate>2018-02-02T14:21:00+00:00</pubDate>
-	  <guid>https://moon9342.github.io/git-github</guid>
-	  <description><![CDATA[
-	     <p><strong class="post_introduction">Introduction</strong></p>
-
-<p><code class="highlighter-rouge">Git</code>과 <code class="highlighter-rouge">GitHub</code>에 대한 간단한 설명입니다. 간단한 이론과 함께 실습을 통해 command 기반의 명령어로 
-어떤일을 처리할 수 있는지를 알아보도록 하겠습니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 누구나 한번쯤은 겪었던 일</strong></p>
-
-<p><img src="assets/built/images/need-of-vcs.png" alt="need-of-vcs" /></p>
-
-<p>위의 그림은 누구나 한번쯤 겪어봤을 만한 상황입니다. 파일을 계속 수정해 나가면서 이름을 바꾸어 저장하는 경우입니다.
-그 당시야 최종 파일이 어떤것인지 알 수 있겠지만 시간이 흐르면 당연히 저 중 어떤 파일이 최종 Report파일인지 알 수
-없게 됩니다.</p>
-
-<p>아래의 그림은 조금 다른 경우입니다.</p>
-
-<p><img src="assets/built/images/vcs-conflict.png" alt="vcs-conflict" /></p>
-<div class="img-reference">( 이미지 출처 : http://slidedeck.io/cursor-education )</div>
-
-<p>여러명이 공동으로 같은 파일을 작업할 때 파일 내용을 덮어쓰는 문제가 생길 수 있습니다. 다른 사람이 작업한 사항을
-유실할 수 있다는 것이죠.</p>
-
-<p>이와 같은 문제가 항시 빈번하게 발생하게되고 이를 해결하기 위해 나온 시스템이 바로 <code class="highlighter-rouge">VCS</code>( Version Control System )
-입니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Version Control System ( VCS )</strong></p>
-
-<p><code class="highlighter-rouge">VCS</code> 는 파일의 변화를 시간에 따라 기록했다가 나중에 특정 시점의 버전을 다시 꺼내올 수 있는 시스템을 의미합니다. 이런 VCS는
-다음과 같은 특징을 가지고 있습니다.</p>
-
-<ul>
-  <li>각 파일을 이전 상태로 되돌릴 수 있습니다.</li>
-  <li>시간에 따라 수정 내용을 비교해 볼 수 있습니다.</li>
-  <li>누가 문제를 일으켰는지 쉽게 추적할 수 있습니다.</li>
-  <li>파일을 잘못 고쳤을 때 쉽게 복구할 수 있습니다.</li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Centralized Version Control System ( CVCS )</strong></p>
-
-<p><code class="highlighter-rouge">CVCS</code>는 중앙집중식 버전 관리 시스템입니다. 우리가 예전에 사용했던 <code class="highlighter-rouge">CVS</code>나 <code class="highlighter-rouge">Subversion</code>같은 제품이 이 범주에 
-들어갑니다.</p>
-
-<p>파일을 관리하는 서버가 별도록 존재하고 클라이언트는 중앙 서버에서 파일을 받아서 사용하는 개념입니다. 그림으로
-표현하면 다음과 같습니다.</p>
-
-<p><img src="assets/built/images/centralized-version-control-system.png" alt="centralized-version-control-system" /></p>
-<div class="img-reference">( 이미지 출처 : https://git-scm.com/ )</div>
-
-<p>여기서 <code class="highlighter-rouge">Checkout</code>이라는 용어가 나오는데 나중에 우리가 살펴볼 Git의 Checkout과는 다른 
-개념임에 유의하셔야 합니다.</p>
-
-<p>이런 CVCS는 중앙서버에 문제가 발생하면 다른 사람과의 협업 자체가 불가능해지게 됩니다. 또한 중앙서버의 하드디스크에
-문제가 발생하면 프로젝트의 모든 History를 잃어버리게 됩니다.</p>
-
-<p>Backup서버를 운영하면 이런 문제점을 일시 해결할 순 있지만 본질적인 문제는 남아있게 됩니다. 
-( 백업서버까지 날라간다면??? )</p>
-
-<p>이런 문제점을 해결하기 위해 분산형 VCS가 등장하게 됩니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Distributed Version Control System ( DVCS )</strong></p>
-
-<p><code class="highlighter-rouge">DVCS</code>는 분산 버전 관리 시스템입니다. 우리가 알고 있는 <code class="highlighter-rouge">Git</code>이 대표적 제품입니다. 이 외에 다른 제품들도 있지만
-Git만 알아도 됩니다.</p>
-
-<p>이 방식은 <code class="highlighter-rouge">CVCS</code>처럼 클라이언트가 파일의 마지막 Snapshot을 Checkout하는 방식이 아닙니다. 클라이언트는 서버 저장소를
-통째로 로컬에 복제해서 사용합니다. 즉, 그림으로 보면 다음과 같습니다.</p>
-
-<p><img src="assets/built/images/distributed-version-control-system.png" alt="distributed-version-control-system" /></p>
-<div class="img-reference">( 이미지 출처 : https://git-scm.com/ )</div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Git의 탄생</strong></p>
-
-<p><code class="highlighter-rouge">Linux</code> kernel은 대규모의 open source project입니다. 이 project의 버전관리를 위해 초기에는
-<code class="highlighter-rouge">BitKeeper</code>라는 상용 DVCS를 사용했었는데 2005년도에 이 BitKeeper의 무료사용이 제고되면서 <code class="highlighter-rouge">리누스 토발즈</code>의 주도로
-Linux 개발 커뮤니티가 자체 VCS를 개발했는데 이게 바로 <code class="highlighter-rouge">Git</code>입니다.</p>
-
-<p><code class="highlighter-rouge">Git</code>은 다음과 같은 특징을 가집니다.</p>
-
-<ul>
-  <li>단순한 구조에서 오는 빠른 속도</li>
-  <li>완벽한 분산처리</li>
-  <li>branch를 사용한 비선형적 개발 가능</li>
-  <li>속도나 크기면에서 대형 Project에 적합</li>
-</ul>
-
-<p>Git의 데이터 저장 방식은 이 포스트의 범주를 넘어가니 그 부분은 제외하겠습니다. 실제 Git이 어떤 방식으로 데이터를 저장하는가에
-대한 내용은 <a href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics" target="_blank">여기</a>를 클릭해 살펴보시면 
-될 듯 합니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Git의 기본</strong></p>
-
-<p><code class="highlighter-rouge">Git</code>은 파일을 3가지 상태로 관리합니다. <code class="highlighter-rouge">Committed</code>, <code class="highlighter-rouge">Modified</code>, <code class="highlighter-rouge">Staged</code>라고 불리는 3가지 상태로 파일을 관리하게 되는데
-각각의 의미는 다음과 같습니다.</p>
-
-<blockquote>
-  <p>Git의 파일 상태</p>
-  <ul>
-    <li><code class="highlighter-rouge">Committed</code> : 파일을 수정한 후 해당 파일에 대해 <code class="highlighter-rouge">commit</code>명령을 실행해 파일을 
-로컬 데이터베이스(로컬 <code class="highlighter-rouge">Repository</code>)에 안전하게 저장한 상태를 의미합니다.</li>
-    <li><code class="highlighter-rouge">Modified</code> : 파일을 수정한 후 아직 로컬 데이터베이스에 commit하지 않은 상태를 의미합니다.</li>
-    <li><code class="highlighter-rouge">Staged</code> : 파일을 수정한 후 수정할 파일을 곧 commit할 것이라고 표시한 상태를 의미합니다.</li>
-  </ul>
-</blockquote>
-
-<p>Git은 파일상태 관리와 더불어 3가지 영역을 사용합니다.</p>
-
-<blockquote>
-  <p>Git의 사용 영역</p>
-  <ul>
-    <li><code class="highlighter-rouge">Git directory</code> : Git이 project의 메타데이터와 객체 데이터베이스를 저장하는 곳을 의미합니다.
-다른말로 <code class="highlighter-rouge">Local Repository</code>라고 하며 만약 특정 폴더를 Git directory(Local Repository)로 설정하려면 <code class="highlighter-rouge">git init</code>명령을
-이용하면 됩니다. Repository로 설정되면 <code class="highlighter-rouge">.git</code>이라는 숨김폴더가 생성되고 이 안에 Git 관리 정보들이 생성되게 됩니다.</li>
-    <li><code class="highlighter-rouge">Working directory</code> : project의 특정 branch를 checkout한 내용이 들어있는 폴더입니다.</li>
-    <li><code class="highlighter-rouge">Staging Area</code> : Git directory에 존재하며 단순한 파일입니다. 곧 commit할 파일에 대한 정보를 가지고 있게 됩니다.</li>
-  </ul>
-</blockquote>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Git으로 하는 작업의 기본 순서</strong></p>
-
-<p>작업의 기본순서는 다음과 같습니다.</p>
-
-<ul>
-  <li>Working directory에서 파일 수정</li>
-  <li>Staging Area에 수정한 파일을 Stage해서 commit할 Snapshot 생성 ( <code class="highlighter-rouge">git add</code> )</li>
-  <li>Staging Area에 있는 수정된 파일을 commit해서 Git directory에 영구적인 Snapshot으로 저장 ( <code class="highlighter-rouge">git commit</code> )</li>
-</ul>
-
-<p><img src="assets/built/images/git-local-operation.png" alt="git-local-operation" /></p>
-<div class="img-reference">( 이미지 출처 : https://git-scm.com/ )</div>
-
-<p><img src="assets/built/images/git-local-operation-1.png" alt="git-local-operation-another" /></p>
-<div class="img-reference">( 이미지 출처 : http://egloos.zum.com/incredible/v/7278471 )</div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Git 설치 &amp; 기본 설정</strong></p>
-
-<p><a href="http://git-scm.com" target="_blank">http://git-scm.com</a>를 클릭해서 Git Official HomePage로 이동해서 Git을
-다운로드 한 후 기본설정으로 install하시면 됩니다.</p>
-
-<p>Git을 설치하신 후 <code class="highlighter-rouge">git config</code>를 이용해 기본적인 환경설정을 하시면 됩니다. 설정파일은 크게 3가지 종류가 존재하는데 
-다음과 같습니다.</p>
-
-<blockquote>
-  <p>Git의 환경설정파일( Windows system 기준 )</p>
-  <ul>
-    <li><code class="highlighter-rouge">$GIT_HOME/mingw64/etc/gitconfig</code> : 시스템의 모든 사용자와 모든 저장소에 적용되는 설정으로
-<code class="highlighter-rouge">git config --system</code>으로 설정합니다.</li>
-    <li><code class="highlighter-rouge">$USER_HOME/.gitconfig</code> : 특정 사용자에게만 적용되는 설정입니다. <code class="highlighter-rouge">git config --global</code>으로 설정합니다.</li>
-    <li><code class="highlighter-rouge">.git/config</code> : Git directory안에 위치하며 특정 저장소에만 적용되는 설정입니다.</li>
-  </ul>
-</blockquote>
-
-<p>각각의 설정파일은 위에 나열된 순서의 역순으로 적용된다는 것도 같이 기억해 두셔야 합니다.</p>
-
-<p>Windows system에서 Git을 설치하면 <code class="highlighter-rouge">Git Bash</code> 메뉴가 생성되는데 이를 실행해 console을 실행시킨 후 사용자 이름과
-Email주소를 설정하시면 됩니다.</p>
-
-<p><img src="assets/built/images/git-config-user.png" alt="git-config-user" /></p>
-
-<blockquote>
-  <p>참고로 <code class="highlighter-rouge">MINGW64</code>는 Windows system으로 porting한 GNU 소프트웨어 도구 모음입니다.</p>
-</blockquote>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Git Local Repository 생성</strong></p>
-
-<p>그럼 <code class="highlighter-rouge">Git</code>을 이용해 Git Repository를 만들어서 사용해 보도록 하겠습니다. 가지고 있는 project가 없기 때문에 간단하게
-폴더를 하나 생성하고 그 폴더를 project 폴더로 간주하고 진행하겠습니다.</p>
-
-<p><code class="highlighter-rouge">Git</code>의 기본 명령과 개념을 이해하는 목적이기 때문에 command 창에서 명령어를 이용해서 작업을 진행하겠습니다.
-추후에 실제 project에 적용하실 때는 <code class="highlighter-rouge">IDE</code>의 기능을 이용하거나 <code class="highlighter-rouge">SourceTree</code>와같은 GUI툴을 이용하시는게 좋습니다.</p>
-
-<p>다음과 같은 순서로 진행합니다.</p>
-
-<ul>
-  <li>윈도우 탐색기를 이용해 먼저 프로젝트 폴더를 생성합니다. <code class="highlighter-rouge">D:/MyProject</code>로 생성합니다. 나중에 Git으로 관리할
-파일을 하나 생성합니다. 다음과 같은 내용을 가지고 있는 파일을 생성하고 파일 이름은 <code class="highlighter-rouge">readme.txt</code>로 저장합니다.
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is a sample text.
-</code></pre></div>    </div>
-  </li>
-  <li>project 폴더로 이동해 console을 통해 <code class="highlighter-rouge">git init</code>을 실행해 Git Repository를 생성합니다. 다음과 같은 메시지가 출력되는걸
-확인하실 수 있습니다.
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Initialized empty Git repository in D:/MyProject/.git/
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>메시지에서 나온것 처럼 <code class="highlighter-rouge">.git</code> 폴더가 생성되고 그 안에 Git Repository가 생성됩니다. 또한 Repository에
-필요한 각종 Skeleton들도 같이 생성됩니다.</p>
-  </li>
-  <li>
-    <p>이 상태에서 <code class="highlighter-rouge">git status</code>를 실행합니다. 그러면 Git이 아직 추적하고 있지 않은 readme.txt가 존재한다고 알려줍니다.
-<img src="assets/built/images/git-status.png" alt="git-status" /></p>
-  </li>
-  <li>
-    <p>Git Repository를 생성했지만 아직 어떠한 파일도 관리를 하고 있지 않습니다. 이제 Git이 파일을 관리하게
-하려면 Repository에 <code class="highlighter-rouge">git add</code>를 이용해 파일을 추가하고 <code class="highlighter-rouge">git commit</code>을 이용해 commit까지 진행해야 합니다.
-다음의 그림처럼 명령을 이용하여 Repository에 파일 추가, 확인, commit까지 진행합니다. ( <code class="highlighter-rouge">-m option</code>은 commit message를 작성하기 위해서
-사용합니다. )
-<img src="assets/built/images/git-commit.png" alt="git-commit" /></p>
-  </li>
-  <li>이제 마지막으로 <code class="highlighter-rouge">readme.txt</code> 파일의 내용을 에디터를 이용해 적당히 수정한 후에 다시 <code class="highlighter-rouge">git status</code>를 실행시켜 보시면 됩니다. 
-그럼 Git은 해당 파일이 변경(Modified)됬다는 것을 인식해서 보여주게 됩니다. 변경된 내용을 적용해 Repository에 저장하려면 
-다시 <code class="highlighter-rouge">git add</code>를 이용해 해당 파일을 staging 한 후 <code class="highlighter-rouge">git commit</code>을 실행해야 합니다.
-<img src="assets/built/images/git-modify-commit.png" alt="git-modify-commit" /></li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Branch 생성</strong></p>
-
-<p>그 다음에 알아볼 내용은 <code class="highlighter-rouge">branch</code> 입니다. branch는 기본 project에 영향이 가지 않는 상태에서 새로운 기능을 추가하거나
-기존 기능을 변경해야 하는 경우에 유용하게 사용할 수 있습니다. 필요에 의해 만들어지는 이런 각각의 branch들은 서로간의 
-영향을 받지 않습니다. 그렇기 때문에 여러 작업을 동시에 진행시킬 수 있습니다.</p>
-
-<p><img src="assets/built/images/git-branches.png" alt="git-branches" /></p>
-<div class="img-reference">( 이미지 출처 : https://rogerdudler.github.io/git-guide/index.ko.html )</div>
-
-<p>Repository를 처음 생성하게 되면 Git는 <code class="highlighter-rouge">master</code>라는 이름의 branch를 만들어 줍니다. 위에서 우리가 <code class="highlighter-rouge">readme.txt</code> 파일을
-Repository에 추가하고 내용을 변경해서 commit까지 진행했었는데 모두 이 master라는 branch에서 처리했던 겁니다.</p>
-
-<p><code class="highlighter-rouge">master</code>가 아닌 다른 branch를 생성할 수 있습니다. 또한 <strong>“이제부터의 작업은 xxx branch에서 진행할꺼야!”</strong> 라는 식으로
-명령을 줄 수 있는데 이걸 <code class="highlighter-rouge">checkout</code>이라고 합니다. 즉, <code class="highlighter-rouge">checkout</code>은 특정 branch의 내용을 가져와서 Working directory를 
-설정하는 작업이라고 보시면 됩니다. 특정 branch에서 일어나지 않는 모든 작업은 당연히 <code class="highlighter-rouge">master</code> branch에서 일어나게 됩니다.</p>
-
-<p>현재 어떤 branch가 존재하는지 알아볼려면 <code class="highlighter-rouge">git branch</code> 명령을 이용하시면 됩니다. 만약 새로운 branch를 생성하고 싶으면 
-<code class="highlighter-rouge">git branch branch_name</code>형태로 branch이름을 명시하시면 새로운 branch가 생성됩니다.</p>
-
-<p>현재 작업중인 branch는 <code class="highlighter-rouge">*</code> 기호로 표시됩니다. 아래 그림은 새로운 branch를 생성하고 <code class="highlighter-rouge">git checkout</code> 명령을 이용하여 hotfix
-branch를 Working directory에 가져온 것입니다. 지금부터 하는 작업은 모두 <code class="highlighter-rouge">hotfix</code> branch에서 발생하는 것이고 master branch와는
-무관하게 동작합니다.</p>
-
-<p><img src="assets/built/images/git-branches-hotfix.png" alt="git-branches-hotfix" /></p>
-
-<p>실제로 파일을 변경하거나 추가해서 hotfix branch에서 작업한 후 다시 master branch를 checkout해보시면 아까 했던 작업이 master
-branch에는 영향을 미치지 않는다는 것을 확인하실 수 있습니다. 이 부분은 개별적으로 실습해 보시길 바랍니다.</p>
-
-<p>참고로 모든 branch를 확인하기 위해서는 다음의 명령을 실행하시면 됩니다.</p>
-
-<blockquote>
-  <p><strong>git branch -a</strong></p>
-</blockquote>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Branch Merge</strong></p>
-
-<p><code class="highlighter-rouge">Merge</code> 작업은 현재 작업중인 branch에 다른 branch를 가져와서 병합하는 작업을 의미합니다. <code class="highlighter-rouge">git merge branch_name</code>을 이용하여
-현재 branch에 명시된 이름의 branch를 가져와 파일을 병합하게 됩니다.</p>
-
-<p>만약 두개의 branch에서 같은 파일의 같은 곳을 수정했을 경우 해당 파일을 병합할 때 당연히 문제가 발생하게 됩니다. 그냥 합쳐질 수가
-없기 때문이지요. <code class="highlighter-rouge">conflict</code>가 발생했다고 표현합니다. 이런 경우 충돌이 일어난 내용을 살펴보고 수동으로 해결해야 합니다.</p>
-
-<blockquote>
-  <p><strong>Git은 병합이 실패했을 때 그 해결을 모두 사용자에게 일임합니다.</strong></p>
-</blockquote>
-
-<p>그래서 수동으로 파일을 수정한 후 다시 commit작업을 진행해야 합니다. <code class="highlighter-rouge">merge</code> 작업은 
-<code class="highlighter-rouge">Remote Repository</code> 를 설명하는 부분에서 다시 한번 다뤄보기로 하겠습니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> .gitignore 파일</strong></p>
-
-<p>project 폴더 안에서 굳이 추적할 필요가 없는 파일들도 존재합니다. 입출력 데이터파일이나 로그파일, 혹은 <code class="highlighter-rouge">.class</code>와 같은 파일들은
-굳이 Git을 이용해서 관리할 필요가 없습니다. 즉, 임시로 사용되거나 결과물로 생성되는 파일들이 이 범주에 들어갑니다.</p>
-
-<p>이런경우 <code class="highlighter-rouge">.gitignore</code> 파일을 이용해 추적 관리할 필요가 없는 파일을 배제시킬 수 있습니다. 그냥 만들어도 되지만 
-<a href="https://www.gitignore.io/" target="_blank">여기</a>로 이동해 보시면 조금 쉽게 <code class="highlighter-rouge">.gitignore</code> 파일의 내용을 만들어 복사해서 
-사용하실 수 있습니다.</p>
-
-<p><img src="assets/built/images/gitignore-io.png" alt="gitignore-io" /></p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Remote Repository</strong></p>
-
-<p>Git은 혼자 사용할 수 도 있지만 기본적으로 다른 사람과 협업을 하기 위한 도구입니다. 협업 도구로서 Git의 
-가장 큰 유용함은 <code class="highlighter-rouge">Remote Repository</code>(원격 저장소)에 있습니다.</p>
-
-<p>이 Remote Repository는 우리가 따로 구축해서 사용할 수 있습니다. 또한 이런 Remote Repository를 서비스하는 회사도 굉장히 많이 
-있습니다. Git 기반의 Remote Repository 중 가장 대표적인 것이 바로 <code class="highlighter-rouge">GitHub</code>입니다.</p>
-
-<p>Remote Repository를 쉽게 생각하자면 로컬에서 작업한 Git Local Repository가 외부에 있는거라고 생각하시면 됩니다. <code class="highlighter-rouge">GitHub</code>는
-이런 Remote Repository를 전세계적으로 서비스하고 있고 굉장히 많은 사람들이 GitHub를 자신들이 수행하고 있는 project의 
-Remote Repository로 이용하고 있습니다.</p>
-
-<p>GitHub에 있는 이런 Remote Repository는 크게 <code class="highlighter-rouge">public repository</code>와 <code class="highlighter-rouge">private repository</code>로 구분됩니다. 
-말 그대로 public repository는 아무나 파일들을 열람할 수 있도록 공개되어 있는 repository이고
-private repository는 권한을 가진 사람들만 사용할 수 있는 repository입니다.</p>
-
-<p>GitHub는 <code class="highlighter-rouge">Fork</code>와 <code class="highlighter-rouge">Pull Request</code>라는 기능을 제공하고 있습니다. 정확히 말하자면 이 Fork와 Pull Request는 Git이 제공하는 것이
-아니라 GitHub가 제공하는 서비스 입니다.</p>
-
-<ul>
-  <li>
-    <p>Fork : 다른 사람의 Repository를 통째로 내 GitHub 계정으로 복사해 오는 기능입니다. 즉, GitHub 계정간 Repository를 서로
-복사해 갈 수 있는 기능이라고 보시면 됩니다.</p>
-  </li>
-  <li>
-    <p>Pull Request : 다른 사람의 Repository를 Fork한 후 그 내용을 수정한 다음 원본 Repository에 수정된 내용을 보내 병합을
-요청할 수 있는데 이 작업을 Pull Request라고 합니다. 아무나 Repository를 수정할 수 있는 권한을 주게 되면 Repository는 금방
-엉망이 될 테니 READ기능(Fork)만 제공하고 병합시에는 요청을 받아서 처리하도록 합니다.</p>
-  </li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> GitHub에 Remote Repository 생성</strong></p>
-
-<p>그럼 이제 GitHub에 계정을 생성하고 Remote Repository를 생성해 사용하는 방법에 대해서 알아보겠습니다.</p>
-
-<p>GitHub에 계정을 생성하고 새로운 Repository를 생성하는 버튼을 클릭하면 다음과 같은 화면을 보실 수 있습니다. 
-Repository이름을 입력하고 간단한 설명을 입력합니다. Repository의 종류를 선택할 수 있는데 private은 비용을 지불해야 사용할 수 
-있습니다. 우리는 아까 만들어 놓은 Local Repository와 연결시키는 목적으로 사용할 것이기 때문에 README 파일을 만들지 않고
-Repository를 생성합니다.</p>
-
-<p><img src="assets/built/images/github-repository-create.png" alt="github-repository-create" /></p>
-
-<p>Repostiroy를 생성하면 다음과 같은 화면을 보실 수 있습니다. Repository에 현재 파일이 존재하지 않기 때문에
-이렇게 나오는 것이고 만약 특정 파일들이 저장되어 있으면 파일의 목록들이 보여지게 됩니다.</p>
-
-<p><img src="assets/built/images/github-repository-create-result.png" alt="github-repository-create-result" /></p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Remote Repository 관리 명령어</strong></p>
-
-<p>GitHub에 생성한 Remote Repository를 관리하기 위해서 Git은 몇몇개의 명령어를 제공합니다.</p>
-
-<ul>
-  <li><code class="highlighter-rouge">git clone</code> : Remote Repository의 모든 내용을 Local Repository로 복사합니다.</li>
-  <li><code class="highlighter-rouge">git remote</code> : Local Repository를 특정 Remote Repository와 연결시킬 때 사용합니다.</li>
-  <li><code class="highlighter-rouge">git push</code> : Local Repository에 추가된 파일이나 변경 사항을 연결된 Remote Repository에 저장하기 위해서 사용합니다.</li>
-  <li><code class="highlighter-rouge">get fetch</code> : Remote Repository와 Local Repository의 변경 사항이 다를 때 이를 비교 대조해서 충돌을 해결하고
-최신 데이터를 반영하기 위해서 사용합니다.</li>
-  <li><code class="highlighter-rouge">git pull</code> : 연결된 Remote Repository의 최신 내용을 Local Repository로 가져오면서 merge합니다. <code class="highlighter-rouge">git push</code>와 반대의 
-개념이라고 보시면 되지만 merge할 때 문제가 발생했을 때 추적이 어렵습니다. 따라서 <code class="highlighter-rouge">git pull</code>을 이용하는 것 보다는 일단
-<code class="highlighter-rouge">git fetch</code>로 변경사항을 받고 이를 확인해서 코드를 수정한 후 Local Repository에 commit한 다음 <code class="highlighter-rouge">git push</code>로 최종 변경 사항을
-Remote Repository에 반영하는게 더 좋은 방법입니다.</li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> git clone</strong></p>
-
-<p><code class="highlighter-rouge">git clone</code>은 Remote Repository에 있는 project를 내 컴퓨터로 가져올 때 사용합니다. 즉, GitHub에서 Local 환경으로 복사하는 
-작업입니다. 위에서 생성했던 MyProjectRemote란 GitHub Remote Repository를 Local로 clone해 보도록 하겠습니다.</p>
-
-<ul>
-  <li>
-    <p>먼저 Remote Repository의 주소를 복사합니다.
-<img src="assets/built/images/git-remote-repository-url.png" alt="git-remote-repository-url" /></p>
-  </li>
-  <li>
-    <p>로컬 컴퓨터에서 프로젝트를 저장할 폴더를 생성한 후 git clone을 이용해 저장소를 복사합니다. 
-<code class="highlighter-rouge">D:/GitHub</code> 폴더를 생성한 후 이 폴더 안에서 다음의 명령을 실행시킵니다.</p>
-  </li>
-</ul>
-
-<blockquote>
-  <p><strong>git clone https://github.com/moon9342/MyProjectRemote.git</strong></p>
-</blockquote>
-
-<p><img src="assets/built/images/github-repository-clone.png" alt="github-repository-clone" /></p>
-
-<p>정상적으로 clone이 진행되면 저장소 이름으로 폴더가 하나 생성되는것을 볼 수 있습니다. 당연히 이 폴더는 
-Remote Repository와 연결되어 있는 Local Repository가 됩니다.</p>
-
-<p>이해를 돕기 위해 순차적으로 생각해보면 다음과 같이 project가 진행될 수 있습니다.</p>
-
-<ul>
-  <li>
-    <p>협업을 책임지는 사람(PM)이 GitHub에 빈 Remote Repository를 생성합니다.</p>
-  </li>
-  <li>
-    <p>PM은 자신의 Local Repository에 project에 필요한 기본 구조와 여러가지 환경설정 그리고 개발한 필요한 기타 사항들을
-만들어서 저장합니다.</p>
-  </li>
-  <li>
-    <p>PM은 project의 뼈대가 담겨있는 이 Local Repository를 GitHub에 생성해 놓은 빈 Remote Repository와 연결합니다. 이때 
-<code class="highlighter-rouge">git remote</code> 명령을 이용하게 됩니다.</p>
-  </li>
-  <li>
-    <p>PM은 자신이 Local Repository에 가지고 있는 내용을 Remote Repository에 <code class="highlighter-rouge">push</code> 합니다.</p>
-  </li>
-  <li>
-    <p>이제 협업하는 사람 모두가 이 Remote Repository를 clone해서 로컬로 복사해 간 다음 자신이 해야 하는 작업을 진행합니다.</p>
-  </li>
-</ul>
-
-<p>위와 같은 식으로 생각하면 <code class="highlighter-rouge">git remote</code>와 <code class="highlighter-rouge">git clone</code>의 차이점을 이해할 수 있습니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> git remote</strong></p>
-
-<p>GitHub에 빈 Remote Repository를 생성한 후 <code class="highlighter-rouge">git remote</code>를 이용하여 Local Repository와 연결할 수 있습니다.
-다음과 같은 명령을 이용합니다.</p>
-
-<blockquote>
-  <p><strong>git remote add origin “Remote Repository URL”</strong></p>
-</blockquote>
-
-<p>연결이 성공했는지를 다음의 명령어를 이용해서 확인해 볼 수 있습니다.</p>
-
-<blockquote>
-  <p><strong>git remote -v</strong></p>
-</blockquote>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> git push</strong></p>
-
-<p><code class="highlighter-rouge">git remote</code>를 이용하여 Local Repository와 Remote Repository가 연결되었으면 이제 자신이 작업한 내용을
-Remote Repository에 upload를 할 수 있습니다.</p>
-
-<p>이 때 <code class="highlighter-rouge">git push</code> 명령을 이용하면 파일을 upload할 수 있는데 기본적으로 Remote Repository의 master branch에
-upload되게 됩니다. 따라서 만약 다른 branch의 내용을 upload하려 하면 다음과 같이 명령을 실행시켜야 합니다.</p>
-
-<blockquote>
-  <p><strong>git push origin “local branch명”</strong></p>
-</blockquote>
-
-<p>위의 명령에서 origin은 원격 저장소의 별칭입니다. <code class="highlighter-rouge">git remote</code>를 이용하여 Remote Repository를 연결할 때 
-이 <code class="highlighter-rouge">origin</code>이라는 별칭을 이용해서 원격 연결을 했었습니다.</p>
-
-<p>만약 <code class="highlighter-rouge">origin</code> 저장소에 Local의 모든 branch를 push하려면 다음과 같이 명령을 수행하시면 됩니다.</p>
-
-<blockquote>
-  <p><strong>git push origin --all</strong></p>
-</blockquote>
-
-<p><code class="highlighter-rouge">git push</code>가 진행될 때 Remote Repository에 같은 이름의 branch가 존재한다면 내용이 변경될 것이고 만약
-해당 branch가 존재하지 않는다면 새로운 branch를 Remote Repository에 생성하게 됩니다. 같은 이름의 branch가
-존재하지만 내역이 다르다면 당연히 push는 일어나지 않고 작업이 거부됩니다.</p>
-
-<p>간단한 예를 들자면 Local Repository의 master branch의 내용을 Remote Repository에 push하려면 다음과 같이
-실행하시면 됩니다.</p>
-
-<blockquote>
-  <p><strong>git push origin master</strong></p>
-</blockquote>
-
-<p>만약 Local Repository의 hotfix branch의 내용을 Remote Repository에 push하려면 다음과 같이 실행하시면 됩니다.</p>
-
-<blockquote>
-  <p><strong>git push origin hotfix</strong></p>
-</blockquote>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> git fetch &amp; git pull</strong></p>
-
-<p>Remote Repository를 이용하다 보면 다른 누군가가 먼저 commit할 경우가 있습니다. 이런 경우
-git은 당연히 파일의 내용이 서로 상이하기 때문에 push를 허용하지 않습니다.</p>
-
-<p>Remote Repository와 Local Repository를 적절히 서로 맞춰야 하며 이럴 때 사용하는 것이 <code class="highlighter-rouge">git fetch</code> 입니다.
-즉, fetch는 Remote Repository의 commit들을 Local Repository로 가져오는 역할을 하고 사용자는 
-Local Repository로 가져온 commit들을 자신의 작업과 적절히 병합하여 Remote Repository에 push해야 합니다.</p>
-
-<p><code class="highlighter-rouge">git pull</code>은 Remote Repository의 정보를 가져오면서 자동으로 Local branch에 병합하는 명령어 입니다. 편하게 
-사용할 수 는 있지만 만약 conflict가 발생하면 내역 확인이 쉽지 않은 단점이 있습니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Remote Branch를 Local로 가져오기</strong></p>
-
-<p>만약 Local Repository에 Remote Repository의 branch가 존재하지 않는다면 <code class="highlighter-rouge">git pull</code>을 이용한다해도 
-자동으로 Remote Repository에 있는 branch를 가져오지 못합니다.
-Remote Repository에 있는 branch를 Local Repository로 가져오실려면 다음과 같이 작업하셔야 합니다.</p>
-
-<p>우선 git remote에 대한 내역을 갱신해야 합니다. 해당 명령을 하지 않을 경우 나중에 branch를 찾지 못한다는 오류가 발생할 수 있기
-때문입니다. 다음과 같은 명령을 이용합니다.</p>
-
-<blockquote>
-  <p><strong>git remote update</strong></p>
-</blockquote>
-
-<p>그 다음은 Remote Repository의 branch내역을 확인해야겠죠. <code class="highlighter-rouge">-a</code> option을 이용하면 Remote Repository와 
-Local Repository의 모든 branch를 확인할 수 있습니다.</p>
-
-<blockquote>
-  <p><strong>git branch -r</strong></p>
-</blockquote>
-
-<p>이제 Local Repository에 동일 이름의 branch를 생성하면서 Remote Repostiroy의 branch를 가져온 후 
-해당 branch로 checkout을 해 보죠. 다음과 같이 실행하시면 됩니다.</p>
-
-<blockquote>
-  <p><strong>git checkout -t &lt;Remote_Branch_Name&gt;</strong></p>
-</blockquote>
-
-<p>만약 Local Repository에 같은 이름의 branch가 아니라 다름이름의 branch를 생성하고 싶을 경우는 
-아래처럼 <code class="highlighter-rouge">-b</code> option을 이용하시면 됩니다.</p>
-
-<blockquote>
-  <p><strong>git checkout -b &lt;Local_Branch_Name&gt; &lt;Remote_Branch_Name&gt;</strong></p>
-</blockquote>
-
-<p>End.</p>
-
-<hr />
-
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Jekyll 기반의 GitHub Page 생성(8)</title>
-	  <link>https://moon9342.github.io/jekyll-travis-ci-public</link>
-		
-				
-						<author>jekyll</author>
-				
-		
-				
-		
-				
-		
-				
-		
-				
-		
-				
-		
-	  <pubDate>2018-01-28T14:47:00+00:00</pubDate>
-	  <guid>https://moon9342.github.io/jekyll-travis-ci-public</guid>
-	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
-<ul class="table-of-contents-list">
-    <li><a href="./jekyll-start">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Travis CI 활용(public Repository)</strong></p>
-
-<p><code class="highlighter-rouge">CI</code> ( Continuous Integration )의 개념에 대해서 잘 알지 못하시는 분은 <a href="./continuous-integration.html" target="_blank">여기</a>를 클릭하셔서 
-간단하게 이해를 하고 오시면 됩니다.</p>
-
-<p>이 포스트에서는 <code class="highlighter-rouge">Travis CI</code>를 이용하여 Jekyll Source Folder안의 내용을 GitHub Repository에 commit했을 때 자동으로 GitHub Page에 
-블로그가 deploy되도록 하는 방법에 대해서 알아보겠습니다.</p>
-
-<p>일단은 사용하는 <code class="highlighter-rouge">GitHub Repository</code>는 모두 <code class="highlighter-rouge">Public</code>으로 되어 있다고 가정하고 진행합니다. 
-만약 Private Repository를 이용하실려면 좀 더 복잡한 처리와 돈이 들어갑니다. 
-(Travis CI는 GitHub Public Repository에 대해서는 무료이지만 Private Repository에 대해서는 일정량의 금액을 지불해야 합니다.)</p>
-
-<p>그럼 천천히 한번 진행해 보도록 하죠</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> GitHub에 2개의 Repository 준비</strong></p>
-
-<p>먼저 Jekyll Source Folder ( <code class="highlighter-rouge">D:/blogmaker</code> )에 대한 GitHub Repository를 준비합니다. Public으로 생성하셔야 합니다.
-저는 <code class="highlighter-rouge">GitHubPageMaker</code>라는 이름으로 Repository를 생성했습니다. <strong>생성할 때 README.md 파일을 추가해서 생성하지 않습니다.</strong></p>
-
-<blockquote>
-  <p><code class="highlighter-rouge">https://github.com/moon9342/GitHubPageMaker</code> 형태로 생성되겠군요.</p>
-</blockquote>
-
-<p>그 다음은 GitHub Page에서 운영할 블로그에 대한 GitHub Repository를 준비합니다. 역시 마찬가지로 Public으로 생성하셔야 합니다.
-Repository의 이름은 형식이 정해져 있습니다. <code class="highlighter-rouge">{GitHub ID}.github.io</code> 로 Repository를 생성하셔야 합니다. 
-<strong>생성할 때 README.md 파일 하나 추가해서 생성합니다.</strong></p>
-
-<blockquote>
-  <p><code class="highlighter-rouge">https://github.com/moon9342/moon9342.github.io</code> 형태로 생성되겠네요.</p>
-</blockquote>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Local Git Repository 생성 및 Remote 연결</strong></p>
-
-<p>GitHub에 원격 Repository가 생성되었으니 이번에는 로컬에 Repository를 생성합니다. <code class="highlighter-rouge">D:/blogmaker</code> 폴더에서 command 창을 열고
-다음을 입력합니다.</p>
-
-<blockquote>
-  <p><strong>git init</strong></p>
-</blockquote>
-
-<p><code class="highlighter-rouge">D:/blogmaker</code>에 git Repository를 생성합니다. 이제 다음의 명령어를 이용해서 로컬 Repository에 파일을 추가하고 commit까지 진행
-합니다.</p>
-
-<blockquote>
-  <p><strong>git add *</strong></p>
-</blockquote>
-
-<blockquote>
-  <p><strong>git commit -m “initial commit”</strong></p>
-</blockquote>
-
-<p>자 이제 원격 Repository와 연결하는 작업을 수행합니다. 다음의 명령을 이용합니다.</p>
-
-<blockquote>
-  <p><strong>git remote add origin https://github.com/moon9342/GitHubPageMaker.git</strong></p>
-</blockquote>
-
-<p>현재의 로컬 Repository가 원격 Repository와 연결되었습니다. 연결상태를 확인하려면 다음과 같이
-입력하면 됩니다.</p>
-
-<blockquote>
-  <p><strong>git remote -v</strong></p>
-</blockquote>
-
-<p><img src="assets/built/images/git-remote-v.png" alt="git remote -v" /></p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Git Submodule 생성</strong></p>
-
-<p>Jekyll Source Folder( <code class="highlighter-rouge">D:/blogmaker</code> )에 대한 Repository와 실제 블로그를 운영할 Repository를
-git submodule로 묶습니다. Submodule의 개념은 <a href="https://git-scm.com/book/ko/v1/Git-%EB%8F%84%EA%B5%AC-%EC%84%9C%EB%B8%8C%EB%AA%A8%EB%93%88" target="_blank">여기</a>
-나 혹은 다른 블로그를 참조하세요.</p>
-
-<p>command 창에서 다음과 같이 입력합니다. ( command 창의 현재 경로는 <code class="highlighter-rouge">D:/blogmaker</code> 입니다.)</p>
-
-<blockquote>
-  <p><strong>git submodule add https://github.com/moon9342/moon9342.github.io.git output</strong></p>
-</blockquote>
-
-<p>현재 Repository의 하위에 <code class="highlighter-rouge">output</code>이라는 이름의 폴더가 만들어지고 해당 폴더는 <code class="highlighter-rouge">moon9342.github.io</code> Repository에 
-대한 로컬 git Repository가 됩니다. ( 내부적으로 git clone이 실행됩니다. )</p>
-
-<p><code class="highlighter-rouge">output</code>이라는 이름은 다른 이름으로 변경하셔도 됩니다. 단 <code class="highlighter-rouge">_config.yml</code>에 있는 destination 속성의 값과 이 이름이 같아야 합니다.</p>
-
-<p>정상적으로 clone이 진행되어서 submodule이 생성되면 다음과 같이 입력합니다.</p>
-
-<blockquote>
-  <p><strong>git submodule update</strong></p>
-</blockquote>
-
-<p>git은 submodule에 대한 삭제명령을 제공하지 않기 때문에 만약 기존의 submodule을 삭제하려면 다음과 같이 해야 합니다.</p>
-<ul>
-  <li>Repository 루트에 있는 <code class="highlighter-rouge">.gitmodules</code> 파일 수정</li>
-  <li>Repository 루트의 <code class="highlighter-rouge">.git</code> 폴더안의 <code class="highlighter-rouge">config</code> 파일 수정 ( [submodule “xxx”] 부분 수정)</li>
-  <li>git의 cache에서 submodule 삭제 ( <code class="highlighter-rouge">git rm --cached module_path</code> )</li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> _config.yml 1차 수정</strong></p>
-
-<p>Jekyll Source Folder( <code class="highlighter-rouge">D:/blogmaker</code> )에 있는 내용을 컴파일 하면 그 결과가 output 폴더에 들어가도록
-<code class="highlighter-rouge">_config.yml</code>을 수정합니다.</p>
-
-<p><code class="highlighter-rouge">_config.yml</code>의 destination 부분을 찾아 <code class="highlighter-rouge">./output/</code>으로 수정합니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Travis 사이트에 접속</strong></p>
-
-<p>Travis 사이트에 접속해서 GitHub Repository에 대한 연결을 활성화 시킵니다.</p>
-
-<p>기본적으로 Public Repository만 사용할 수 있습니다. 만약 Private Repository를 사용하고 싶으면 
-별도의 비용을 지불해야 합니다. ( 비용이 좀 비싼편입니다. )</p>
-
-<ul>
-  <li><code class="highlighter-rouge">https://travis-ci.org</code> =&gt; Public Repository를 위한 site입니다. GitHub 계정으로 로그인 합니다.</li>
-  <li><code class="highlighter-rouge">https://travis-ci.com</code> =&gt; Private Repository를 위한 site입니다. GitHub 계정으로 로그인 합니다.</li>
-</ul>
-
-<p><img src="assets/built/images/travis-ci-login.png" alt="travis-ci login" /></p>
-
-<p>그림에서와 같이 연동할 GitHub Repository를 선택해서 Enabled 시켜줍니다.</p>
-
-<p>잠깐 정리하자면, 연동된 GitHub Repository인 GitHubPageMaker에 push가 이루어지면 Travis CI가 <code class="highlighter-rouge">.travis.yml</code> 설정파일을
-찾아서 이를 이용해 특정 작업을 수행하게 됩니다. 당연히 <code class="highlighter-rouge">GitHubPageMaker</code> Repository에 <code class="highlighter-rouge">.travis.yml</code> 파일을 작성해서 넣어 놓아야
-합니다.</p>
-
-<p>우리는 이 <code class="highlighter-rouge">.travis.yml</code>과 <code class="highlighter-rouge">Rakefile</code>을 이용하여 <code class="highlighter-rouge">output</code>안에 있는 내용을 commit하고 push하게 될 것입니다. <code class="highlighter-rouge">output</code>은 
-GitHub Page와 연동되는 Repository이기 때문에 결국 Jekyll로 컴파일한 내용이 GitHub Page Repository로 들어가게 되는 겁니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Token 생성</strong></p>
-
-<p>Travis CI에서 다른 Repository로 push를 하기 위해서는 <code class="highlighter-rouge">token</code>이 필요합니다.</p>
-
-<p>GitHub에 접속해 Setting &gt; Developer settings &gt; Personal access tokens에 들어가서 <code class="highlighter-rouge">Generate New Token</code>을 클릭합니다.
-적당히 description을 작성하고 Select scopes 중 <code class="highlighter-rouge">repo</code> 선택하고 generate token을 클릭하면 새로운 token이 생성
-됩니다. 이 token을 바로 이용할 건 아니기 때문에 어딘가에 잘 저장해 둡니다.</p>
-
-<p><img src="assets/built/images/github-personal-access-token.png" alt="github personal access token" /></p>
-
-<p>이 token값을 직접 Travis CI 설정파일( <code class="highlighter-rouge">.travis.yml</code> )에 직접 노출시키면 안되고 이 값을 암호화해서 사용해야 합니다.<br />
-일단 command 창을 열어서 travis gem을 설치합니다.</p>
-
-<blockquote>
-  <p><strong>gem install travis</strong></p>
-</blockquote>
-
-<p>설치가 끝나면 다음의 명령을 이용해서 암호화를 진행합니다. 만약 로그인을 안했다는 메시지가 나오면 
-다음과 같이 로그인 후 진행하시면 됩니다. (ID/PW는 GitHub의 ID/PW를 이용합니다.)</p>
-
-<blockquote>
-  <p><strong>travis login --pro</strong></p>
-</blockquote>
-
-<blockquote>
-  <p><strong>travis encrypt GITHUB_TOKEN=&lt;token&gt; -r &lt;repo-name&gt;</strong></p>
-</blockquote>
-
-<p>여기서 <code class="highlighter-rouge">&lt;token&gt;</code>에는 아까 우리가 획득한 GitHub token을 넣어주시면 됩니다. <code class="highlighter-rouge">&lt;repo-name&gt;</code>부분에는 우리의
-Jekyll Source Folder에 대한 Repository이름을 주면 됩니다. 주의하실점은 <code class="highlighter-rouge">{ID/RepoName}</code> 형태로 사용하셔야 
-합니다. 저의 경우를 예로 들자면 다음과 같습니다.</p>
-
-<blockquote>
-  <p><strong>travis encrypt GITHUB_TOKEN=123abc456xxx -r moon9342/GitHubPageMaker</strong></p>
-</blockquote>
-
-<p>위의 과정을 거치면 암호화된 값을 얻을 수 있는데 이 값을 아래와 같이 <code class="highlighter-rouge">.travis.yml</code>안에 설정하시면 됩니다.</p>
-
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">env</span><span class="pi">:</span>
-  <span class="na">global</span><span class="pi">:</span>
-    <span class="na">secure</span><span class="pi">:</span> <span class="s2">"</span><span class="s">여기에</span><span class="nv"> </span><span class="s">암호화된</span><span class="nv"> </span><span class="s">값을</span><span class="nv"> </span><span class="s">넣습니다."</span>
-<span class="na">branches</span><span class="pi">:</span>
-  <span class="na">only</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">master</span>
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 사용되는 파일 수정</strong></p>
-
-<p>이제 <code class="highlighter-rouge">_config.yml</code>, <code class="highlighter-rouge">.travis.yml</code>, <code class="highlighter-rouge">Rakefile</code> 파일을 아래와 같이 적절하게 수정해야 합니다. 
-<code class="highlighter-rouge">Ruby</code>언어로 작성된 script를 보는게 영 껄끄럽지만 어렵지 않는 내용이니 천천히 보시면 됩니다.</p>
-
-<p><code class="highlighter-rouge">_config.yml</code> 파일입니다.</p>
-<noscript><pre># Jekyll configuration
-markdown: kramdown
-# kramdown : markdown의 개조판.
-# markdown에서 불편한 사항을 개선한 형태.
-
-highlighter: rouge
-# text highlighter로 rouge이용
-# 2016.02월 이후로 syntax highlighter는 rouge만 지원.
-# Pygments 사용불가.
-
-paginate: 10
-# 작성한 모든 post를 하나의 페이지에 열거할 수 없으니
-# pagination이 필요하고 몇개의 post를 하나의 page에서
-# 보여줄 건지를 설정.
-
-language: &#39;en-uk&#39;
-# 언어 설정
-
-url: https://moon9342.github.io
-# Google Search Console에서 사용하는 sitemap.xml 생성시
-# 이 url key값이 존재하지 않으면 sitemap.xml이
-# 정상적으로 생성되지 않는다.
-# 또한 disqus(댓글시스템)를 이용하기 위해서도 필요.
-# 자신의 github page url을 입력
-# ( https://your_github_id.github.io 형식 )
-
-baseurl: /
-
-# Website info
-title: IT Blog
-# 자신의 blog title.
-
-description: Development &amp; Technical Training
-# blog home에 표시될 blog에 대한 전반적인 설명.
-
-cover: assets/built/images/blog-cover.png
-# blog home에 표시될 blog cover image.
-
-logo:
-logo_dark:
-
-favicon: assets/built/images/favicon.jpg
-# favicon으로 사용할 image
-
-production_url: https://moon9342.github.io/
-# 최종적으로 blog가 운영될 url
-
-source_url: https://github.com/moon9342/GitHubPageMaker/
-# blogmaker(jekyll source folder)에 대한 github repository
-
-# Social info
-navigation: True
-# Navigation bar link를 보여줄건지 여부
-
-subscribers: True
-# subscriber 기능을 사용할건지의 여부
-# 저는 약간의 수정을 통해 subscriber 기능대신
-# lunr.js를 이용한 검색 기능으로 대체 사용했습니다.
-# 검색기능으로 대체하기 위해서
-# `_includes/subscribe-form.html` 파일의 수정이 필요합니다.
-
-twitter:
-facebook:
-# 만약 twitter와 facebook을 이용하면 username을 입력
-
-# Disqus
-disqus: True
-disqus_shortname: sunghoons-blog
-# disqus는 온라인 댓글 시스템. 댓글 기능을 사용하기 위해
-# disqus를 이용할 것인지 여부와 만약 사용하면
-# disqus shortname을 입력 ( disqus username이 아님 )
-
-
-# Google Analytics
-google_analytics:  # replace with your GA tracking identifier
-# Google Analytics을 사용할 경우 GA tracking identifier를 입력
-
-# Permalinks
-permalink: /:title
-# permalink: /author/:author
-# permalink: /tag/:title
-# 각각의 post에 고정주소를 어떤 방식으로 할당할 것인지를 결정
-# 이 값을 바꾸면 작성한 포스트의 저장위치나 파일이름이 변경된다.
-
-# gems and other configs
-plugins: [jekyll-paginate, jekyll-feed, jekyll-gist]
-exclude: [vendor]
-
-feed:
-  path: feed.xml
-
-# Travis-CI 설정입니다.
-safe: False
-lsi: False
-
-username: moon9342
-repo: GitHubPageMaker
-# username : travis-ci와 연동하는 github의 username
-# repo: travis-ci와 연동하는 github의 repository이름
-# https://github.com/&lt;username&gt;/&lt;repository&gt;
-
-branch: master
-# 사용할 branch명
-
-relative_source: 
-
-destination: ./output/
-# compile된 결과가 생성되는 폴더
-# 이 폴더안으로 우리가 운영하는 블로그 내용이 컴파일되서 들어간다.
-# 이 폴더안의 내용을 github repository(https://username.github.io)에 push
-# 만약 Travis-CI를 이용할 예정이면 이 부분을 git submodule로
-# github repository(https://username.github.io)에 연결해야 한다.
-
-production_url:  https://moon9342.github.io/
-source_url:  https://github.com/moon9342/GitHubPageMaker/
-
-# exclude는 Jekyll컴파일 시 destination에 포함될 필요가
-# 없는것들을 명시한다. (node_modules는 포함시키자)
-exclude:
-  - README.md
-  - Rakefile
-  - Gemfile
-  - Gemfile.lock
-  - changelog.md
-  - &quot;*.Rmd&quot;
-  - vendor
-  - .travis.yml
-  - node_modules</pre></noscript>
-<script src="https://gist.github.com/moon9342/d37bb68b8a51c21d4fe6d1b03dfdfa3e.js"> </script>
-
-<p><code class="highlighter-rouge">.travis.yml</code> 파일입니다.</p>
-<noscript><pre>sudo: false
-language: ruby
-cache: bundler
-rvm:
-- 2.4.2
-
-install:
-  # Install Jekyll and dependencies
-  - bundle install
-
-before_script:
-  - git config --global user.email &quot;moon9342@gmail.com&quot;
-  - git config --global user.name &quot;Moon Sung Hoon&quot;
-
-script: bundle exec rake site:deploy --quiet #--trace
-
-# Generate your secure token with the travis gem:
-# get Github token from your Travis CI profile page
-# gem install travis
-# GH_TOKEN from https://github.com/settings/tokens
-# travis encrypt &#39;GIT_NAME=&quot;YOUR_USERNAME&quot; GIT_EMAIL=&quot;YOUR_EMAIL&quot; GH_TOKEN=YOUR_TOKEN&#39;
-env:
-  global:
-    secure: &quot;xxxxxxxxxxxxxxxxxxxx&quot;
-branches:
-  only:
-    - master
-</pre></noscript>
-<script src="https://gist.github.com/moon9342/b413a66b009fa6d2a0018bea7cc00f2f.js"> </script>
-
-<p><code class="highlighter-rouge">Rakefile</code> 파일입니다.</p>
-<noscript><pre>#############################################################################
-#
-# Modified version of jekyllrb Rakefile
-# https://github.com/jekyll/jekyll/blob/master/Rakefile
-#
-#############################################################################
-
-require &#39;rake&#39;
-require &#39;date&#39;
-require &#39;yaml&#39;
-
-CONFIG = YAML.load(File.read(&#39;_config.yml&#39;))
-USERNAME = CONFIG[&quot;username&quot;]
-REPO = CONFIG[&quot;repo&quot;]
-SOURCE_BRANCH = CONFIG[&quot;branch&quot;]
-DESTINATION_BRANCH = &quot;master&quot;
-
-def check_destination
-  unless Dir.exist? CONFIG[&quot;destination&quot;]
-    sh &quot;git clone https://$GIT_NAME:$GITHUB_TOKEN@github.com/#{USERNAME}/#{REPO}.git #{CONFIG[&quot;destination&quot;]}&quot;
-  end
-end
-
-namespace :site do
-  desc &quot;Generate the site&quot;
-  task :build do
-    check_destination
-    sh &quot;bundle exec jekyll build&quot;
-  end
-
-  desc &quot;Generate the site and serve locally&quot;
-  task :serve do
-    check_destination
-    sh &quot;bundle exec jekyll serve&quot;
-  end
-
-  desc &quot;Generate the site, serve locally and watch for changes&quot;
-  task :watch do
-    sh &quot;bundle exec jekyll serve --watch&quot;
-  end
-
-  desc &quot;Generate the site and push changes to remote origin&quot;
-  task :deploy do
-    # Detect pull request
-    if ENV[&#39;TRAVIS_PULL_REQUEST&#39;].to_s.to_i &gt; 0
-      puts &#39;Pull request detected. Not proceeding with deploy.&#39;
-      exit
-    end
-
-    # Configure git if this is run in Travis CI
-    if ENV[&quot;TRAVIS&quot;]
-      sh &quot;git config --global user.name $GIT_NAME&quot;
-      sh &quot;git config --global user.email $GIT_EMAIL&quot;
-      sh &quot;git config --global push.default simple&quot;
-    end
-
-    # Make sure destination folder exists as git repo
-    check_destination
-
-    sh &quot;git checkout #{SOURCE_BRANCH}&quot;
-    Dir.chdir(CONFIG[&quot;destination&quot;]) { sh &quot;git checkout #{DESTINATION_BRANCH}&quot; }
-
-    # Generate the site
-    sh &quot;bundle exec jekyll build&quot;
-
-    # Commit and push to github
-    sha = `git log`.match(/[a-z0-9]{40}/)[0]
-    Dir.chdir(CONFIG[&quot;destination&quot;]) do
-      # check if there is anything to add and commit, and pushes it
-      sh &quot;if [ -n &#39;$(git status)&#39; ]; then
-            git add --all .;
-            git commit -m &#39;Updating to #{USERNAME}/#{REPO}@#{sha}.&#39;;
-            git push https://$GITHUB_TOKEN@github.com/#{USERNAME}/#{USERNAME}.github.io.git #{DESTINATION_BRANCH} --quiet ;
-         fi&quot;
-      puts &quot;Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages&quot;
-    end
-  end
-end</pre></noscript>
-<script src="https://gist.github.com/moon9342/7e5e5f21be31f2195f6d99bcac627bfe.js"> </script>
-
-<hr />
-
-<p>모든 설정이 끝났습니다. 이제 GitHub에 push작업을 해 보시면 Travis CI가 동작하면서 내부적으로 처리해서 결과를
-알려줍니다. 해보시면 아시겠지만 거의 스팸메일처럼 날라옵니다.</p>
-
-<p><code class="highlighter-rouge">Travis CI</code> 사이트에 들어가면 CI Server가 어떻게 처리하는지를 실시간적으로 log를 출력해 보여주는데 그걸 보시면서 
-혹 문제가 있는 부분이 있으면 해결하시면 됩니다.</p>
-
-<p><img src="assets/built/images/travis-ci-result.png" alt="travis-ci result" /></p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Private Repository 사용</strong></p>
-
-<p>우리는 두개의 Repository를 사용하고 있고 둘 다 Public으로 사용하고 있습니다. 당연한 말이지만
-이 중 중요한 것은 여러 설정과 실제 원본내용이 들어있는 Jekyll Source Folder에 대한 Repository인
-GitHubPageMaker Repository입니다. {GitHub ID}.github.io Repository는 Public으로 설정하고 
-<code class="highlighter-rouge">Jekyll Source Folder</code>는 <code class="highlighter-rouge">Private</code>으로 관리하고 싶은 경우는 위의 과정에서 약간만 손보시면 됩니다.</p>
-
-<ul>
-  <li>GitHub에서 해당 Repository를 Private으로 설정합니다.</li>
-  <li><code class="highlighter-rouge">travis-ci.com</code>으로 접속하셔서 Private Repository에 대한 연결을 활성화 시킵니다.</li>
-  <li>획득한 token을 암호화 시키는 부분에서 다음과 같이 <code class="highlighter-rouge">--pro</code> 옵션을 추가합니다.</li>
-</ul>
-
-<blockquote>
-  <p><strong>travis encrypt GITHUB_TOKEN=123abc456xxx -r moon9342/GitHubPageMaker --pro</strong></p>
-</blockquote>
-
-<p>나머지 부분은 동일합니다.</p>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> Travis CI를 이용할 경우 속도문제</strong></p>
-
-<p>Travis CI를 돌려보면 알겠지만 내부적으로 <code class="highlighter-rouge">bundle install</code>을 매번 수행합니다. 이 간단한 것 하나 해결하는데
-2분가량의 시간이 걸리고 대부분의 시간이 설치시간입니다. 이 문제를 해결할 수 있는 방법 역시 있습니다.</p>
-
-<p><code class="highlighter-rouge">cache</code> 처리인데요. 이 부분은 나중에 포스팅 할 예정입니다. 
-문제가 꼬리에 꼬리를 물면서 계속 튕겨 나오네요. 그러면서 배우는 거죠 머 ^^;
-일단 이런 문제가 있어요~ 라는 문제 제기만 하고 이번 글은 정리하도록 하겠습니다.</p>
-
-<p>End.</p>
-
-<hr />
-
-
-	  ]]></description>
-	</item>
-
-	<item>
 	  <title>What is Continuous Integration?</title>
 	  <link>https://moon9342.github.io/continuous-integration</link>
 		
@@ -2188,276 +1051,6 @@ Font Awesome의 폰트는 <code class="highlighter-rouge">GPL</code> 라이선�
 	</item>
 
 	<item>
-	  <title>Jekyll 기반의 GitHub Page 생성(7)</title>
-	  <link>https://moon9342.github.io/jekyll-gist</link>
-		
-				
-						<author>jekyll</author>
-				
-		
-				
-		
-				
-		
-				
-		
-				
-		
-				
-		
-	  <pubDate>2018-01-25T15:30:00+00:00</pubDate>
-	  <guid>https://moon9342.github.io/jekyll-gist</guid>
-	  <description><![CDATA[
-	     <p><span class="table-of-contents-list">Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다.</span></p>
-<ul class="table-of-contents-list">
-    <li><a href="./jekyll-start">Jekyll 기반의 GitHub Page 생성(1) - 환경설정</a></li>
-    <li><a href="./jekyll-struct">Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing</a></li>
-    <li><a href="./jekyll-font">Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트 설정</a></li>
-    <li><a href="./jekyll-rouge">Jekyll 기반의 GitHub Page 생성(4) - rouge를 이용한 syntax highlighting</a></li>
-    <li><a href="./jekyll-search">Jekyll 기반의 GitHub Page 생성(5) - lunr.js를 이용한 Search 기능 추가</a></li>
-    <li><a href="./jekyll-sitemap">Jekyll 기반의 GitHub Page 생성(6) - Google Search Console 활용</a></li>
-    <li><a href="./jekyll-gist">Jekyll 기반의 GitHub Page 생성(7) - GitHub Gist 활용</a></li>
-    <li><a href="./jekyll-travis-ci-public">Jekyll 기반의 GitHub Page 생성(8) - Travis CI 활용(public Repository)</a></li>
-    <li><a href="./jekyll-regenerate-speed-up">Jekyll 기반의 GitHub Page 생성(9) - Jekyll site regeneration 속도 향상시키기</a></li>
-</ul>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> GitHub Gist 활용</strong></p>
-
-<p><code class="highlighter-rouge">GitHub</code>의 <code class="highlighter-rouge">Gist</code>에 대해서 잘 알지 못하시는 분은 <a href="./github-gist.html" target="_blank">여기</a>를 클릭하셔서 
-간단하게 Gist에 대한 이해를 하고 오시면 됩니다.</p>
-
-<p>그럼 설치부터 천천히 알아보도록 하죠.</p>
-
-<hr />
-
-<p>먼저 <code class="highlighter-rouge">gist</code>를 사용할 수 있도록 gem을 설치해야 합니다. 아래와 같이 command 창에서 명령어를 입력합니다.</p>
-
-<blockquote>
-  <p><strong>gem install jekyll-gist</strong></p>
-</blockquote>
-
-<p>gem 설치가 끝나면 <code class="highlighter-rouge">_config.yml</code>을 수정해야 합니다.</p>
-
-<p>아래의 코드는 저의 <code class="highlighter-rouge">_config.yml</code>입니다.</p>
-
-<noscript><pre># Jekyll configuration
-markdown: kramdown
-# kramdown : markdown의 개조판.
-# markdown에서 불편한 사항을 개선한 형태.
-
-highlighter: rouge
-# text highlighter로 rouge이용
-# 2016.02월 이후로 syntax highlighter는 rouge만 지원.
-# Pygments 사용불가.
-
-paginate: 10
-# 작성한 모든 post를 하나의 페이지에 열거할 수 없으니
-# pagination이 필요하고 몇개의 post를 하나의 page에서
-# 보여줄 건지를 설정.
-
-language: &#39;en-uk&#39;
-# 언어 설정
-
-url: https://moon9342.github.io
-# Google Search Console에서 사용하는 sitemap.xml 생성시
-# 이 url key값이 존재하지 않으면 sitemap.xml이
-# 정상적으로 생성되지 않는다.
-# 또한 disqus(댓글시스템)를 이용하기 위해서도 필요.
-# 자신의 github page url을 입력
-# ( https://your_github_id.github.io 형식 )
-
-baseurl: /
-
-# Website info
-title: IT Blog
-# 자신의 blog title.
-
-description: Development &amp; Technical Training
-# blog home에 표시될 blog에 대한 전반적인 설명.
-
-cover: assets/built/images/blog-cover.png
-# blog home에 표시될 blog cover image.
-
-logo:
-logo_dark:
-
-favicon: assets/built/images/favicon.jpg
-# favicon으로 사용할 image
-
-production_url: https://moon9342.github.io/
-# 최종적으로 blog가 운영될 url
-
-source_url: https://github.com/moon9342/GitHubPageMaker/
-# blogmaker(jekyll source folder)에 대한 github repository
-
-# Social info
-navigation: True
-# Navigation bar link를 보여줄건지 여부
-
-subscribers: True
-# subscriber 기능을 사용할건지의 여부
-# 저는 약간의 수정을 통해 subscriber 기능대신
-# lunr.js를 이용한 검색 기능으로 대체 사용했습니다.
-# 검색기능으로 대체하기 위해서
-# `_includes/subscribe-form.html` 파일의 수정이 필요합니다.
-
-twitter:
-facebook:
-# 만약 twitter와 facebook을 이용하면 username을 입력
-
-# Disqus
-disqus: True
-disqus_shortname: sunghoons-blog
-# disqus는 온라인 댓글 시스템. 댓글 기능을 사용하기 위해
-# disqus를 이용할 것인지 여부와 만약 사용하면
-# disqus shortname을 입력 ( disqus username이 아님 )
-
-
-# Google Analytics
-google_analytics:  # replace with your GA tracking identifier
-# Google Analytics을 사용할 경우 GA tracking identifier를 입력
-
-# Permalinks
-permalink: /:title
-# permalink: /author/:author
-# permalink: /tag/:title
-# 각각의 post에 고정주소를 어떤 방식으로 할당할 것인지를 결정
-# 이 값을 바꾸면 작성한 포스트의 저장위치나 파일이름이 변경된다.
-
-# gems and other configs
-plugins: [jekyll-paginate, jekyll-feed, jekyll-gist]
-exclude: [vendor]
-
-feed:
-  path: feed.xml
-
-# Travis-CI 설정입니다.
-safe: False
-lsi: False
-
-username: moon9342
-repo: GitHubPageMaker
-# username : travis-ci와 연동하는 github의 username
-# repo: travis-ci와 연동하는 github의 repository이름
-# https://github.com/&lt;username&gt;/&lt;repository&gt;
-
-branch: master
-# 사용할 branch명
-
-relative_source: 
-
-destination: ./output/
-# compile된 결과가 생성되는 폴더
-# 이 폴더안으로 우리가 운영하는 블로그 내용이 컴파일되서 들어간다.
-# 이 폴더안의 내용을 github repository(https://username.github.io)에 push
-# 만약 Travis-CI를 이용할 예정이면 이 부분을 git submodule로
-# github repository(https://username.github.io)에 연결해야 한다.
-
-production_url:  https://moon9342.github.io/
-source_url:  https://github.com/moon9342/GitHubPageMaker/
-
-# exclude는 Jekyll컴파일 시 destination에 포함될 필요가
-# 없는것들을 명시한다. (node_modules는 포함시키자)
-exclude:
-  - README.md
-  - Rakefile
-  - Gemfile
-  - Gemfile.lock
-  - changelog.md
-  - &quot;*.Rmd&quot;
-  - vendor
-  - .travis.yml
-  - node_modules</pre></noscript>
-<script src="https://gist.github.com/moon9342/d37bb68b8a51c21d4fe6d1b03dfdfa3e.js"> </script>
-
-<p>위의 코드는 <code class="highlighter-rouge">gist</code>를 이용하여 불러온 코드입니다.</p>
-
-<p>중간쯤에</p>
-<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">plugins</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">jekyll-paginate</span><span class="pi">,</span> <span class="nv">jekyll-feed</span><span class="pi">,</span> <span class="nv">jekyll-gist</span><span class="pi">]</span>
-</code></pre></div></div>
-<p>부분처럼 설치한 <code class="highlighter-rouge">jekyll-gist</code>를
-추가시킵니다.</p>
-
-<p>그리고 포스트를 하나 생성해서 다음과 같은 구문을 이용하여 gist를 불러오면 됩니다.
-gist를 불러올 때 JavaScript 링크를 붙였넣는것이 아닙니다. 만약 불러올 링크가 아래와 같으면</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://gist.github.com/moon9342/d37bb68b8a51c21d4fe6d1b03dfdfa3e.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre></div></div>
-
-<p>여기에서</p>
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>moon9342/d37bb68b8a51c21d4fe6d1b03dfdfa3e
-</code></pre></div></div>
-<p>부분만 이용합니다. <br />
-즉, 아래와 같이 불러오시면 됩니다.</p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{% gist moon9342/d37bb68b8a51c21d4fe6d1b03dfdfa3e %}
-
-</code></pre></div></div>
-
-<hr />
-
-<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 오류 해결</strong></p>
-
-<p>한방에 된다면 좋겠지만 잘 안될 수 있습니다.</p>
-
-<p>가장 많이 나는 오류는 <code class="highlighter-rouge">SSL_connect</code> 오류입니다. <code class="highlighter-rouge">Windows 10</code> 사용자들은 다음과 
-같은 오류가 높은 확률로 발생합니다.</p>
-
-<blockquote>
-  <p><strong>SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed</strong></p>
-</blockquote>
-
-<p>에러 메시지를 보니 그냥 해결할 수 있는 종류가 아닌 듯 보입니다. <code class="highlighter-rouge">Stack Overflow</code> 사이트에서 찾아보면 몇가지 해결 방안을 
-발견할 수 있습니다.</p>
-
-<p>command 창을 열고 다음과 같이 하나하나 실행 하시면 됩니다.</p>
-
-<blockquote>
-  <p><strong>gem update --system</strong></p>
-</blockquote>
-
-<blockquote>
-  <p><strong>gem install rubygems-update</strong></p>
-</blockquote>
-
-<blockquote>
-  <p><strong>update_rubygems</strong></p>
-</blockquote>
-
-<p>위의 과정은 <code class="highlighter-rouge">RubyGem</code>을 최신으로 upgrade 시키는 작업입니다.</p>
-
-<p>그런 다음 <a href="./cacert.pem" target="_blank">링크</a>를 클릭해서 파일 하나를 다운로드 받습니다. 
-이 파일은 <code class="highlighter-rouge">.pem</code> 파일로 certificate 역할을 하는 파일입니다.
-파일을 다운로드해서 적절한 위치에 복사합니다. (원하는 폴더에 저장해놓으면 됩니다.)</p>
-
-<p>저는 <code class="highlighter-rouge">D:/myRuby</code> 폴더를 생성하고 이 안에 해당 파일을 복사해 넣었습니다. 파일이름은 <code class="highlighter-rouge">cacert.pem</code>이라고 했습니다.</p>
-
-<p><strong>이제 시스템 환경변수를 하나 생성합니다.</strong> 환경변수 이름은 <code class="highlighter-rouge">SSL_CERT_FILE</code>로 하셔야 하며 환경변수의 값으로
-파일에 대한 절대경로를 넣어줍니다. 저같은 경우는 <code class="highlighter-rouge">D:/myRuby/cacert.pem</code>로 설정해야 겠네요.</p>
-
-<p>여기까지 진행했으면 command 창을 다시 열어서(환경변수가 변경되었으니 다시 열어야죠!) 블로그를 다시 build 하시면 됩니다.</p>
-
-<p>SSL_connect 문제에 대한 보다 자세한 설명은 <a href="https://github.com/jekyll/jekyll/issues/3985" target="_blank">링크</a>에서 
-확인하실 수 있습니다.</p>
-
-<hr />
-
-<p>위와 같이 해서 Code Snippet을 원하는 곳에 붙여 사용할 수 있습니다. gist에서 제공하는
-default theme가 맘에 안드시면 다음의 <a href="http://codersblock.com/blog/customizing-github-gists/" target="_blank">CUSTOMIZING GITHUB GISTS</a>를 
-방문해 보세요. 조금만 살펴보시면 원하는 style로 gist를 사용하실 수 있습니다.</p>
-
-<p>End.</p>
-
-<hr />
-
-
-	  ]]></description>
-	</item>
-
-	<item>
 	  <title>What is GitHub Gist?</title>
 	  <link>https://moon9342.github.io/github-gist</link>
 		
@@ -2589,6 +1182,180 @@ Liquid template을 이용해서 블로그에 포함시키는 방법을 이용합
 
 <p>i18n 작업을 할 때 <strong>주의해야 할 점</strong>에 대해서는 다른 훌륭한 포스트들을 참조해주세요~ 사실 저도
 작업 경험이 딱 한번 있습니다. (<del>하고 싶지 않아요.. 할 생각도 없구요</del>)</p>
+
+<p>End.</p>
+
+<hr />
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>What is Meta Programming?</title>
+	  <link>https://moon9342.github.io/what-is-metaprogramming</link>
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>fragmentary-knowledge</author>
+				
+		
+				
+		
+				
+		
+	  <pubDate>2018-01-21T15:00:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/what-is-metaprogramming</guid>
+	  <description><![CDATA[
+	     <p><strong class="post_introduction">Introduction</strong></p>
+
+<p>특정 형태의 코드를 작성한 후 컴파일하면 그 코드가 의미하는 다른언어의 코드( <code class="highlighter-rouge">Java</code>나 <code class="highlighter-rouge">C++</code> )가 생성되는 프로그래밍을 
+지칭합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 메타프로그래밍 이란?</strong></p>
+
+<p>메타프로그래밍( <code class="highlighter-rouge">template metaprogramming</code> )이라고 불리는 프로그래밍 기법은 template을 
+기반으로 compiler에게 다른 언어의 프로그램 코드를 생성하도록 하는 방식을 지칭합니다. 결과물이 machine code가 아닌
+다른 프로그래밍언어로 전환되는 것이기 때문에 compiler라는 용어대신에 <code class="highlighter-rouge">transpiler</code>라는 표현을 쓰기도 합니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> 장점과 단점</strong></p>
+
+<p>이런 Meta Programming은 다음과 같은 장점과 단점을 가지고 있습니다.</p>
+
+<p><strong>Advantage</strong></p>
+
+<ul>
+  <li>컴파일 타임에 최적화가 이루어지고 결과적으로 실행 시 수행속도가 빨라질 수 있습니다.</li>
+  <li>일반화 프로그래밍( <code class="highlighter-rouge">Generic Programming</code> )이 가능합니다. 프로그래머는 처리할 
+구조와 데이터에 집중하고 컴파일러에 의해 특정 언어로 변환이 되는 구조이기 
+때문입니다.</li>
+  <li>결과로 도출되는 언어가 갖지 못하는 여러가지 개념들을 template에 정의해서 작성하고 이를
+결과언어로 적절하게 표현하여 기능상의 확장을 손쉽게 가져올 수 있습니다.</li>
+</ul>
+
+<p><strong>Disadvantage</strong></p>
+
+<ul>
+  <li>일반적으로 Template Metaprogramming은 또 다른 형식으로 프로그래밍 하기 때문에
+코드 자체가 더 난해합니다. 즉, <code class="highlighter-rouge">Readability</code>에 문제가 있습니다.</li>
+  <li>compiler에 의해서 새로운 코드가 생성되는 구조이기 때문에 compiler에 대한 의존도가 
+상당히 높습니다. 따라서 이식성의 문제가 발생할 여지를 가지고 있습니다.</li>
+</ul>
+
+<p>End.</p>
+
+<hr />
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>What is YAML?</title>
+	  <link>https://moon9342.github.io/what_is_yaml</link>
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>fragmentary-knowledge</author>
+				
+		
+				
+		
+				
+		
+	  <pubDate>2018-01-18T11:00:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/what_is_yaml</guid>
+	  <description><![CDATA[
+	     <p><strong class="post_introduction">Introduction</strong></p>
+
+<p><code class="highlighter-rouge">YAML</code>은 <code class="highlighter-rouge">JSON</code>이나 <code class="highlighter-rouge">XML</code>처럼 데이터를 표현하는 하나의 양식입니다. 처음에는 좀 다른 의미였지만 현재는
+데이터를 표현하는 목적으로 사용됩니다.</p>
+
+<hr />
+
+<p><strong><i class="fa fa-bolt" style="color:#01077c"></i> YAML 이란?</strong></p>
+
+<p><code class="highlighter-rouge">YAML</code>은 데이터를 사람이 쉽게 읽을 수 있는 형태로 표현하는데 사용되는 데이터 직렬화 양식입니다.</p>
+
+<p>데이터 직렬화(Data Serialization)란 구조화된 데이터를 특정 format으로 변환하는 개념입니다.
+단, 변환된 format은 본래 구조화된 데이터로 복구될 수 있어야 하고 변환된 format 형태로 공유 혹은 저장되는 것을 허용해야 합니다.</p>
+
+<p>YAML과 마찬가지로 우리가 자주 사용하는 <code class="highlighter-rouge">XML</code>이나 <code class="highlighter-rouge">JSON</code> 역시 데이터 직렬화 양식입니다.</p>
+
+<p>YAML 이라는 이름은 원래 <strong>Yet Another Markup Language</strong>(또 다른 마크업 언어)의 약어였으나 YAML의 실제 사용이
+마크업이 아닌 데이터 중심으로 사용되기 시작하자 <strong>YAML Ain’t Markup Language</strong>(YAML은 마크업 언어가 아니다)라는
+재귀적인 이름으로 변경되었습니다.</p>
+
+<p>우리나라 말로는 <strong>야믈</strong> 이라고 발음합니다.</p>
+
+<p>일반적으로 <code class="highlighter-rouge">Ruby</code>나 <code class="highlighter-rouge">Python</code> 개발자는 property파일로 많이 이용하고 있지만 <code class="highlighter-rouge">C#</code>이나 <code class="highlighter-rouge">Java</code> 개발자에게는 좀 생소합니다.
+Spring Boot도 현재 YAML을 지원하고 있습니다.</p>
+
+<p>일단 YAML은 property 형태로 어떻게 사용된다라는 식으로만 알고 있어도 충분할 듯 싶습니다. 혹시 나중에 YAML을
+본격적으로 사용하게 되는 날이 오면 그 때 조금 더 자세히 알아보도록 하겠습니다.</p>
+
+<p>(<del>그런데 사실.. 그런날은 올거 같지 않습니다.</del>)</p>
+
+<p>End.</p>
+
+<hr />
+
+	  ]]></description>
+	</item>
+
+	<item>
+	  <title>GitHub Page에서 Image Resize 방법</title>
+	  <link>https://moon9342.github.io/kramdown-image-resize</link>
+		
+				
+		
+				
+		
+				
+		
+				
+						<author>fragmentary-knowledge</author>
+				
+		
+				
+		
+				
+		
+	  <pubDate>2018-01-18T10:00:00+00:00</pubDate>
+	  <guid>https://moon9342.github.io/kramdown-image-resize</guid>
+	  <description><![CDATA[
+	     <p><strong class="post_introduction">Introduction</strong></p>
+
+<p>kramdown에서 image를 표현할 때 resize하는 방법입니다.</p>
+
+<hr />
+
+<p>기본 <code class="highlighter-rouge">markdown</code>에서 이미지를 사용하는 방법은 다음과 같습니다.</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">이미지 텍스트</span><span class="p">](</span><span class="sx">https://github.com/favicon.ico</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>GitHub Page는 현재 markdown engine으로 <code class="highlighter-rouge">kramdown</code>을 사용할 수 있습니다. kramdown에서는
+다음의 문법으로 이미지를 원하는 사이즈로 resizing 할 수 있습니다.</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">이미지 텍스트</span><span class="p">](</span><span class="sx">https://github.com/favicon.ico</span><span class="p">)</span>{: height="100px" width="100px"}
+</code></pre></div></div>
+
+<p>조금 더 일반화 시켜서 말하자면 <code class="highlighter-rouge">{: height="100px" width="100px"}</code> 부분은 Tag로 변환될 때 
+특정 속성을 붙이는 역할을 합니다. 만약 <code class="highlighter-rouge">{: class="myStyle" }</code>이라고 했다면
+만들어지는 Tag에 <code class="highlighter-rouge">class="myStyle"</code>이라는 속성이 붙게됩니다.</p>
 
 <p>End.</p>
 

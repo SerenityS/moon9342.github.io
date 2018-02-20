@@ -11,9 +11,10 @@
 
 
 
-    <title>Front End - IT Blog</title>
+    <title>Jekyll - IT Blog</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 
     <!-- jQuery + Fitvids, which makes all video embeds responsive -->
     <script
@@ -21,6 +22,7 @@
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous">
     </script>
+
 
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
@@ -45,22 +47,28 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
     <style>.hljs { background: none; }</style>
 
+    <!--Dl Menu-->
+    <script src="/assets/js/modernizr.custom.js"></script>
+    <script src="/assets/js/jquery.dlmenu.js"></script>
+    <script src="/assets/js/menu_main.js"></script>
+
+
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="Development & Technical Training" />
     <link rel="shortcut icon" href="https://moon9342.github.io/assets/built/images/favicon.jpg" type="image/png" />
-    <link rel="canonical" href="https://moon9342.github.io/tag/front-end/" />
+    <link rel="canonical" href="https://moon9342.github.io/tag/jekyll/" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="IT Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Front End - IT Blog" />
+    <meta property="og:title" content="Jekyll - IT Blog" />
     <meta property="og:description" content="Development & Technical Training" />
-    <meta property="og:url" content="https://moon9342.github.io/tag/front-end/" />
+    <meta property="og:url" content="https://moon9342.github.io/tag/jekyll/" />
     <meta property="og:image" content="https://moon9342.github.io/assets/built/images/blog-cover.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Front End - IT Blog" />
+    <meta name="twitter:title" content="Jekyll - IT Blog" />
     <meta name="twitter:description" content="Development & Technical Training" />
     <meta name="twitter:url" content="https://moon9342.github.io/" />
     <meta name="twitter:image" content="https://moon9342.github.io/assets/built/images/blog-cover.png" />
@@ -80,7 +88,7 @@
         "name": "IT Blog",
         "logo": "https://moon9342.github.io/"
     },
-    "url": "https://moon9342.github.io/tag/front-end/",
+    "url": "https://moon9342.github.io/tag/jekyll/",
     "image": {
         "@type": "ImageObject",
         "url": "https://moon9342.github.io/assets/built/images/blog-cover.png",
@@ -89,7 +97,7 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://moon9342.github.io/tag/front-end/"
+        "@id": "https://moon9342.github.io/tag/jekyll/"
     },
     "description": "Development & Technical Training"
 }
@@ -154,14 +162,58 @@
             
         
         
-            <ul class="nav" role="menu">
+            
+<ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
     <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+<!--
     <li class="nav-back-end" role="menuitem"><a href="/tag/back-end/">Back End</a></li>
     <li class="nav-front-end" role="menuitem"><a href="/tag/front-end/">Front End</a></li>
     <li class="nav-miscellaneous-article" role="menuitem"><a href="/tag/miscellaneous-article/">Miscellaneous Article</a></li>
+-->
     <li class="nav-archive" role="menuitem"><a href="/archive.html">Archive</a></li>
 </ul>
+
+
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+    <button class="dl-trigger">Open Menu</button>
+    <ul class="dl-menu">
+        <li><a href="https://moon9342.github.io/">Home</a></li>
+        <li>
+            <a href="#">About</a>
+            <ul class="dl-submenu">
+                <li style="text-align: center">
+                    <img src="https://moon9342.github.io/assets/built/images/photo.jpg" alt="SungHoon Moon photo" class="author-photo">
+                </li>
+                <li>
+                    <h4>SungHoon Moon</h4>
+                    <p>Director of ATGLab. <br>Ph.D. in Computer Science</p>
+                </li>
+                <li><a href="https://moon9342.github.io/about/"><i class="fa fa-external-link"></i><span class="btn btn-inverse"> Learn More</span></a></li>
+                <li>
+                <a href="mailto:moon9342@gmail.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+            </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul><!-- /.dl-submenu -->
+        </li>
+        <li>
+            <a href="#">Posts</a>
+            <ul class="dl-submenu">
+                <li><a href="https://moon9342.github.io/archive">All Posts</a></li>
+                <li><a href="https://moon9342.github.io/author_archive">All Tags</a></li>
+            </ul>
+        </li>
+        
+    </ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
 
         
     </div>
@@ -177,10 +229,10 @@
 </nav>
 
         <div class="site-header-content">
-            <h1 class="site-title">Front End</h1>
+            <h1 class="site-title">Jekyll</h1>
             <h2 class="site-description">
                 
-    			    A collection of 31 posts
+    			    A collection of 9 posts
                 
             </h2>
         </div>
@@ -196,44 +248,44 @@
             
     <article class="post-card tag-template">
         
-            <a class="post-card-image-link" href="/angular-lecture-lifecycle">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
+            <a class="post-card-image-link" href="/jekyll-regenerate-speed-up">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/jekyll-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/angular-lecture-lifecycle">
+            <a class="post-card-content-link" href="/jekyll-regenerate-speed-up">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Front end</span>
+                                <span class="post-card-tags">Jekyll</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Angular 강좌(20) - Component LifeCycle</h2>
+                    <h2 class="post-card-title">Jekyll 기반의 GitHub Page 생성(9)</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular</p>
+                    <p>Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트</p>
                 </section>
             </a>
             <footer class="post-card-meta">
                 
                     
-                
-                    
-                
-                    
-                
-                    
-                
-                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
+                        <img class="author-profile-image" src="/assets/built/images/jekyll-author-logo.png" alt="jekyll" />
                         
                         <span class="post-card-author">
-                            <a href="/author/angular/">Angular</a>
+                            <a href="/author/jekyll/">jekyll</a>
                         </span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -244,44 +296,44 @@
 
     <article class="post-card tag-template">
         
-            <a class="post-card-image-link" href="/angular-lecture-pipe">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
+            <a class="post-card-image-link" href="/jekyll-travis-ci-public">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/jekyll-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/angular-lecture-pipe">
+            <a class="post-card-content-link" href="/jekyll-travis-ci-public">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Front end</span>
+                                <span class="post-card-tags">Jekyll</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Angular 강좌(19) - Pipe</h2>
+                    <h2 class="post-card-title">Jekyll 기반의 GitHub Page 생성(8)</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular</p>
+                    <p>Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트</p>
                 </section>
             </a>
             <footer class="post-card-meta">
                 
                     
-                
-                    
-                
-                    
-                
-                    
-                
-                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
+                        <img class="author-profile-image" src="/assets/built/images/jekyll-author-logo.png" alt="jekyll" />
                         
                         <span class="post-card-author">
-                            <a href="/author/angular/">Angular</a>
+                            <a href="/author/jekyll/">jekyll</a>
                         </span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -292,44 +344,44 @@
 
     <article class="post-card tag-template">
         
-            <a class="post-card-image-link" href="/angular-lecture-directive">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
+            <a class="post-card-image-link" href="/jekyll-gist">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/jekyll-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/angular-lecture-directive">
+            <a class="post-card-content-link" href="/jekyll-gist">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Front end</span>
+                                <span class="post-card-tags">Jekyll</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Angular 강좌(18) - Directive</h2>
+                    <h2 class="post-card-title">Jekyll 기반의 GitHub Page 생성(7)</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular</p>
+                    <p>Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트</p>
                 </section>
             </a>
             <footer class="post-card-meta">
                 
                     
-                
-                    
-                
-                    
-                
-                    
-                
-                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
+                        <img class="author-profile-image" src="/assets/built/images/jekyll-author-logo.png" alt="jekyll" />
                         
                         <span class="post-card-author">
-                            <a href="/author/angular/">Angular</a>
+                            <a href="/author/jekyll/">jekyll</a>
                         </span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -340,44 +392,44 @@
 
     <article class="post-card tag-template">
         
-            <a class="post-card-image-link" href="/angular-lecture-inspection-1">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
+            <a class="post-card-image-link" href="/jekyll-sitemap">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/jekyll-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/angular-lecture-inspection-1">
+            <a class="post-card-content-link" href="/jekyll-sitemap">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Front end</span>
+                                <span class="post-card-tags">Jekyll</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Angular 강좌(17) - 중간 정리</h2>
+                    <h2 class="post-card-title">Jekyll 기반의 GitHub Page 생성(6)</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular</p>
+                    <p>Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트</p>
                 </section>
             </a>
             <footer class="post-card-meta">
                 
                     
-                
-                    
-                
-                    
-                
-                    
-                
-                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
+                        <img class="author-profile-image" src="/assets/built/images/jekyll-author-logo.png" alt="jekyll" />
                         
                         <span class="post-card-author">
-                            <a href="/author/angular/">Angular</a>
+                            <a href="/author/jekyll/">jekyll</a>
                         </span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -388,44 +440,44 @@
 
     <article class="post-card tag-template">
         
-            <a class="post-card-image-link" href="/angular-lecture-table-event">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
+            <a class="post-card-image-link" href="/jekyll-search">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/jekyll-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/angular-lecture-table-event">
+            <a class="post-card-content-link" href="/jekyll-search">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Front end</span>
+                                <span class="post-card-tags">Jekyll</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Angular 강좌(16) - Material Table Event</h2>
+                    <h2 class="post-card-title">Jekyll 기반의 GitHub Page 생성(5)</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular</p>
+                    <p>Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트</p>
                 </section>
             </a>
             <footer class="post-card-meta">
                 
                     
-                
-                    
-                
-                    
-                
-                    
-                
-                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
+                        <img class="author-profile-image" src="/assets/built/images/jekyll-author-logo.png" alt="jekyll" />
                         
                         <span class="post-card-author">
-                            <a href="/author/angular/">Angular</a>
+                            <a href="/author/jekyll/">jekyll</a>
                         </span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -436,44 +488,44 @@
 
     <article class="post-card tag-template">
         
-            <a class="post-card-image-link" href="/angular-lecture-data-share-service-rxjs">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
+            <a class="post-card-image-link" href="/jekyll-rouge">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/jekyll-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/angular-lecture-data-share-service-rxjs">
+            <a class="post-card-content-link" href="/jekyll-rouge">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Front end</span>
+                                <span class="post-card-tags">Jekyll</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Angular 강좌(15) - Service RxJS</h2>
+                    <h2 class="post-card-title">Jekyll 기반의 GitHub Page 생성(4)</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular</p>
+                    <p>Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트</p>
                 </section>
             </a>
             <footer class="post-card-meta">
                 
                     
-                
-                    
-                
-                    
-                
-                    
-                
-                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
+                        <img class="author-profile-image" src="/assets/built/images/jekyll-author-logo.png" alt="jekyll" />
                         
                         <span class="post-card-author">
-                            <a href="/author/angular/">Angular</a>
+                            <a href="/author/jekyll/">jekyll</a>
                         </span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -484,44 +536,44 @@
 
     <article class="post-card tag-template">
         
-            <a class="post-card-image-link" href="/angular-lecture-data-share-service-mediator-pattern">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
+            <a class="post-card-image-link" href="/jekyll-font">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/jekyll-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/angular-lecture-data-share-service-mediator-pattern">
+            <a class="post-card-content-link" href="/jekyll-font">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Front end</span>
+                                <span class="post-card-tags">Jekyll</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Angular 강좌(14) - Service Mediator Pattern</h2>
+                    <h2 class="post-card-title">Jekyll 기반의 GitHub Page 생성(3)</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular</p>
+                    <p>Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트</p>
                 </section>
             </a>
             <footer class="post-card-meta">
                 
                     
-                
-                    
-                
-                    
-                
-                    
-                
-                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
+                        <img class="author-profile-image" src="/assets/built/images/jekyll-author-logo.png" alt="jekyll" />
                         
                         <span class="post-card-author">
-                            <a href="/author/angular/">Angular</a>
+                            <a href="/author/jekyll/">jekyll</a>
                         </span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -532,44 +584,44 @@
 
     <article class="post-card tag-template">
         
-            <a class="post-card-image-link" href="/angular-lecture-data-share-service">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
+            <a class="post-card-image-link" href="/jekyll-struct">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/jekyll-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/angular-lecture-data-share-service">
+            <a class="post-card-content-link" href="/jekyll-struct">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Front end</span>
+                                <span class="post-card-tags">Jekyll</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Angular 강좌(13) - Service</h2>
+                    <h2 class="post-card-title">Jekyll 기반의 GitHub Page 생성(2)</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular</p>
+                    <p>Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트</p>
                 </section>
             </a>
             <footer class="post-card-meta">
                 
                     
-                
-                    
-                
-                    
-                
-                    
-                
-                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
+                        <img class="author-profile-image" src="/assets/built/images/jekyll-author-logo.png" alt="jekyll" />
                         
                         <span class="post-card-author">
-                            <a href="/author/angular/">Angular</a>
+                            <a href="/author/jekyll/">jekyll</a>
                         </span>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
                     
                 
                     
@@ -580,92 +632,44 @@
 
     <article class="post-card tag-template">
         
-            <a class="post-card-image-link" href="/angular-lecture-data-share-4">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
+            <a class="post-card-image-link" href="/jekyll-start">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/jekyll-logo.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/angular-lecture-data-share-4">
+            <a class="post-card-content-link" href="/jekyll-start">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Front end</span>
+                                <span class="post-card-tags">Jekyll</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">Angular 강좌(12) - 데이터공유(Content Projection)</h2>
+                    <h2 class="post-card-title">Jekyll 기반의 GitHub Page 생성(1)</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular</p>
+                    <p>Jekyll 기반의 GitHub Page 생성은 여러 절로 구성되어 있습니다. Jekyll 기반의 GitHub Page 생성(1) - 환경설정 Jekyll 기반의 GitHub Page 생성(2) - Github Page Publishing Jekyll 기반의 GitHub Page 생성(3) - 웹 폰트</p>
                 </section>
             </a>
             <footer class="post-card-meta">
                 
                     
-                
-                    
-                
-                    
-                
-                    
-                
-                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
+                        <img class="author-profile-image" src="/assets/built/images/jekyll-author-logo.png" alt="jekyll" />
                         
                         <span class="post-card-author">
-                            <a href="/author/angular/">Angular</a>
+                            <a href="/author/jekyll/">jekyll</a>
                         </span>
                     
                 
                     
                 
-            </footer>
-        </div>
-    </article>
-
-    <article class="post-card tag-template">
-        
-            <a class="post-card-image-link" href="/angular-lecture-data-share-3">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/angular-logo.png)"></div>
-            </a>
-        
-        <div class="post-card-content">
-            <a class="post-card-content-link" href="/angular-lecture-data-share-3">
-                <header class="post-card-header">
-                    
-                        
-                            
-                                <span class="post-card-tags">Front end</span>
-                            
-                        
-                    
-
-                    <h2 class="post-card-title">Angular 강좌(11) - 데이터공유(@ViewChild)</h2>
-                </header>
-                <section class="post-card-excerpt">
-                    <p>Angular 강좌는 여러 절로 구성되어 있습니다. Angular 강좌(1) - Introduction Angular 강좌(2) - 개발환경세팅 Angular 강좌(3) - Component Angular 강좌(4) - Angular Material Angular 강좌(5) - 실습(1) Angular 강좌(6) - Data Binding Angular</p>
-                </section>
-            </a>
-            <footer class="post-card-meta">
-                
                     
                 
                     
                 
-                    
-                
-                    
-                
-                    
-                        
-                        <img class="author-profile-image" src="/assets/built/images/angular-author-logo.png" alt="Angular" />
-                        
-                        <span class="post-card-author">
-                            <a href="/author/angular/">Angular</a>
-                        </span>
                     
                 
                     
@@ -681,17 +685,6 @@
 
 
         <!-- Previous/next page links - displayed on every page -->
-        
-            
-                <nav class="pagination" role="pagination">
-    
-    <span class="page-number"> Page 1 of 4 </span>
-    
-        <a class="older-posts" href="/tag/front-end/page2/" title="Next Page">Older Posts &raquo;</a>
-    
-</nav>
-
-            
         
 
         <!-- The footer at the very bottom of the screen -->
@@ -753,7 +746,7 @@
     <!-- Paginator increased to "infinit" in _config.yml -->
     <!-- if paginator.posts  -->
     <!-- <script>
-        var maxPages = parseInt('4');
+        var maxPages = parseInt('1');
     </script>
     <script src="/assets/js/infinitescroll.js"></script> -->
     <!-- /endif -->

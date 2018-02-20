@@ -11,9 +11,10 @@
 
 
 
-    <title>Front Endpage4 - IT Blog</title>
+    <title>Database - IT Blog</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 
     <!-- jQuery + Fitvids, which makes all video embeds responsive -->
     <script
@@ -21,6 +22,7 @@
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous">
     </script>
+
 
     <!-- 웹 폰트 설정 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
@@ -45,22 +47,28 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
     <style>.hljs { background: none; }</style>
 
+    <!--Dl Menu-->
+    <script src="/assets/js/modernizr.custom.js"></script>
+    <script src="/assets/js/jquery.dlmenu.js"></script>
+    <script src="/assets/js/menu_main.js"></script>
+
+
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="Development & Technical Training" />
     <link rel="shortcut icon" href="https://moon9342.github.io/assets/built/images/favicon.jpg" type="image/png" />
-    <link rel="canonical" href="https://moon9342.github.io/tag/front-end/page4/" />
+    <link rel="canonical" href="https://moon9342.github.io/tag/database/" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="IT Blog" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Front Endpage4 - IT Blog" />
+    <meta property="og:title" content="Database - IT Blog" />
     <meta property="og:description" content="Development & Technical Training" />
-    <meta property="og:url" content="https://moon9342.github.io/tag/front-end/page4/" />
+    <meta property="og:url" content="https://moon9342.github.io/tag/database/" />
     <meta property="og:image" content="https://moon9342.github.io/assets/built/images/blog-cover.png" />
     <meta property="article:publisher" content="https://www.facebook.com/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Front Endpage4 - IT Blog" />
+    <meta name="twitter:title" content="Database - IT Blog" />
     <meta name="twitter:description" content="Development & Technical Training" />
     <meta name="twitter:url" content="https://moon9342.github.io/" />
     <meta name="twitter:image" content="https://moon9342.github.io/assets/built/images/blog-cover.png" />
@@ -80,7 +88,7 @@
         "name": "IT Blog",
         "logo": "https://moon9342.github.io/"
     },
-    "url": "https://moon9342.github.io/tag/front-end/page4/",
+    "url": "https://moon9342.github.io/tag/database/",
     "image": {
         "@type": "ImageObject",
         "url": "https://moon9342.github.io/assets/built/images/blog-cover.png",
@@ -89,7 +97,7 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://moon9342.github.io/tag/front-end/page4/"
+        "@id": "https://moon9342.github.io/tag/database/"
     },
     "description": "Development & Technical Training"
 }
@@ -132,7 +140,7 @@
 
 
 </head>
-<body class="paged archive-template">
+<body class="tag-template">
 
     <div class="site-wrapper">
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
@@ -144,7 +152,7 @@
 <!-- dynamically loading backgrounds for tags,  descriptions and page titles -->
 
 
-<header class="site-header outer " style="background-image: url(/assets/built/images/background-frontend.jpg) ">
+<header class="site-header outer no-cover">
     <div class="inner">
         <nav class="site-nav">
     <div class="site-nav-left">
@@ -154,14 +162,58 @@
             
         
         
-            <ul class="nav" role="menu">
+            
+<ul class="nav" role="menu">
     <li class="nav-home" role="menuitem"><a href="/">Home</a></li>
     <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+<!--
     <li class="nav-back-end" role="menuitem"><a href="/tag/back-end/">Back End</a></li>
     <li class="nav-front-end" role="menuitem"><a href="/tag/front-end/">Front End</a></li>
     <li class="nav-miscellaneous-article" role="menuitem"><a href="/tag/miscellaneous-article/">Miscellaneous Article</a></li>
+-->
     <li class="nav-archive" role="menuitem"><a href="/archive.html">Archive</a></li>
 </ul>
+
+
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+    <button class="dl-trigger">Open Menu</button>
+    <ul class="dl-menu">
+        <li><a href="https://moon9342.github.io/">Home</a></li>
+        <li>
+            <a href="#">About</a>
+            <ul class="dl-submenu">
+                <li style="text-align: center">
+                    <img src="https://moon9342.github.io/assets/built/images/photo.jpg" alt="SungHoon Moon photo" class="author-photo">
+                </li>
+                <li>
+                    <h4>SungHoon Moon</h4>
+                    <p>Director of ATGLab. <br>Ph.D. in Computer Science</p>
+                </li>
+                <li><a href="https://moon9342.github.io/about/"><i class="fa fa-external-link"></i><span class="btn btn-inverse"> Learn More</span></a></li>
+                <li>
+                <a href="mailto:moon9342@gmail.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+            </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul><!-- /.dl-submenu -->
+        </li>
+        <li>
+            <a href="#">Posts</a>
+            <ul class="dl-submenu">
+                <li><a href="https://moon9342.github.io/archive">All Posts</a></li>
+                <li><a href="https://moon9342.github.io/author_archive">All Tags</a></li>
+            </ul>
+        </li>
+        
+    </ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
 
         
     </div>
@@ -177,10 +229,10 @@
 </nav>
 
         <div class="site-header-content">
-            <h1 class="site-title">Front End</h1>
+            <h1 class="site-title">Database</h1>
             <h2 class="site-description">
                 
-    			    A collection of 31 posts
+    			    A collection of 1 posts
                 
             </h2>
         </div>
@@ -196,25 +248,25 @@
             
     <article class="post-card tag-template">
         
-            <a class="post-card-image-link" href="/javascript-history">
-                <div class="post-card-image" style="background-image: url(/assets/built/images/javascript-logo.jpg)"></div>
+            <a class="post-card-image-link" href="/mysql-5.7-archive-setting">
+                <div class="post-card-image" style="background-image: url(/assets/built/images/mysql-logo.gif)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/javascript-history">
+            <a class="post-card-content-link" href="/mysql-5.7-archive-setting">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Front end</span>
+                                <span class="post-card-tags">Database</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">JavaScript History</h2>
+                    <h2 class="post-card-title">MySQL 5.7.2 Windows용 ZIP Archive 설치</h2>
                 </header>
                 <section class="post-card-excerpt">
-                    <p>Introduction 아마도 JavaScript, ECMAScript, TypeScript라는 용어를 많이 들어봤을 텐데 정확하게 어떤 차이가 있는지 이번 포스트에서 간단하게 정리를 해 보겠습니다. JavaScript 과거부터 Web 작업을 해 오신 분들은 아시겠지만 JavaScript의 과거 인식은 “알면 좋고 몰라도</p>
+                    <p>Introduction MySQL을 install하지 않고 ZIP Archive를 다운받고 압축 풀어서 사용하는 사용하는 방식에 대한 설명입니다. 기존 5.6버전은 JSON에 대한 지원이 되지 않기 때문에 5.7버전을 대상으로 진행합니다. MySQL 5.7.2 ZIP Archive Download MySQL을 다운로드 받기</p>
                 </section>
             </a>
             <footer class="post-card-meta">
@@ -222,20 +274,20 @@
                     
                 
                     
+                
+                    
+                
+                    
+                
+                    
+                
+                    
                         
-                        <img class="author-profile-image" src="/assets/built/images/javascript-author-logo.png" alt="JavaScript" />
+                        <img class="author-profile-image" src="/assets/built/images/database-author-logo.jpg" alt="Database" />
                         
                         <span class="post-card-author">
-                            <a href="/author/javascript/">JavaScript</a>
+                            <a href="/author/database/">Database</a>
                         </span>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
                     
                 
             </footer>
@@ -249,19 +301,6 @@
 
 
         <!-- Previous/next page links - displayed on every page -->
-        
-            
-                <nav class="pagination" role="pagination">
-    
-        
-            <a class="newer-posts" href="/tag/front-end/page3/" title="Previous Page">&laquo; Newer Posts</a>
-      
-    
-    <span class="page-number"> Page 4 of 4 </span>
-    
-</nav>
-
-            
         
 
         <!-- The footer at the very bottom of the screen -->
@@ -323,7 +362,7 @@
     <!-- Paginator increased to "infinit" in _config.yml -->
     <!-- if paginator.posts  -->
     <!-- <script>
-        var maxPages = parseInt('4');
+        var maxPages = parseInt('1');
     </script>
     <script src="/assets/js/infinitescroll.js"></script> -->
     <!-- /endif -->
